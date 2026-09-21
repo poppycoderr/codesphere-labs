@@ -1,0 +1,20 @@
+id: java/aqs-and-locks
+title: 公平锁的代价、条件队列与 tryLock 插队
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/aqs-and-locks.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

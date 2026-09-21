@@ -1,0 +1,20 @@
+JDK 21.0.5+9-LTS-239，10 核
+
+== 1. 8 个线程抢同一把锁 2 秒（各跑两轮，取第二轮）
+   非公平 ReentrantLock         43,465,486 次/秒   单线程最少  10,137,480  最多  11,309,964  最多/最少 1.1 倍
+   公平 ReentrantLock             514,372 次/秒   单线程最少     128,591  最多     128,594  最多/最少 1.0 倍
+   synchronized              18,595,557 次/秒   单线程最少   2,871,606  最多   9,462,261  最多/最少 3.3 倍
+
+== 2. 可重入计数
+   加锁 3 次后 getHoldCount() = 3
+   释放 2 次后 getHoldCount() = 1，isLocked() = true
+   多释放一次：IllegalMonitorStateException
+
+== 3. Condition 的等待队列与锁的同步队列
+   3 个线程 await 之后：条件队列 3，同步队列 0
+   signalAll 之后、unlock 之前：条件队列 0，同步队列 3，waiter 状态 WAITING
+   unlock 之后：3 个线程依次拿到锁并结束
+
+== 4. 公平锁上的 tryLock() 会插队
+   已有线程排队时，tryLock()                抢到锁 196 / 200 次，其中排队线程仍在队列中（插队） 186 次
+   已有线程排队时，tryLock(0, SECONDS)      抢到锁 18 / 200 次，其中排队线程仍在队列中（插队） 0 次
