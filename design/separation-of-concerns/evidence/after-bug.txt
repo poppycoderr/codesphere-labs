@@ -1,0 +1,63 @@
+╷
+├─ JUnit Platform Suite ✔
+├─ JUnit Jupiter ✔
+│  └─ PricingPolicyTest ✔
+│     ├─ 晚间不足一百不减() ✔
+│     ├─ 非会员按原价() ✔
+│     ├─ 会员九折() ✔
+│     ├─ 晚间满一百减十() ✔
+│     └─ 二十二点整不再优惠() ✘ expected: <144.00> but was: <134.00>
+└─ JUnit Vintage ✔
+
+Failures (1):
+  JUnit Jupiter:PricingPolicyTest:二十二点整不再优惠()
+    MethodSource [className = 'PricingPolicyTest', methodName = '二十二点整不再优惠', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <144.00> but was: <134.00>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+       PricingPolicyTest.二十二点整不再优惠(AfterTest.java:17)
+       java.base/java.lang.reflect.Method.invoke(Method.java:580)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+       java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+Test run finished after <elapsed> ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         5 tests found           ]
+[         0 tests skipped         ]
+[         5 tests started         ]
+[         0 tests aborted         ]
+[         4 tests successful      ]
+[         1 tests failed          ]
+
+╷
+├─ JUnit Platform Suite ✔
+├─ JUnit Jupiter ✔
+│  └─ OrderCreationTest ✔
+│     ├─ 未知商品不保存() ✔
+│     ├─ 保存的订单包含确定的编号时间和金额() ✔
+│     └─ 数量越界在构造请求时就被拒绝() ✔
+└─ JUnit Vintage ✔
+
+Test run finished after <elapsed> ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         3 tests found           ]
+[         0 tests skipped         ]
+[         3 tests started         ]
+[         0 tests aborted         ]
+[         3 tests successful      ]
+[         0 tests failed          ]
+

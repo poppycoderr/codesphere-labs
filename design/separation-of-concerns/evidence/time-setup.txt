@@ -1,0 +1,2 @@
+day_local_hour: 10（运行时根据当前 UTC 时间换算为 Etc/GMT 时区）
+evening_local_hour: 21

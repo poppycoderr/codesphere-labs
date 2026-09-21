@@ -1,0 +1,6 @@
+src/styles/Missing.java:2: error: cannot find symbol
+    public static void main(String[] a) { System.out.println(Styles.rule().channel("sms").build()); }
+                                                                          ^
+  symbol:   method channel(String)
+  location: interface NeedTeam
+1 error

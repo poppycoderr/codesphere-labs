@@ -1,0 +1,18 @@
+JDK 21.0.5+9-LTS-239
+java.sql.Connection 公共方法 60 个，其中抽象 54，default 6
+   default: beginRequest
+   default: endRequest
+   default: setShardingKey
+   default: setShardingKey
+   default: setShardingKeyIfValid
+   default: setShardingKeyIfValid
+
+== 只读视图 vs 不可变集合
+修改底层列表后：unmodifiableList = [a, b, c]，List.copyOf = [a, b]
+unmodifiableList.add → UnsupportedOperationException
+List.of.add → UnsupportedOperationException
+List.of 含 null → NullPointerException
+Collections.unmodifiableList 允许 null：[a, null]
+Arrays.asList 可以 set：[z, y]
+Arrays.asList.add → UnsupportedOperationException（List 接口的可选操作）
+view 的类：java.util.Collections$UnmodifiableRandomAccessList；List.of 的类：java.util.ImmutableCollections$List12

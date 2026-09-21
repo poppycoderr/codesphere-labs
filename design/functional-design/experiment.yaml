@@ -1,0 +1,20 @@
+id: design/functional-design
+title: record 浅不可变、组合顺序、Stream 副作用与 Optional
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/functional-design-in-java.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

@@ -1,0 +1,4 @@
+src/v2-add-subtype/Sealed.java:11: error: the switch expression does not cover all possible input values
+        return switch (d) {                              // 没有 default：编译器检查是否穷举
+               ^
+1 error

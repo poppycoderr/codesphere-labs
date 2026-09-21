@@ -1,0 +1,22 @@
+id: design/jdk-api-facts
+title: 设计原则与设计模式两篇引用的 JDK 事实
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/design-principles.md
+related_articles:
+  - docs/design/design-patterns.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

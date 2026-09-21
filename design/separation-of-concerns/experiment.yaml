@@ -1,0 +1,23 @@
+id: design/separation-of-concerns
+title: 关注点分离前后的测试对照
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/separation-of-concerns-and-testability.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    junit_platform: "1.13.4"
+    mysql: "8.4.11"
+    mysql_connector_java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

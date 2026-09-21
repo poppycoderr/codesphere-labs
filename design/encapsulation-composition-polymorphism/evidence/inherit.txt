@@ -1,0 +1,3 @@
+继承 HashSet：addAll 3 个元素后 added = 6
+组合 HashSet：addAll 3 个元素后 added = 3
+组合 TreeSet：addAll 3 个元素后 added = 3（换实现不用改计数逻辑）

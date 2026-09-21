@@ -1,0 +1,19 @@
+只组装流水线、还没调用终止操作：filter 执行 0 次，map 执行 0 次
+findFirst() 之后：结果 70，filter 执行 7 次，map 执行 1 次
+
+逐元素流过（不是先全部 filter 再全部 map）：
+  filter 看到 a
+  filter 看到 bb
+  map 看到    bb
+  终止操作收到 BB
+  filter 看到 ccc
+  map 看到    ccc
+  终止操作收到 CCC
+
+sorted() 是有状态操作，会先收集全部元素：
+  sorted 之前 c
+  sorted 之前 a
+  sorted 之前 b
+  sorted 之后 a
+  sorted 之后 b
+  sorted 之后 c

@@ -1,0 +1,20 @@
+id: design/encapsulation-composition-polymorphism
+title: 继承与组合的计数差异、折扣规则组合与密封类型的穷举检查
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/encapsulation-composition-polymorphism.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

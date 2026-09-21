@@ -1,0 +1,7 @@
+--- run with v1
+builder 调用方: Notice[to=ops, subject=disk, body=90%]
+构造器调用方: Notice[to=ops, subject=disk, body=90%]
+--- run with v2 (client not recompiled)
+builder 调用方: Notice[to=ops, subject=disk, body=90%, priority=3]
+Exception in thread "main" java.lang.NoSuchMethodError: 'void lib.Notice.<init>(java.lang.String, java.lang.String, java.lang.String)'
+	at Client.main(Client.java:6)

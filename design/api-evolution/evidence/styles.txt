@@ -1,0 +1,4 @@
+构造器参数写反也能编译: Rule[team=sms, channel=payment, minLevel=60, maxPerHour=2]
+Builder 漏填 team，运行时: NPE team
+类型状态 Builder: Rule[team=payment, channel=sms, minLevel=2, maxPerHour=60]
+Lambda 配置器: Rule[team=payment, channel=sms, minLevel=2, maxPerHour=60]

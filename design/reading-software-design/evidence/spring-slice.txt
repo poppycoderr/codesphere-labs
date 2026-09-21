@@ -1,0 +1,14 @@
+refresh() 之前：还没有任何 Bean 实例
+  BeanFactoryPostProcessor：已有 7 个 Bean 定义，其中业务 Bean：
+    org.springframework.context.annotation.internalConfigurationAnnotationProcessor 作用域=singleton 懒加载=false 已实例化=true
+    org.springframework.context.annotation.internalAutowiredAnnotationProcessor 作用域=singleton 懒加载=false 已实例化=false
+    org.springframework.context.event.internalEventListenerProcessor 作用域=singleton 懒加载=false 已实例化=false
+    org.springframework.context.event.internalEventListenerFactory 作用域=singleton 懒加载=false 已实例化=false
+    springSlice.Service        作用域=singleton 懒加载=false 已实例化=false
+    springSlice.Repo           作用域=singleton 懒加载=false 已实例化=false
+    springSlice.Report         作用域=singleton 懒加载=true 已实例化=false
+    → 创建 Repo
+    → 创建 Service，注入 Repo
+refresh() 之后：Report 已实例化？false
+    → 创建 Report（懒加载）
+Repo 定义的描述：由后置处理器修改过

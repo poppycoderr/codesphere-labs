@@ -1,0 +1,3 @@
+addAll 声明在：java.util.AbstractCollection
+100 元打 8 折封顶减 30：80.0
+500 元打 8 折封顶减 30：470

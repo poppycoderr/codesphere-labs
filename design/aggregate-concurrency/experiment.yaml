@@ -1,0 +1,22 @@
+id: design/aggregate-concurrency
+title: 200 个请求抢 100 个名额：四种聚合写法
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/ddd-from-language-to-boundaries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21（eclipse-temurin 容器）"
+    mysql: "8.4.11"
+    mysql_connector_java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

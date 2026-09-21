@@ -1,0 +1,8 @@
+直接调用：抛出点到调用方之间 1
+三层装饰器：抛出点到调用方之间 4
+JDK 动态代理：抛出点到调用方之间 5
+   at Frames$Db.read(Frames.java:5)
+   at Frames$Logging.read(Frames.java:6)
+   at Frames$Caching.read(Frames.java:7)
+   at Frames$Metrics.read(Frames.java:8)
+   at Frames.main(Frames.java:25)

@@ -1,0 +1,23 @@
+id: design/reading-software-design
+title: Spring 容器、Kafka Producer 与 JDK Stream 的模型切片
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/reading-software-design.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring_framework: "7.0.9"
+    kafka_clients: "4.3.1"
+    kafka_broker: "4.3.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

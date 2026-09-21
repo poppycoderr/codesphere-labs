@@ -1,0 +1,20 @@
+id: design/api-evolution
+title: API 写法的错误暴露时机与 record 的二进制兼容
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/expressive-java-api-and-dsl.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

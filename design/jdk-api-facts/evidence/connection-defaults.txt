@@ -1,0 +1,3 @@
+beginRequest()：默认什么也不做
+setShardingKey(null)：SQLFeatureNotSupportedException - setShardingKey not implemented
+setShardingKeyIfValid：SQLFeatureNotSupportedException - setShardingKeyIfValid not implemented

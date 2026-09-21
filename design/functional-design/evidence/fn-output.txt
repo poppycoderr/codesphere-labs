@@ -1,0 +1,24 @@
+== 1 record 浅不可变
+Cart.items after caller mutates source: [book, phone]
+Cart.items after mutate via accessor: [book, phone, pen]
+SafeCart.items after caller mutates source: [book]
+SafeCart add -> UnsupportedOperationException
+record equals: true
+== 2 组合顺序
+8折再减30: 130.0  减30再8折: 136.0
+reduce 组合: 130.0
+== 3 peek 与 count
+count=5 peek 执行次数=0
+加 filter 后 count=5 peek 执行次数=5
+map 中的副作用执行次数=0
+== 4 并行流共享可变状态
+20 轮 forEach(ArrayList::add)：丢元素 16 轮，抛异常 3 轮
+20 轮 toList()：不一致 0 轮
+== 5 Optional
+Optional.of(null) -> NPE
+值存在时 orElse 仍调用默认值方法 1 次
+值存在时 orElseGet 调用 0 次
+Optional 变量本身为 null -> NPE
+== 6 记忆化与 computeIfAbsent 递归
+ConcurrentHashMap 递归 computeIfAbsent -> Recursive update
+HashMap 递归 computeIfAbsent -> ConcurrentModificationException
