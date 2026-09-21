@@ -1,0 +1,59 @@
+LATEST DETECTED DEADLOCK
+------------------------
+<timestamp> <thread>
+*** (1) TRANSACTION:
+TRANSACTION 2600, ACTIVE 2 sec inserting
+mysql tables in use 1, locked 1
+LOCK WAIT 3 lock struct(s), heap size 1128, 2 row lock(s)
+MySQL thread id 329, OS thread handle <n>, query id 1304 localhost root update
+INSERT INTO t VALUES (12,12,12)
+
+*** (1) HOLDS THE LOCK(S):
+RECORD LOCKS space id 33 page no 4 n bits 72 index PRIMARY of table `labs`.`t` trx id 2600 lock_mode X locks gap before rec
+Record lock, heap no 4 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
+ 0: len 4; hex 8000000f; asc     ;;
+ 1: len 6; hex 000000000a25; asc      %;;
+ 2: len 7; hex 810000010f012a; asc       *;;
+ 3: len 4; hex 8000000f; asc     ;;
+ 4: len 4; hex 8000000f; asc     ;;
+
+
+*** (1) WAITING FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 33 page no 4 n bits 72 index PRIMARY of table `labs`.`t` trx id 2600 lock_mode X locks gap before rec insert intention waiting
+Record lock, heap no 4 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
+ 0: len 4; hex 8000000f; asc     ;;
+ 1: len 6; hex 000000000a25; asc      %;;
+ 2: len 7; hex 810000010f012a; asc       *;;
+ 3: len 4; hex 8000000f; asc     ;;
+ 4: len 4; hex 8000000f; asc     ;;
+
+
+*** (2) TRANSACTION:
+TRANSACTION 2601, ACTIVE 2 sec inserting
+mysql tables in use 1, locked 1
+LOCK WAIT 3 lock struct(s), heap size 1128, 2 row lock(s)
+MySQL thread id 330, OS thread handle <n>, query id 1307 localhost root update
+INSERT INTO t VALUES (13,13,13)
+
+*** (2) HOLDS THE LOCK(S):
+RECORD LOCKS space id 33 page no 4 n bits 72 index PRIMARY of table `labs`.`t` trx id 2601 lock_mode X locks gap before rec
+Record lock, heap no 4 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
+ 0: len 4; hex 8000000f; asc     ;;
+ 1: len 6; hex 000000000a25; asc      %;;
+ 2: len 7; hex 810000010f012a; asc       *;;
+ 3: len 4; hex 8000000f; asc     ;;
+ 4: len 4; hex 8000000f; asc     ;;
+
+
+*** (2) WAITING FOR THIS LOCK TO BE GRANTED:
+RECORD LOCKS space id 33 page no 4 n bits 72 index PRIMARY of table `labs`.`t` trx id 2601 lock_mode X locks gap before rec insert intention waiting
+Record lock, heap no 4 PHYSICAL RECORD: n_fields 5; compact format; info bits 0
+ 0: len 4; hex 8000000f; asc     ;;
+ 1: len 6; hex 000000000a25; asc      %;;
+ 2: len 7; hex 810000010f012a; asc       *;;
+ 3: len 4; hex 8000000f; asc     ;;
+ 4: len 4; hex 8000000f; asc     ;;
+
+*** WE ROLL BACK TRANSACTION (2)
+------------
+TRANSACTIONS

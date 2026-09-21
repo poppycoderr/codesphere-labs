@@ -1,0 +1,12 @@
+# 隔离级别：REPEATABLE-READ
+# 持锁语句：SELECT * FROM t WHERE id = 12 FOR UPDATE
++------------+-----------+-----------+-----------+
+| index_name | lock_type | lock_mode | lock_data |
++------------+-----------+-----------+-----------+
+| PRIMARY    | RECORD    | X,GAP     | 15        |
++------------+-----------+-----------+-----------+
+# 探测（innodb_lock_wait_timeout = 1）
+INSERT INTO t VALUES (11,11,11)              ERROR 1205
+INSERT INTO t VALUES (14,14,14)              ERROR 1205
+INSERT INTO t VALUES (16,16,16)              通过
+SELECT * FROM t WHERE id = 13 FOR UPDATE     通过

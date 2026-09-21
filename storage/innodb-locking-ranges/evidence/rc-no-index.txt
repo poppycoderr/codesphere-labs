@@ -1,0 +1,10 @@
+# 隔离级别：READ-COMMITTED
+# 持锁语句：UPDATE t SET c = c + 1 WHERE c = 10
++------------+-----------+---------------+-----------+
+| index_name | lock_type | lock_mode     | lock_data |
++------------+-----------+---------------+-----------+
+| PRIMARY    | RECORD    | X,REC_NOT_GAP | 10        |
++------------+-----------+---------------+-----------+
+# 探测（innodb_lock_wait_timeout = 1）
+UPDATE t SET c = c + 1 WHERE id = 25         通过
+INSERT INTO t VALUES (30,30,30)              通过

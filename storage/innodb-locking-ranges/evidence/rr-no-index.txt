@@ -1,0 +1,15 @@
+# 隔离级别：REPEATABLE-READ
+# 持锁语句：UPDATE t SET c = c + 1 WHERE c = 10
++------------+-----------+-----------+------------------------+
+| index_name | lock_type | lock_mode | lock_data              |
++------------+-----------+-----------+------------------------+
+| PRIMARY    | RECORD    | X         | supremum pseudo-record |
+| PRIMARY    | RECORD    | X         | 5                      |
+| PRIMARY    | RECORD    | X         | 10                     |
+| PRIMARY    | RECORD    | X         | 15                     |
+| PRIMARY    | RECORD    | X         | 20                     |
+| PRIMARY    | RECORD    | X         | 25                     |
++------------+-----------+-----------+------------------------+
+# 探测（innodb_lock_wait_timeout = 1）
+UPDATE t SET c = c + 1 WHERE id = 25         ERROR 1205
+INSERT INTO t VALUES (30,30,30)              ERROR 1205

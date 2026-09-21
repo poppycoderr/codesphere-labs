@@ -1,0 +1,8 @@
+# 隔离级别：REPEATABLE-READ
+# 持锁语句：SELECT * FROM t WHERE id = 10 FOR UPDATE
++------------+-----------+---------------+-----------+
+| index_name | lock_type | lock_mode     | lock_data |
++------------+-----------+---------------+-----------+
+| PRIMARY    | RECORD    | X,REC_NOT_GAP | 10        |
++------------+-----------+---------------+-----------+
+# 探测（innodb_lock_wait_timeout = 1）

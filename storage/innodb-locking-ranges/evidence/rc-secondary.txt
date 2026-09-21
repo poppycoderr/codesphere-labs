@@ -1,0 +1,11 @@
+# 隔离级别：READ-COMMITTED
+# 持锁语句：SELECT * FROM t WHERE k = 10 FOR UPDATE
++------------+-----------+---------------+-----------+
+| index_name | lock_type | lock_mode     | lock_data |
++------------+-----------+---------------+-----------+
+| idx_k      | RECORD    | X,REC_NOT_GAP | 10, 10    |
+| PRIMARY    | RECORD    | X,REC_NOT_GAP | 10        |
++------------+-----------+---------------+-----------+
+# 探测（innodb_lock_wait_timeout = 1）
+INSERT INTO t VALUES (7,7,7)                 通过
+INSERT INTO t VALUES (12,12,12)              通过

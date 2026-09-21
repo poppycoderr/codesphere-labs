@@ -1,0 +1,14 @@
+# 隔离级别：REPEATABLE-READ
+# 持锁语句：SELECT * FROM t WHERE k = 10 FOR UPDATE
++------------+-----------+---------------+-----------+
+| index_name | lock_type | lock_mode     | lock_data |
++------------+-----------+---------------+-----------+
+| idx_k      | RECORD    | X             | 10, 10    |
+| idx_k      | RECORD    | X,GAP         | 15, 15    |
+| PRIMARY    | RECORD    | X,REC_NOT_GAP | 10        |
++------------+-----------+---------------+-----------+
+# 探测（innodb_lock_wait_timeout = 1）
+INSERT INTO t VALUES (7,7,7)                 ERROR 1205
+INSERT INTO t VALUES (12,12,12)              ERROR 1205
+INSERT INTO t VALUES (16,16,16)              通过
+UPDATE t SET c = c + 1 WHERE id = 15         通过
