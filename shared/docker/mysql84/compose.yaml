@@ -1,0 +1,16 @@
+# 轻量实验共用的 MySQL 8.4.11。每个实验用自己的 compose 项目名（-p csl-<实验名>）启动，互不影响。
+# 不暴露宿主机端口；需要 JDBC 的程序用 --network container:<容器 ID> 连接 127.0.0.1:3306。
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_DATABASE: labs
+    command: ["--max-connections=500", "--skip-log-bin"]
+    cpus: 2
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+      interval: 2s
+      timeout: 5s
+      retries: 60

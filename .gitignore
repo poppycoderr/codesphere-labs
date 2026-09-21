@@ -1,0 +1,13 @@
+# 构建与运行产物：证据只保存在各实验的 evidence/ 中
+build/
+target/
+.cache/
+*.class
+*.log.tmp
+*.bak
+
+# IDE 与系统文件
+.idea/
+.vscode/
+*.iml
+.DS_Store
