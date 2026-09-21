@@ -1,0 +1,54 @@
+name: scheduled-recheck
+
+# 性能实验与全量复核：手动触发或每周一 02:00（UTC）运行。
+# 共享 CI 机器的耗时波动较大，性能实验只断言执行计划、读取次数与数量级关系。
+on:
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: "要复核的层级（performance、regular、regular-docker，留空为全部）"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    outputs:
+      exps: ${{ steps.list.outputs.exps }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pyyaml
+      - id: list
+        run: echo "exps=$(python3 shared/scripts/list-experiments.py ${{ github.event.inputs.tier }} | jq -R -s -c 'split("\n") | map(select(length > 0))')" >> "$GITHUB_OUTPUT"
+
+  recheck:
+    name: ${{ matrix.exp }}
+    needs: list
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        exp: ${{ fromJSON(needs.list.outputs.exps) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      - run: make verify EXP=${{ matrix.exp }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recheck-${{ strategy.job-index }}
+          path: |
+            ${{ matrix.exp }}/build/run
+            ${{ matrix.exp }}/target/run
+          if-no-files-found: ignore
+      - if: always()
+        run: make clean EXP=${{ matrix.exp }} || true
