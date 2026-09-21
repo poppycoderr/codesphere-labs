@@ -1,0 +1,70 @@
+-- sample 1
+-> Limit: 100 row(s)  (cost=14804..14804 rows=100) (actual time=0.417..0.426 rows=100 loops=1)
+    -> Sort: id, limit input to 100 row(s) per chunk  (cost=14804..14804 rows=100) (actual time=0.417..0.421 rows=100 loops=1)
+        -> Table scan on <union temporary>  (cost=14712..14717 rows=200) (actual time=0.371..0.391 rows=200 loops=1)
+            -> Union all materialize  (cost=14712..14712 rows=200) (actual time=0.37..0.37 rows=200 loops=1)
+                -> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.141..0.154 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.141..0.15 rows=100 loops=1)
+                -> Limit: 100 row(s)  (cost=1686 rows=100) (actual time=0.149..0.161 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='REFUND', deleted=0)  (cost=1686 rows=4815) (actual time=0.149..0.157 rows=100 loops=1)
+
+-- sample 2
+-> Limit: 100 row(s)  (cost=14804..14804 rows=100) (actual time=0.433..0.442 rows=100 loops=1)
+    -> Sort: id, limit input to 100 row(s) per chunk  (cost=14804..14804 rows=100) (actual time=0.433..0.438 rows=100 loops=1)
+        -> Table scan on <union temporary>  (cost=14712..14717 rows=200) (actual time=0.385..0.406 rows=200 loops=1)
+            -> Union all materialize  (cost=14712..14712 rows=200) (actual time=0.384..0.384 rows=200 loops=1)
+                -> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.147..0.16 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.146..0.155 rows=100 loops=1)
+                -> Limit: 100 row(s)  (cost=1686 rows=100) (actual time=0.152..0.165 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='REFUND', deleted=0)  (cost=1686 rows=4815) (actual time=0.152..0.161 rows=100 loops=1)
+
+-- sample 3
+-> Limit: 100 row(s)  (cost=14804..14804 rows=100) (actual time=0.443..0.452 rows=100 loops=1)
+    -> Sort: id, limit input to 100 row(s) per chunk  (cost=14804..14804 rows=100) (actual time=0.443..0.448 rows=100 loops=1)
+        -> Table scan on <union temporary>  (cost=14712..14717 rows=200) (actual time=0.39..0.41 rows=200 loops=1)
+            -> Union all materialize  (cost=14712..14712 rows=200) (actual time=0.389..0.389 rows=200 loops=1)
+                -> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.15..0.164 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.15..0.159 rows=100 loops=1)
+                -> Limit: 100 row(s)  (cost=1686 rows=100) (actual time=0.154..0.167 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='REFUND', deleted=0)  (cost=1686 rows=4815) (actual time=0.153..0.162 rows=100 loops=1)
+
+-- sample 4
+-> Limit: 100 row(s)  (cost=14804..14804 rows=100) (actual time=0.436..0.445 rows=100 loops=1)
+    -> Sort: id, limit input to 100 row(s) per chunk  (cost=14804..14804 rows=100) (actual time=0.436..0.441 rows=100 loops=1)
+        -> Table scan on <union temporary>  (cost=14712..14717 rows=200) (actual time=0.388..0.408 rows=200 loops=1)
+            -> Union all materialize  (cost=14712..14712 rows=200) (actual time=0.387..0.387 rows=200 loops=1)
+                -> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.149..0.162 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.148..0.158 rows=100 loops=1)
+                -> Limit: 100 row(s)  (cost=1686 rows=100) (actual time=0.153..0.166 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='REFUND', deleted=0)  (cost=1686 rows=4815) (actual time=0.153..0.162 rows=100 loops=1)
+
+-- sample 5
+-> Limit: 100 row(s)  (cost=14804..14804 rows=100) (actual time=0.443..0.452 rows=100 loops=1)
+    -> Sort: id, limit input to 100 row(s) per chunk  (cost=14804..14804 rows=100) (actual time=0.443..0.448 rows=100 loops=1)
+        -> Table scan on <union temporary>  (cost=14712..14717 rows=200) (actual time=0.395..0.415 rows=200 loops=1)
+            -> Union all materialize  (cost=14712..14712 rows=200) (actual time=0.394..0.394 rows=200 loops=1)
+                -> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.146..0.16 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.146..0.155 rows=100 loops=1)
+                -> Limit: 100 row(s)  (cost=1686 rows=100) (actual time=0.152..0.165 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='REFUND', deleted=0)  (cost=1686 rows=4815) (actual time=0.152..0.161 rows=100 loops=1)
+
+-- sample 6
+-> Limit: 100 row(s)  (cost=14804..14804 rows=100) (actual time=0.438..0.448 rows=100 loops=1)
+    -> Sort: id, limit input to 100 row(s) per chunk  (cost=14804..14804 rows=100) (actual time=0.438..0.443 rows=100 loops=1)
+        -> Table scan on <union temporary>  (cost=14712..14717 rows=200) (actual time=0.391..0.411 rows=200 loops=1)
+            -> Union all materialize  (cost=14712..14712 rows=200) (actual time=0.39..0.39 rows=200 loops=1)
+                -> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.148..0.162 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.148..0.157 rows=100 loops=1)
+                -> Limit: 100 row(s)  (cost=1686 rows=100) (actual time=0.152..0.165 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='REFUND', deleted=0)  (cost=1686 rows=4815) (actual time=0.152..0.161 rows=100 loops=1)
+
+-- sample 7
+-> Limit: 100 row(s)  (cost=14804..14804 rows=100) (actual time=0.443..0.452 rows=100 loops=1)
+    -> Sort: id, limit input to 100 row(s) per chunk  (cost=14804..14804 rows=100) (actual time=0.442..0.447 rows=100 loops=1)
+        -> Table scan on <union temporary>  (cost=14712..14717 rows=200) (actual time=0.394..0.414 rows=200 loops=1)
+            -> Union all materialize  (cost=14712..14712 rows=200) (actual time=0.393..0.393 rows=200 loops=1)
+                -> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.153..0.167 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.153..0.162 rows=100 loops=1)
+                -> Limit: 100 row(s)  (cost=1686 rows=100) (actual time=0.154..0.167 rows=100 loops=1)
+                    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='REFUND', deleted=0)  (cost=1686 rows=4815) (actual time=0.154..0.163 rows=100 loops=1)
+

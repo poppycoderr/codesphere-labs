@@ -1,0 +1,30 @@
+id: storage/order-by-limit-index-choice
+title: ORDER BY id LIMIT 让优化器放弃二级索引：五种写法的执行计划与耗时
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/storage/database-design-and-tuning.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.7.2"
+  components:
+    mysql: "8.4.11"
+    mysql_image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+resources:
+  cpu_limit: "2"
+  memory_limit: 2g
+  innodb_buffer_pool_size: 1G
+dataset:
+  rows: 3000000
+  generator: schema/02-seed.sql（由 id 确定性计算，不使用随机数）
+commands:
+  setup: make setup
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

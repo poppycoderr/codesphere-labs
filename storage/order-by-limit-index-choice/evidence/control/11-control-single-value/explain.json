@@ -1,0 +1,47 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "13006.55"
+    },
+    "ordering_operation": {
+      "using_filesort": false,
+      "table": {
+        "table_name": "task_event",
+        "access_type": "ref",
+        "possible_keys": [
+          "idx_state_event_deleted"
+        ],
+        "key": "idx_state_event_deleted",
+        "used_key_parts": [
+          "state",
+          "event_type",
+          "deleted"
+        ],
+        "key_length": "68",
+        "ref": [
+          "const",
+          "const",
+          "const"
+        ],
+        "rows_examined_per_scan": 37154,
+        "rows_produced_per_join": 37154,
+        "filtered": "100.00",
+        "cost_info": {
+          "read_cost": "9291.15",
+          "eval_cost": "3715.40",
+          "prefix_cost": "13006.55",
+          "data_read_per_join": "31M"
+        },
+        "used_columns": [
+          "id",
+          "state",
+          "event_type",
+          "deleted",
+          "payload",
+          "gmt_create"
+        ]
+      }
+    }
+  }
+}

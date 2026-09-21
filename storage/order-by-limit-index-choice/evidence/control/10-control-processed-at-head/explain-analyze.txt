@@ -1,0 +1,35 @@
+-- sample 1
+-> Limit: 100 row(s)  (cost=5.06 rows=99.4) (actual time=0.0149..0.078 rows=100 loops=1)
+    -> Filter: ((task_event.deleted = 0) and (task_event.state = 2) and (task_event.event_type in ('PAY','REFUND')))  (cost=5.06 rows=99.4) (actual time=0.0142..0.0723 rows=100 loops=1)
+        -> Index scan on task_event using PRIMARY  (cost=5.06 rows=146) (actual time=0.0118..0.0479 rows=204 loops=1)
+
+-- sample 2
+-> Limit: 100 row(s)  (cost=5.06 rows=99.4) (actual time=0.0138..0.0754 rows=100 loops=1)
+    -> Filter: ((task_event.deleted = 0) and (task_event.state = 2) and (task_event.event_type in ('PAY','REFUND')))  (cost=5.06 rows=99.4) (actual time=0.0132..0.0711 rows=100 loops=1)
+        -> Index scan on task_event using PRIMARY  (cost=5.06 rows=146) (actual time=0.0112..0.0469 rows=204 loops=1)
+
+-- sample 3
+-> Limit: 100 row(s)  (cost=5.06 rows=99.4) (actual time=0.0141..0.0785 rows=100 loops=1)
+    -> Filter: ((task_event.deleted = 0) and (task_event.state = 2) and (task_event.event_type in ('PAY','REFUND')))  (cost=5.06 rows=99.4) (actual time=0.0137..0.073 rows=100 loops=1)
+        -> Index scan on task_event using PRIMARY  (cost=5.06 rows=146) (actual time=0.0115..0.049 rows=204 loops=1)
+
+-- sample 4
+-> Limit: 100 row(s)  (cost=5.06 rows=99.4) (actual time=0.0147..0.0764 rows=100 loops=1)
+    -> Filter: ((task_event.deleted = 0) and (task_event.state = 2) and (task_event.event_type in ('PAY','REFUND')))  (cost=5.06 rows=99.4) (actual time=0.0141..0.0716 rows=100 loops=1)
+        -> Index scan on task_event using PRIMARY  (cost=5.06 rows=146) (actual time=0.0122..0.0481 rows=204 loops=1)
+
+-- sample 5
+-> Limit: 100 row(s)  (cost=5.06 rows=99.4) (actual time=0.0143..0.077 rows=100 loops=1)
+    -> Filter: ((task_event.deleted = 0) and (task_event.state = 2) and (task_event.event_type in ('PAY','REFUND')))  (cost=5.06 rows=99.4) (actual time=0.0135..0.0719 rows=100 loops=1)
+        -> Index scan on task_event using PRIMARY  (cost=5.06 rows=146) (actual time=0.0115..0.0475 rows=204 loops=1)
+
+-- sample 6
+-> Limit: 100 row(s)  (cost=5.06 rows=99.4) (actual time=0.014..0.0872 rows=100 loops=1)
+    -> Filter: ((task_event.deleted = 0) and (task_event.state = 2) and (task_event.event_type in ('PAY','REFUND')))  (cost=5.06 rows=99.4) (actual time=0.0136..0.0831 rows=100 loops=1)
+        -> Index scan on task_event using PRIMARY  (cost=5.06 rows=146) (actual time=0.0117..0.0591 rows=204 loops=1)
+
+-- sample 7
+-> Limit: 100 row(s)  (cost=5.06 rows=99.4) (actual time=0.014..0.0765 rows=100 loops=1)
+    -> Filter: ((task_event.deleted = 0) and (task_event.state = 2) and (task_event.event_type in ('PAY','REFUND')))  (cost=5.06 rows=99.4) (actual time=0.0133..0.0711 rows=100 loops=1)
+        -> Index scan on task_event using PRIMARY  (cost=5.06 rows=146) (actual time=0.0112..0.0472 rows=204 loops=1)
+

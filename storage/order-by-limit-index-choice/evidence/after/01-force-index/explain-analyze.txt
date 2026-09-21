@@ -1,0 +1,35 @@
+-- sample 1
+-> Limit: 100 row(s)  (cost=18890 rows=100) (actual time=27.5..27.5 rows=100 loops=1)
+    -> Sort: task_event.id, limit input to 100 row(s) per chunk  (cost=18890 rows=41969) (actual time=27.5..27.5 rows=100 loops=1)
+        -> Index range scan on task_event using idx_state_event_deleted over (state = 0 AND event_type = 'PAY' AND deleted = 0) OR (state = 0 AND event_type = 'REFUND' AND deleted = 0), with index condition: ((task_event.deleted = 0) and (task_event.state = 0) and (task_event.event_type in ('PAY','REFUND')))  (cost=18890 rows=41969) (actual time=0.173..25.4 rows=24541 loops=1)
+
+-- sample 2
+-> Limit: 100 row(s)  (cost=18890 rows=100) (actual time=27.5..27.5 rows=100 loops=1)
+    -> Sort: task_event.id, limit input to 100 row(s) per chunk  (cost=18890 rows=41969) (actual time=27.5..27.5 rows=100 loops=1)
+        -> Index range scan on task_event using idx_state_event_deleted over (state = 0 AND event_type = 'PAY' AND deleted = 0) OR (state = 0 AND event_type = 'REFUND' AND deleted = 0), with index condition: ((task_event.deleted = 0) and (task_event.state = 0) and (task_event.event_type in ('PAY','REFUND')))  (cost=18890 rows=41969) (actual time=0.174..25.3 rows=24541 loops=1)
+
+-- sample 3
+-> Limit: 100 row(s)  (cost=18890 rows=100) (actual time=27.8..27.8 rows=100 loops=1)
+    -> Sort: task_event.id, limit input to 100 row(s) per chunk  (cost=18890 rows=41969) (actual time=27.8..27.8 rows=100 loops=1)
+        -> Index range scan on task_event using idx_state_event_deleted over (state = 0 AND event_type = 'PAY' AND deleted = 0) OR (state = 0 AND event_type = 'REFUND' AND deleted = 0), with index condition: ((task_event.deleted = 0) and (task_event.state = 0) and (task_event.event_type in ('PAY','REFUND')))  (cost=18890 rows=41969) (actual time=0.161..25.6 rows=24541 loops=1)
+
+-- sample 4
+-> Limit: 100 row(s)  (cost=18890 rows=100) (actual time=27.2..27.2 rows=100 loops=1)
+    -> Sort: task_event.id, limit input to 100 row(s) per chunk  (cost=18890 rows=41969) (actual time=27.2..27.2 rows=100 loops=1)
+        -> Index range scan on task_event using idx_state_event_deleted over (state = 0 AND event_type = 'PAY' AND deleted = 0) OR (state = 0 AND event_type = 'REFUND' AND deleted = 0), with index condition: ((task_event.deleted = 0) and (task_event.state = 0) and (task_event.event_type in ('PAY','REFUND')))  (cost=18890 rows=41969) (actual time=0.16..25.1 rows=24541 loops=1)
+
+-- sample 5
+-> Limit: 100 row(s)  (cost=18890 rows=100) (actual time=27.3..27.4 rows=100 loops=1)
+    -> Sort: task_event.id, limit input to 100 row(s) per chunk  (cost=18890 rows=41969) (actual time=27.3..27.3 rows=100 loops=1)
+        -> Index range scan on task_event using idx_state_event_deleted over (state = 0 AND event_type = 'PAY' AND deleted = 0) OR (state = 0 AND event_type = 'REFUND' AND deleted = 0), with index condition: ((task_event.deleted = 0) and (task_event.state = 0) and (task_event.event_type in ('PAY','REFUND')))  (cost=18890 rows=41969) (actual time=0.158..25.2 rows=24541 loops=1)
+
+-- sample 6
+-> Limit: 100 row(s)  (cost=18890 rows=100) (actual time=27.4..27.4 rows=100 loops=1)
+    -> Sort: task_event.id, limit input to 100 row(s) per chunk  (cost=18890 rows=41969) (actual time=27.4..27.4 rows=100 loops=1)
+        -> Index range scan on task_event using idx_state_event_deleted over (state = 0 AND event_type = 'PAY' AND deleted = 0) OR (state = 0 AND event_type = 'REFUND' AND deleted = 0), with index condition: ((task_event.deleted = 0) and (task_event.state = 0) and (task_event.event_type in ('PAY','REFUND')))  (cost=18890 rows=41969) (actual time=0.15..25.2 rows=24541 loops=1)
+
+-- sample 7
+-> Limit: 100 row(s)  (cost=18890 rows=100) (actual time=27.5..27.5 rows=100 loops=1)
+    -> Sort: task_event.id, limit input to 100 row(s) per chunk  (cost=18890 rows=41969) (actual time=27.5..27.5 rows=100 loops=1)
+        -> Index range scan on task_event using idx_state_event_deleted over (state = 0 AND event_type = 'PAY' AND deleted = 0) OR (state = 0 AND event_type = 'REFUND' AND deleted = 0), with index condition: ((task_event.deleted = 0) and (task_event.state = 0) and (task_event.event_type in ('PAY','REFUND')))  (cost=18890 rows=41969) (actual time=0.16..25.4 rows=24541 loops=1)
+

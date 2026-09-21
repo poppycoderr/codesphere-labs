@@ -1,0 +1,6 @@
+[mysqld]
+# 让 300 万行数据和索引都能放进缓冲池，测量热缓存下的执行
+innodb_buffer_pool_size = 1G
+# 造数时减少刷盘，不影响查询阶段的结论
+innodb_flush_log_at_trx_commit = 2
+skip-log-bin

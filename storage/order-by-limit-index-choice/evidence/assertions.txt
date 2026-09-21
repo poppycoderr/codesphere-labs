@@ -1,0 +1,19 @@
+通过：原查询沿主键扫描（PRIMARY）
+通过：原查询读取超过 200 万次（实际 2,850,622）
+通过：01-force-index 使用 idx_state_event_deleted
+通过：01-force-index 返回的 100 个 id 与原查询完全相同
+通过：01-force-index 的中位耗时不到原查询的十分之一
+通过：02-prefer-ordering-index-off 使用 idx_state_event_deleted
+通过：02-prefer-ordering-index-off 返回的 100 个 id 与原查询完全相同
+通过：02-prefer-ordering-index-off 的中位耗时不到原查询的十分之一
+通过：03-order-by-expression 使用 idx_state_event_deleted
+通过：03-order-by-expression 返回的 100 个 id 与原查询完全相同
+通过：03-order-by-expression 的中位耗时不到原查询的十分之一
+通过：04-union-all 使用 idx_state_event_deleted
+通过：04-union-all 返回的 100 个 id 与原查询完全相同
+通过：04-union-all 的中位耗时不到原查询的十分之一
+通过：UNION ALL 读取次数少于 1,000（实际 401）
+通过：UNION ALL 比 FORCE INDEX 至少快一个数量级
+通过：数据在表头时，主键扫描只读几百行
+通过：单个等值条件时优化器直接选择二级索引
+通过：预热后所有查询都没有物理读（热缓存）

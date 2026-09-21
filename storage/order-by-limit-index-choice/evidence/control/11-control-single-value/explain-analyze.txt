@@ -1,0 +1,28 @@
+-- sample 1
+-> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.156..0.17 rows=100 loops=1)
+    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.156..0.165 rows=100 loops=1)
+
+-- sample 2
+-> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.144..0.156 rows=100 loops=1)
+    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.144..0.152 rows=100 loops=1)
+
+-- sample 3
+-> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.147..0.16 rows=100 loops=1)
+    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.147..0.156 rows=100 loops=1)
+
+-- sample 4
+-> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.147..0.16 rows=100 loops=1)
+    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.147..0.156 rows=100 loops=1)
+
+-- sample 5
+-> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.155..0.168 rows=100 loops=1)
+    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.154..0.163 rows=100 loops=1)
+
+-- sample 6
+-> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.149..0.161 rows=100 loops=1)
+    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.148..0.157 rows=100 loops=1)
+
+-- sample 7
+-> Limit: 100 row(s)  (cost=13007 rows=100) (actual time=0.147..0.16 rows=100 loops=1)
+    -> Index lookup on task_event using idx_state_event_deleted (state=0, event_type='PAY', deleted=0)  (cost=13007 rows=37154) (actual time=0.146..0.155 rows=100 loops=1)
+

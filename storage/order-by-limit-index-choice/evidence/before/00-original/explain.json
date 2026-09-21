@@ -1,0 +1,41 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "18889.55"
+    },
+    "ordering_operation": {
+      "using_filesort": false,
+      "table": {
+        "table_name": "task_event",
+        "access_type": "index",
+        "possible_keys": [
+          "idx_state_event_deleted"
+        ],
+        "key": "PRIMARY",
+        "used_key_parts": [
+          "id"
+        ],
+        "key_length": "8",
+        "rows_examined_per_scan": 6893,
+        "rows_produced_per_join": 41969,
+        "filtered": "1.45",
+        "cost_info": {
+          "read_cost": "14692.65",
+          "eval_cost": "4196.90",
+          "prefix_cost": "18889.55",
+          "data_read_per_join": "35M"
+        },
+        "used_columns": [
+          "id",
+          "state",
+          "event_type",
+          "deleted",
+          "payload",
+          "gmt_create"
+        ],
+        "attached_condition": "((`labs`.`task_event`.`deleted` = 0) and (`labs`.`task_event`.`state` = 0) and (`labs`.`task_event`.`event_type` in ('PAY','REFUND')))"
+      }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+Innodb_buffer_pool_read_requests_delta	49171
+Innodb_buffer_pool_reads_delta	0
