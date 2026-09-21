@@ -1,0 +1,10 @@
+== 第一次影子比对（严格翻译）：一致 9269 / 10000
+   316  新系统无法识别 severity=critical
+   6  旧系统多发 [chat, email, phone]（team=Payment）
+   22  旧系统多发 [chat, phone]（team=Payment）
+   67  旧系统多发 [chat]（team=Payment）
+   320  旧系统多发 [email]（team=payment）
+== 第二次（翻译层兼容大小写与 critical）：一致 9617 / 10000
+   7  旧系统多发 [email]（team=Payment）
+   376  旧系统多发 [email]（team=payment）
+== 第三次（夜间邮件确认下线，登记为有意差异）：一致 10000 / 10000

@@ -1,0 +1,30 @@
+id: design/notification-routing
+title: 通知路由服务的演化与遗留系统影子比对
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/design-case-study.md
+related_articles:
+  - docs/design/expressive-java-api-and-dsl.md
+  - docs/design/functional-design-in-java.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    junit_platform: "1.13.4"
+resources:
+  cpu_limit: none
+  memory_limit: none
+dataset:
+  rows: 10000
+  generator: src/Shadow.java（Random 种子 42）
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

@@ -1,0 +1,30 @@
+╷
+├─ JUnit Platform Suite ✔
+├─ JUnit Jupiter ✔
+│  └─ RouterTest ✔
+│     ├─ 支付P1打电话并发群消息() ✔
+│     ├─ 十分钟内同一告警只发一次() ✔
+│     ├─ 渠道没注册在发送时报错() ✔
+│     ├─ 新渠道只需注册实现() ✔
+│     ├─ 夜间静默P3但不静默P1() ✔
+│     ├─ 支付P3只发群消息() ✔
+│     ├─ 静默区间边界() ✔
+│     ├─ 文本规则与代码规则等价() ✔
+│     ├─ 规则写错在加载时报出全部错误() ✔
+│     └─ 没有匹配的路由就不通知() ✔
+└─ JUnit Vintage ✔
+
+Test run finished after <elapsed> ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[        10 tests found           ]
+[         0 tests skipped         ]
+[        10 tests started         ]
+[         0 tests aborted         ]
+[        10 tests successful      ]
+[         0 tests failed          ]
+

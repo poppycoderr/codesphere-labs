@@ -1,0 +1,2 @@
+[Target[channel=phone, address=oncall-payment], Target[channel=chat, address=payment-alerts]]
+[Target[channel=chat, address=payment-alerts]]
