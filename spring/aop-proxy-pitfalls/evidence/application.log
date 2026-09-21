@@ -1,0 +1,50 @@
+Spring 7.0.9，JDK 21.0.5+9-LTS-239
+
+== 1. 类代理（proxyTargetClass = true）
+<timestamp> org.springframework.aop.framework.CglibAopProxy doValidateClass
+WARNING: Public final method [public final void labs.aop.OrderService.finalMethod()] cannot get proxied via CGLIB, consider removing the final marker or using interface-based JDK proxies.
+  CGLIB 代理：true，类名含 $$SpringCGLIB$$：true
+  - 外部调用 persist()
+      [tx] begin labs.aop.OrderService.persist
+    persist()：在事务中
+      [tx] commit
+  - create() 内部 this.persist()
+    create()：没有事务
+    persist()：没有事务
+  - AopContext.currentProxy().persist()
+      [tx] begin labs.aop.OrderService.persist
+    persist()：在事务中
+      [tx] commit
+  - final 方法
+    finalMethod()：没有事务
+    repo = null
+  - 包级可见方法
+      [tx] begin labs.aop.OrderService.packagePrivate
+    packagePrivate()：在事务中
+      [tx] commit
+  - private 方法（经 public 方法调用）
+    privateTx()：没有事务
+  - 事务方法里切换线程
+      [tx] begin labs.aop.OrderService.switchThread
+    callerThread()：在事务中
+    asyncThread()：没有事务
+      [tx] commit
+  - 抛出受检异常
+      [tx] begin labs.aop.OrderService.checked
+      [tx] commit
+    抛出 Exception：业务校验失败
+  - 抛出运行时异常
+      [tx] begin labs.aop.OrderService.unchecked
+      [tx] rollback
+    抛出 IllegalStateException：库存不足
+
+== 2. 默认配置（proxyTargetClass = false），类实现了接口
+  JDK 代理：true
+  - 按实现类获取 OrderService
+    抛出 NoSuchBeanDefinitionException：No qualifying bean of type 'labs.aop.OrderService' available
+
+== 3. rollbackOn = ALL_EXCEPTIONS
+  - 抛出受检异常
+      [tx] begin labs.aop.OrderService.checked
+      [tx] rollback
+    抛出 Exception：业务校验失败

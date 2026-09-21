@@ -1,0 +1,30 @@
+id: spring/aop-proxy-pitfalls
+title: Spring AOP 代理失效的九种调用方式
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/aop-proxy-pitfalls.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    maven: "3.9.9"
+    spring_framework: "7.0.9"
+    aspectjweaver: "1.9.22"
+    junit_jupiter: "5.13.4"
+resources:
+  cpu_limit: none
+  memory_limit: none
+dataset:
+  rows: 0
+  generator: 无，不访问数据库
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-22"

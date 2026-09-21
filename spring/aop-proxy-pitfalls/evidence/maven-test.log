@@ -1,0 +1,26 @@
+Sep 22, 2026 12:50:50 AM org.springframework.aop.framework.CglibAopProxy doValidateClass
+WARNING: Public final method [public final void labs.aop.OrderService.finalMethod()] cannot get proxied via CGLIB, consider removing the final marker or using interface-based JDK proxies.
+      [tx] begin labs.aop.OrderService.checked
+      [tx] rollback
+      [tx] begin labs.aop.OrderService.unchecked
+      [tx] rollback
+      [tx] begin labs.aop.OrderService.persist
+    persist()：在事务中
+      [tx] commit
+      [tx] begin labs.aop.OrderService.checked
+      [tx] commit
+      [tx] begin labs.aop.OrderService.packagePrivate
+    packagePrivate()：在事务中
+      [tx] commit
+    create()：没有事务
+    persist()：没有事务
+    privateTx()：没有事务
+      [tx] begin labs.aop.OrderService.switchThread
+    callerThread()：在事务中
+    asyncThread()：没有事务
+      [tx] commit
+      [tx] begin labs.aop.OrderService.persist
+    persist()：在事务中
+      [tx] commit
+    finalMethod()：没有事务
+    repo = null

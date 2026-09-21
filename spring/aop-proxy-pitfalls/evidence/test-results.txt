@@ -1,0 +1,15 @@
+# 由 scripts/verify.sh 从 target/surefire-reports/TEST-*.xml 生成
+PASS  ProxyPitfallsTest$ClassProxy  uncheckedRollsBack
+PASS  ProxyPitfallsTest$ClassProxy  external
+PASS  ProxyPitfallsTest$ClassProxy  checkedCommits
+PASS  ProxyPitfallsTest$ClassProxy  packagePrivate
+PASS  ProxyPitfallsTest$ClassProxy  selfInvocation
+PASS  ProxyPitfallsTest$ClassProxy  cglib
+PASS  ProxyPitfallsTest$ClassProxy  privateMethod
+PASS  ProxyPitfallsTest$ClassProxy  switchThread
+PASS  ProxyPitfallsTest$ClassProxy  currentProxy
+PASS  ProxyPitfallsTest$ClassProxy  finalMethod
+PASS  ProxyPitfallsTest  jdkProxyByDefault
+PASS  ProxyPitfallsTest  rollbackOnAllExceptions
+
+tests=12 failures=0
