@@ -23,6 +23,17 @@
 | [design/jdk-api-facts](design/jdk-api-facts/) | 设计原则、设计模式决策图 | 轻量 | regular |
 | [design/aggregate-concurrency](design/aggregate-concurrency/) | 从统一语言到限界上下文 | 轻量 | regular-docker |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
+| [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
+| [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |
+| [storage/mysql-redo-undo-recovery](storage/mysql-redo-undo-recovery/) | Redo Log 与 Undo Log | 轻量 | regular-docker |
+| [storage/mysql-large-table-cleanup](storage/mysql-large-table-cleanup/) | 千万级大表怎么清理数据 | 轻量 | performance |
+| [storage/mysql-table-size-sharding](storage/mysql-table-size-sharding/) | 单表多大该拆分 | 轻量 | performance |
+| [storage/mysql-bulk-import](storage/mysql-bulk-import/) | 百万行数据导入 | 轻量 | regular-docker |
+| [storage/mysql-schema-design](storage/mysql-schema-design/) | 表设计里的三个细节 | 轻量 | regular-docker |
+| [storage/mysql-oltp-olap](storage/mysql-oltp-olap/) | OLTP 与 OLAP | 轻量 | performance |
+| [storage/mysql-replication-lag](storage/mysql-replication-lag/) | MySQL 复制与延迟 | 多节点：1 source + 2 replicas | performance |
+| [storage/mysql-failover-read-consistency](storage/mysql-failover-read-consistency/) | MySQL 故障切换 | 多节点：故障注入与切换时间线 | performance |
+| [storage/mysql-backup-pitr](storage/mysql-backup-pitr/) | MySQL 误删恢复 | 多实例：隔离恢复与对照校验 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 
 **黄金样板**按 [验证标准](docs/verification-standard.md) 的完整要求建设，用来确定同类实验的格式；**轻量实验**只保留核心代码、一条验证入口、原始输出和简要验证记录。
