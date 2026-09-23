@@ -1,0 +1,34 @@
+# source：发生误删的生产库；control：执行同一份业务流程但没有误删，提供正确结果的校验和；
+# restore：全新的隔离实例，只通过文件拿到全量备份和归档的 binlog，与 source 不在同一个网络
+# 不对宿主机暴露端口
+name: csl-backup-pitr
+x-mysql: &mysql
+  image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+  environment:
+    MYSQL_ROOT_PASSWORD: example_password
+  volumes:
+    - ./config/common.cnf:/etc/mysql/conf.d/common.cnf:ro
+  cpus: 2
+  mem_limit: 1g
+  healthcheck:
+    test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+    interval: 2s
+    timeout: 5s
+    retries: 90
+services:
+  source:
+    <<: *mysql
+    command: ["--server-id=1"]
+    networks: [prod]
+  control:
+    <<: *mysql
+    command: ["--server-id=2"]
+    networks: [prod]
+  restore:
+    <<: *mysql
+    # 用复制 SQL 线程重放归档的 binlog：relay log 使用固定文件名，启动时不自动开始复制
+    command: ["--server-id=99", "--relay-log=restore-relay-bin", "--skip-replica-start"]
+    networks: [isolated]
+networks:
+  prod: {}
+  isolated: {}

@@ -1,0 +1,9 @@
+replica2_receiver_stopped	2026-09-23T18:14:24.728+00:00	
+replica1_applier_paused	2026-09-23T18:14:24.839+00:00	replica1 继续接收并发送 ACK，但不应用
+fault_injected	2026-09-23T18:14:29.232+00:00	SIGKILL source
+detected	2026-09-23T18:14:35.664+00:00	连续 3 次探测失败（间隔 1 秒）
+promotion_started	2026-09-23T18:14:35.961+00:00	candidate=replica1
+relay_log_applied	2026-09-23T18:14:37.773+00:00	candidate=replica1
+promotion_done	2026-09-23T18:14:37.977+00:00	candidate=replica1 executed=9225c1d0-b77a-11f1-86fe-7ed81b191dc6:1-301
+routing_changed	2026-09-23T18:14:38.187+00:00	target=replica1
+verification_data_exported	2026-09-23T18:14:41.458+00:00	new_source=replica1

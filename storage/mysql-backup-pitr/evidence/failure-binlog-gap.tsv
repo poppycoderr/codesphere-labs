@@ -1,0 +1,5 @@
+missing_binlog_file	binlog.000003
+applier_errors	0
+restore_gtid_executed	ee77fc9c-b77a-11f1-9268-82369fce0e99:1-1013:1214-1264
+target_is_subset	0
+missing_gtids	ee77fc9c-b77a-11f1-9268-82369fce0e99:1014-1213

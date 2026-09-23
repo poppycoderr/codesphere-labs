@@ -1,0 +1,9 @@
+table	utc	mono_ms	event	detail
+orders	2026-09-23T18:15:01.751545720Z	105	send	ambiguous-orders
+orders_no_key	2026-09-23T18:15:01.751714553Z	105	send	ambiguous-orders_no_key
+orders	2026-09-23T18:15:02.779863512Z	1133	client_timeout	CommunicationsException
+orders_no_key	2026-09-23T18:15:02.779863595Z	1133	client_timeout	CommunicationsException
+orders	2026-09-23T18:15:06.789813208Z	5142	retry	affected_rows=0
+orders_no_key	2026-09-23T18:15:06.790590333Z	5143	retry	affected_rows=1
+orders_no_key	2026-09-23T18:15:06.821625083Z	5174	rows_for_request	2
+orders	2026-09-23T18:15:06.821649750Z	5174	rows_for_request	1

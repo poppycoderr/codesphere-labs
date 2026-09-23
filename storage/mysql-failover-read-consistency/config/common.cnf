@@ -1,0 +1,7 @@
+[mysqld]
+# 8.4 默认 gtid_mode = OFF，这里显式开启；其余复制参数保持默认：
+#   binlog_format = ROW、sync_binlog = 1、innodb_flush_log_at_trx_commit = 1、replica_parallel_workers = 4
+gtid_mode = ON
+enforce_gtid_consistency = ON
+innodb_buffer_pool_size = 256M
+replica_net_timeout = 15

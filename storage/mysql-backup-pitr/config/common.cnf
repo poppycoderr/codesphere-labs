@@ -1,0 +1,5 @@
+[mysqld]
+# 8.4 默认 gtid_mode = OFF，这里显式开启；binlog_format = ROW、sync_binlog = 1 保持默认
+gtid_mode = ON
+enforce_gtid_consistency = ON
+innodb_buffer_pool_size = 256M

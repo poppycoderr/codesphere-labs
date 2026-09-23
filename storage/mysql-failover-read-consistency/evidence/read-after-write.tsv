@@ -1,0 +1,7 @@
+strategy	replica	attempts	stale_reads	p50_read_ms	p99_read_ms	max_read_ms
+replica-direct	replica1	300	300	0.25	0.52	13.66
+source-sticky	source	300	0	0.19	0.41	0.65
+gtid-wait	replica1	300	0	0.79	1.77	3.53
+replica-direct	replica2	30	30	0.13	1.64	1.64
+source-sticky	source	30	0	0.18	0.36	0.36
+gtid-wait	replica2	30	0	2010.52	2114.18	2114.18

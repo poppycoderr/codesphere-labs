@@ -1,0 +1,47 @@
+== source
+*************************** 1. row ***************************
+                     @@server_id: 1
+                   @@server_uuid: ebec7356-b779-11f1-bc0c-f607b65f0752
+                     @@gtid_mode: ON
+      @@enforce_gtid_consistency: ON
+                 @@binlog_format: ROW
+                   @@sync_binlog: 1
+@@innodb_flush_log_at_trx_commit: 1
+      @@replica_parallel_workers: 4
+ @@replica_preserve_commit_order: 1
+           @@replica_net_timeout: 15
+               @@super_read_only: 0
+== replica1
+*************************** 1. row ***************************
+                     @@server_id: 2
+                   @@server_uuid: ebf70c9c-b779-11f1-bf24-da0fbff084f3
+                     @@gtid_mode: ON
+      @@enforce_gtid_consistency: ON
+                 @@binlog_format: ROW
+                   @@sync_binlog: 1
+@@innodb_flush_log_at_trx_commit: 1
+      @@replica_parallel_workers: 4
+ @@replica_preserve_commit_order: 1
+           @@replica_net_timeout: 15
+               @@super_read_only: 1
+== replica2
+*************************** 1. row ***************************
+                     @@server_id: 3
+                   @@server_uuid: ec041a16-b779-11f1-8b00-86e772d35e90
+                     @@gtid_mode: ON
+      @@enforce_gtid_consistency: ON
+                 @@binlog_format: ROW
+                   @@sync_binlog: 1
+@@innodb_flush_log_at_trx_commit: 1
+      @@replica_parallel_workers: 4
+ @@replica_preserve_commit_order: 1
+           @@replica_net_timeout: 15
+               @@super_read_only: 1
+                  Source_Host: source-repl
+                  Source_Port: 3306
+           Replica_IO_Running: Yes
+          Replica_SQL_Running: Yes
+           Source_SSL_Allowed: Yes
+                    SQL_Delay: 0
+    Replica_SQL_Running_State: Replica has read all relay log; waiting for more updates
+                Auto_Position: 1

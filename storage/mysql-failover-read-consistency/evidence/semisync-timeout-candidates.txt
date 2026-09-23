@@ -1,0 +1,16 @@
+== replica1
+*************************** 1. row ***************************
+           SERVICE_STATE: CONNECTING
+RECEIVED_TRANSACTION_SET: a7c946cf-b77a-11f1-8b43-7a767fa9dc05:1-121
+                executed: a7c946cf-b77a-11f1-8b43-7a767fa9dc05:1-121
+    received_not_applied: 
+          rows_in_orders: 111
+                 max_seq: 111
+== replica2
+*************************** 1. row ***************************
+           SERVICE_STATE: CONNECTING
+RECEIVED_TRANSACTION_SET: a7c946cf-b77a-11f1-8b43-7a767fa9dc05:1-126
+                executed: a7c946cf-b77a-11f1-8b43-7a767fa9dc05:1-126
+    received_not_applied: 
+          rows_in_orders: 116
+                 max_seq: 116

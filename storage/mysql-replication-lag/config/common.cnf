@@ -1,0 +1,9 @@
+[mysqld]
+# 8.4 默认 gtid_mode = OFF，这里显式开启；其余复制参数保持默认：
+#   binlog_format = ROW、sync_binlog = 1、innodb_flush_log_at_trx_commit = 1、
+#   replica_parallel_workers = 4、replica_preserve_commit_order = ON、log_replica_updates = ON
+gtid_mode = ON
+enforce_gtid_consistency = ON
+innodb_buffer_pool_size = 512M
+# 缩短复制连接的超时，让「链路静默中断」在 15 秒内被发现（默认 60 秒，心跳周期默认为它的一半）
+replica_net_timeout = 15

@@ -1,0 +1,10 @@
+old_source_executed	6826a1ac-b77a-11f1-a3ab-7e6c6ff74611:1-261
+new_source_executed	6826a1ac-b77a-11f1-a3ab-7e6c6ff74611:1-124,\n683c7534-b77a-11f1-8a75-a6e2a55d5d57:1-94
+old_is_subset_of_new	0
+old_only_transactions	6826a1ac-b77a-11f1-a3ab-7e6c6ff74611:125-261
+after_rejoin_replica_status	 Replica_IO_Running: Yes  Replica_SQL_Running: No 
+after_rejoin_worker_error	Worker 1 failed executing transaction '683c7534-b77a-11f1-8a75-a6e2a55d5d57:1' at source log binlog.000001, end_log_pos 3035564; Could not execute Write_rows event on table labs.orders; Duplicate entry '115' for key 'orders.PRIMARY', Error_code: 1062; handler error HA_ERR_FOUND_DUPP_KEY; the event's source log binlog.000001, end_log_pos 3035564
+old_source_orders	251
+new_source_orders	208
+old_source_checksum	1638933277
+new_source_checksum	1062460967

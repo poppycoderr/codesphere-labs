@@ -1,0 +1,28 @@
+id: storage/mysql-failover-read-consistency
+title: 故障切换与读一致性：异步、半同步、超时退化、重试歧义、写后读与旧 source 接回
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/storage/mysql-failover-and-read-consistency.md
+related_articles:
+  - docs/storage/mysql-replication-and-replica-lag.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "21"
+    mysql-connector-java: "8.0.27"
+resources:
+  cpu_limit: "2（每个容器）"
+  memory_limit: 1536m（每个容器）
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

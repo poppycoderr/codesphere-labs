@@ -1,0 +1,5 @@
+event	utc	mono_ms	detail
+workload_started	2026-09-23T18:09:59.279682219Z	119	first_seq=232
+big_transaction_started	2026-09-23T18:10:01.289259345Z	2128	UPDATE big SET v = v + 1（1,000,000 行，一个事务）
+big_transaction_committed	2026-09-23T18:10:03.576440929Z	4415	rows=1000000 source_millis=2287
+workload_stopped	2026-09-23T18:10:09.460424209Z	10299	last_acked_seq=428

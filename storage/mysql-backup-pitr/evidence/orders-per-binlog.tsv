@@ -1,0 +1,4 @@
+binlog_file	order_insert_events
+binlog.000002	1000
+binlog.000003	200
+binlog.000004	50

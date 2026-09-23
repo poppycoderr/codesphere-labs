@@ -1,0 +1,5 @@
+workload	replica_parallel_workers	transactions	source_millis	catch_up_millis	transactions_per_worker
+independent	1	20000	2504	11856	20001
+independent	4	20000	2596	6224	5084,5043,4972,4905
+hot-row	1	20000	13131	10687	20001
+hot-row	4	20000	13116	10917	19998,4,1,1

@@ -1,0 +1,9 @@
+partition_started	2026-09-23T18:15:00.861+00:00	
+partition	2026-09-23T18:15:01.120+00:00	两个 replica 与 source 的复制网络断开
+fault_injected	2026-09-23T18:15:09.278+00:00	SIGKILL source
+detected	2026-09-23T18:15:15.916+00:00	连续 3 次探测失败（间隔 1 秒）
+promotion_started	2026-09-23T18:15:16.127+00:00	candidate=replica1
+relay_log_applied	2026-09-23T18:15:17.785+00:00	candidate=replica1
+promotion_done	2026-09-23T18:15:17.983+00:00	candidate=replica1 executed=a7c946cf-b77a-11f1-8b43-7a767fa9dc05:1-121
+routing_changed	2026-09-23T18:15:18.193+00:00	target=replica1
+verification_data_exported	2026-09-23T18:15:21.497+00:00	new_source=replica1

@@ -1,0 +1,8 @@
+orders	1250	2668346647530
+order_items	75	158322369362
+inventory	100	207346632059
+operation_markers	1250	2706341262598
+invariant_order_total_mismatch	1225	0
+invariant_inventory_mismatch	100	0
+invariant_marker_gap	0	0
+invariant_orphan_items	0	0

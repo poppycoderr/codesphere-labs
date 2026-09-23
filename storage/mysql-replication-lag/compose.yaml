@@ -1,0 +1,36 @@
+# 1 个 source + 2 个 replica，MySQL 8.4.11 固定 digest。两个网络：
+#   repl：复制链路，replica 通过别名 source-repl 连接 source；实验会把 replica2 从这个网络断开，模拟复制链路静默中断
+#   client：客户端与采样器使用，断开复制链路不影响观测
+# 不对宿主机暴露端口
+name: csl-replication-lag
+x-mysql: &mysql
+  image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+  environment:
+    MYSQL_ROOT_PASSWORD: example_password
+  volumes:
+    - ./config/common.cnf:/etc/mysql/conf.d/common.cnf:ro
+  cpus: 2
+  mem_limit: 1536m
+  healthcheck:
+    test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+    interval: 2s
+    timeout: 5s
+    retries: 90
+services:
+  source:
+    <<: *mysql
+    command: ["--server-id=1"]
+    networks:
+      repl: { aliases: [source-repl] }
+      client: {}
+  replica1:
+    <<: *mysql
+    command: ["--server-id=2"]
+    networks: [repl, client]
+  replica2:
+    <<: *mysql
+    command: ["--server-id=3"]
+    networks: [repl, client]
+networks:
+  repl: {}
+  client: {}

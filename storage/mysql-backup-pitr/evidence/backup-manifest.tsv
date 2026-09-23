@@ -1,0 +1,6 @@
+command	mysqldump --single-transaction --source-data=2 --set-gtid-purged=ON --routines --triggers --events --databases shop
+exit_code	0
+bytes	184337
+sha256	aa775fe767daea236764667929e7598c9f2577b77ab0d27bcc4be0195393dcbe
+gtid_purged	GTID_PURGED=/*!80000 '+'*/ 'ee77fc9c-b77a-11f1-9268-82369fce0e99:1-1013';
+binlog_position	-- CHANGE REPLICATION SOURCE TO SOURCE_LOG_FILE='binlog.000003', SOURCE_LOG_POS=198;

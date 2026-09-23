@@ -1,0 +1,5 @@
+expected_sha256	aa775fe767daea236764667929e7598c9f2577b77ab0d27bcc4be0195393dcbe
+actual_sha256	5524f004e0d1cf91a172e1901f794ba74bf26fab4a8ec55c2e3a5ee74c002c9a
+gate	拒绝恢复：校验和不一致
+# 如果跳过校验直接导入：
+import_exit_code	0
