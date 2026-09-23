@@ -1,0 +1,56 @@
+-- sample 1
+-> Limit: 5 row(s)  (actual time=60.8..60.8 rows=5 loops=1)
+    -> Sort: `COUNT(*)` DESC, limit input to 5 row(s) per chunk  (actual time=60.8..60.8 rows=5 loops=1)
+        -> Stream results  (cost=11087 rows=4972) (actual time=0.911..60.4 rows=5000 loops=1)
+            -> Group aggregate: count(0)  (cost=11087 rows=4972) (actual time=0.909..60 rows=5000 loops=1)
+                -> Filter: (orders.`status` = 'PAID')  (cost=10088 rows=9984) (actual time=0.905..58.9 rows=25000 loops=1)
+                    -> Index scan on orders using idx_customer_created  (cost=10088 rows=99841) (actual time=0.879..53.8 rows=100000 loops=1)
+
+-- sample 2
+-> Limit: 5 row(s)  (actual time=61.1..61.1 rows=5 loops=1)
+    -> Sort: `COUNT(*)` DESC, limit input to 5 row(s) per chunk  (actual time=61.1..61.1 rows=5 loops=1)
+        -> Stream results  (cost=11087 rows=4972) (actual time=0.874..60.8 rows=5000 loops=1)
+            -> Group aggregate: count(0)  (cost=11087 rows=4972) (actual time=0.872..60.4 rows=5000 loops=1)
+                -> Filter: (orders.`status` = 'PAID')  (cost=10088 rows=9984) (actual time=0.867..59.3 rows=25000 loops=1)
+                    -> Index scan on orders using idx_customer_created  (cost=10088 rows=99841) (actual time=0.858..54.1 rows=100000 loops=1)
+
+-- sample 3
+-> Limit: 5 row(s)  (actual time=60.3..60.3 rows=5 loops=1)
+    -> Sort: `COUNT(*)` DESC, limit input to 5 row(s) per chunk  (actual time=60.3..60.3 rows=5 loops=1)
+        -> Stream results  (cost=11087 rows=4972) (actual time=0.892..60 rows=5000 loops=1)
+            -> Group aggregate: count(0)  (cost=11087 rows=4972) (actual time=0.89..59.7 rows=5000 loops=1)
+                -> Filter: (orders.`status` = 'PAID')  (cost=10088 rows=9984) (actual time=0.885..58.6 rows=25000 loops=1)
+                    -> Index scan on orders using idx_customer_created  (cost=10088 rows=99841) (actual time=0.883..53.3 rows=100000 loops=1)
+
+-- sample 4
+-> Limit: 5 row(s)  (actual time=60.2..60.2 rows=5 loops=1)
+    -> Sort: `COUNT(*)` DESC, limit input to 5 row(s) per chunk  (actual time=60.2..60.2 rows=5 loops=1)
+        -> Stream results  (cost=11087 rows=4972) (actual time=0.899..59.8 rows=5000 loops=1)
+            -> Group aggregate: count(0)  (cost=11087 rows=4972) (actual time=0.897..59.5 rows=5000 loops=1)
+                -> Filter: (orders.`status` = 'PAID')  (cost=10088 rows=9984) (actual time=0.892..58.4 rows=25000 loops=1)
+                    -> Index scan on orders using idx_customer_created  (cost=10088 rows=99841) (actual time=0.89..53.3 rows=100000 loops=1)
+
+-- sample 5
+-> Limit: 5 row(s)  (actual time=60.4..60.4 rows=5 loops=1)
+    -> Sort: `COUNT(*)` DESC, limit input to 5 row(s) per chunk  (actual time=60.4..60.4 rows=5 loops=1)
+        -> Stream results  (cost=11087 rows=4972) (actual time=0.889..60.1 rows=5000 loops=1)
+            -> Group aggregate: count(0)  (cost=11087 rows=4972) (actual time=0.887..59.7 rows=5000 loops=1)
+                -> Filter: (orders.`status` = 'PAID')  (cost=10088 rows=9984) (actual time=0.882..58.6 rows=25000 loops=1)
+                    -> Index scan on orders using idx_customer_created  (cost=10088 rows=99841) (actual time=0.88..53.4 rows=100000 loops=1)
+
+-- sample 6
+-> Limit: 5 row(s)  (actual time=59.9..59.9 rows=5 loops=1)
+    -> Sort: `COUNT(*)` DESC, limit input to 5 row(s) per chunk  (actual time=59.9..59.9 rows=5 loops=1)
+        -> Stream results  (cost=11087 rows=4972) (actual time=0.915..59.5 rows=5000 loops=1)
+            -> Group aggregate: count(0)  (cost=11087 rows=4972) (actual time=0.913..59.2 rows=5000 loops=1)
+                -> Filter: (orders.`status` = 'PAID')  (cost=10088 rows=9984) (actual time=0.908..58.1 rows=25000 loops=1)
+                    -> Index scan on orders using idx_customer_created  (cost=10088 rows=99841) (actual time=0.906..53 rows=100000 loops=1)
+
+-- sample 7
+-> Limit: 5 row(s)  (actual time=60.6..60.6 rows=5 loops=1)
+    -> Sort: `COUNT(*)` DESC, limit input to 5 row(s) per chunk  (actual time=60.6..60.6 rows=5 loops=1)
+        -> Stream results  (cost=11087 rows=4972) (actual time=0.892..60.3 rows=5000 loops=1)
+            -> Group aggregate: count(0)  (cost=11087 rows=4972) (actual time=0.89..60 rows=5000 loops=1)
+                -> Filter: (orders.`status` = 'PAID')  (cost=10088 rows=9984) (actual time=0.885..58.9 rows=25000 loops=1)
+                    -> Index scan on orders using idx_customer_created  (cost=10088 rows=99841) (actual time=0.883..53.6 rows=100000 loops=1)
+

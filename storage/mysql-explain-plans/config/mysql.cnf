@@ -1,0 +1,4 @@
+[mysqld]
+# 10 万行的表和全部索引都能放进缓冲池，测量热缓存下的执行
+innodb_buffer_pool_size = 512M
+skip-log-bin

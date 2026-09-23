@@ -1,0 +1,4 @@
+innodb_flush_log_at_trx_commit=0 sync_binlog=0（写入进行中 SIGKILL mysqld；只杀进程，宿主机页缓存仍在）
+客户端收到确认的最大序号	37991
+重启后 InnoDB 行数与最大序号	37978	37978
+binlog binlog.000008 中的 Write_rows 事件数	37991

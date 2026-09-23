@@ -1,0 +1,4 @@
+icp_attempts	9223
+icp_match	9222
+icp_no_match	0
+icp_out_of_range	1

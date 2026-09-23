@@ -1,0 +1,5 @@
+DELETE FROM event_log WHERE created_at < '2025-04-11'
+affected	micros
+1000000	3421874
+binlog_bytes	174745118
+transactions	1

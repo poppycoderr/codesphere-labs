@@ -1,0 +1,21 @@
++----------------+------------+
+| PARTITION_NAME | TABLE_ROWS |
++----------------+------------+
+| p2025q1        |     987402 |
+| p2025q2        |     987402 |
+| pmax           |     987402 |
++----------------+------------+
++-----------------+
+| rows_in_p2025q1 |
++-----------------+
+|         1000000 |
++-----------------+
+binlog_position_before	158
+drop_micros	9339
+binlog_position_after	377
+binlog_query	use `labs`; ALTER TABLE event_log_p DROP PARTITION p2025q1 /* xid=2907 */
++-----------+
+| rows_left |
++-----------+
+|   2000000 |
++-----------+

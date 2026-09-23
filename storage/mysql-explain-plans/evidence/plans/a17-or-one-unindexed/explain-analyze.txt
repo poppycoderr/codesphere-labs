@@ -1,0 +1,4 @@
+-- sample 1
+-> Filter: ((orders.customer_id = 42) or (orders.amount = 10.99))  (cost=10088 rows=10002) (actual time=0.101..20.9 rows=21 loops=1)
+    -> Table scan on orders  (cost=10088 rows=99841) (actual time=0.0927..14.8 rows=100000 loops=1)
+

@@ -1,0 +1,10 @@
++-----------+----------------+
+| VERSION() | buffer_pool_mb |
++-----------+----------------+
+| 8.4.11    |           2048 |
++-----------+----------------+
+clickhouse: 25.8.33.6
+image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+image: clickhouse/clickhouse-server:25.8@sha256:0152dd511befe6a2c2ef53e930726179669b08116da78500b37c51c96ff5ee77
+cpus: 2（每个容器）
+mem_limit: 3g（每个容器）

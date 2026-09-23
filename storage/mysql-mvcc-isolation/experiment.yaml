@@ -1,0 +1,21 @@
+id: storage/mysql-mvcc-isolation
+title: MVCC 与隔离级别：两会话时序、幻读三种读法、半一致性读与长事务
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/mysql-mvcc-and-isolation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

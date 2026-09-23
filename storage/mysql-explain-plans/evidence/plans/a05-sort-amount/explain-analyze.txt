@@ -1,0 +1,5 @@
+-- sample 1
+-> Limit: 10 row(s)  (cost=7 rows=10) (actual time=0.0612..0.0621 rows=10 loops=1)
+    -> Sort: orders.amount DESC, limit input to 10 row(s) per chunk  (cost=7 rows=20) (actual time=0.061..0.0615 rows=10 loops=1)
+        -> Index lookup on orders using idx_customer_created (customer_id=42)  (cost=7 rows=20) (actual time=0.0453..0.0478 rows=20 loops=1)
+

@@ -1,0 +1,9 @@
+table	pass	lookups	avg_micros	physical_reads
+orders	cold	20000	8.05	395
+orders	hot	20000	7.15	0
+orders_big	cold	20000	39.27	11605
+orders_big	hot	20000	7.74	0
+narrow_20m	cold	20000	62.05	20142
+narrow_20m	hot	20000	7.82	0
+wide_1m	cold	20000	63.77	25879
+wide_1m	hot	20000	7.76	0

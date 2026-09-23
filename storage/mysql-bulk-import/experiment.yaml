@@ -1,0 +1,23 @@
+id: storage/mysql-bulk-import
+title: 百万行导入：六种 JDBC 写入方式与批处理失败语义
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/mysql-bulk-import.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "21"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

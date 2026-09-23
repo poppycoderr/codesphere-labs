@@ -1,0 +1,4 @@
+idx_created	created_at
+idx_customer_created	customer_id,created_at
+idx_phone	phone
+PRIMARY	id

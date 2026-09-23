@@ -1,0 +1,5 @@
+[mysqld]
+# 500 万行数据与索引（约 1GB）全部放进缓冲池，热缓存下计时
+innodb_buffer_pool_size = 2G
+innodb_flush_log_at_trx_commit = 2
+skip-log-bin

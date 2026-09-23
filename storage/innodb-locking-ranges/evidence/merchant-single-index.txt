@@ -1,0 +1,18 @@
+# 索引：idx_merchant,PRIMARY
+# 持锁语句：UPDATE orders_m SET status = 'PAID' WHERE merchant_id = 7 AND external_no = 'A1007'
++----+-------------+----------+------------+-------+---------------+--------------+---------+-------+------+----------+-------------+
+| id | select_type | table    | partitions | type  | possible_keys | key          | key_len | ref   | rows | filtered | Extra       |
++----+-------------+----------+------------+-------+---------------+--------------+---------+-------+------+----------+-------------+
+|  1 | UPDATE      | orders_m | NULL       | range | idx_merchant  | idx_merchant | 4       | const | 2000 |   100.00 | Using where |
++----+-------------+----------+------------+-------+---------------+--------------+---------+-------+------+----------+-------------+
++--------------+---------------+-------+
+| index_name   | lock_mode     | locks |
++--------------+---------------+-------+
+| idx_merchant | X             |  2004 |
+| idx_merchant | X,GAP         |     1 |
+| PRIMARY      | X,REC_NOT_GAP |  2000 |
++--------------+---------------+-------+
+# 探测（innodb_lock_wait_timeout = 1）
+UPDATE orders_m SET status = 'PAID' WHERE id = 1017            ERROR 1205
+INSERT INTO orders_m VALUES (20001, 7, 'A20001', 'CREATED')    ERROR 1205
+UPDATE orders_m SET status = 'PAID' WHERE id = 1008            通过

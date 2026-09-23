@@ -1,0 +1,17 @@
+# 固定版本与资源限制；开启 binlog（默认），不对宿主机暴露端口
+name: csl-table-size
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_DATABASE: labs
+    volumes:
+      - ./config/mysql.cnf:/etc/mysql/conf.d/labs.cnf:ro
+    cpus: 2
+    mem_limit: 3g
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+      interval: 2s
+      timeout: 5s
+      retries: 60

@@ -1,0 +1,4 @@
+-- sample 1
+-> Filter: (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00')  (cost=10088 rows=33277) (actual time=0.414..19.4 rows=36899 loops=1)
+    -> Table scan on orders  (cost=10088 rows=99841) (actual time=0.0862..14.9 rows=100000 loops=1)
+

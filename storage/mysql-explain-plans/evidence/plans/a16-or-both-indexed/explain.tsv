@@ -1,0 +1,2 @@
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	orders	NULL	index_merge	idx_customer_created,idx_phone	idx_customer_created,idx_phone	4,82	NULL	21	100.00	Using sort_union(idx_customer_created,idx_phone); Using where

@@ -1,0 +1,4 @@
+-- sample 1
+-> Limit: 10 row(s)  (cost=7 rows=10) (actual time=0.0461..0.048 rows=10 loops=1)
+    -> Index lookup on orders using idx_customer_created (customer_id=42) (reverse)  (cost=7 rows=20) (actual time=0.0456..0.0471 rows=10 loops=1)
+

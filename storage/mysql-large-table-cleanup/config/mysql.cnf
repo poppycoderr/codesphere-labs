@@ -1,0 +1,3 @@
+[mysqld]
+innodb_buffer_pool_size = 1G
+# 其余持久化参数保持默认：innodb_flush_log_at_trx_commit = 1、sync_binlog = 1、binlog_format = ROW、binlog_row_image = FULL

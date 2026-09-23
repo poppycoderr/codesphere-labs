@@ -1,0 +1,32 @@
+通过：按客户查：ref，key_len = 4
+通过：按日期查：联合索引第一列不是 created_at，全表扫描
+通过：客户 + 日期：key_len = 9（INT 4 + DATETIME 5），Using index condition
+通过：idx_phone 的 key_len = 82（VARCHAR(20) utf8mb4：20 × 4 + 2）
+通过：只取 id 与 created_at：覆盖索引 Using index
+通过：按 amount 排序：Using filesort
+通过：按 created_at 倒序：Backward index scan，没有额外排序
+通过：统计已支付客户：最内层扫描整棵 idx_customer_created，10 万行
+通过：过滤后只剩 2.5 万行
+通过：加 (status, customer_id) 后：覆盖索引只读 2.5 万行
+通过：加索引后中位耗时 60.4ms → 5.23ms，快 5 倍以上
+通过：a10-date-function：全表扫描
+通过：a12-column-arithmetic：全表扫描
+通过：a13-like-suffix：全表扫描
+通过：a17-or-one-unindexed：全表扫描
+通过：a18-not-equal：全表扫描
+通过：a08-phone-number：全表扫描
+通过：字符串列与数字比较：possible_keys 有 idx_phone，key 为 NULL
+通过：只改写成范围条件、没有 created_at 开头的索引：仍然全表扫描
+通过：补上 idx_created 后：范围扫描
+通过：有 idx_created 时，DATE(created_at) 仍然全表扫描
+通过：改写前后返回的行数相同
+通过：前导通配符但只取索引列：type = index，扫描整棵 idx_phone
+通过：前缀匹配：range
+通过：OR 两边都有索引：index_merge（sort_union）
+通过：status = 'PAID'：走索引与全表扫描都返回 25,000 行
+通过：两者耗时同一量级（15.1ms 与 19.8ms）
+通过：两种列顺序的 key_len 都是 71（VARCHAR(16) 66 + DATETIME 5）
+通过：EXPLAIN ANALYZE 的实际行数相同：ICP 在引擎内过滤，差别不在这一列
+通过：引擎检查的索引记录：(status, created_at) 9,223，(created_at, status) 36,899
+信息：一天范围无合适索引，估算输出 11091 行，实际 415 行
+信息：status = 'PAID' 覆盖索引查找，估算 47252 行，实际 25000 行

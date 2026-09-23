@@ -1,0 +1,1 @@
+SELECT * FROM orders WHERE phone LIKE '1380000004%';

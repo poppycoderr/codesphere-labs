@@ -1,0 +1,5 @@
+table	rows	avg_row_bytes	root_page	tree_height	root_records	leaf_pages	rows_per_leaf	ibd_bytes
+orders	100000	68	4	2	393	393	254	14680064
+orders_big	5000000	189	4	3	61	55563	89	931135488
+narrow_20m	20000000	38	4	3	50	45356	440	763363328
+wide_1m	1000000	2733	4	3	155	142874	6	2378170368

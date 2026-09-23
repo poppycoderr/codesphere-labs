@@ -1,0 +1,15 @@
+2026-09-23 17:57:21+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.11-1.el9 started.
+2026-09-23 17:57:22+00:00 [Note] [Entrypoint]: Switching to dedicated user 'mysql'
+2026-09-23 17:57:22+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 8.4.11-1.el9 started.
+'/var/lib/mysql/mysql.sock' -> '/var/run/mysqld/mysqld.sock'
+<timestamp> <thread> [System] [MY-015015] [Server] MySQL Server - start.
+<timestamp> <thread> [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.4.11) starting as process 1
+<timestamp> <thread> [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+<timestamp> <thread> [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+<timestamp> <thread> [System] [MY-010229] [Server] Starting XA crash recovery...
+<timestamp> <thread> [System] [MY-010232] [Server] XA crash recovery finished.
+<timestamp> <thread> [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+<timestamp> <thread> [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+<timestamp> <thread> [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+<timestamp> <thread> [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+<timestamp> <thread> [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.4.11'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.

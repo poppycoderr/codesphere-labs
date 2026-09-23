@@ -1,0 +1,2 @@
+ERROR 1062 (23000) at line 1: Duplicate entry '1001-VIP-0' for key 'service_record_b.uk_user_product'
+ERROR 1062 (23000) at line 1: Duplicate entry '1001-VIP-0' for key 'service_record_b.uk_user_product'

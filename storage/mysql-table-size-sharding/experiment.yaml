@@ -1,0 +1,27 @@
+id: storage/mysql-table-size-sharding
+title: 单表规模：B+ 树层高、扇出、点查的冷热差异与大表 DDL 耗时
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/storage/mysql-table-size-and-sharding.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+resources:
+  cpu_limit: "2"
+  memory_limit: 3g
+dataset:
+  rows: 26100000
+  generator: schema/02-seed.sql
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

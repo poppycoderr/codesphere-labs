@@ -1,0 +1,3 @@
+# 隔离级别：READ-COMMITTED；会话 A：UPDATE t_noindex SET b = 5 WHERE b = 3（未提交）
+# 会话 B：UPDATE t_noindex SET b = 4 WHERE b = 2（锁等待超时 1 秒）
+会话 B 结果：3

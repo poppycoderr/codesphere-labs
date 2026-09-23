@@ -1,0 +1,6 @@
+-- sample 1
+-> Filter: ((orders.customer_id = 42) or (orders.phone = '13800000042'))  (cost=16.9 rows=21) (actual time=0.0302..0.0618 rows=20 loops=1)
+    -> Sort-deduplicate by row ID  (cost=16.9 rows=21) (actual time=0.0284..0.0591 rows=20 loops=1)
+        -> Index range scan on orders using idx_customer_created over (customer_id = 42)  (cost=2.27 rows=20) (actual time=0.0103..0.0135 rows=20 loops=1)
+        -> Index range scan on orders using idx_phone over (phone = '13800000042')  (cost=0.36 rows=1) (actual time=0.00275..0.00308 rows=1 loops=1)
+

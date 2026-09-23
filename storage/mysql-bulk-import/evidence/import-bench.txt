@@ -1,0 +1,23 @@
+mode	rows	sample	millis	rows_per_second
+row-by-row-autocommit	20000	1	11956	1672
+row-by-row-autocommit	20000	2	10403	1922
+row-by-row-autocommit	20000	3	9678	2066
+batch-1000-no-rewrite	200000	1	9112	21949
+batch-1000-no-rewrite	200000	2	9297	21512
+batch-1000-no-rewrite	200000	3	9030	22148
+batch-1000-rewrite	200000	1	1396	143266
+batch-1000-rewrite	200000	2	1373	145666
+batch-1000-rewrite	200000	3	1402	142653
+batch-5000-rewrite	200000	1	1303	153491
+batch-5000-rewrite	200000	2	1254	159489
+batch-5000-rewrite	200000	3	1288	155279
+4-threads-batch-1000-rewrite	200000	1	969	206398
+4-threads-batch-1000-rewrite	200000	2	948	210970
+4-threads-batch-1000-rewrite	200000	3	920	217391
+load-data-local-infile	200000	1	654	305810
+load-data-local-infile	200000	2	597	335008
+load-data-local-infile	200000	3	601	332778
+# rewrite=false 异常：Duplicate entry '2' for key 'import_order.uk_order_no'
+failure	rewrite=false	update_counts=[1, 1, 1, -3, 1, 1]	committed=[1, 2, 3, 5, 6]
+# rewrite=true 异常：Duplicate entry '2' for key 'import_order.uk_order_no'
+failure	rewrite=true	update_counts=[-3, -3, -3, -3, -3, -3]	committed=[]

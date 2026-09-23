@@ -1,0 +1,40 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "3640.75"
+    },
+    "table": {
+      "table_name": "orders",
+      "access_type": "ref",
+      "possible_keys": [
+        "idx_status"
+      ],
+      "key": "idx_status",
+      "used_key_parts": [
+        "status"
+      ],
+      "key_length": "66",
+      "ref": [
+        "const"
+      ],
+      "rows_examined_per_scan": 33280,
+      "rows_produced_per_join": 33280,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "312.75",
+        "eval_cost": "3328.00",
+        "prefix_cost": "3640.75",
+        "data_read_per_join": "5M"
+      },
+      "used_columns": [
+        "id",
+        "customer_id",
+        "status",
+        "amount",
+        "phone",
+        "created_at"
+      ]
+    }
+  }
+}

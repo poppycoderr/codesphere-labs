@@ -1,0 +1,18 @@
+# MySQL（information_schema.tables，InnoDB 统计值）
++------------+---------+----------+
+| TABLE_ROWS | data_mb | index_mb |
++------------+---------+----------+
+|    4945107 |     870 |      147 |
++------------+---------+----------+
+# ClickHouse（system.columns，压缩后字节）
+   ┌─name────────┬─compressed─┬─uncompressed─┐
+1. │ id          │ 24.07 MiB  │ 38.15 MiB    │
+2. │ customer_id │ 19.16 MiB  │ 19.07 MiB    │
+3. │ status      │ 10.94 MiB  │ 33.38 MiB    │
+4. │ amount      │ 19.70 MiB  │ 38.15 MiB    │
+5. │ remark      │ 24.34 MiB  │ 576.97 MiB   │
+6. │ created_at  │ 19.16 MiB  │ 19.07 MiB    │
+   └─────────────┴────────────┴──────────────┘
+   ┌─on_disk────┬────rows─┐
+1. │ 117.37 MiB │ 5000000 │
+   └────────────┴─────────┘

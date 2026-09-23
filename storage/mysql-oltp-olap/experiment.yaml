@@ -1,0 +1,28 @@
+id: storage/mysql-oltp-olap
+title: OLTP 与 OLAP：同一份 500 万行数据在 MySQL 与 ClickHouse 上的三条查询
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/storage/mysql-oltp-vs-olap.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    clickhouse: "25.8.33.6"
+resources:
+  cpu_limit: "2（每个容器）"
+  memory_limit: 3g（每个容器）
+dataset:
+  rows: 5000000
+  generator: schema/mysql.sql、schema/clickhouse.sql
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

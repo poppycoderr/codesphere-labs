@@ -1,0 +1,23 @@
+id: storage/mysql-redo-undo-recovery
+title: Redo 与 Undo：kill -9 崩溃恢复、默认持久化参数与刷盘参数调低后的丢失
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/mysql-redo-log-and-undo-log.md
+related_articles:
+  - docs/storage/mysql-backup-restore-and-pitr.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

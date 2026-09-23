@@ -1,0 +1,5 @@
+# RR；2 秒后会话 B 插入 10 条 NEW 并提交
+快照读 NEW	0
+再次快照读 NEW	0
+UPDATE 影响行数	10
+快照读 EXPIRED	10

@@ -1,0 +1,4 @@
+-- sample 1
+-> Filter: (cast(orders.created_at as date) = '2026-06-01')  (cost=10088 rows=99841) (actual time=0.406..19.3 rows=415 loops=1)
+    -> Table scan on orders  (cost=10088 rows=99841) (actual time=0.0839..14.8 rows=100000 loops=1)
+

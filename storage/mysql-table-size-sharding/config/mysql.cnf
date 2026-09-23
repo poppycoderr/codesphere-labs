@@ -1,0 +1,7 @@
+[mysqld]
+innodb_buffer_pool_size = 1G
+# 造数阶段减少刷盘与 binlog，不影响页结构与 DDL 的结论
+innodb_flush_log_at_trx_commit = 2
+skip-log-bin
+# 重启后不自动加载上次的缓冲池内容，点查的冷、热两轮才有意义
+innodb_buffer_pool_load_at_startup = OFF

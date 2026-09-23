@@ -1,0 +1,4 @@
+# 隔离级别：REPEATABLE-READ；T3 时会话 B 执行 UPDATE account SET balance = 80 并自动提交
+T2 快照读	100
+T4 快照读	100
+T5 当前读 FOR UPDATE	80

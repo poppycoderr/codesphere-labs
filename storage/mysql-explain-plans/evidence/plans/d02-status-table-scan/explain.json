@@ -1,0 +1,30 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "10088.35"
+    },
+    "table": {
+      "table_name": "orders",
+      "access_type": "ALL",
+      "rows_examined_per_scan": 99841,
+      "rows_produced_per_join": 33280,
+      "filtered": "33.33",
+      "cost_info": {
+        "read_cost": "6760.32",
+        "eval_cost": "3328.03",
+        "prefix_cost": "10088.35",
+        "data_read_per_join": "5M"
+      },
+      "used_columns": [
+        "id",
+        "customer_id",
+        "status",
+        "amount",
+        "phone",
+        "created_at"
+      ],
+      "attached_condition": "(`labs`.`orders`.`status` = 'PAID')"
+    }
+  }
+}

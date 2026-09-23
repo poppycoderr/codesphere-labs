@@ -1,0 +1,4 @@
+-- sample 1
+-> Filter: (orders.phone = 13800000042)  (cost=10088 rows=9984) (actual time=0.0855..19.8 rows=1 loops=1)
+    -> Table scan on orders  (cost=10088 rows=99841) (actual time=0.0777..14.8 rows=100000 loops=1)
+

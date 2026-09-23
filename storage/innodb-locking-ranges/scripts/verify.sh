@@ -53,6 +53,34 @@ wait
 echo "SHOW ENGINE INNODB STATUS\G" | sq | sed -n '/LATEST DETECTED DEADLOCK/,/^TRANSACTIONS$/p' \
   | sed -E 's/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9:]+ [0-9a-fx]+$/<timestamp> <thread>/; s/thread handle [0-9]+/thread handle <n>/; s/OS thread handle [0-9]+/OS thread handle <n>/' >"$OUT/deadlock-innodb-status.txt"
 
+log "商户订单：只有 (merchant_id) 与加上 (merchant_id, external_no) 两种索引"
+merchant_case() {
+  local file="$OUT/$1.txt" ddl="$2"
+  sq <schema/merchant.sql >/dev/null
+  [ -n "$ddl" ] && echo "$ddl; ANALYZE TABLE orders_m;" | sq >/dev/null
+  local hold="UPDATE orders_m SET status = 'PAID' WHERE merchant_id = 7 AND external_no = 'A1007'"
+  ( echo "BEGIN; $hold; SELECT SLEEP(10); ROLLBACK;" | sq >/dev/null 2>&1 ) &
+  sleep 2
+  {
+    echo "# 索引：$(echo "SELECT GROUP_CONCAT(DISTINCT index_name) FROM information_schema.statistics WHERE table_schema = 'labs' AND table_name = 'orders_m';" | sq -N)"
+    echo "# 持锁语句：$hold"
+    echo "EXPLAIN $hold;" | sq -t
+    echo "SELECT index_name, lock_mode, COUNT(*) AS locks FROM performance_schema.data_locks
+          WHERE object_name = 'orders_m' AND lock_type = 'RECORD' GROUP BY index_name, lock_mode ORDER BY index_name, lock_mode;" | sq -t
+    echo "# 探测（innodb_lock_wait_timeout = 1）"
+    local p r
+    for p in "UPDATE orders_m SET status = 'PAID' WHERE id = 1017" \
+             "INSERT INTO orders_m VALUES (20001, 7, 'A20001', 'CREATED')" \
+             "UPDATE orders_m SET status = 'PAID' WHERE id = 1008"; do
+      r=$(echo "SET SESSION innodb_lock_wait_timeout = 1; BEGIN; $p; ROLLBACK;" | sq 2>&1 | grep -o "ERROR [0-9]*" | head -1 || true)
+      printf '%-62s %s\n' "$p" "${r:-通过}"
+    done
+  } >"$file"
+  wait
+}
+merchant_case merchant-single-index ""
+merchant_case merchant-composite-index "ALTER TABLE orders_m ADD KEY idx_merchant_ext (merchant_id, external_no)"
+
 write_environment "$OUT/environment.txt" "mysql: 8.4.11（shared/docker/mysql84）"
 
 expect_regex "$OUT/rr-pk-hit.txt" "PRIMARY +\| RECORD +\| X,REC_NOT_GAP +\| 10 " "RR 等值命中：主键 10 记录锁"
@@ -76,3 +104,18 @@ expect_regex "$OUT/rr-range.txt" "PRIMARY +\| RECORD +\| X,REC_NOT_GAP +\| 10 " 
 expect_regex "$OUT/rr-range.txt" "PRIMARY +\| RECORD +\| X +\| 15 " "RR 范围：主键 15 Next-Key"
 [ "$(grep -c 'GAP ' "$OUT/rc-secondary.txt" | tr -d ' ')" = 0 ] || true
 expect_regex "$OUT/rc-secondary.txt" "idx_k +\| RECORD +\| X,REC_NOT_GAP +\| 10, 10 " "RC 二级索引：只有记录锁"
+python3 - "$OUT" <<'PY'
+import re, sys
+from pathlib import Path
+def locks(name):
+    t = Path(sys.argv[1], name).read_text()
+    return t, sum(int(n) for n in re.findall(r"^\| \S+\s+\| [A-Z_,]+\s+\|\s+(\d+) \|$", t, re.M))
+single, n1 = locks("merchant-single-index.txt")
+comp, n2 = locks("merchant-composite-index.txt")
+assert n1 > 4000, f"只有单列索引时应锁住商户 7 的全部 2,000 单（主键与二级索引）：{n1}"
+assert "WHERE id = 1017" in single and re.search(r"id = 1017\s+ERROR 1205", single) and re.search(r"20001, 7.*ERROR 1205", single)
+assert re.search(r"id = 1008\s+通过", single)
+assert n2 <= 3, f"加上联合索引后应只剩 3 个记录锁：{n2}"
+assert re.search(r"id = 1017\s+通过", comp) and re.search(r"20001, 7.*通过", comp)
+print(f"通过：商户订单：只有 (merchant_id) 时锁 {n1:,} 条索引记录，同商户的更新和插入都阻塞；加上 (merchant_id, external_no) 后只有 {n2} 个锁，全部放行")
+PY

@@ -1,0 +1,15 @@
+# 默认配置的 MySQL 8.4.11（开启 binlog）；数据在匿名卷中，kill 后重新 start 同一个容器继续使用原数据
+name: csl-redo-undo
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_DATABASE: labs
+    cpus: 2
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+      interval: 1s
+      timeout: 5s
+      retries: 120

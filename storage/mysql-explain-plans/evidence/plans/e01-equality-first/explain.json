@@ -1,0 +1,42 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "7554.86"
+    },
+    "ordering_operation": {
+      "using_filesort": false,
+      "table": {
+        "table_name": "orders",
+        "access_type": "range",
+        "possible_keys": [
+          "idx_status_created"
+        ],
+        "key": "idx_status_created",
+        "used_key_parts": [
+          "status",
+          "created_at"
+        ],
+        "key_length": "71",
+        "rows_examined_per_scan": 16788,
+        "rows_produced_per_join": 16788,
+        "filtered": "100.00",
+        "index_condition": "((`labs`.`orders`.`status` = 'PAID') and (`labs`.`orders`.`created_at` >= TIMESTAMP'2026-06-01 00:00:00'))",
+        "cost_info": {
+          "read_cost": "5876.06",
+          "eval_cost": "1678.80",
+          "prefix_cost": "7554.86",
+          "data_read_per_join": "2M"
+        },
+        "used_columns": [
+          "id",
+          "customer_id",
+          "status",
+          "amount",
+          "phone",
+          "created_at"
+        ]
+      }
+    }
+  }
+}

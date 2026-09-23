@@ -1,0 +1,21 @@
+-- sample 1
+-> Index lookup on orders using idx_status (status='PAID')  (cost=3641 rows=33280) (actual time=0.472..15.6 rows=25000 loops=1)
+
+-- sample 2
+-> Index lookup on orders using idx_status (status='PAID')  (cost=3641 rows=33280) (actual time=0.47..15.5 rows=25000 loops=1)
+
+-- sample 3
+-> Index lookup on orders using idx_status (status='PAID')  (cost=3641 rows=33280) (actual time=0.487..15.5 rows=25000 loops=1)
+
+-- sample 4
+-> Index lookup on orders using idx_status (status='PAID')  (cost=3641 rows=33280) (actual time=0.484..14.7 rows=25000 loops=1)
+
+-- sample 5
+-> Index lookup on orders using idx_status (status='PAID')  (cost=3641 rows=33280) (actual time=0.441..15.1 rows=25000 loops=1)
+
+-- sample 6
+-> Index lookup on orders using idx_status (status='PAID')  (cost=3641 rows=33280) (actual time=0.461..15.1 rows=25000 loops=1)
+
+-- sample 7
+-> Index lookup on orders using idx_status (status='PAID')  (cost=3641 rows=33280) (actual time=0.452..14.9 rows=25000 loops=1)
+

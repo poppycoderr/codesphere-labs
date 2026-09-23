@@ -1,0 +1,21 @@
+-- sample 1
+-> Index range scan on orders using idx_created_status over ('2026-06-01 00:00:00' <= created_at AND 'PAID' <= status), with index condition: ((orders.`status` = 'PAID') and (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00'))  (cost=0.71 rows=1) (actual time=0.024..9.11 rows=9222 loops=1)
+
+-- sample 2
+-> Index range scan on orders using idx_created_status over ('2026-06-01 00:00:00' <= created_at AND 'PAID' <= status), with index condition: ((orders.`status` = 'PAID') and (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00'))  (cost=0.71 rows=1) (actual time=0.0243..9.25 rows=9222 loops=1)
+
+-- sample 3
+-> Index range scan on orders using idx_created_status over ('2026-06-01 00:00:00' <= created_at AND 'PAID' <= status), with index condition: ((orders.`status` = 'PAID') and (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00'))  (cost=0.71 rows=1) (actual time=0.021..9.28 rows=9222 loops=1)
+
+-- sample 4
+-> Index range scan on orders using idx_created_status over ('2026-06-01 00:00:00' <= created_at AND 'PAID' <= status), with index condition: ((orders.`status` = 'PAID') and (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00'))  (cost=0.71 rows=1) (actual time=0.0221..8.93 rows=9222 loops=1)
+
+-- sample 5
+-> Index range scan on orders using idx_created_status over ('2026-06-01 00:00:00' <= created_at AND 'PAID' <= status), with index condition: ((orders.`status` = 'PAID') and (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00'))  (cost=0.71 rows=1) (actual time=0.0225..8.88 rows=9222 loops=1)
+
+-- sample 6
+-> Index range scan on orders using idx_created_status over ('2026-06-01 00:00:00' <= created_at AND 'PAID' <= status), with index condition: ((orders.`status` = 'PAID') and (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00'))  (cost=0.71 rows=1) (actual time=0.0216..8.97 rows=9222 loops=1)
+
+-- sample 7
+-> Index range scan on orders using idx_created_status over ('2026-06-01 00:00:00' <= created_at AND 'PAID' <= status), with index condition: ((orders.`status` = 'PAID') and (orders.created_at >= TIMESTAMP'2026-06-01 00:00:00'))  (cost=0.71 rows=1) (actual time=0.0243..8.82 rows=9222 loops=1)
+

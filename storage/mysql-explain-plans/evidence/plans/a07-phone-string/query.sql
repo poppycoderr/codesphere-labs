@@ -1,0 +1,1 @@
+SELECT * FROM orders WHERE phone = '13800000042';

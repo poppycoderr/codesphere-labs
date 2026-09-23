@@ -1,0 +1,2 @@
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	orders	NULL	ALL	idx_customer_created	NULL	NULL	NULL	99841	10.02	Using where

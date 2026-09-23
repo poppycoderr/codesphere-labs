@@ -1,0 +1,6 @@
+-> Sort: m  (actual time=1296..1296 rows=7 loops=1)
+    -> Table scan on <temporary>  (actual time=1296..1296 rows=7 loops=1)
+        -> Aggregate using temporary table  (actual time=1296..1296 rows=7 loops=1)
+            -> Filter: ((orders_big.created_at >= TIMESTAMP'2025-06-01 00:00:00') and (orders_big.created_at < TIMESTAMP'2026-01-01 00:00:00'))  (cost=508434 rows=549346) (actual time=0.0538..810 rows=1.78e+6 loops=1)
+                -> Table scan on orders_big  (cost=508434 rows=4.95e+6) (actual time=0.041..526 rows=5e+6 loops=1)
+

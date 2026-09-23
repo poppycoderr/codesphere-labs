@@ -1,0 +1,5 @@
+-> Sort: orders_big.`status`  (actual time=1922..1922 rows=4 loops=1)
+    -> Table scan on <temporary>  (actual time=1922..1922 rows=4 loops=1)
+        -> Aggregate using temporary table  (actual time=1922..1922 rows=4 loops=1)
+            -> Table scan on orders_big  (cost=508434 rows=4.95e+6) (actual time=0.106..568 rows=5e+6 loops=1)
+

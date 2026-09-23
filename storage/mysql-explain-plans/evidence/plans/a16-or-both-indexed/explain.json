@@ -1,0 +1,36 @@
+{
+  "query_block": {
+    "select_id": 1,
+    "cost_info": {
+      "query_cost": "16.94"
+    },
+    "table": {
+      "table_name": "orders",
+      "access_type": "index_merge",
+      "possible_keys": [
+        "idx_customer_created",
+        "idx_phone"
+      ],
+      "key": "sort_union(idx_customer_created,idx_phone)",
+      "key_length": "4,82",
+      "rows_examined_per_scan": 21,
+      "rows_produced_per_join": 21,
+      "filtered": "100.00",
+      "cost_info": {
+        "read_cost": "14.84",
+        "eval_cost": "2.10",
+        "prefix_cost": "16.94",
+        "data_read_per_join": "3K"
+      },
+      "used_columns": [
+        "id",
+        "customer_id",
+        "status",
+        "amount",
+        "phone",
+        "created_at"
+      ],
+      "attached_condition": "((`labs`.`orders`.`customer_id` = 42) or (`labs`.`orders`.`phone` = '13800000042'))"
+    }
+  }
+}
