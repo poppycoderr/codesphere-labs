@@ -22,6 +22,14 @@
 | [design/api-evolution](design/api-evolution/) | API 设计看错误何时暴露 | 轻量 | regular |
 | [design/jdk-api-facts](design/jdk-api-facts/) | 设计原则、设计模式决策图 | 轻量 | regular |
 | [design/aggregate-concurrency](design/aggregate-concurrency/) | 从统一语言到限界上下文 | 轻量 | regular-docker |
+| [design/object-creation-lifecycle](design/object-creation-lifecycle/) | 对象创建与生命周期 | 轻量：Spring 容器 | regular |
+| [design/wrapper-patterns](design/wrapper-patterns/) | 适配器、装饰器与代理 | 轻量 | regular |
+| [design/extensible-processing-pipeline](design/extensible-processing-pipeline/) | 策略、回调与责任链 | 轻量 | regular |
+| [design/local-event-delivery](design/local-event-delivery/) | 观察者、事件与消息 | 轻量：Spring 容器与事务同步 | regular |
+| [design/registration-state-machine](design/registration-state-machine/) | 状态机与工作流 | 轻量 | regular |
+| [design/adaptive-rate-limiter](design/adaptive-rate-limiter/) | 可复用的服务端组件：限流 | 组件：Redis 与故障注入 | regular-docker |
+| [design/idempotency-key](design/idempotency-key/) | 可复用的服务端组件：幂等键 | 组件：MySQL、租约与崩溃窗口 | regular-docker |
+| [design/progressive-delivery-rules](design/progressive-delivery-rules/) | 可复用的服务端组件：渐进发布 | 组件：本地规则引擎 | regular |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
 | [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
 | [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |
