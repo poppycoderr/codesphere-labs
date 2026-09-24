@@ -1,0 +1,15 @@
+key	encoding	memory_usage_bytes	description
+h:512	listpack	8113	Hash 512 个字段，值 8 字节
+h:513	hashtable	25604	Hash 513 个字段
+h:v64	listpack	741	Hash 10 个字段，值 64 字节
+h:v65	hashtable	1162	Hash 10 个字段，值 65 字节
+z:128	listpack	945	ZSet 128 个成员
+z:129	skiplist	10584	ZSet 129 个成员
+s:int512	intset	1059	Set 512 个整数
+s:int513	hashtable	18938	Set 513 个整数
+s:str128	listpack	692	Set 128 个字符串
+s:str129	hashtable	4859	Set 129 个字符串
+l:small	listpack	1033	List 100 个 8 字节元素
+l:big	quicklist	20213	List 2000 个 8 字节元素
+str:int	int	26	String 12345
+str:100	raw	138	String 100 字节

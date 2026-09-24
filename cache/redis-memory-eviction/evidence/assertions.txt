@@ -1,0 +1,16 @@
+通过：默认 maxmemory=0、maxmemory-policy=noeviction
+通过：noeviction：6 万次写入失败 34,588 次，淘汰 0，库中 25,412 个；之后写入返回 OOM，读取仍正常
+通过：allkeys-lru：写入全部成功，淘汰 35,830 个，库中剩 24,170 个
+通过：allkeys-lfu：写入全部成功，淘汰 35,850 个，库中剩 24,150 个
+通过：volatile-lru 且没有 key 带 TTL：失败 34,493 次、淘汰 0，与 noeviction 相同
+通过：volatile-lru，先写 1.5 万条不带 TTL 的常驻数据、再写 4.5 万条带 TTL 的缓存：常驻数据 15,000 条全部保留，淘汰 36,596 个全部来自缓存，缓存只剩 9,236 / 45,000 条
+通过：1000 个热 key 各读 30 次后遇到 6 万个一次性写入：allkeys-lru 存活 18 个，allkeys-lfu 存活 1000 个
+通过：20 万个 key 用 0.52s 写完、TTL 3 秒：最后一个 key 到期（3.52s）后仍有最多 122,960 个已过期的 key 留在库里，4.6s 时全部清除（到期后约 1.1s）；expired_stale_perc 最高 75.6%
+信息：同时过期 used_memory 40.3 MB → 1.50 MB
+通过：TTL 分散到 3—9 秒：从 3.7s 开始减少，9.6s 清完，过期删除分摊到约 6 秒；expired_stale_perc 最高 48.9%
+通过：过期清完后 used_memory 1.58 MB、RSS 58.2 MB，mem_fragmentation_ratio 37.28；allocator_frag_ratio 8.53，allocator_frag_bytes 19.4 MB
+通过：50 万个值删掉四分之三：used_memory 166 → 46 MB，RSS 196 → 196 MB，allocator_frag_ratio 1.05 → 3.63（碎片 128 MB）
+通过：CONFIG SET activedefrag yes 成功（jemalloc 构建支持主动碎片整理）
+通过：打开 activedefrag 40 秒后：碎片 128 → 39 MB，RSS 196 → 107 MB，used_memory 不变（46 MB）
+通过：碎片字节在前 2 秒内基本降完，RSS 第 7 秒才开始下降；40 秒内 Redis 用户态 CPU 增加 3.9 秒，active_defrag_running 最后仍为 4%
+通过：整理后 key 数仍为 125,000

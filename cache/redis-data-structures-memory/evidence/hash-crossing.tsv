@@ -1,0 +1,4 @@
+key	encoding	memory_usage_bytes	description
+h:500	listpack	7921	500 个字段
+h:600	hashtable	28562	600 个字段
+h:600	hashtable	25162	600 个字段删掉 100 个，剩 500 个

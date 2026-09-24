@@ -1,0 +1,25 @@
+id: cache/redis-distributed-semaphore
+title: 基于 Redis 的分布式信号量：获取、超时、释放、重复释放、租约回收、崩溃补偿与租约早于任务结束
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/cache/redis-concurrency-controller.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    jdk: "21"
+resources:
+  cpu_limit: "2"
+  memory_limit: 1g
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

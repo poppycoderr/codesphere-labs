@@ -1,0 +1,27 @@
+redis_version	8.10.1
+acquire.pod-1	available=2 holders=1
+acquire.pod-2	available=1 holders=2
+acquire.pod-3	available=0 holders=3
+acquire.pod-4.result	timeout
+acquire.pod-4.waited_ms	2053
+release.pod-1.first	1 available=1 holders=2
+release.pod-1.second	0 available=1 holders=2
+compensate.after_pod-2_lease_expired	1 available=2 holders=1
+release.pod-2.after_reclaimed	0 available=2 holders=1
+release.pod-3	1 available=3 holders=0
+compensate.when_balanced	0 available=3 holders=0
+pop_crash.before_compensate	available=2 holders=0
+pop_crash.compensate	1 available=3 holders=0
+stress.threads_x_rounds	20x50
+stress.acquired	1000
+stress.timeouts	0
+stress.max_concurrent_holders	3
+stress.double_release_succeeded	0
+stress.elapsed_ms	1447
+stress.final	available=3 holders=0
+lease.timeline	2ms pod-a acquired lease=500ms
+lease.timeline	709ms compensate reclaimed=1
+lease.timeline	712ms pod-b acquired=true, pod-a still running=true
+lease.timeline	1503ms pod-a finished, release=0
+lease.timeline	1506ms pod-b release=1 available=1 holders=0
+lease.max_concurrent_holders	2

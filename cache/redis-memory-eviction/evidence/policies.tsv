@@ -1,0 +1,6 @@
+case	policy	writes	write_errors	evicted_keys	dbsize	keys_with_ttl	first_15000_survived	used_memory	next_set	get_first_key
+noeviction	noeviction	60000	34588	0	25412	0	15000	8487272	OOM command not allowed when used memory > 'maxmemory'.	v000000000:x
+allkeys-lru	allkeys-lru	60000	0	35830	24170	0	4991	8222512	OK	
+allkeys-lfu	allkeys-lfu	60000	0	35850	24150	0	4942	8214712	OK	
+volatile-lru	volatile-lru	60000	34493	0	25507	0	15000	8512008	OOM command not allowed when used memory > 'maxmemory'.	v000000000:x
+volatile-lru-mixed	volatile-lru	60000	0	36596	23404	9236	15000	8229976	OK	v000000000:x

@@ -1,0 +1,580 @@
+@@ 1790214370.393965465
+# Keyspace
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:1504168
+used_memory_rss:35147776
+dbsize:0
+@@ 1790214370.612272548
+# Keyspace
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:1528856
+used_memory_rss:35147776
+dbsize:0
+@@ 1790214370.838340382
+# Keyspace
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:1528856
+used_memory_rss:35147776
+dbsize:0
+@@ 1790214371.057019132
+# Keyspace
+db0:keys=34968,expires=34968,avg_ttl=0,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:9179232
+used_memory_rss:35147776
+dbsize:38159
+@@ 1790214371.266258257
+# Keyspace
+db0:keys=132464,expires=132464,avg_ttl=2931,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:30027192
+used_memory_rss:49086464
+dbsize:136994
+@@ 1790214371.478506507
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2925,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:40265616
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214371.698951465
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2911,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:39185016
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214371.922884799
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2890,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:39177400
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214372.142192924
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2864,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:39169192
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214372.365003466
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2807,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:39154872
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214372.594810924
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2762,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:38095520
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214372.816828758
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2710,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:38095520
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214373.045187383
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2652,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:38095520
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214373.265496674
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2588,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:38095520
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214373.483426258
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2518,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:38095520
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214373.705509758
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2444,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:38095520
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214373.931015966
+# Keyspace
+db0:keys=200000,expires=200000,avg_ttl=2322,subexpiry=0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+used_memory:38095520
+used_memory_rss:67567616
+dbsize:200000
+@@ 1790214374.153328592
+# Keyspace
+db0:keys=199887,expires=199887,avg_ttl=1653,subexpiry=0
+expired_keys:113
+expired_keys_active:113
+expired_stale_perc:1.64
+used_memory:38077160
+used_memory_rss:67567616
+dbsize:199887
+@@ 1790214374.377227092
+# Keyspace
+db0:keys=175605,expires=175605,avg_ttl=55,subexpiry=0
+expired_keys:25070
+expired_keys_active:25070
+expired_stale_perc:20.76
+used_memory:33960136
+used_memory_rss:67567616
+dbsize:173592
+@@ 1790214374.613188425
+# Keyspace
+db0:keys=122960,expires=122960,avg_ttl=55,subexpiry=0
+expired_keys:78362
+expired_keys_active:78362
+expired_stale_perc:44.66
+used_memory:19968864
+used_memory_rss:67567616
+dbsize:85348
+@@ 1790214374.860369884
+# Keyspace
+db0:keys=49442,expires=49442,avg_ttl=55,subexpiry=0
+expired_keys:151230
+expired_keys_active:151230
+expired_stale_perc:63.29
+used_memory:13576128
+used_memory_rss:67567616
+dbsize:47422
+@@ 1790214375.112908884
+# Keyspace
+db0:keys=5569,expires=5569,avg_ttl=55,subexpiry=0
+expired_keys:195461
+expired_keys_active:195461
+expired_stale_perc:75.64
+used_memory:2811328
+used_memory_rss:67428352
+dbsize:2715
+@@ 1790214375.337302050
+# Keyspace
+db0:keys=1,expires=1,avg_ttl=55,subexpiry=0
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:67.03
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214375.555201967
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:42.24
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214375.774189676
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:28.03
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214375.995400842
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:18.59
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214376.217299884
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:12.33
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214376.444970468
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:9.54
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214376.668915384
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:8.61
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214376.894140843
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:7.39
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214377.119856093
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:6.67
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214377.348307010
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:6.02
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214377.570110302
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:5.43
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214377.795932468
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:4.90
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214378.018788052
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:4.20
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214378.241731302
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:3.79
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214378.465978010
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:3.42
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214378.688271177
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:3.09
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214378.912978886
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:2.79
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214379.140618552
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:2.52
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214379.366372761
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:2.16
+used_memory:1578832
+used_memory_rss:67690496
+dbsize:0
+@@ 1790214379.587106428
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:1.95
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214379.805563303
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:1.76
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214380.034944636
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:1.59
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214380.264022719
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:1.43
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214380.484427761
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:1.29
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214380.702813720
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:1.17
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214380.918249720
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:1.05
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214381.145350553
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.90
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214381.365341303
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.81
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214381.592605762
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.73
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214381.816715179
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.66
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214382.049195595
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.60
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214382.267404387
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.54
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214382.494179637
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.46
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214382.716869554
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.42
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214382.942155679
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.38
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214383.164409304
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.34
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214383.383609013
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.31
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214383.605335513
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.28
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214383.824998596
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.25
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214384.048544180
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.23
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214384.272497555
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.19
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214384.500316472
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.17
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214384.725937097
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.16
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214384.947635847
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.14
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214385.166339805
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.13
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214385.389836055
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.12
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214385.609166722
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.10
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0
+@@ 1790214385.828539972
+# Keyspace
+expired_keys:200000
+expired_keys_active:200000
+expired_stale_perc:0.09
+used_memory:1578832
+used_memory_rss:58171392
+dbsize:0

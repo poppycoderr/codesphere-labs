@@ -1,0 +1,12 @@
+used_memory:1578832
+used_memory_rss:58171392
+allocator_allocated:12550920
+allocator_active:33816576
+allocator_resident:53215232
+allocator_frag_ratio:8.53
+allocator_frag_bytes:19437752
+allocator_rss_ratio:1.57
+allocator_rss_bytes:19398656
+rss_overhead_ratio:1.09
+mem_fragmentation_ratio:37.28
+mem_fragmentation_bytes:56610832

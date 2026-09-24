@@ -1,0 +1,23 @@
+信息：默认阈值 hash-max-listpack-entries=512，hash-max-listpack-value=64，zset-max-listpack-entries=128，set-max-intset-entries=512，set-max-listpack-entries=128，list-max-listpack-size=-2
+通过：Redis 8.10.1 默认 hash-max-listpack-entries=512、zset-max-listpack-entries=128
+通过：Hash 512 个字段，值 8 字节 → listpack（8113 字节）；Hash 513 个字段 → hashtable（25604 字节）
+通过：Hash 10 个字段，值 64 字节 → listpack（741 字节）；Hash 10 个字段，值 65 字节 → hashtable（1162 字节）
+通过：ZSet 128 个成员 → listpack（945 字节）；ZSet 129 个成员 → skiplist（10584 字节）
+通过：Set 512 个整数 → intset（1059 字节）；Set 513 个整数 → hashtable（18938 字节）
+通过：Set 128 个字符串 → listpack（692 字节）；Set 129 个字符串 → hashtable（4859 字节）
+通过：List 100 个 8 字节元素 → listpack（1033 字节）；List 2000 个 8 字节元素 → quicklist（20213 字节）
+通过：String 12345 → int（26 字节），100 字节字符串 → raw（138 字节）
+通过：每个 key 都只有一个分界：不超过上限是 embstr，超过后全部是 raw
+通过：embstr 的值长度上限随 key 变长而下降：key 1 字节时 ≤40 字节；key 9 字节时 ≤32 字节；key 26 字节时 ≤15 字节（不是固定的 44 字节）
+信息：key「user:1001」：32 字节值 embstr 64 字节，33 字节值 raw 68 字节
+通过：Hash 500 个字段 listpack 7,921 字节（15.8 字节/字段）；600 个字段 hashtable 28,562 字节（47.6 字节/字段）
+通过：600 个字段删掉 100 个，剩 500 个，编码仍是 hashtable（25,162 字节），不会变回 listpack
+通过：10 万条小对象：独立 String key 100000 个，新增 7.05 MB；每 500 条一个 Hash（200 个 key，listpack），新增 2.47 MB，节省 65%
+通过：每 1000 条一个 Hash 超过阈值变成 hashtable，新增 4.61 MB，收益缩小到 35%
+信息：used_memory 总量 strings 8.82 MB，buckets:500 4.27 MB
+通过：一百万个 ID：Set（hashtable）32.3 MB，Bitmap 131 KB，两者计数都是 1,000,000
+通过：HyperLogLog 14.4 KB，PFCOUNT 1,009,972，误差 1.00%
+通过：Set 是 Bitmap 的 246 倍、HyperLogLog 的 2248 倍
+通过：只设置偏移量 1 亿处的 1 位，Bitmap 占用 12.6 MB
+通过：删除 100 万元素的 Set（SLOWLOG 服务端耗时，5 次中位数）：DEL 37.1ms（36.9—41.2），UNLINK 12µs（10—18）
+通过：打开 lazyfree-lazy-user-del 后 DEL 与 UNLINK 相当：12µs（11—14）；默认值 no

@@ -1,0 +1,5 @@
+key	encoding	memory_usage_bytes	count
+uv:set	hashtable	32277579	1000000
+uv:bitmap	raw	131100	1000000
+uv:hll	raw	14361	1009972
+uv:sparse	raw	12582940	1

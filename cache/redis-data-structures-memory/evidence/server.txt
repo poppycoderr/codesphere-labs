@@ -1,0 +1,5 @@
+redis_version:8.10.1
+redis_mode:standalone
+os:Linux 7.0.12-linuxkit aarch64
+arch_bits:64
+io_threads_active:0

@@ -1,0 +1,13 @@
+# 单节点 Redis 8.10.1，固定 digest；关闭 RDB/AOF。客户端运行在共享该容器网络的 JDK 21 容器中，不对宿主机暴露端口
+name: csl-redis-semaphore
+services:
+  redis:
+    image: redis:8.10.1@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    cpus: 2
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30

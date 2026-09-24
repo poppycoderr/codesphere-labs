@@ -1,0 +1,13 @@
+hash-max-listpack-entries	512
+hash-max-listpack-value	64
+zset-max-listpack-entries	128
+zset-max-listpack-value	64
+set-max-intset-entries	512
+set-max-listpack-entries	128
+set-max-listpack-value	64
+list-max-listpack-size	-2
+lazyfree-lazy-user-del	no
+lazyfree-lazy-user-flush	no
+maxmemory	0
+save	
+appendonly	no

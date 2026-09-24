@@ -1,0 +1,4 @@
+layout	keys	used_memory_before	used_memory_after	delta_bytes	sample_encoding
+strings	100000	1773112	8824448	7051336	embstr
+buckets:500	200	1800544	4268000	2467456	listpack
+buckets:1000	100	1800672	6406528	4605856	hashtable

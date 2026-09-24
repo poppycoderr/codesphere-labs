@@ -1,0 +1,24 @@
+id: cache/redis-data-structures-memory
+title: Redis 数据结构与编码：编码阈值、embstr 分界、跨阈值的内存代价、Hash 分桶、计数结构、DEL 与 UNLINK
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/cache/redis-basics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+resources:
+  cpu_limit: "2"
+  memory_limit: 1g
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"
