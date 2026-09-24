@@ -35,6 +35,14 @@
 | [storage/mysql-failover-read-consistency](storage/mysql-failover-read-consistency/) | MySQL 故障切换 | 多节点：故障注入与切换时间线 | performance |
 | [storage/mysql-backup-pitr](storage/mysql-backup-pitr/) | MySQL 误删恢复 | 多实例：隔离恢复与对照校验 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
+| [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
+| [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
+| [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |
+| [cache/redis-persistence-recovery](cache/redis-persistence-recovery/) | Redis 持久化与恢复 | 故障注入：进程崩溃与断电（LazyFS） | performance |
+| [cache/redis-sentinel-failover](cache/redis-sentinel-failover/) | Redis Sentinel 故障切换 | 多节点：1 primary + 2 replicas + 3 Sentinel | performance |
+| [cache/redis-latency-diagnostics](cache/redis-latency-diagnostics/) | Redis 为什么突然变慢 | 探测延迟与故障注入 | performance |
+| [cache/redis-cluster-resharding](cache/redis-cluster-resharding/) | Redis Cluster 的应用契约 | 多节点：3 primary + 3 replicas | performance |
+| [cache/redis-atomicity-and-locks](cache/redis-atomicity-and-locks/) | Redis 原子性边界 | 轻量 | regular-docker |
 
 **黄金样板**按 [验证标准](docs/verification-standard.md) 的完整要求建设，用来确定同类实验的格式；**轻量实验**只保留核心代码、一条验证入口、原始输出和简要验证记录。
 
