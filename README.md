@@ -30,6 +30,15 @@
 | [design/adaptive-rate-limiter](design/adaptive-rate-limiter/) | 可复用的服务端组件：限流 | 组件：Redis 与故障注入 | regular-docker |
 | [design/idempotency-key](design/idempotency-key/) | 可复用的服务端组件：幂等键 | 组件：MySQL、租约与崩溃窗口 | regular-docker |
 | [design/progressive-delivery-rules](design/progressive-delivery-rules/) | 可复用的服务端组件：渐进发布 | 组件：本地规则引擎 | regular |
+| [ddd/registration-acceptance-tests](ddd/registration-acceptance-tests/) | 事件风暴；领域建模 | 轻量：规则表与验收测试 | regular |
+| [ddd/entities-and-value-objects](ddd/entities-and-value-objects/) | 实体与值对象 | 轻量 | regular |
+| [ddd/aggregate-boundaries](ddd/aggregate-boundaries/) | 聚合边界 | 轻量：MySQL 并发 | regular-docker |
+| [ddd/layered-architecture](ddd/layered-architecture/) | 分层、应用服务与仓储 | 轻量：ArchUnit | regular |
+| [ddd/deployment-boundaries](ddd/deployment-boundaries/) | 从模型到部署单元 | 轻量：同进程与 HTTP 拆分 | regular |
+| [ddd/persistence-rehydration](ddd/persistence-rehydration/) | 持久化与重建 | 轻量：MySQL 映射与执行计划 | regular-docker |
+| [ddd/context-integration-outbox](ddd/context-integration-outbox/) | 上下文集成 | 组件：outbox、去重、乱序与死信 | regular-docker |
+| [ddd/cqrs-read-models](ddd/cqrs-read-models/) | CQRS 读模型 | 轻量：MySQL 读模型与投影 | regular-docker |
+| [ddd/legacy-modernization-slice](ddd/legacy-modernization-slice/) | 遗留系统的精益切片 | 轻量：字符化与影子比对 | regular |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
 | [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
 | [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |
