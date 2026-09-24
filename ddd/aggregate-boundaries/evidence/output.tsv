@@ -1,0 +1,16 @@
+promotion.combined.1	10 人取消、10 位新报名并发：已确认 20/20，候补者递补 10，新报名直接确认 0，死锁重试 0 次
+promotion.split.1	10 人取消、10 位新报名并发：已确认 20/20，候补者递补 0，新报名直接确认 10，递补成功 0 次、递补时已无空位 10 次，死锁重试 0 次
+promotion.combined.2	10 人取消、10 位新报名并发：已确认 20/20，候补者递补 10，新报名直接确认 0，死锁重试 0 次
+promotion.split.2	10 人取消、10 位新报名并发：已确认 20/20，候补者递补 0，新报名直接确认 10，递补成功 0 次、递补时已无空位 10 次，死锁重试 0 次
+promotion.combined.3	10 人取消、10 位新报名并发：已确认 20/20，候补者递补 10，新报名直接确认 0，死锁重试 0 次
+promotion.split.3	10 人取消、10 位新报名并发：已确认 20/20，候补者递补 0，新报名直接确认 10，递补成功 0 次、递补时已无空位 10 次，死锁重试 0 次
+contention.event-root.1	200 个请求分散在 8 个场次：确认 200，行锁等待 199 次，累计锁等待 51057ms，总耗时 545ms
+contention.session-root.1	200 个请求分散在 8 个场次：确认 200，行锁等待 192 次，累计锁等待 3281ms，总耗时 83ms
+contention.event-root.2	200 个请求分散在 8 个场次：确认 200，行锁等待 199 次，累计锁等待 49486ms，总耗时 534ms
+contention.session-root.2	200 个请求分散在 8 个场次：确认 200，行锁等待 191 次，累计锁等待 2808ms，总耗时 72ms
+contention.event-root.3	200 个请求分散在 8 个场次：确认 200，行锁等待 199 次，累计锁等待 49015ms，总耗时 523ms
+contention.session-root.3	200 个请求分散在 8 个场次：确认 200，行锁等待 192 次，累计锁等待 3796ms，总耗时 85ms
+rollback.direct	保存失败（Duplicate entry '1-alice'）并回滚：确认数仍为 1，已发布事件 1 个
+rollback.after-commit	保存失败（Duplicate entry '1-alice'）并回滚：确认数仍为 1，已发布事件 0 个
+root.view	向只读视图添加：UnsupportedOperationException；根修改后视图可见 [alice, bob]，副本仍为 [alice]
+root.copy	向 List.copyOf 副本添加：UnsupportedOperationException

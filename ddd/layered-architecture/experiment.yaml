@@ -1,0 +1,22 @@
+id: ddd/layered-architecture
+title: 分层与依赖规则：四层规则与三个违规夹具、一条报名用例的调用顺序与失败路径、实体与持久化对象的往返检查
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/ddd/layers-services-and-repositories.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    archunit: "1.5.0"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

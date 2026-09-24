@@ -1,0 +1,10 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  IdentityAndValueTest  valueObjectsAreEqualByValue
+PASS  IdentityAndValueTest  typedIdentifiersRejectSwappedArguments
+PASS  IdentityAndValueTest  phoneIsNormalizedAtConstruction
+PASS  IdentityAndValueTest  entityKeepsIdentityWhenAttributesChange
+PASS  IdentityAndValueTest  recordIsOnlyShallowlyImmutable
+PASS  IdentityAndValueTest  identityAssignedOnSaveBreaksSets
+PASS  IdentityAndValueTest  rawBigDecimalRecordComparesScale
+
+tests=7 failures=0

@@ -1,0 +1,12 @@
+entity	同一标识、手机号不同：equals=true；不同标识、属性完全相同：equals=false
+entity.hash_changes	放进 HashSet 后再分配 id=42：contains=false
+entity.null_id	保存前 id 都为 null：两个报名放进 HashSet 后剩 1 个（alice）；创建时分配标识：2 个
+ids.raw	String 标识参数传反：编译错误 0 个
+ids.typed	参数传反：incompatible types: labs.ddd.values.Ids.AttendeeId cannot be converted to labs.ddd.values.Ids.SessionId
+money	Money(100) 与 Money(100.00)：equals=true；a.plus(0.5) 后 a=100.00，结果=100.50
+money.raw	record 直接包 BigDecimal：100.0 与 100.00 equals=false，compareTo=0，放进 HashSet 后 2 个；Money 规范化后 1 个
+money.rejected	币种不同不能相加：CNY + USD；CNY 最多 2 位小数：100.001
+phone	三种写法解析后 1 个值：+8613800138000
+record.array	两个内容都是 [1, 2] 的数组组件：equals=false
+record.list	修改传入的列表并通过访问器追加后：Tags=[VIP, STAFF, PRESS]，CopiedTags=[VIP]，向 CopiedTags 追加抛出 UnsupportedOperationException
+rejected	不是中国大陆手机号：12345；容量至少为 1：0；开始时间必须早于结束时间

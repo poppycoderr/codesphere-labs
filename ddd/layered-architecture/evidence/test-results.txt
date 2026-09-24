@@ -1,0 +1,10 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  ArchitectureTest  domainHoldingAPersistenceObjectIsRejected
+PASS  ArchitectureTest  mainCodeFollowsTheRules
+PASS  ArchitectureTest  domainAnnotatedWithSpringIsRejected
+PASS  ArchitectureTest  adapterBypassingApplicationIsRejected
+PASS  ConverterRoundTripTest  roundTripKeepsEveryField
+PASS  UseCaseTraceTest  happyPath
+PASS  UseCaseTraceTest  failures
+
+tests=7 failures=0

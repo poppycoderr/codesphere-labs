@@ -1,0 +1,11 @@
+# 由 shared/scripts/lib.sh write_environment 生成
+date_utc: 2026-09-24T11:41:12Z
+os: Darwin 27.0.0
+arch: arm64
+os_version: macOS 27.0
+cpus: 10
+memory_gb: 32
+java: 21.0.5+9-LTS-239 (Oracle Corporation)
+docker_server: 29.8.0
+mysql: 8.4.11（shared/docker/mysql84，2 CPU、1 GB）
+jdbc: mysql:mysql-connector-java:8.0.27

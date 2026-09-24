@@ -1,0 +1,10 @@
+arch.main	导入 30 个类，3 条规则全部通过
+arch.violation.bypass	被 LAYERS 拦下；Constructor <labs.ddd.violations.bypass.adapter.SessionController.<init>(labs.ddd.violations.bypass.domain.SessionRepository)> has parameter of type <labs.ddd.violations.bypass.domain.SessionRepository>
+arch.violation.domainleak	被 LAYERS、DOMAIN_FREE_OF_OUTER_LAYERS 拦下；Field <labs.ddd.violations.domainleak.domain.Session.state> has type <labs.ddd.violations.domainleak.infrastructure.SessionPO>
+arch.violation.framework	被 DOMAIN_FREE_OF_FRAMEWORKS 拦下；Class <labs.ddd.violations.framework.domain.Session> is annotated with <org.springframework.stereotype.Component>
+converter	200 个随机场次往返：完整转换器不一致 0 个；漏掉候补表的转换器不一致 97 个（等于有候补的场次数 97）
+trace.bad_phone	400 手机号格式不正确；经过的层：adapter,application
+trace.conflict	409 请重试；ROLLBACK（ConcurrentModification） → 返回 409 请重试；新发布事件 0 个
+trace.duplicate	422 DUPLICATE；经过的层：adapter,infrastructure,application；ROLLBACK（RegistrationRefused） → 返回 422 DUPLICATE
+trace.ok	adapter:收到 POST /sessions/S-1/registrations → infrastructure:BEGIN → application:开始用例 RegisterForSession → infrastructure:SELECT session S-1 → domain:Session.register 通过容量与重复检查 → infrastructure:UPDATE session ... WHERE version=3：1 行 → infrastructure:COMMIT → infrastructure:发布 RegistrationConfirmed → adapter:返回 201 CONFIRMED
+trace.ok.version	两次报名后版本 5，已发布事件 2 个

@@ -1,0 +1,15 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+FAIL  RegistrationAcceptanceTest  R3 候补中的参会人再次报名被拒绝，不会排两个位置
+PASS  RegistrationAcceptanceTest  R8 免费场次不生成应收
+FAIL  RegistrationAcceptanceTest  R3 重复点报名不会让一个人占两个名额
+PASS  RegistrationAcceptanceTest  R1 名额未满时报名直接确认
+PASS  RegistrationAcceptanceTest  R2 名额已满时进入候补并得到顺位
+PASS  RegistrationAcceptanceTest  R4 开场前 24 小时内不能取消
+PASS  RegistrationAcceptanceTest  R5 已确认者取消后，候补第一位递补
+PASS  RegistrationAcceptanceTest  R6 候补者取消只离开队列，不触发递补
+PASS  RegistrationAcceptanceTest  R7 报名截止后不接受新报名
+PASS  RegistrationAcceptanceTest  R8 收费场次有人拿到名额时生成应收，进入候补不生成
+PASS  RegistrationAcceptanceTest  R5 没有候补时取消只释放名额
+FAIL  RegistrationAcceptanceTest  R3 已确认的参会人再次报名被拒绝
+
+tests=12 failures=3

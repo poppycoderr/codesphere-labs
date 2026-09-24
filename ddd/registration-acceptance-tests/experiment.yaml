@@ -1,0 +1,21 @@
+id: ddd/registration-acceptance-tests
+title: 事件风暴产物进入验收测试：初稿模型缺少重复报名规则时失败，规则表、词汇表与代码可追踪
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/ddd/event-storming-from-events-to-rules.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

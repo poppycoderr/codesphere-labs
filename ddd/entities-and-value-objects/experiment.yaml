@@ -1,0 +1,21 @@
+id: ddd/entities-and-value-objects
+title: 实体与值对象：身份相等与值相等、BigDecimal 的 scale、构造即校验、record 的浅不可变、保存时才分配标识、类型化标识
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/ddd/entities-and-value-objects.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

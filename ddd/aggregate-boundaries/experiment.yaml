@@ -1,0 +1,22 @@
+id: ddd/aggregate-boundaries
+title: 聚合边界：候补递补放在场次聚合内还是拆开、大聚合与小聚合的锁等待、回滚时事件是否流出
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/aggregate-boundaries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    mysql: "8.4.11"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"
