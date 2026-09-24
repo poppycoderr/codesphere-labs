@@ -1,0 +1,22 @@
+id: design/local-event-delivery
+title: 本地事件的投递：同步与异步监听器的线程、顺序与异常，有界线程池的拒绝，提交后监听器的触发条件与失败
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/events-observer-and-event-bus.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    spring-framework: "7.0.9"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

@@ -1,0 +1,22 @@
+id: design/object-creation-lifecycle
+title: 对象创建与生命周期：Builder 的校验与防御性复制、单例的作用域、Spring 作用域、浅复制与聚合复制
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/object-creation-and-lifecycle.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    spring-framework: "7.0.9"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

@@ -1,0 +1,9 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  CreationTest  copyingAnAggregateMustResetIdentity
+PASS  CreationTest  strictBuilderDelegatesInvariantsToTheRecord
+PASS  CreationTest  looseBuilderLetsInvalidAndMutableObjectsEscape
+PASS  CreationTest  shallowCopySharesCollections
+PASS  CreationTest  staticSingletonIsUniquePerClassLoader
+PASS  CreationTest  springSingletonIsUniquePerContextAndPrototypeInjectionIsStale
+
+tests=6 failures=0

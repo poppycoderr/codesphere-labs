@@ -1,0 +1,11 @@
+copy.copy_as_new	新 id 102、version 1、未发布事件 0 个；原报名 id 101 不变
+copy.deep_copy_saved_over_original	仓储中只有 1 条，id 101 的名单变成 [template-user]
+copy.original_then_conflicts	version conflict for id 101
+copy.shallow_polluted_original	[alice, mallory]
+loose.channels_after_builder_reused	[sms, email]
+loose.invalid_built	connect=PT5S read=PT1S
+singleton.classloaders	2 个类加载器各有一个 INSTANCE，计数分别为 3 与 1
+spring.prototype_injected_into_singleton	直接注入：每次都是同一个 prototype 实例；ObjectProvider：每次新实例
+spring.singleton	同一容器两次 getBean 为同一对象，两个容器各一个
+strict.build_error	connectTimeout PT5S > readTimeout PT1S
+strict.channels_after_builder_reused	[sms]

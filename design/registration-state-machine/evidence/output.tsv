@@ -1,0 +1,7 @@
+matrix.size	5 个状态 × 5 个命令 = 25 个组合，合法 7 个
+matrix.scattered_diffs	6 处不一致：WAITLISTED+CONFIRM: 表 拒绝 / 分支 CONFIRMED；WAITLISTED+WAITLIST: 表 拒绝 / 分支 WAITLISTED；CONFIRMED+WAITLIST: 表 拒绝 / 分支 WAITLISTED；CANCELLED+PROMOTE: 表 拒绝 / 分支 CONFIRMED；CHECKED_IN+WAITLIST: 表 拒绝 / 分支 WAITLISTED；CHECKED_IN+CANCEL: 表 拒绝 / 分支 CANCELLED
+graph.reachability	从 PENDING 不可达的状态 []；没有出口的状态 [CANCELLED, CHECKED_IN]
+concurrency.naive	1000 轮 CANCEL 与 CHECK_IN 并发：两个命令都「成功」1000 轮
+concurrency.versioned	1000 轮带版本号：两个命令都成功 0 轮，另一个命令被拒绝 1000 次
+side_effect.inline	第1次：状态已变为 CONFIRMED，通知失败；第2次：CONFIRM 在 CONFIRMED 下非法；第3次：CONFIRM 在 CONFIRMED 下非法；最终送达 0 封
+side_effect.outbox	状态 CONFIRMED；投递器第 3 轮送达，调用通知服务 3 次，最终送达 1 封

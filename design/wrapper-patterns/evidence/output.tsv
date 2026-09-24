@@ -1,0 +1,7 @@
+adapter.flatten+retry_all	成功 8，失败 {SmsFailed:短信发送失败=2}，供应商调用 17 次
+adapter.precise+retry_retryable	成功 8，失败 {PermanentFailure:INVALID_NUMBER=2}，供应商调用 13 次
+order.retry(cache(metrics(delegate)))	metrics 计数 10、错误 5；缓存命中 5；下游调用 10
+order.metrics(cache(retry(delegate)))	metrics 计数 10、错误 0；缓存命中 5；下游调用 10
+proxy.self_invocation	sendAll 发送 3 条，经过代理的调用 1 次
+proxy.declared_checked	sendChecked 声明了 IOException：调用方收到 IOException
+proxy.undeclared_checked	send 没有声明 IOException：调用方收到 UndeclaredThrowableException，原因 IOException

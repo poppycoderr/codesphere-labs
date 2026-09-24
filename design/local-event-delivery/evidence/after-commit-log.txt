@@ -1,0 +1,3 @@
+<timestamp> org.springframework.transaction.support.TransactionSynchronizationUtils invokeAfterCompletion
+SEVERE: TransactionSynchronization.afterCompletion threw exception
+java.lang.IllegalStateException: 通知组织者失败

@@ -1,0 +1,7 @@
+after_commit.failure	提交后监听器抛异常：报名已提交 1 条；发布者没有收到异常
+after_commit.no_transaction	没有事务时发布：提交后监听器调用 0 次，报名已保存 1 条
+async.failure	发布者 在监听器完成前返回，报名已提交；异步异常只进入 AsyncUncaughtExceptionHandler（1 次）
+async.rejection	线程 1、队列 2：连续发布 10 个事件，3 个被接受，7 个在发布者线程抛出 TaskRejectedException；被拒绝的报名已经保存 10 条
+proxy.field	容器里的 Listeners 是 CGLIB 代理，代理对象上的 calls 字段为 null
+sync.failure	发布者收到 审计写入失败；报名已提交 0 条；提交后监听器调用 0 次
+sync.order_and_threads	points@publisher audit@publisher email@async-1 afterCommit@publisher

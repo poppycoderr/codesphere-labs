@@ -1,0 +1,20 @@
+id: design/registration-state-machine
+title: 报名状态机：散落分支与转换表的全矩阵对比、可达性、并发命令与版本号、副作用失败与待发送记录
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/state-machines-and-workflows.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

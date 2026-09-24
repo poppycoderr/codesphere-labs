@@ -1,0 +1,20 @@
+id: design/extensible-processing-pipeline
+title: 可扩展流程：策略注册的重复与缺失、回调换线程后丢失上下文与异常包装、责任链的顺序与节点副作用
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/strategy-template-and-pipeline.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

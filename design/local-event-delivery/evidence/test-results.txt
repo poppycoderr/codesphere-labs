@@ -1,0 +1,10 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  EventDeliveryTest  fieldsOfTheProxyAreNotTheBeansFields
+PASS  EventDeliveryTest  afterCommitListenerIsSkippedWithoutTransaction
+PASS  EventDeliveryTest  afterCommitFailureHappensAfterTheCommit
+PASS  EventDeliveryTest  syncListenerFailureRollsBackThePublisher
+PASS  EventDeliveryTest  asyncListenerFailureDoesNotReachThePublisher
+PASS  EventDeliveryTest  boundedExecutorRejectsAtThePublisher
+PASS  EventDeliveryTest  syncListenersRunInPublisherThreadInOrder
+
+tests=7 failures=0

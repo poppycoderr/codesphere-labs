@@ -1,0 +1,10 @@
+strategy.first_match	20 个座位的工作坊：注册顺序 A 容量 20，顺序反过来容量 22
+strategy.strict_duplicate	重复的容量规则 WORKSHOP：FixedSeats[type=WORKSHOP] 与 Overbook[type=WORKSHOP, percent=10]
+strategy.strict_missing	缺少容量规则 [WEBINAR]
+callback.inline	activity-1 的租户：tenant-a
+callback.async	activity-1 的租户：null
+callback.async_exception	调用方收到 CompletionException，原因 IllegalStateException: 容量规则不存在
+chain.order.auth,rate-limit	合法请求通过 40 / 40，拒绝原因 {未登录=60}
+chain.order.rate-limit,auth	合法请求通过 20 / 40，拒绝原因 {未登录=30, 超过限流=50}
+chain.side_effect.idempotency,validation	第一次（6 人）[auth=pass, idempotency=pass, validation=reject(同行人数必须在 1—4 之间)]；改成 2 人后用同一个幂等键重试 [auth=pass, idempotency=reject(重复请求)] → 拒绝：重复请求
+chain.side_effect.validation,idempotency	第一次（6 人）[auth=pass, validation=reject(同行人数必须在 1—4 之间)]；改成 2 人后用同一个幂等键重试 [auth=pass, validation=pass, idempotency=pass] → 通过

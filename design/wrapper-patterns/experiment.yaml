@@ -1,0 +1,20 @@
+id: design/wrapper-patterns
+title: 包装类模式：适配器的错误翻译与重试、装饰器顺序对计量与缓存的影响、JDK 动态代理的自调用与异常包装
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/wrappers-adapter-decorator-proxy.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"
