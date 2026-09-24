@@ -1,0 +1,3 @@
+aof-no aof_delayed_fsync:0
+aof-everysec aof_delayed_fsync:0
+aof-always aof_delayed_fsync:0

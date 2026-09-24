@@ -1,0 +1,7 @@
+t0	fault_injected	1790218741510
+t1	last_client_ack_on_old_primary	1790218744523
+t2	sdown	1790218745139
+t3	odown	1790218746223
+t4	switch_master	1790218746350	r3
+t5	first_write_on_new_primary	1790218746372
+t6	verification	acked=4809 lost_acked=584 unconfirmed=0 errors=368 present_but_not_acked=0

@@ -1,0 +1,18 @@
+通过：replica 暂停，被 source 断开后又写入 200 KB，恢复后重连（backlog 1 MB）：部分同步 1 次，全量同步 0 次
+通过：同样的断线与写入量、backlog 只有 16 KB：断线期间的写入超出 backlog，全量同步 1 次
+信息：kill-primary 时间线（相对故障注入）：+sdown +3.16s，+odown +3.23s，+switch-master +5.38s，旧 primary 上最后一次确认 +0.10s，客户端在 r3 上首次写入成功 +5.18s
+通过：primary 被 SIGKILL：3.2s 后主观下线（down-after-milliseconds 3000），5.4s 完成切换，客户端 5.2s 恢复写入
+通过：primary 被 SIGKILL：已确认 4,627 条，丢失 0 条（复制几乎没有积压）；故障期间失败 16 次
+通过：旧 primary 重启后被 Sentinel 改为 replica
+信息：partition-async 时间线（相对故障注入）：+sdown +3.95s，+odown +4.02s，+switch-master +6.22s，旧 primary 上最后一次确认 +5.23s，客户端在 r3 上首次写入成功 +5.23s
+通过：分区（异步复制）：旧 primary 在分区后仍确认写入直到 5.2s，已确认的 1028 条写入全部丢失（都写在旧 primary 上），分区恢复后旧 primary 变为 replica
+通过：分区恢复后旧 primary 被改为新 primary 的 replica，它独有的写入被丢弃
+信息：partition-min-replicas 时间线（相对故障注入）：+sdown +3.63s，+odown +4.71s，+switch-master +4.84s，旧 primary 上最后一次确认 +3.01s，客户端在 r3 上首次写入成功 +4.86s
+通过：分区 + min-replicas-to-write 1、max-lag 2：旧 primary 从 3.0s 起拒绝写入（NOREPLICAS，共 368 次），丢失的已确认写入从 1028 条降到 584 条，但不是 0
+信息：partition-wait 时间线（相对故障注入）：+sdown +3.85s，+odown +4.98s，+switch-master +5.17s，旧 primary 上最后一次确认 +0.09s，客户端在 r2 上首次写入成功 +5.33s
+通过：分区 + 每次写入后 WAIT 1 100：WAIT 确认的写入丢失 0 条；分区期间 32 条写入 WAIT 返回 0（未确认），其中 32 条最终不存在
+信息：分区前的写入延迟：SET p50 194µs、p99 1036µs；SET + WAIT 1 p50 191µs、p99 2005µs
+信息：kill-primary：已确认 4627，丢失 0，未确认 0，失败 16，未确认但最终存在 0
+信息：partition-async：已确认 5295，丢失 1028，未确认 0，失败 0，未确认但最终存在 0
+信息：partition-min-replicas：已确认 4809，丢失 584，未确认 0，失败 368，未确认但最终存在 0
+信息：partition-wait：已确认 5286，丢失 0，未确认 32，失败 0，未确认但最终存在 0

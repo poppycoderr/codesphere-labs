@@ -1,0 +1,18 @@
+通过：GET 判断后 SET：100 个名额，50 个线程各抢 10 次，客户端认为抢到 500 次，名单 500 人，剩余名额 34——超卖 400 个
+通过：DECR 后小于 0 再 INCR 补回：抢到 100 次、名单 100 人、剩余 0，耗时 9ms
+通过：WATCH + MULTI 冲突重试：抢到 100 次、名单 100 人、剩余 0，耗时 115ms，WATCH 冲突重试 3,003 次
+通过：Lua 条件扣减：抢到 100 次、名单 100 人、剩余 0，耗时 5ms
+通过：Function 条件扣减：抢到 100 次、名单 100 人、剩余 0，耗时 4ms
+通过：WATCH 在 50 个并发下冲突重试 3,003 次，耗时 115ms，Lua 为 5ms
+信息：DECR 补偿写法结束时剩余 0（中途会短暂出现负数）
+通过：入队时命令错误（ERR wrong number of arguments for 'incrby' comma…）：EXEC 返回 EXECABORT，队列里的 SET 也没有执行
+通过：执行时出错（对字符串 LPUSH）：EXEC 返回 [OK, ERR:WRONGTYPE Operation against a key holding the wrong kind of value, OK]，出错命令前后的 SET 都已生效，没有回滚
+通过：DISCARD 放弃队列，值保持不变
+通过：WATCH 的 key 在 EXEC 前被其他连接修改：EXEC 返回空，整个事务不执行
+通过：重启前 EVALSHA 与 FCALL 都能执行
+通过：重启后 EVALSHA 返回 NOSCRIPT No matching script. Please use …，FCALL 仍可执行（Function 随 AOF 持久化）；名额从 5 扣到 2
+通过：SET NX PX：A 持有时 B 获取失败；300ms 租约过期后 B 获取成功
+通过：A 不校验 token 直接 DEL：删掉的是 B 的锁
+通过：比较 token 再删除的 Lua：A 释放返回 0、B 的锁仍在；B 释放返回 1
+通过：租约 500ms、A 停顿 1500ms：B 在 A 的锁过期后获取并写入，A 恢复后仍写入下游，最终值是旧持有者 A 写的 → 6ms A acquired lock ttl=500ms fence=1 | 716ms B acquired lock=OK fence=2 | 717ms B writes downstream -> OK | 1510ms A resumes, lock holder is now token-b | 1510ms A writes downstream -> OK
+通过：加入 fencing token：下游只接受不小于已见最大 token 的写入，A 的写入被拒绝，最终值是 B 写的 → 1ms A acquired lock ttl=500ms fence=3 | 706ms B acquired lock=OK fence=4 | 706ms B writes downstream -> 1 | 1505ms A resumes, lock holder is now token-b | 1506ms A writes downstream -> 0

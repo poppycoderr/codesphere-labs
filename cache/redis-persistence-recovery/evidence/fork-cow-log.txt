@@ -1,0 +1,9 @@
+<ts> * BGSAVE done, 0 keys saved, 0 keys skipped, 89 bytes written.
+<ts> * Background saving started by pid 3179
+<ts> * BGSAVE done, 1000000 keys saved, 0 keys skipped, 30777788 bytes written.
+<ts> * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+<ts> * Background saving terminated with success
+<ts> * Background saving started by pid 3235
+<ts> * BGSAVE done, 1390952 keys saved, 0 keys skipped, 77692028 bytes written.
+<ts> * Fork CoW for RDB: current 60 MB, peak 60 MB, average 30 MB
+<ts> * Background saving terminated with success

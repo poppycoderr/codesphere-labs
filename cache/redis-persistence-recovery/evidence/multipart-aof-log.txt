@@ -1,0 +1,11 @@
+<ts> * Creating AOF base file appendonly.aof.1.base.rdb on server start
+<ts> * Creating AOF incr file appendonly.aof.1.incr.aof on server start
+<ts> * Creating AOF incr file appendonly.aof.2.incr.aof on background rewrite
+<ts> * Background append only file rewriting started by pid 3067
+<ts> * Successfully created the temporary AOF base file temp-rewriteaof-bg-3067.aof
+<ts> * Fork CoW for AOF rewrite: current 0 MB, peak 0 MB, average 0 MB
+<ts> * Background AOF rewrite terminated with success
+<ts> * Successfully renamed the temporary AOF base file temp-rewriteaof-bg-3067.aof into appendonly.aof.2.base.rdb
+<ts> * Removing the history file appendonly.aof.1.incr.aof in the background
+<ts> * Removing the history file appendonly.aof.1.base.rdb in the background
+<ts> * Background AOF rewrite finished successfully

@@ -1,0 +1,16 @@
+slot	13513
+source	n3
+target	n1
+keys_before	1000
+started_at_ms	1790219655403
+setslot_importing	OK
+setslot_migrating	OK
+get_migrated_key_at_source	ASK 13513 172.18.0.2:6379
+get_migrated_key_at_target_without_asking	MOVED 13513 172.18.0.3:6379
+get_migrated_key_at_target_with_asking	OK v49490
+cluster_nodes_during_migration	n3 f1247317 master - connected 10923-16383 [13513->-f7064569d407e0b9428a81183faf88f67283791f]
+batches	10
+finished_at_ms	1790219661960
+keys_after_source	0
+keys_after_target	1000
+get_at_old_owner_after	MOVED 13513 172.18.0.2:6379

@@ -1,0 +1,3 @@
+old_primary_dbsize_before_heal=1850
+role:master
+connected_slaves:2

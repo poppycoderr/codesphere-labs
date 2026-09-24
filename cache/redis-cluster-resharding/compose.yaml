@@ -1,0 +1,27 @@
+# Redis Cluster：6 个节点，Redis 8.10.1 固定 digest，由 scripts/verify.sh 用 redis-cli --cluster create 组成 3 primary + 3 replica。
+# cluster-node-timeout 5000ms；关闭持久化。客户端运行在同一网络的 JDK 21 容器中。不对宿主机暴露端口
+name: csl-redis-cluster
+x-node: &node
+  image: redis:8.10.1@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+  command: ["redis-server", "--cluster-enabled", "yes", "--cluster-node-timeout", "5000", "--save", "", "--appendonly", "no",
+            "--latency-monitor-threshold", "5"]
+  cpus: 1
+  mem_limit: 768m
+  healthcheck:
+    test: ["CMD", "redis-cli", "ping"]
+    interval: 1s
+    timeout: 3s
+    retries: 30
+services:
+  n1:
+    <<: *node
+  n2:
+    <<: *node
+  n3:
+    <<: *node
+  n4:
+    <<: *node
+  n5:
+    <<: *node
+  n6:
+    <<: *node

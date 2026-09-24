@@ -1,0 +1,19 @@
+# Redis 8.10.1（固定 digest）加 LazyFS，镜像由 docker/Dockerfile 在本地构建。
+# /data 挂载 LazyFS，用于崩溃矩阵；/plain 在容器可写层上，用于写延迟、fork、加载、损坏与备份场景。
+# 容器入口只挂载 LazyFS，所有 redis-server 由 scripts/verify.sh 通过 docker exec 启停。LazyFS 需要 /dev/fuse 与 SYS_ADMIN。
+# 不对宿主机暴露端口
+name: csl-redis-persistence
+services:
+  redis:
+    build: docker
+    image: csl-redis-lazyfs:8.10.1
+    devices: ["/dev/fuse"]
+    cap_add: [SYS_ADMIN]
+    security_opt: ["apparmor=unconfined"]
+    cpus: 2
+    mem_limit: 3g
+    healthcheck:
+      test: ["CMD", "grep", "-q", " /data fuse", "/proc/mounts"]
+      interval: 1s
+      timeout: 3s
+      retries: 60

@@ -1,0 +1,2 @@
+resync-backlog-1mb	before=sync_full:2 sync_partial_ok:0	after=sync_full:2 sync_partial_ok:1	backlog=repl_backlog_size:1048576 repl_backlog_histlen:581240
+resync-backlog-16kb	before=sync_full:2 sync_partial_ok:1	after=sync_full:3 sync_partial_ok:1	backlog=repl_backlog_size:16384 repl_backlog_histlen:36690

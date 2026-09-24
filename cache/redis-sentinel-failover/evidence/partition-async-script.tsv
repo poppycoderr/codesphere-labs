@@ -1,0 +1,4 @@
+1790218700793	fault_injected	r1 与 data 网络断开，客户端仍经 side 网络连着 r1
+1790218706507	new_primary	r3
+1790218708707	partition_healed	
+1790218719751	old_primary_rejoined	role=slave

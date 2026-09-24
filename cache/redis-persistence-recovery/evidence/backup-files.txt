@@ -1,0 +1,6 @@
+total 76
+-rw-r--r-- 1 0 0 23985 Sep 24 02:41 appendonly.aof.2.base.rdb
+-rw-r--r-- 1 0 0 46913 Sep 24 02:41 appendonly.aof.2.incr.aof
+-rw-r--r-- 1 0 0   120 Sep 24 02:41 appendonly.aof.manifest
+file appendonly.aof.2.base.rdb seq 2 type b
+file appendonly.aof.2.incr.aof seq 2 type i startoffset 1000 endoffset 2000

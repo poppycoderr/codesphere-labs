@@ -1,0 +1,19 @@
+## BACKUP START
+OK
+## BACKUP LIST（SEAL 前）
+/plain/bk/backupdir/appendonly.aof.2.base.rdb
+## BACKUP SEAL
+OK
+## BACKUP LIST（SEAL 后）
+/plain/bk/backupdir/appendonly.aof.2.base.rdb
+/plain/bk/backupdir/appendonly.aof.2.incr.aof
+/plain/bk/backupdir/appendonly.aof.manifest
+## BACKUP STATUS
+state	sealed
+error	
+start_time	1790217703
+end_time	1790217704
+## 误操作
+OK
+## 原实例重启后的 DBSIZE
+0

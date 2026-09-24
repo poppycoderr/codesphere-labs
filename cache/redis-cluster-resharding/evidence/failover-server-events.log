@@ -1,0 +1,36 @@
+n1-1  | 2026-09-24T03:14:01.553714793Z 1:M 24 Sep 2026 03:14:01.553 * configEpoch set to 1 via CLUSTER SET-CONFIG-EPOCH
+n1-1  | 2026-09-24T03:14:06.490273212Z 1:M 24 Sep 2026 03:14:06.489 * Cluster state changed: ok
+n2-1  | 2026-09-24T03:14:01.553927585Z 1:M 24 Sep 2026 03:14:01.553 * configEpoch set to 2 via CLUSTER SET-CONFIG-EPOCH
+n3-1  | 2026-09-24T03:14:01.554139085Z 1:M 24 Sep 2026 03:14:01.554 * configEpoch set to 3 via CLUSTER SET-CONFIG-EPOCH
+n1-1  | 2026-09-24T03:14:21.067307011Z 1:M 24 Sep 2026 03:14:21.067 * New configEpoch set to 7
+n1-1  | 2026-09-24T03:14:21.067336636Z 1:M 24 Sep 2026 03:14:21.067 * configEpoch updated after importing slot 13513
+n3-1  | 2026-09-24T03:14:06.587173629Z 1:M 24 Sep 2026 03:14:06.585 * Cluster state changed: ok
+n1-1  | 2026-09-24T03:14:50.740429094Z 1:M 24 Sep 2026 03:14:50.740 * New configEpoch set to 9
+n1-1  | 2026-09-24T03:14:50.740448719Z 1:M 24 Sep 2026 03:14:50.740 * configEpoch updated after importing slot 6392
+n1-1  | 2026-09-24T03:15:06.117276879Z 1:M 24 Sep 2026 03:15:06.117 # Cluster state changed: fail
+n1-1  | 2026-09-24T03:15:06.826934879Z 1:M 24 Sep 2026 03:15:06.826 * Failover auth granted to 9c2c8c2222c6d6f511a5936a8fceb199b6185d5c () for epoch 10
+n1-1  | 2026-09-24T03:15:06.869811546Z 1:M 24 Sep 2026 03:15:06.869 * Cluster state changed: ok
+n2-1  | 2026-09-24T03:14:06.568052379Z 1:M 24 Sep 2026 03:14:06.567 * Cluster state changed: ok
+n3-1  | 2026-09-24T03:14:37.378942379Z 1:M 24 Sep 2026 03:14:37.378 * New configEpoch set to 8
+n3-1  | 2026-09-24T03:15:06.116864962Z 1:M 24 Sep 2026 03:15:06.116 # Cluster state changed: fail
+n3-1  | 2026-09-24T03:15:06.826838713Z 1:M 24 Sep 2026 03:15:06.826 * Failover auth granted to 9c2c8c2222c6d6f511a5936a8fceb199b6185d5c () for epoch 10
+n3-1  | 2026-09-24T03:15:06.869788838Z 1:M 24 Sep 2026 03:15:06.869 * Cluster state changed: ok
+n4-1  | 2026-09-24T03:14:01.554390835Z 1:M 24 Sep 2026 03:14:01.554 * configEpoch set to 4 via CLUSTER SET-CONFIG-EPOCH
+n4-1  | 2026-09-24T03:14:03.569488794Z 1:S 24 Sep 2026 03:14:03.569 * Cluster state changed: ok
+n4-1  | 2026-09-24T03:15:06.117285087Z 1:S 24 Sep 2026 03:15:06.117 * FAIL message received from f1247317f6a6d56dcfb5ec55a1f7fd6b3c20e7c5 () about c50b15da0c7c4caa030b290c1d629210f636cbf8 ()
+n4-1  | 2026-09-24T03:15:06.117358337Z 1:S 24 Sep 2026 03:15:06.117 # Cluster state changed: fail
+n4-1  | 2026-09-24T03:15:06.869802254Z 1:S 24 Sep 2026 03:15:06.869 * Cluster state changed: ok
+n6-1  | 2026-09-24T03:14:01.554880918Z 1:M 24 Sep 2026 03:14:01.554 * configEpoch set to 6 via CLUSTER SET-CONFIG-EPOCH
+n5-1  | 2026-09-24T03:14:01.554768877Z 1:M 24 Sep 2026 03:14:01.554 * configEpoch set to 5 via CLUSTER SET-CONFIG-EPOCH
+n5-1  | 2026-09-24T03:14:03.572402794Z 1:S 24 Sep 2026 03:14:03.571 * Cluster state changed: ok
+n6-1  | 2026-09-24T03:14:03.572878878Z 1:S 24 Sep 2026 03:14:03.572 * Cluster state changed: ok
+n6-1  | 2026-09-24T03:15:06.117668337Z 1:S 24 Sep 2026 03:15:06.117 * FAIL message received from f1247317f6a6d56dcfb5ec55a1f7fd6b3c20e7c5 () about c50b15da0c7c4caa030b290c1d629210f636cbf8 ()
+n6-1  | 2026-09-24T03:15:06.117673212Z 1:S 24 Sep 2026 03:15:06.117 # Cluster state changed: fail
+n5-1  | 2026-09-24T03:15:06.117369962Z 1:S 24 Sep 2026 03:15:06.117 * FAIL message received from f1247317f6a6d56dcfb5ec55a1f7fd6b3c20e7c5 () about c50b15da0c7c4caa030b290c1d629210f636cbf8 ()
+n5-1  | 2026-09-24T03:15:06.117383587Z 1:S 24 Sep 2026 03:15:06.117 # Cluster state changed: fail
+n5-1  | 2026-09-24T03:15:06.869800004Z 1:S 24 Sep 2026 03:15:06.869 * Cluster state changed: ok
+n6-1  | 2026-09-24T03:15:06.211355504Z 1:S 24 Sep 2026 03:15:06.211 * Start of election delayed for 572 milliseconds (rank #0, offset 31853659).
+n6-1  | 2026-09-24T03:15:06.825007588Z 1:S 24 Sep 2026 03:15:06.824 * Starting a failover election for epoch 10.
+n6-1  | 2026-09-24T03:15:06.828483921Z 1:S 24 Sep 2026 03:15:06.828 * Failover election won: I'm the new master.
+n6-1  | 2026-09-24T03:15:06.828493296Z 1:S 24 Sep 2026 03:15:06.828 * configEpoch set to 10 after successful failover
+n6-1  | 2026-09-24T03:15:06.828664379Z 1:M 24 Sep 2026 03:15:06.828 * Cluster state changed: ok

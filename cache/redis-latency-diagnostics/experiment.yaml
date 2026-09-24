@@ -1,0 +1,25 @@
+id: cache/redis-latency-diagnostics
+title: Redis 延迟诊断：探测请求对照大 key 删除、集中过期、长 Lua、KEYS、fork、慢订阅者，SLOWLOG 与 LATENCY 的边界，pipeline 批次
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/cache/redis-command-execution-and-latency.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    jdk: "21"
+resources:
+  cpu_limit: "2"
+  memory_limit: 2g
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

@@ -1,0 +1,56 @@
+quota.get-then-set.client_won	500
+quota.get-then-set.winners_list	500
+quota.get-then-set.left	34
+quota.get-then-set.watch_retries	0
+quota.get-then-set.elapsed_ms	20
+quota.decr-then-compensate.client_won	100
+quota.decr-then-compensate.winners_list	100
+quota.decr-then-compensate.left	0
+quota.decr-then-compensate.watch_retries	0
+quota.decr-then-compensate.elapsed_ms	9
+quota.watch-multi.client_won	100
+quota.watch-multi.winners_list	100
+quota.watch-multi.left	0
+quota.watch-multi.watch_retries	3003
+quota.watch-multi.elapsed_ms	115
+quota.lua.client_won	100
+quota.lua.winners_list	100
+quota.lua.left	0
+quota.lua.watch_retries	0
+quota.lua.elapsed_ms	5
+quota.function.client_won	100
+quota.function.winners_list	100
+quota.function.left	0
+quota.function.watch_retries	0
+quota.function.elapsed_ms	4
+tx.queue_error.set	QUEUED
+tx.queue_error.bad_command	ERR wrong number of arguments for 'incrby' command
+tx.queue_error.exec	EXECABORT Transaction discarded because of previous errors.
+tx.queue_error.tx:a_after	null
+tx.runtime_error.exec_replies	[OK, ERR:WRONGTYPE Operation against a key holding the wrong kind of value, OK]
+tx.runtime_error.tx:k_after	1
+tx.runtime_error.tx:k2_after	2
+tx.discard	OK
+tx.discard.tx:a_after	0
+tx.watch_conflict.exec	null
+tx.watch_conflict.tx:a_after	changed-by-other
+lock.a_acquire	OK
+lock.b_acquire_while_held	null
+lock.b_acquire_after_expiry	OK
+lock.a_naive_del_removes_b_lock	1
+lock.holder_after_naive_del	null
+lock.a_token_release	0
+lock.holder_after_token_release	token-b
+lock.b_token_release	1
+lease.unfenced.final_value	written-by-A
+lease.unfenced.timeline	6ms A acquired lock ttl=500ms fence=1
+lease.unfenced.timeline	716ms B acquired lock=OK fence=2
+lease.unfenced.timeline	717ms B writes downstream -> OK
+lease.unfenced.timeline	1510ms A resumes, lock holder is now token-b
+lease.unfenced.timeline	1510ms A writes downstream -> OK
+lease.fenced.final_value	written-by-B
+lease.fenced.timeline	1ms A acquired lock ttl=500ms fence=3
+lease.fenced.timeline	706ms B acquired lock=OK fence=4
+lease.fenced.timeline	706ms B writes downstream -> 1
+lease.fenced.timeline	1505ms A resumes, lock holder is now token-b
+lease.fenced.timeline	1506ms A writes downstream -> 0

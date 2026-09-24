@@ -1,0 +1,3 @@
+1790218664670	fault_injected	docker kill r1
+1790218669429	new_primary	r3
+1790218670137	old_primary_restarted	

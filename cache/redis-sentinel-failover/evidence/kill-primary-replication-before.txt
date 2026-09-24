@@ -1,0 +1,42 @@
+## r1
+role:master
+connected_slaves:2
+slave0:ip=r2-data,port=6379,state=online,offset=133849,lag=0,io-thread=0
+slave1:ip=r3-data,port=6379,state=online,offset=133849,lag=0,io-thread=0
+master_replid:e37ca02c642bfb8ab3b2b658a53f8cf5ff66fd95
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:133886
+second_repl_offset:-1
+repl_backlog_size:1048576
+repl_backlog_histlen:133886
+sync_full:2
+sync_partial_ok:0
+sync_partial_err:0
+## r2
+role:slave
+master_host:r1-data
+master_link_status:up
+connected_slaves:0
+master_replid:e37ca02c642bfb8ab3b2b658a53f8cf5ff66fd95
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:137417
+second_repl_offset:-1
+repl_backlog_size:1048576
+repl_backlog_histlen:137417
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+## r3
+role:slave
+master_host:r1-data
+master_link_status:up
+connected_slaves:0
+master_replid:e37ca02c642bfb8ab3b2b658a53f8cf5ff66fd95
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:141055
+second_repl_offset:-1
+repl_backlog_size:1048576
+repl_backlog_histlen:141055
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0

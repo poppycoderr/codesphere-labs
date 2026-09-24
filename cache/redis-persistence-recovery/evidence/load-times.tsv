@@ -1,0 +1,5 @@
+file	dbsize	log
+aof-incr-only	1000000	3385:M 24 Sep 2026 02:41:26.007 * Done loading RDB, keys loaded: 0, keys expired: 0. 3385:M 24 Sep 2026 02:41:26.007 * DB loaded from base file appendonly.aof.1.base.rdb: 0.001 seconds 3385:M 24 Sep 2026 02:41:26.765 * DB loaded from incr file appendonly.aof.1.incr.aof: 0.758 seconds 3385:M 24 Sep 2026 02:41:26.765 * DB loaded from append only file: 0.758 seconds 
+aof-rewritten-plain	1000000	3500:M 24 Sep 2026 02:41:29.951 * DB loaded from base file appendonly.aof.2.base.aof: 0.755 seconds 3500:M 24 Sep 2026 02:41:29.951 * DB loaded from append only file: 0.755 seconds 
+aof-rdb-preamble	1000000	3614:M 24 Sep 2026 02:41:32.991 * Done loading RDB, keys loaded: 1000000, keys expired: 0. 3614:M 24 Sep 2026 02:41:32.991 * DB loaded from base file appendonly.aof.3.base.rdb: 0.596 seconds 3614:M 24 Sep 2026 02:41:32.991 * DB loaded from append only file: 0.596 seconds 
+rdb	1000000	3710:M 24 Sep 2026 02:41:35.231 * Done loading RDB, keys loaded: 1000000, keys expired: 0. 3710:M 24 Sep 2026 02:41:35.231 * DB loaded from disk: 0.548 seconds 

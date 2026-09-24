@@ -1,0 +1,8 @@
+idle_rdb_last_bgsave_status:ok
+idle_rdb_last_bgsave_time_sec:1
+idle_rdb_last_cow_size:962560
+idle_latest_fork_usec:1746
+busy_rdb_last_bgsave_status:ok
+busy_rdb_last_bgsave_time_sec:1
+busy_rdb_last_cow_size:62988288
+busy_latest_fork_usec:2097

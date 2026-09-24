@@ -1,0 +1,45 @@
+## r1
+role:master
+connected_slaves:2
+min_slaves_good_slaves:2
+slave0:ip=r3-data,port=6379,state=online,offset=268246,lag=0,io-thread=0
+slave1:ip=r2-data,port=6379,state=online,offset=268246,lag=0,io-thread=0
+master_replid:22c746e0e441adb9322a5a4a2712e15e31110d3b
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:268283
+second_repl_offset:-1
+repl_backlog_size:1048576
+repl_backlog_histlen:268278
+sync_full:2
+sync_partial_ok:0
+sync_partial_err:0
+## r2
+role:slave
+master_host:r1-data
+master_link_status:up
+connected_slaves:0
+min_slaves_good_slaves:0
+master_replid:22c746e0e441adb9322a5a4a2712e15e31110d3b
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:272028
+second_repl_offset:-1
+repl_backlog_size:1048576
+repl_backlog_histlen:255572
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+## r3
+role:slave
+master_host:r1-data
+master_link_status:up
+connected_slaves:0
+min_slaves_good_slaves:0
+master_replid:22c746e0e441adb9322a5a4a2712e15e31110d3b
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:275592
+second_repl_offset:-1
+repl_backlog_size:1048576
+repl_backlog_histlen:275587
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0

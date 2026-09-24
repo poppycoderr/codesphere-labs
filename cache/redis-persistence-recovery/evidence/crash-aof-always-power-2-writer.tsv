@@ -1,0 +1,8 @@
+started_at_ms	1790217639999
+last_acked_seq	5920
+last_ack_at_ms	1790217645918
+rate_per_second	1000
+ended_by	SocketException: Connection reset
+latency_p50_us	121
+latency_p99_us	483
+latency_max_us	4936

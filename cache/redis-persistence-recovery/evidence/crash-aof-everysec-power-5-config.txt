@@ -1,0 +1,3 @@
+appendfsync	everysec
+save	
+appendonly	yes

@@ -1,0 +1,9 @@
+/tmp/restore.log <ts> * Configuration loaded
+/tmp/restore.log <ts> * Done loading RDB, keys loaded: 1000, keys expired: 0.
+/tmp/restore.log <ts> * DB loaded from base file appendonly.aof.2.base.rdb: 0.000 seconds
+/tmp/restore.log <ts> * DB loaded from incr file appendonly.aof.2.incr.aof: 0.001 seconds
+/tmp/restore.log <ts> * DB pre-loaded from append only file: /plain/restore-src/appendonly.aof.manifest: 0.001 seconds
+/tmp/restore.log <ts> * Successfully installed preload files into the local AOF
+/tmp/bk.log <ts> * Configuration loaded
+/tmp/bk.log <ts> * BACKUP: snapshot pinned (appendonly.aof.2.base.rdb), now accumulating writes
+/tmp/bk.log <ts> * BACKUP: sealed backup in backupdir

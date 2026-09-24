@@ -1,0 +1,2 @@
+lazyfs /data fuse.lazyfs rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other 0 0
+fa7d32ee9710d55a7e529ac3c375f6616563c78b

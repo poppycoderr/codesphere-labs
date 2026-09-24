@@ -1,0 +1,32 @@
+通过：none / process：确认 5,703 条，重启后 0 条
+通过：none / power：确认 5,920 条，重启后 0 条
+通过：rdb-default / process：客户端确认了 5,753 条，重启后剩 0 条（默认 save 规则 3600 1 / 300 100 / 60 10000，6 秒内还没有生成快照）
+通过：rdb-default / power：客户端确认了 5,921 条，重启后剩 0 条（默认 save 规则 3600 1 / 300 100 / 60 10000，6 秒内还没有生成快照）
+通过：aof-no / 进程崩溃（SIGKILL，page cache 保留）：确认 5,746 条，全部恢复
+通过：aof-everysec / 进程崩溃（SIGKILL，page cache 保留）：确认 5,753 条，全部恢复
+通过：aof-always / 进程崩溃（SIGKILL，page cache 保留）：确认 5,744 条，全部恢复
+通过：aof-everysec / 断电：每次恢复出的都是从 1 开始、没有空洞的连续前缀（不是随机丢失）
+通过：aof-everysec / 断电 5 次：每次都丢失已确认写入，分别 [737, 582, 906, 906, 910] 条（每秒 1000 条，约 0.58—0.91 秒）
+通过：aof-always / 断电 3 次：确认的写入全部恢复（5915, 5920, 5926 条）
+信息：重启到可服务（数据量 6 千条）328—343ms；客户端最后一次确认与 SIGKILL 的时间差 -86—-78ms（负数表示 kill 命令发出后仍有确认）
+信息：1 个连接：none 21,786 次/秒 p50 0.047ms p99 0.063ms；aof-no 20,419 次/秒 p50 0.047ms p99 0.071ms；aof-everysec 20,801 次/秒 p50 0.047ms p99 0.071ms；aof-always 3,584 次/秒 p50 0.271ms p99 0.455ms
+信息：32 个连接：none 194,175 次/秒 p50 0.087ms p99 0.167ms；aof-no 201,005 次/秒 p50 0.087ms p99 0.159ms；aof-everysec 187,793 次/秒 p50 0.087ms p99 0.175ms；aof-always 50,314 次/秒 p50 0.615ms p99 0.911ms
+通过：1 个连接：always 3,584 次/秒、p50 0.271ms；everysec 20,801 次/秒、p50 0.047ms
+通过：32 个连接时 always 的吞吐是 everysec 的 27%（1 个连接时 17%）：并发写入共享一次 fsync
+通过：开启 AOF 后目录里是 base（RDB 格式）+ incr + manifest 三类文件
+通过：BGREWRITEAOF 后生成新的 base，重写期间的写入进入新的 incr，旧文件被移除；DBSIZE 250,000 与写入一致
+信息：重写后的 manifest：file appendonly.aof.2.base.rdb seq 2 type b | file appendonly.aof.2.incr.aof seq 2 type i startoffset 200000
+通过：100 万个 key（158940288 字节）BGSAVE：空闲时写时复制 1.0 MB，fork 1.7ms；持续写入时写时复制 63.0 MB，fork 2.1ms
+信息：aof-incr-only：DBSIZE 1000000，加载 0.758s，文件 137.8 MB
+信息：aof-rewritten-plain：DBSIZE 1000000，加载 0.755s，文件 137.8 MB
+信息：aof-rdb-preamble：DBSIZE 1000000，加载 0.596s，文件 30.8 MB
+信息：rdb：DBSIZE 1000000，加载 0.548s，文件 30.8 MB
+通过：四种文件都恢复出 1,000,000 个 key
+通过：RDB（0.55s）与带 RDB 前导的 AOF（0.60s）加载快于只有 incr 的 AOF（0.76s）与纯命令 AOF（0.76s）
+通过：incr 文件尾部截掉 5 字节：默认配置（aof-load-truncated yes）截掉半条命令后启动，DBSIZE 9,999
+通过：同样的文件，aof-load-truncated no：拒绝启动
+通过：第 5000 条命令的命令头被写入 7 个字节的垃圾：默认配置拒绝启动（Bad file format）
+通过：redis-check-aof --fix 从损坏处截断到文件末尾，启动后只剩 5,000 / 10,000 个 key
+通过：c:5000 的值内部被写入 7 个字节：正常启动、DBSIZE 10,000，c:5000 的值变成「GARBAGEvvvvvvvvv…」——AOF 没有逐条校验，值内部的损坏不会被发现
+通过：BACKUP START 之前写 a、START 与 SEAL 之间写 b、SEAL 之后写 c：用 preload-file 在新实例恢复出 a 1,000、b 1,000、c 0，即 SEAL 那一刻的数据
+通过：误执行 FLUSHALL 后，原实例重启重放 AOF，DBSIZE 为 0：AOF 忠实记录了误操作，它不是备份

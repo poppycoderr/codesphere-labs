@@ -1,0 +1,8 @@
+started_at_ms	1790217632138
+last_acked_seq	5915
+last_ack_at_ms	1790217638052
+rate_per_second	1000
+ended_by	IOException: 连接被关闭
+latency_p50_us	121
+latency_p99_us	321
+latency_max_us	2258

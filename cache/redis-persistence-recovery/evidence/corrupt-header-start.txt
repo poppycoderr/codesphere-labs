@@ -1,0 +1,2 @@
+ping=Could not connect to Redis at 127.0.0.1:6396: Connection refused
+<ts> # Bad file format reading the append only file appendonlydir/appendonly.aof.1.incr.aof at offset 318913.          make a backup of your AOF file, then use ./redis-check-aof --fix <filename.manifest>.          Alternatively you can set the 'aof-load-corrupt-tail-max-size' configuration option to 320000 and restart the server.

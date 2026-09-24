@@ -1,0 +1,3 @@
+-rw-r--r-- 1 0 0 89 Sep 24 02:41 ./appendonlydir/appendonly.aof.1.base.rdb
+-rw-r--r-- 1 0 0 137788913 Sep 24 02:41 ./appendonlydir/appendonly.aof.1.incr.aof
+-rw-r--r-- 1 0 0 120 Sep 24 02:41 ./appendonlydir/appendonly.aof.manifest

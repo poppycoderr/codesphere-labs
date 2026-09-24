@@ -1,0 +1,5 @@
+keyslot	user:1001:profile	2549
+keyslot	user:1001:orders	4492
+keyslot	{user:1001}:profile	5712
+keyslot	{user:1001}:orders	5712
+redis-cli_mget_different_slots	CROSSSLOT Keys in request don't hash to the same slot

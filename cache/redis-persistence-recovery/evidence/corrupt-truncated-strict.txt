@@ -1,0 +1,2 @@
+ping=Could not connect to Redis at 127.0.0.1:6395: Connection refused
+<ts> # Unexpected end of file reading the append only file appendonly.aof.1.incr.aof. You can: 1) Make a backup of your AOF file, then use ./redis-check-aof --fix <filename.manifest>. 2) Alternatively you can set the 'aof-load-truncated' configuration option to yes and restart the server.

@@ -1,0 +1,7 @@
+dbsize=10000
+c:4999=4999:vvvvvvvvvvvvvvvvvvvvvvvvvvv
+c:5000=GARBAGEvvvvvvvvvvvvvvvvvvvvvvvvv
+c:5001=5001:vvvvvvvvvvvvvvvvvvvvvvvvvvv
+AOF analyzed: filename=appendonly.aof.1.incr.aof, size=638913, ok_up_to=638913, ok_up_to_line=70006, diff=0
+INCR AOF appendonly.aof.1.incr.aof is valid
+All AOF files and manifest are valid

@@ -1,0 +1,16 @@
+## 重写前
+total 19236
+-rw-r--r-- 1 0 0       89 Sep 24 02:41 appendonly.aof.1.base.rdb
+-rw-r--r-- 1 0 0 19688913 Sep 24 02:41 appendonly.aof.1.incr.aof
+-rw-r--r-- 1 0 0      102 Sep 24 02:41 appendonly.aof.manifest
+file appendonly.aof.1.base.rdb seq 1 type b
+file appendonly.aof.1.incr.aof seq 1 type i startoffset 0
+## 重写后（重写期间又写入 5 万个 key）
+total 10472
+-rw-r--r-- 1 0 0 5777868 Sep 24 02:41 appendonly.aof.2.base.rdb
+-rw-r--r-- 1 0 0 4938913 Sep 24 02:41 appendonly.aof.2.incr.aof
+-rw-r--r-- 1 0 0     107 Sep 24 02:41 appendonly.aof.manifest
+file appendonly.aof.2.base.rdb seq 2 type b
+file appendonly.aof.2.incr.aof seq 2 type i startoffset 200000
+## DBSIZE
+250000

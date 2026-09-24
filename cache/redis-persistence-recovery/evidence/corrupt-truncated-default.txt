@@ -1,0 +1,6 @@
+dbsize=9999
+<ts> * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+<ts> # !!! Warning: short read while loading the AOF file appendonly.aof.1.incr.aof!!!
+<ts> # !!! Truncating the AOF appendonly.aof.1.incr.aof at offset 638849 !!!
+<ts> * DB loaded from incr file appendonly.aof.1.incr.aof: 0.006 seconds
+<ts> * DB loaded from append only file: 0.006 seconds

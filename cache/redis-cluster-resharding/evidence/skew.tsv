@@ -1,0 +1,5 @@
+node	role	slots	dbsize	used_memory	cmdstat_set_calls
+n1	master	4463	3727	27548040	73923
+n2	master	5461	54328	18922320	150908
+n3	master	6460	3947	5358216	74662
+hot_slot	6093	hot_owner	n2	hot_slot_keys	50000

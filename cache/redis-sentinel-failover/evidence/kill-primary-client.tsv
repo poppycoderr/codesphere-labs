@@ -1,0 +1,22 @@
+at_ms	event	detail
+1790218660751	workload_started	rate=200 wait_replicas=0
+1790218660760	connected	r1
+1790218664782	connection_lost	r1 连接被关闭
+1790218664787	connect_failed	r1 Connection refused
+1790218664791	connect_failed	r1 Connection refused
+1790218664792	connect_failed	r1 Connection refused
+1790218664797	connect_failed	r1 Connection refused
+1790218664802	connect_failed	r1 Connection refused
+1790218664809	connect_failed	r1 Connection refused
+1790218664812	connect_failed	r1 Connection refused
+1790218664817	connect_failed	r1 Connection refused
+1790218664822	connect_failed	r1 Connection refused
+1790218664827	connect_failed	r1 Connection refused
+1790218665833	connect_failed	r1 Connect timed out
+1790218666837	connect_failed	r1 Connect timed out
+1790218667838	connect_failed	r1 Connect timed out
+1790218668840	connect_failed	r1 Connect timed out
+1790218669842	connect_failed	r1 Connect timed out
+1790218669845	primary_changed	r1 -> r3
+1790218669850	connected	r3
+1790218683960	workload_stopped	

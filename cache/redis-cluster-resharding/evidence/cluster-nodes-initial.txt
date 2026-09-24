@@ -1,0 +1,6 @@
+n3 f1247317 master - connected 10923-16383
+n2 c50b15da master - connected 5461-10922
+n5 a977f522 slave f7064569 connected 
+n4 0ebfbd77 slave f1247317 connected 
+n6 9c2c8c22 slave c50b15da connected 
+n1 f7064569 master - connected 0-5460

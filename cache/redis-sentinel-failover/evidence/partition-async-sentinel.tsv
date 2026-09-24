@@ -1,0 +1,24 @@
+at_ms	channel	message
+1790218704744	+sdown	master m r1-data 6379
+1790218704809	+odown	master m r1-data 6379 #quorum 2/2
+1790218704809	+new-epoch	1
+1790218704809	+try-failover	master m r1-data 6379
+1790218704809	+vote-for-leader	6b7b49cf290ce7998553f68527844672550926d0 1
+1790218704910	+elected-leader	master m r1-data 6379
+1790218704910	+failover-state-select-slave	master m r1-data 6379
+1790218705011	+selected-slave	slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+1790218705011	+failover-state-send-slaveof-noone	slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+1790218705094	+failover-state-wait-promotion	slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+1790218705886	-role-change	slave r3-data:6379 r3-data 6379 @ m r1-data 6379 new reported role is master
+1790218705886	+promoted-slave	slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+1790218705887	+failover-state-reconf-slaves	master m r1-data 6379
+1790218705965	+slave-reconf-sent	slave r2-data:6379 r2-data 6379 @ m r1-data 6379
+1790218706944	+slave-reconf-inprog	slave r2-data:6379 r2-data 6379 @ m r1-data 6379
+1790218706945	+slave-reconf-done	slave r2-data:6379 r2-data 6379 @ m r1-data 6379
+1790218707009	-odown	master m r1-data 6379
+1790218707009	+failover-end	master m r1-data 6379
+1790218707009	+switch-master	m r1-data 6379 r3-data 6379
+1790218707009	+slave	slave r2-data:6379 r2-data 6379 @ m r3-data 6379
+1790218707009	+slave	slave r1-data:6379 r1-data 6379 @ m r3-data 6379
+1790218709159	-role-change	slave r1-data:6379 r1-data 6379 @ m r3-data 6379 new reported role is master
+1790218719225	+role-change	slave r1-data:6379 r1-data 6379 @ m r3-data 6379 new reported role is slave

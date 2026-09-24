@@ -1,0 +1,4 @@
+at_ms	event	detail
+1790218638036	workload_started	rate=200 wait_replicas=0
+1790218638044	connected	r1
+1790218655449	workload_stopped	

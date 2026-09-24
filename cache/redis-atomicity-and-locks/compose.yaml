@@ -1,0 +1,14 @@
+# 单节点 Redis 8.10.1，固定 digest；开启 AOF（everysec），用来观察重启后 Function 保留、EVAL 脚本缓存丢失。
+# 客户端运行在共享该容器网络的 JDK 21 容器中。不对宿主机暴露端口
+name: csl-redis-atomicity
+services:
+  redis:
+    image: redis:8.10.1@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+    command: ["redis-server", "--appendonly", "yes", "--save", ""]
+    cpus: 2
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30

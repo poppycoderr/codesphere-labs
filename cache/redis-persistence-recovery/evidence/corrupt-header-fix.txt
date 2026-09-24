@@ -1,0 +1,25 @@
+Start checking Multi Part AOF
+Start to check BASE AOF (RDB format).
+[offset 0] Checking RDB file ./appendonly.aof.1.base.rdb
+[offset 27] AUX FIELD redis-ver = '8.10.1'
+[offset 41] AUX FIELD redis-bits = '64'
+[offset 53] AUX FIELD ctime = '1790217695'
+[offset 68] AUX FIELD used-mem = '747904'
+[offset 80] AUX FIELD aof-base = '1'
+[offset 89] Checksum OK
+[offset 89] \o/ RDB looks OK! \o/
+[info] 0 keys read
+[info] 0 expires
+[info] 0 already expired
+[info] 0 subexpires
+RDB preamble is OK, proceeding with AOF tail...
+AOF analyzed: filename=appendonly.aof.1.base.rdb, size=89, ok_up_to=89, ok_up_to_line=1, diff=0
+BASE AOF appendonly.aof.1.base.rdb is valid
+Start to check INCR files.
+AOF appendonly.aof.1.incr.aof format error
+AOF analyzed: filename=appendonly.aof.1.incr.aof, size=638913, ok_up_to=318913, ok_up_to_line=35006, diff=320000
+This will shrink the AOF appendonly.aof.1.incr.aof from 638913 bytes, with 320000 bytes, to 318913 bytes
+Continue? [y/N]: Successfully truncated AOF appendonly.aof.1.incr.aof
+All AOF files and manifest are valid
+exit=0
+dbsize_after_fix=5000

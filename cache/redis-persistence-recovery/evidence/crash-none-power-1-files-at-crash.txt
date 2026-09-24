@@ -1,0 +1,2 @@
+aof_last_write_status:ok
+## 此刻已 fsync 到底层的文件（/lazyfs-root/crash）

@@ -1,0 +1,78 @@
+r1 r1-1  | 2026-09-24T02:58:45.378947550Z 1:M 24 Sep 2026 02:58:45.378 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD, 
+r1 r1-1  | 2026-09-24T02:58:45.379151383Z 1:M 24 Sep 2026 02:58:45.379 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+r1 r1-1  | 2026-09-24T02:58:46.238242842Z 1:M 24 Sep 2026 02:58:46.238 * Full resync requested by replica r3-data:6379 
+r1 r1-1  | 2026-09-24T02:58:46.238244467Z 1:M 24 Sep 2026 02:58:46.238 * Replication backlog created, my new replication IDs are '22c746e0e441adb9322a5a4a2712e15e31110d3b' and '0000000000000000000000000000000000000000'
+r1 r1-1  | 2026-09-24T02:58:46.238246092Z 1:M 24 Sep 2026 02:58:46.238 * Replica r3-data:6379 is capable of rdb channel synchronization, and partial sync isn't possible. Full sync will continue with dedicated rdb channel.
+r1 r1-1  | 2026-09-24T02:58:46.238869842Z 1:M 24 Sep 2026 02:58:46.238 * Full resync requested by replica r3-data:6379 (rdb-channel)
+r1 r1-1  | 2026-09-24T02:58:46.242243634Z 1:M 24 Sep 2026 02:58:46.242 * Connection with replica (rdbchannel) r3-data:6379 lost.
+r1 r1-1  | 2026-09-24T02:58:46.315999675Z 1:M 24 Sep 2026 02:58:46.315 * Full resync requested by replica r2-data:6379 
+r1 r1-1  | 2026-09-24T02:58:46.316001009Z 1:M 24 Sep 2026 02:58:46.315 * Replica r2-data:6379 is capable of rdb channel synchronization, and partial sync isn't possible. Full sync will continue with dedicated rdb channel.
+r1 r1-1  | 2026-09-24T02:58:46.316573384Z 1:M 24 Sep 2026 02:58:46.316 * Full resync requested by replica r2-data:6379 (rdb-channel)
+r1 r1-1  | 2026-09-24T02:58:46.319684717Z 1:M 24 Sep 2026 02:58:46.319 * Connection with replica (rdbchannel) r2-data:6379 lost.
+r1 r1-1  | 2026-09-24T02:59:08.933694089Z 1:M 24 Sep 2026 02:59:08.933 * Connection with replica r3-data:6379 lost.
+r1 r1-1  | 2026-09-24T02:59:09.061534464Z 1:M 24 Sep 2026 02:59:09.061 * Connection with replica r2-data:6379 lost.
+r1 r1-1  | 2026-09-24T02:59:19.455027844Z 1:S 24 Sep 2026 02:59:19.454 * MASTER <-> REPLICA sync started
+r1 r1-1  | 2026-09-24T02:59:19.455517135Z 1:S 24 Sep 2026 02:59:19.455 * PSYNC is not possible, initialize RDB channel.
+r1 r1-1  | 2026-09-24T02:59:19.456916760Z 1:S 24 Sep 2026 02:59:19.456 * MASTER <-> REPLICA sync: receiving streamed RDB from master with EOF to disk
+r1 r1-1  | 2026-09-24T02:59:19.457740760Z 1:S 24 Sep 2026 02:59:19.457 * MASTER <-> REPLICA sync: Loading DB in memory
+r1 r1-1  | 2026-09-24T02:59:19.459545219Z 1:S 24 Sep 2026 02:59:19.459 * MASTER <-> REPLICA sync: Flushing old data
+r1 r1-1  | 2026-09-24T02:59:19.461937844Z 1:S 24 Sep 2026 02:59:19.461 * MASTER <-> REPLICA sync: Finished with success
+r1 r1-1  | 2026-09-24T02:59:19.461939010Z 1:S 24 Sep 2026 02:59:19.461 * MASTER <-> REPLICA sync: Starting to stream replication buffer into the db (0 bytes).
+r1 r1-1  | 2026-09-24T02:59:19.461940052Z 1:S 24 Sep 2026 02:59:19.461 * MASTER <-> REPLICA sync: Successfully streamed replication buffer into the db (0 bytes in total)
+r2 r2-1  | 2026-09-24T02:58:45.284774925Z 1:S 24 Sep 2026 02:58:45.284 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD, 
+r2 r2-1  | 2026-09-24T02:58:45.285028050Z 1:S 24 Sep 2026 02:58:45.284 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+r2 r2-1  | 2026-09-24T02:58:46.315751842Z 1:S 24 Sep 2026 02:58:46.315 * MASTER <-> REPLICA sync started
+r2 r2-1  | 2026-09-24T02:58:46.315946592Z 1:S 24 Sep 2026 02:58:46.315 * Partial resynchronization not possible (no cached master)
+r2 r2-1  | 2026-09-24T02:58:46.316039925Z 1:S 24 Sep 2026 02:58:46.315 * PSYNC is not possible, initialize RDB channel.
+r2 r2-1  | 2026-09-24T02:58:46.317501175Z 1:S 24 Sep 2026 02:58:46.317 * MASTER <-> REPLICA sync: receiving streamed RDB from master with EOF to disk
+r2 r2-1  | 2026-09-24T02:58:46.317508425Z 1:S 24 Sep 2026 02:58:46.317 * MASTER <-> REPLICA sync: Loading DB in memory
+r2 r2-1  | 2026-09-24T02:58:46.319137592Z 1:S 24 Sep 2026 02:58:46.319 * MASTER <-> REPLICA sync: Flushing old data
+r2 r2-1  | 2026-09-24T02:58:46.319601300Z 1:S 24 Sep 2026 02:58:46.319 * MASTER <-> REPLICA sync: Finished with success
+r2 r2-1  | 2026-09-24T02:58:46.319639134Z 1:S 24 Sep 2026 02:58:46.319 * MASTER <-> REPLICA sync: Starting to stream replication buffer into the db (134 bytes).
+r2 r2-1  | 2026-09-24T02:58:46.319736134Z 1:S 24 Sep 2026 02:58:46.319 * MASTER <-> REPLICA sync: Successfully streamed replication buffer into the db (134 bytes in total)
+r2 r2-1  | 2026-09-24T02:59:06.344360879Z 1:M 24 Sep 2026 02:59:06.344 * Connection with master lost.
+r2 r2-1  | 2026-09-24T02:59:06.344752171Z 1:S 24 Sep 2026 02:59:06.344 * MASTER <-> REPLICA sync started
+r2 r2-1  | 2026-09-24T02:59:06.345357171Z 1:S 24 Sep 2026 02:59:06.345 * MASTER <-> REPLICA sync: Master accepted a Partial Resynchronization.
+r3 r3-1  | 2026-09-24T02:58:45.210416258Z 1:S 24 Sep 2026 02:58:45.210 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD, 
+r3 r3-1  | 2026-09-24T02:58:45.211156092Z 1:S 24 Sep 2026 02:58:45.210 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+r3 r3-1  | 2026-09-24T02:58:46.237913259Z 1:S 24 Sep 2026 02:58:46.237 * MASTER <-> REPLICA sync started
+r3 r3-1  | 2026-09-24T02:58:46.238200425Z 1:S 24 Sep 2026 02:58:46.238 * Partial resynchronization not possible (no cached master)
+r3 r3-1  | 2026-09-24T02:58:46.238311925Z 1:S 24 Sep 2026 02:58:46.238 * PSYNC is not possible, initialize RDB channel.
+r3 r3-1  | 2026-09-24T02:58:46.239894134Z 1:S 24 Sep 2026 02:58:46.239 * MASTER <-> REPLICA sync: receiving streamed RDB from master with EOF to disk
+r3 r3-1  | 2026-09-24T02:58:46.239920384Z 1:S 24 Sep 2026 02:58:46.239 * MASTER <-> REPLICA sync: Loading DB in memory
+r3 r3-1  | 2026-09-24T02:58:46.241630509Z 1:S 24 Sep 2026 02:58:46.241 * MASTER <-> REPLICA sync: Flushing old data
+r3 r3-1  | 2026-09-24T02:58:46.242120634Z 1:S 24 Sep 2026 02:58:46.242 * MASTER <-> REPLICA sync: Finished with success
+r3 r3-1  | 2026-09-24T02:58:46.242230259Z 1:S 24 Sep 2026 02:58:46.242 * MASTER <-> REPLICA sync: Starting to stream replication buffer into the db (0 bytes).
+r3 r3-1  | 2026-09-24T02:58:46.242237967Z 1:S 24 Sep 2026 02:58:46.242 * MASTER <-> REPLICA sync: Successfully streamed replication buffer into the db (0 bytes in total)
+r3 r3-1  | 2026-09-24T02:59:05.394768545Z 1:M 24 Sep 2026 02:59:05.394 * Connection with master lost.
+r3 r3-1  | 2026-09-24T02:59:06.345349296Z 1:M 24 Sep 2026 02:59:06.345 * Partial resynchronization request from r2-data:6379 accepted. Sending 511 bytes of backlog starting from offset 280087.
+r3 r3-1  | 2026-09-24T02:59:19.455445594Z 1:M 24 Sep 2026 02:59:19.455 * Partial resynchronization not accepted: Requested offset for second ID was 305277, but I can reply up to 280087
+r3 r3-1  | 2026-09-24T02:59:19.455447135Z 1:M 24 Sep 2026 02:59:19.455 * Replica r1-data:6379 is capable of rdb channel synchronization, and partial sync isn't possible. Full sync will continue with dedicated rdb channel.
+r3 r3-1  | 2026-09-24T02:59:19.455869927Z 1:M 24 Sep 2026 02:59:19.455 * Full resync requested by replica r1-data:6379 (rdb-channel)
+r3 r3-1  | 2026-09-24T02:59:19.461915260Z 1:M 24 Sep 2026 02:59:19.461 * Connection with replica (rdbchannel) r1-data:6379 lost.
+s1 s1-1  | 2026-09-24T02:59:05.139440587Z 1:X 24 Sep 2026 02:59:05.139 # +sdown master m r1-data 6379
+s1 s1-1  | 2026-09-24T02:59:06.223283462Z 1:X 24 Sep 2026 02:59:06.223 # +odown master m r1-data 6379 #quorum 3/2
+s1 s1-1  | 2026-09-24T02:59:06.223293962Z 1:X 24 Sep 2026 02:59:06.223 * Next failover delay: I will not start a failover before Thu Sep 24 02:59:26 2026
+s1 s1-1  | 2026-09-24T02:59:06.344635587Z 1:X 24 Sep 2026 02:59:06.344 # +switch-master m r1-data 6379 r3-data 6379
+s1 s1-1  | 2026-09-24T02:59:09.417061547Z 1:X 24 Sep 2026 02:59:09.416 # +sdown slave r1-data:6379 r1-data 6379 @ m r3-data 6379
+s1 s1-1  | 2026-09-24T02:59:09.483605672Z 1:X 24 Sep 2026 02:59:09.483 # -sdown slave r1-data:6379 r1-data 6379 @ m r3-data 6379
+s1 s1-1  | 2026-09-24T02:59:19.454643052Z 1:X 24 Sep 2026 02:59:19.454 * +convert-to-slave slave r1-data:6379 r1-data 6379 @ m r3-data 6379
+s2 s2-1  | 2026-09-24T02:59:05.312207004Z 1:X 24 Sep 2026 02:59:05.312 # +sdown master m r1-data 6379
+s2 s2-1  | 2026-09-24T02:59:05.413200337Z 1:X 24 Sep 2026 02:59:05.413 # +odown master m r1-data 6379 #quorum 3/2
+s2 s2-1  | 2026-09-24T02:59:05.413205629Z 1:X 24 Sep 2026 02:59:05.413 * Next failover delay: I will not start a failover before Thu Sep 24 02:59:25 2026
+s2 s2-1  | 2026-09-24T02:59:06.344732296Z 1:X 24 Sep 2026 02:59:06.344 # +switch-master m r1-data 6379 r3-data 6379
+s2 s2-1  | 2026-09-24T02:59:09.424080506Z 1:X 24 Sep 2026 02:59:09.423 # +sdown slave r1-data:6379 r1-data 6379 @ m r3-data 6379
+s2 s2-1  | 2026-09-24T02:59:09.639556714Z 1:X 24 Sep 2026 02:59:09.639 # -sdown slave r1-data:6379 r1-data 6379 @ m r3-data 6379
+s3 s3-1  | 2026-09-24T02:59:05.165622753Z 1:X 24 Sep 2026 02:59:05.165 # +sdown master m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:05.221170879Z 1:X 24 Sep 2026 02:59:05.221 # +odown master m r1-data 6379 #quorum 2/2
+s3 s3-1  | 2026-09-24T02:59:05.221192379Z 1:X 24 Sep 2026 02:59:05.221 # +try-failover master m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:05.277654087Z 1:X 24 Sep 2026 02:59:05.277 # +elected-leader master m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:05.277671879Z 1:X 24 Sep 2026 02:59:05.277 # +failover-state-select-slave master m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:05.336500087Z 1:X 24 Sep 2026 02:59:05.336 # +selected-slave slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:05.336506795Z 1:X 24 Sep 2026 02:59:05.336 * +failover-state-send-slaveof-noone slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:05.394686920Z 1:X 24 Sep 2026 02:59:05.394 * +failover-state-wait-promotion slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:06.291856796Z 1:X 24 Sep 2026 02:59:06.291 # +promoted-slave slave r3-data:6379 r3-data 6379 @ m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:06.291858087Z 1:X 24 Sep 2026 02:59:06.291 # +failover-state-reconf-slaves master m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:07.401015380Z 1:X 24 Sep 2026 02:59:07.400 # -odown master m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:07.401023755Z 1:X 24 Sep 2026 02:59:07.400 # +failover-end master m r1-data 6379
+s3 s3-1  | 2026-09-24T02:59:07.401025088Z 1:X 24 Sep 2026 02:59:07.400 # +switch-master m r1-data 6379 r3-data 6379

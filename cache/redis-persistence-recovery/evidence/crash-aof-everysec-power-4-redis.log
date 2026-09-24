@@ -1,0 +1,29 @@
+1769:C 24 Sep 2026 02:40:15.796 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1769:C 24 Sep 2026 02:40:15.796 * Redis version=8.10.1, bits=64, commit=00000000, modified=1, pid=1769, just started
+1769:C 24 Sep 2026 02:40:15.796 * Configuration loaded
+1769:M 24 Sep 2026 02:40:15.796 * monotonic clock: ARM CNTVCT @ 24 ticks/us
+1769:M 24 Sep 2026 02:40:15.797 * Running mode=standalone, port=6379.
+1769:M 24 Sep 2026 02:40:15.798 * Server initialized
+1769:M 24 Sep 2026 02:40:15.798 * BGSAVE done, 0 keys saved, 0 keys skipped, 89 bytes written.
+1769:M 24 Sep 2026 02:40:15.799 * Creating AOF base file appendonly.aof.1.base.rdb on server start
+1769:M 24 Sep 2026 02:40:15.800 * Creating AOF incr file appendonly.aof.1.incr.aof on server start
+1769:M 24 Sep 2026 02:40:15.800 * Ready to accept connections tcp
+1769:M 24 Sep 2026 02:40:15.800 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+1888:C 24 Sep 2026 02:40:22.649 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1888:C 24 Sep 2026 02:40:22.649 * Redis version=8.10.1, bits=64, commit=00000000, modified=1, pid=1888, just started
+1888:C 24 Sep 2026 02:40:22.649 * Configuration loaded
+1888:M 24 Sep 2026 02:40:22.649 * monotonic clock: ARM CNTVCT @ 24 ticks/us
+1888:M 24 Sep 2026 02:40:22.650 * Running mode=standalone, port=6379.
+1888:M 24 Sep 2026 02:40:22.651 * Server initialized
+1888:M 24 Sep 2026 02:40:22.652 * Reading RDB base file on AOF loading...
+1888:M 24 Sep 2026 02:40:22.652 * Loading RDB produced by version 8.10.1
+1888:M 24 Sep 2026 02:40:22.652 * RDB age 7 seconds
+1888:M 24 Sep 2026 02:40:22.652 * RDB memory usage when created 0.71 Mb
+1888:M 24 Sep 2026 02:40:22.652 * RDB is base AOF
+1888:M 24 Sep 2026 02:40:22.652 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1888:M 24 Sep 2026 02:40:22.652 * DB loaded from base file appendonly.aof.1.base.rdb: 0.000 seconds
+1888:M 24 Sep 2026 02:40:22.658 * DB loaded from incr file appendonly.aof.1.incr.aof: 0.005 seconds
+1888:M 24 Sep 2026 02:40:22.658 * DB loaded from append only file: 0.006 seconds
+1888:M 24 Sep 2026 02:40:22.658 * Opening AOF incr file appendonly.aof.1.incr.aof on server start
+1888:M 24 Sep 2026 02:40:22.658 * Ready to accept connections tcp
+1888:M 24 Sep 2026 02:40:22.658 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.

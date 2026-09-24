@@ -1,0 +1,14 @@
+at_ms	channel	message
+1790218785285	+sdown	master m r1-data 6379
+1790218785463	+new-epoch	1
+1790218785463	+vote-for-leader	d36eb24a153a0cc19fd7e2f28abb6ee6060502a9 1
+1790218785939	-role-change	slave r2-data:6379 r2-data 6379 @ m r1-data 6379 new reported role is master
+1790218786420	+odown	master m r1-data 6379 #quorum 3/2
+1790218786601	+config-update-from	sentinel d36eb24a153a0cc19fd7e2f28abb6ee6060502a9 s3-data 26379 @ m r1-data 6379
+1790218786601	+switch-master	m r1-data 6379 r2-data 6379
+1790218786601	+slave	slave r3-data:6379 r3-data 6379 @ m r2-data 6379
+1790218786601	+slave	slave r1-data:6379 r1-data 6379 @ m r2-data 6379
+1790218789602	+sdown	slave r1-data:6379 r1-data 6379 @ m r2-data 6379
+1790218789791	-role-change	slave r1-data:6379 r1-data 6379 @ m r2-data 6379 new reported role is master
+1790218789853	-sdown	slave r1-data:6379 r1-data 6379 @ m r2-data 6379
+1790218799878	+role-change	slave r1-data:6379 r1-data 6379 @ m r2-data 6379 new reported role is slave

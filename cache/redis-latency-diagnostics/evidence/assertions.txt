@@ -1,0 +1,17 @@
+信息：baseline：5085 次探测，p50 49µs，p99 106µs，最大往返 0.4ms，最大排队延迟 0.5ms；SLOWLOG 无
+信息：del：3210 次探测，p50 48µs，p99 119µs，最大往返 38.3ms，最大排队延迟 38.3ms；SLOWLOG [('DEL', 38052)]
+信息：unlink：3170 次探测，p50 48µs，p99 122µs，最大往返 0.4ms，最大排队延迟 5.3ms；SLOWLOG 无
+信息：expiry_same：5085 次探测，p50 48µs，p99 1163µs，最大往返 26.5ms，最大排队延迟 26.6ms；SLOWLOG 无
+信息：expiry_jitter：13093 次探测，p50 49µs，p99 762µs，最大往返 5.0ms，最大排队延迟 9.6ms；SLOWLOG 无
+信息：lua：2534 次探测，p50 51µs，p99 148µs，最大往返 349.7ms，最大排队延迟 349.7ms；SLOWLOG [('KEYS', 38999), ('EVAL', 350140)]
+信息：keys：2215 次探测，p50 49µs，p99 148µs，最大往返 38.8ms，最大排队延迟 38.8ms；SLOWLOG [('KEYS', 38999)]
+信息：fork：5585 次探测，p50 51µs，p99 178µs，最大往返 2.4ms，最大排队延迟 2.4ms；SLOWLOG 无
+信息：slow_subscriber：15397 次探测，p50 49µs，p99 583µs，最大往返 2.4ms，最大排队延迟 9.2ms；SLOWLOG 无
+通过：基线：p50 49µs、p99 106µs、最大 0.4ms；容器内 intrinsic latency 最大 5061µs
+通过：DEL 百万成员的 Set：SLOWLOG 记录 38.1ms，探测请求最多被推迟 38.3ms；UNLINK 时最多 5.3ms、SLOWLOG 无记录
+通过：50 万个 key 集中过期：探测最多推迟 26.6ms（p99 1163µs），SLOWLOG 没有记录，LATENCY 的 expire-cycle 事件最大 25ms；分散过期时最多 9.6ms
+通过：长 Lua：SLOWLOG 记录 EVAL 350ms，探测最多推迟 350ms
+通过：KEYS 遍历 100 万个 key：SLOWLOG 记录 39ms，探测最多推迟 39ms
+通过：save 规则触发的 BGSAVE：LATENCY 记录 fork 事件 1ms（160 MB 数据），SLOWLOG 没有对应命令；探测最多推迟 2.4ms
+通过：慢订阅者：单个客户端输出缓冲区最高 25.9 MB，客户端内存最高 14.4 MB，触发 client-output-buffer-limit 断开 1 次；期间探测 p99 583µs
+通过：pipeline：每批 1 条 23,565 次/秒、每批往返 p50 43µs p99 56µs；每批 10 条 161,846 次/秒、每批往返 p50 63µs p99 81µs；每批 100 条 474,741 次/秒、每批往返 p50 206µs p99 249µs；每批 1000 条 461,003 次/秒、每批往返 p50 2164µs p99 2711µs

@@ -1,0 +1,8 @@
+aof_last_write_status:ok
+aof_current_size:196294
+aof_delayed_fsync:0
+## 此刻已 fsync 到底层的文件（/lazyfs-root/crash）
+total 204
+-rw-r--r-- 1 0 0     89 Sep 24 02:40 appendonly.aof.1.base.rdb
+-rw-r--r-- 1 0 0 199129 Sep 24 02:40 appendonly.aof.1.incr.aof
+-rw-r--r-- 1 0 0    102 Sep 24 02:40 appendonly.aof.manifest

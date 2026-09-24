@@ -1,0 +1,59 @@
+# 1 个 primary + 2 个 replica + 3 个 Sentinel，Redis 8.10.1 固定 digest。两个网络：
+#   data：复制与 Sentinel 探测使用，节点在这个网络上的别名为 rN-data；实验把旧 primary 从这个网络断开来模拟分区
+#   side：客户端使用；客户端把 Sentinel 返回的 rN-data 换成 rN，经这个网络连接节点，所以分区后仍能连着旧 primary
+# Sentinel 的配置在启动时复制到容器内的可写路径（Sentinel 会改写自己的配置文件）。不对宿主机暴露端口
+name: csl-redis-sentinel
+x-redis: &redis
+  image: redis:8.10.1@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+  cpus: 1
+  mem_limit: 512m
+  healthcheck:
+    test: ["CMD", "redis-cli", "ping"]
+    interval: 1s
+    timeout: 3s
+    retries: 30
+services:
+  r1:
+    <<: *redis
+    command: ["redis-server", "--replica-announce-ip", "r1-data", "--save", "", "--appendonly", "no", "--repl-diskless-sync-delay", "0"]
+    networks:
+      data: { aliases: [r1-data] }
+      side: {}
+  r2:
+    <<: *redis
+    command: ["redis-server", "--replicaof", "r1-data", "6379", "--replica-announce-ip", "r2-data", "--save", "", "--appendonly", "no", "--repl-diskless-sync-delay", "0"]
+    networks:
+      data: { aliases: [r2-data] }
+      side: {}
+  r3:
+    <<: *redis
+    command: ["redis-server", "--replicaof", "r1-data", "6379", "--replica-announce-ip", "r3-data", "--save", "", "--appendonly", "no", "--repl-diskless-sync-delay", "0"]
+    networks:
+      data: { aliases: [r3-data] }
+      side: {}
+  s1: &sentinel
+    image: redis:8.10.1@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+    command: ["sh", "-c", "cp /conf/sentinel.conf /tmp/sentinel.conf && echo \"sentinel announce-ip $$ANNOUNCE\" >> /tmp/sentinel.conf && exec redis-sentinel /tmp/sentinel.conf"]
+    environment: { ANNOUNCE: s1-data }
+    volumes: ["./config/sentinel.conf:/conf/sentinel.conf:ro"]
+    depends_on: [r1, r2, r3]
+    cpus: 0.5
+    mem_limit: 128m
+    networks:
+      data: { aliases: [s1-data] }
+      side: {}
+  s2:
+    <<: *sentinel
+    environment: { ANNOUNCE: s2-data }
+    networks:
+      data: { aliases: [s2-data] }
+      side: {}
+  s3:
+    <<: *sentinel
+    environment: { ANNOUNCE: s3-data }
+    networks:
+      data: { aliases: [s3-data] }
+      side: {}
+networks:
+  data: {}
+  side: {}
