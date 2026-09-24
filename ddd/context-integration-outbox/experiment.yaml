@@ -1,0 +1,23 @@
+id: ddd/context-integration-outbox
+title: 上下文集成：双写与 outbox、转发器崩溃后的重复投递与去重、乱序到达与版本判断、毒消息与死信、契约的新增与改名
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/context-integration.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    mysql: "8.4.11"
+    mysql-connector-java: "8.0.27"
+    gson: "2.11.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

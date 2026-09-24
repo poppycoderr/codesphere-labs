@@ -1,0 +1,14 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  ModuleBoundaryTest  registrationUsesOnlyTheNotificationApi
+PASS  SameRulesBothDeploymentsTest  confirmsThenWaitlists(String) in-process
+PASS  SameRulesBothDeploymentsTest  confirmsThenWaitlists(String) http
+PASS  SameRulesBothDeploymentsTest  rejectsDuplicates(String) in-process
+PASS  SameRulesBothDeploymentsTest  rejectsDuplicates(String) http
+PASS  SameRulesBothDeploymentsTest  notifiesOnlyConfirmedAttendees(String) in-process
+PASS  SameRulesBothDeploymentsTest  notifiesOnlyConfirmedAttendees(String) http
+PASS  SplitFailureModesTest  timeoutWhileTheServerKeepsWorking
+PASS  SplitFailureModesTest  networkCallLatency
+PASS  SplitFailureModesTest  notificationServiceDown
+PASS  SplitFailureModesTest  traceIdCrossesTheBoundary
+
+tests=11 failures=0

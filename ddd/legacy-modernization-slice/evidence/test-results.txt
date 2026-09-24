@@ -1,0 +1,6 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  LegacySliceTest  shadowComparisonFindsUndocumentedRules
+PASS  LegacySliceTest  routingCanBeTurnedUpAndBack
+PASS  LegacySliceTest  characterizationLocksTheLegacyBehaviour
+
+tests=3 failures=0

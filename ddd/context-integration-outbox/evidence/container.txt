@@ -1,0 +1,4 @@
+image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+jdbc: mysql:mysql-connector-java:8.0.27
+gson: com.google.code.gson:gson:2.11.0
+jdk_image: eclipse-temurin:21-jdk@sha256:78ab9771b4650066c3ef748d46e05dbd6094d8bb34e0667a074486812efd655b

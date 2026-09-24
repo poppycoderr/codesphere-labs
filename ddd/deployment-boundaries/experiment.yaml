@@ -1,0 +1,22 @@
+id: ddd/deployment-boundaries
+title: 从模型到部署：模块化单体的上下文边界规则、同一组用例在同进程与 HTTP 拆分下运行、拆分后才出现的失败方式
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/ddd/boundaries-from-model-to-deployment.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    archunit: "1.5.0"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

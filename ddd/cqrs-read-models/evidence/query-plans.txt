@@ -1,0 +1,12 @@
+## group-by
+SELECT s.id, SUM(r.status='CONFIRMED'), SUM(r.status='WAITLISTED'), SUM(r.paid_cents) FROM session s JOIN registration r ON r.session_id = s.id WHERE s.event_id = 1 GROUP BY s.id ORDER BY s.id
+-> Group aggregate: sum((r.`status` = 'CONFIRMED')), sum((r.`status` = 'WAITLISTED')), sum(r.paid_cents)  (cost=21776 rows=200) (actual time=0.211..34 rows=200 loops=1)
+    -> Nested loop inner join  (cost=16941 rows=48345) (actual time=0.0407..26.8 rows=50000 loops=1)
+        -> Covering index lookup on s using idx_event (event_id=1)  (cost=20.3 rows=200) (actual time=0.0163..0.0401 rows=200 loops=1)
+        -> Index lookup on r using idx_session_status (session_id=s.id)  (cost=60.6 rows=242) (actual time=0.0136..0.123 rows=250 loops=200)
+
+## sync-read-model
+SELECT session_id, confirmed, waitlisted, paid_cents FROM session_stats WHERE event_id = 1 ORDER BY session_id
+-> Filter: (session_stats.event_id = 1)  (cost=20.2 rows=200) (actual time=0.0264..0.0481 rows=200 loops=1)
+    -> Index scan on session_stats using PRIMARY  (cost=20.2 rows=200) (actual time=0.015..0.0272 rows=200 loops=1)
+

@@ -1,0 +1,10 @@
+dualwrite	提交后直接调用计费，每 10 次在调用前崩溃 1 次：报名 100 条，应收 90 条
+outbox	报名与 outbox 同一事务，另有 1 笔在提交前失败（已回滚）：报名 100 条，outbox 待发送 100 条；转发器处理后应收 100 条
+relay.no-inbox	50 个事件，第 3 批投递后、标记前崩溃；重启后继续：计费处理 60 次，应收 60 条，去重跳过 0 次
+relay.inbox	50 个事件，第 3 批投递后、标记前崩溃；重启后继续：计费处理 60 次，应收 50 条，去重跳过 10 次
+order.naive	20 笔报名先确认后取消，取消事件先到达：应收 OPEN 20 条、VOID 0 条，忽略过期事件 0 次
+order.versioned	20 笔报名先确认后取消，取消事件先到达：应收 OPEN 0 条、VOID 20 条，忽略过期事件 20 次
+poison	31 个事件中 1 个金额字段写成字符串：应收 30 条，死信 1 条（字段 feeCents 不是整数："19.9 元"），outbox FAILED 1 条、仍待发送 0 条
+contract.v1	生产者当前的 v1 消息：计费侧翻译通过，应收 19900 分，付款人 payer:alice
+contract.added	生产者新增字段 channel：计费侧翻译通过，应收 19900 分，付款人 payer:alice
+contract.renamed	生产者把 feeCents 改名为 amountCents：契约测试失败：缺少字段 feeCents

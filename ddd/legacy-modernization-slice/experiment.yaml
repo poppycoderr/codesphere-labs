@@ -1,0 +1,21 @@
+id: ddd/legacy-modernization-slice
+title: 遗留系统的精益切片：字符化测试锁住旧退款行为、切出接缝、影子比对找出未写明的规则、按比例分流与回滚
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/ddd/adoption-and-legacy-modernization.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

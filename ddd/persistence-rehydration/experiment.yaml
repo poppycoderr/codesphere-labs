@@ -1,0 +1,22 @@
+id: ddd/persistence-rehydration
+title: 持久化与重建：保存—重建往返、重建不是创建、版本号冲突、子表的两种保存方式、票种继承的三种映射
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/persistence-and-rehydration.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    mysql: "8.4.11"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

@@ -1,0 +1,37 @@
+## single-table 场次 42 的全部票种
+SELECT id, type, name, price_cents, min_size FROM st_ticket WHERE session_id = 42
+-> Index lookup on st_ticket using idx_session (session_id=42)  (cost=105 rows=300) (actual time=0.0231..0.167 rows=300 loops=1)
+
+## single-table 价格高于 450 元的付费票
+SELECT id, name, price_cents FROM st_ticket WHERE type = 'PAID' AND price_cents > 45000
+-> Index range scan on st_ticket using idx_type_price over (type = 'PAID' AND 45000 < price_cents), with index condition: ((st_ticket.`type` = 'PAID') and (st_ticket.price_cents > 45000))  (cost=1358 rows=3018) (actual time=0.275..2.22 rows=3018 loops=1)
+
+## concrete-tables 场次 42 的全部票种
+SELECT id, 'FREE' AS type, name, NULL AS price_cents, NULL AS min_size FROM ct_free_ticket WHERE session_id = 42 UNION ALL SELECT id, 'PAID', name, price_cents, NULL FROM ct_paid_ticket WHERE session_id = 42 UNION ALL SELECT id, 'GROUP', name, price_cents, min_size FROM ct_group_ticket WHERE session_id = 42
+-> Append  (cost=105 rows=300) (actual time=0.0243..0.233 rows=300 loops=1)
+    -> Stream results  (cost=35 rows=100) (actual time=0.0231..0.0744 rows=100 loops=1)
+        -> Index lookup on ct_free_ticket using idx_session (session_id=42)  (cost=35 rows=100) (actual time=0.0205..0.0598 rows=100 loops=1)
+    -> Stream results  (cost=35 rows=100) (actual time=0.0225..0.0722 rows=100 loops=1)
+        -> Index lookup on ct_paid_ticket using idx_session (session_id=42)  (cost=35 rows=100) (actual time=0.0221..0.0585 rows=100 loops=1)
+    -> Stream results  (cost=35 rows=100) (actual time=0.0161..0.0716 rows=100 loops=1)
+        -> Index lookup on ct_group_ticket using idx_session (session_id=42)  (cost=35 rows=100) (actual time=0.0158..0.0586 rows=100 loops=1)
+
+## concrete-tables 价格高于 450 元的付费票
+SELECT id, name, price_cents FROM ct_paid_ticket WHERE price_cents > 45000
+-> Index range scan on ct_paid_ticket using idx_price over (45000 < price_cents), with index condition: (ct_paid_ticket.price_cents > 45000)  (cost=1358 rows=3018) (actual time=0.243..1.98 rows=3018 loops=1)
+
+## joined 场次 42 的全部票种
+SELECT t.id, t.type, t.name, COALESCE(p.price_cents, g.price_cents) AS price_cents, g.min_size FROM jt_ticket t LEFT JOIN jt_paid_detail p ON p.ticket_id = t.id LEFT JOIN jt_group_detail g ON g.ticket_id = t.id WHERE t.session_id = 42
+-> Nested loop left join  (cost=315 rows=300) (actual time=0.0272..0.506 rows=300 loops=1)
+    -> Nested loop left join  (cost=210 rows=300) (actual time=0.0238..0.331 rows=300 loops=1)
+        -> Index lookup on t using idx_session (session_id=42)  (cost=105 rows=300) (actual time=0.0203..0.16 rows=300 loops=1)
+        -> Single-row index lookup on p using PRIMARY (ticket_id=t.id)  (cost=0.25 rows=1) (actual time=458e-6..464e-6 rows=0.333 loops=300)
+    -> Single-row index lookup on g using PRIMARY (ticket_id=t.id)  (cost=0.25 rows=1) (actual time=473e-6..480e-6 rows=0.333 loops=300)
+
+## joined 价格高于 450 元的付费票
+SELECT t.id, t.name, p.price_cents FROM jt_paid_detail p JOIN jt_ticket t ON t.id = p.ticket_id WHERE p.price_cents > 45000
+-> Nested loop inner join  (cost=1661 rows=3018) (actual time=0.0198..2.83 rows=3018 loops=1)
+    -> Filter: (p.price_cents > 45000)  (cost=605 rows=3018) (actual time=0.0167..0.453 rows=3018 loops=1)
+        -> Covering index range scan on p using idx_price over (45000 < price_cents)  (cost=605 rows=3018) (actual time=0.0159..0.308 rows=3018 loops=1)
+    -> Single-row index lookup on t using PRIMARY (id=p.ticket_id)  (cost=0.25 rows=1) (actual time=655e-6..676e-6 rows=1 loops=3018)
+

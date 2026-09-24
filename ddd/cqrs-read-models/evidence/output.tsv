@@ -1,0 +1,16 @@
+seed	200 个场次，每个场次 250 条报名（200 确认、50 候补），共 50000 条；事件 77940 条
+read.aggregate	返回 200 行，平均 84.9ms，每次读取 50200 行
+read.group-by	返回 200 行，平均 31.4ms
+read.sync-read-model	返回 200 行，平均 1.4ms
+same	三种读法结果一致：聚合=5843a2b001de，GROUP BY=5843a2b001de，同步读模型=5843a2b001de
+write.without-projection.1	顺序执行 1000 次报名命令：638ms
+write.with-projection.1	顺序执行 1000 次报名命令：601ms
+write.without-projection.2	顺序执行 1000 次报名命令：539ms
+write.with-projection.2	顺序执行 1000 次报名命令：583ms
+write.without-projection.3	顺序执行 1000 次报名命令：561ms
+write.with-projection.3	顺序执行 1000 次报名命令：579ms
+write.check	回填后同步读模型与 GROUP BY 一致=true
+async.build	从 0 重放 83940 个事件建立异步读模型：538ms；与 GROUP BY 一致=true
+async.paused	投影器暂停期间执行 500 次报名：积压 500 个事件，异步读模型 200/200 个场次与写侧不一致；同步读模型一致=true
+async.resumed	恢复后追上 500 个事件：15ms；与 GROUP BY 一致=true
+async.replay	人为改坏 10 个场次后清空重放 84440 个事件：512ms；与 GROUP BY 一致=true

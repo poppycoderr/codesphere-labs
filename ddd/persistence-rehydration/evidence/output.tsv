@@ -1,0 +1,13 @@
+roundtrip	保存前 capacity=5 version=? confirmed=[a1, a2, a3, a4, a5] waitlist=[a6, a7]；新连接重建后 capacity=5 version=? confirmed=[a1, a2, a3, a4, a5] waitlist=[a6, a7]；一致=true；重建后待发布事件 0 个（保存前 7 个）
+restore	新规则「容量至少 10」上线后：历史场次（容量 5）经 restore 重建成功，待发布事件 0 个；经 open 创建抛出「容量至少为 10」；放宽规则后按 register 重放，登记事件 7 个
+version	两个请求都从版本 0 加载：A 写入 2 行并提交；B ConcurrentModification，回滚；最终版本 1，候补 [a6, a7, x]
+children.diff	已有 1000 个参会人的场次新增 1 人：写入 2 行，1ms
+children.replace-all	已有 1000 个参会人的场次新增 1 人：写入 2004 行，63ms
+inherit.rows	300 个场次、每种票 100 张，共 90000 张票
+inherit.single-table	场次 42 的全部票种 300 行，平均 0.41ms；价格高于 450 元的付费票 3018 行，平均 2.54ms
+inherit.concrete-tables	场次 42 的全部票种 300 行，平均 0.38ms；价格高于 450 元的付费票 3018 行，平均 2.18ms
+inherit.joined	场次 42 的全部票种 300 行，平均 0.64ms；价格高于 450 元的付费票 3018 行，平均 2.36ms
+inherit.size	数据 + 索引：single-table 9.5 MB；concrete-tables 10.6 MB；joined 11.6 MB
+inherit.constraint.single-table	插入没有价格的付费票：失败（Check constraint 'chk_subtype' is violated.）
+inherit.constraint.concrete-tables	在免费票表和付费票表各插入 id=900002：成功 / 成功
+inherit.constraint.joined	只插入父表 type='PAID' 而不插入价格子表：成功

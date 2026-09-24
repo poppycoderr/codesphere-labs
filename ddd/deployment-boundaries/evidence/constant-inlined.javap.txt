@@ -1,0 +1,11 @@
+  public java.lang.String confirmed(java.lang.String);
+    Code:
+       0: ldc           #9                  // String 您已报名 %s
+       2: iconst_1
+       3: anewarray     #2                  // class java/lang/Object
+       6: dup
+       7: iconst_0
+       8: aload_1
+       9: aastore
+      10: invokestatic  #11                 // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      13: areturn

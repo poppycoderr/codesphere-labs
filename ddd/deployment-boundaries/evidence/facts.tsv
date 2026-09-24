@@ -1,0 +1,14 @@
+module.constant_leak	只引用对方的 static final String 常量：违规 0 条（常量已被编译器内联进调用方）
+module.leak	Method <labs.ddd.leak.registration.RegistrationMessages.confirmed(java.lang.String)> calls method <labs.ddd.leak.notification.internal.SmsTemplates.confirmed(java.lang.String)>
+module.main	主代码 10 个类：报名模块只依赖通知 api
+same.http.1	确认、候补：通过
+same.http.2	重复报名被拒绝：通过
+same.http.3	只通知已确认者：通过
+same.in-process.1	确认、候补：通过
+same.in-process.2	重复报名被拒绝：通过
+same.in-process.3	只通知已确认者：通过
+split.down	通知服务停止：20 次报名失败 20 次（ConnectException），已确认 0
+split.latency	每次通知调用的中位耗时：同进程 11µs，本机 HTTP 487µs（各 500 次，前 100 次预热不计）
+split.timeout.dedup	通知耗时 800ms、客户端超时 300ms、最多 3 次：5 次报名失败 5 次，已确认 0，HTTP 调用 15 次，通知服务实际发出短信 5 条，每次报名约 900ms
+split.timeout.plain	通知耗时 800ms、客户端超时 300ms、最多 3 次：5 次报名失败 5 次，已确认 0，HTTP 调用 15 次，通知服务实际发出短信 15 条，每次报名约 900ms
+split.trace	报名请求 traceId=trace-7f3a，通知服务日志：notification traceId=trace-7f3a noticeId=<uuid>
