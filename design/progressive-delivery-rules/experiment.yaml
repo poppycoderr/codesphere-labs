@@ -1,0 +1,20 @@
+id: design/progressive-delivery-rules
+title: 渐进发布规则：确定性分桶、规则优先级与冲突检测、配置校验与回滚、多节点传播期间的结果跳变
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/design/designing-reusable-server-components.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

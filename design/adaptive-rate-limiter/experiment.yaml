@@ -1,0 +1,23 @@
+id: design/adaptive-rate-limiter
+title: 限流组件：三种算法的窗口边界、本地并发、多实例共享 Redis 的原子性与配额平分、规则热更新、Redis 暂停时的降级策略
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/designing-reusable-server-components.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    jdk: "21"
+    jedis: "5.2.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

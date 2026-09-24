@@ -1,0 +1,23 @@
+id: design/idempotency-key
+title: 幂等键：并发同键、重放、请求不一致、失败处理、租约过期接管与 fencing token、业务与幂等记录分开提交时的崩溃窗口
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/designing-reusable-server-components.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "21"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-24"

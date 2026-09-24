@@ -1,0 +1,10 @@
+bucket.share	10 万用户：10% 规则命中 10066，20% 规则命中 19977
+bucket.monotonic	10% 命中的用户在 20% 时仍命中：true
+bucket.stable	重新加载同一配置后结果一致的用户 100000 / 100000
+bucket.random	按随机数决定：1 万个用户各请求两次，两次结果不同 1772 人
+bucket.salted	两个 10% 的开关，以开关名加盐：同时命中 1027 人；不加盐：同时命中 10085 人
+rule.priority	acme/DE 用户 → Decision[enabled=true, ruleId=allow-acme, version=3]；umbrella 用户 → Decision[enabled=false, ruleId=deny-umbrella, version=3]
+rule.conflict	规则 allow-acme 与 deny-de 优先级相同、条件重叠、结果相反
+config.rejected	规则 ramp 的比例 120 不在 0—100 之间；继续使用版本 1
+config.rollback	版本 2（50%）改变了 39935 个用户的结果；以版本 1 的规则发布版本 3 回滚后，与版本 1 一致的用户 100000 / 100000
+propagation.flip	1 万个用户在 60 秒内各请求 6 次：结果来回变化（超过一次）的用户 3961 人，变化 7922 次

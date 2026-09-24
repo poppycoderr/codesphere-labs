@@ -1,0 +1,13 @@
+algorithm.fixed-window	第 990ms 与第 1000ms 各到达 100 个：放行 200，任意 1 秒内最多放行 200
+algorithm.sliding-log	第 990ms 与第 1000ms 各到达 100 个：放行 100，任意 1 秒内最多放行 100
+algorithm.token-bucket	第 990ms 与第 1000ms 各到达 100 个：放行 101，任意 1 秒内最多放行 101
+local.check-then-increment	6400 个请求、限额 1000：放行 1031
+local.compare-and-set	6400 个请求、限额 1000：放行 1000
+distributed.get-then-incr	16 个实例、2000 个请求、全局限额 1000：放行 1012
+distributed.lua	16 个实例、2000 个请求、全局限额 1000：放行 1000
+distributed.split_quota	每个实例本地限额 250，流量按 70%/10%/10%/10% 分到 4 个实例：放行 850 / 2000（全局容量 1000），热点实例拒绝 1150
+reload.audit	拒绝版本 2（limit=-5），保留版本 1；版本 1 → 3（limit 1000 → 800）
+reload.effect	同一窗口 1500 个请求：放行 800（第 600 个请求时限额从 1000 降到 800，已计数的 600 个不回收）
+outage.fail-open	Redis 暂停期间 2000 个请求：放行 2000，判定耗时最大 54ms
+outage.fail-closed	Redis 暂停期间 2000 个请求：放行 0，判定耗时最大 51ms
+outage.local-fallback	Redis 暂停期间 2000 个请求：放行 1000，判定耗时最大 52ms

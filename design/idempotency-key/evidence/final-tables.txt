@@ -1,0 +1,23 @@
+## idempotency_keys
++--------------------------+-----------+----------------------------+-------+
+| idem_key                 | status    | response                   | token |
++--------------------------+-----------+----------------------------+-------+
+| k-concurrent             | SUCCEEDED | 201 registration for alice |     1 |
+| k-crash-SAME_TRANSACTION | SUCCEEDED | 201 registration for erin  |     2 |
+| k-crash-SEPARATE         | SUCCEEDED | 201 registration for erin  |     2 |
+| k-lease-SAME_TRANSACTION | SUCCEEDED | 201 registration for dave  |     2 |
+| k-lease-SEPARATE         | SUCCEEDED | 201 registration for dave  |     2 |
+| k-permanent              | FAILED    | 400 同行人数不合法         |     1 |
+| k-retryable              | SUCCEEDED | 201 registration for bob   |     1 |
++--------------------------+-----------+----------------------------+-------+
+## registrations
++--------------------------+---+-----------+
+| idem_key                 | n | executors |
++--------------------------+---+-----------+
+| k-concurrent             | 1 | t10       |
+| k-crash-SAME_TRANSACTION | 1 | B         |
+| k-crash-SEPARATE         | 2 | A,B       |
+| k-lease-SAME_TRANSACTION | 1 | B         |
+| k-lease-SEPARATE         | 2 | B,A       |
+| k-retryable              | 1 | b         |
++--------------------------+---+-----------+

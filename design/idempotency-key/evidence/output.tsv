@@ -1,0 +1,9 @@
+concurrent.same_key	20 个并发请求：{EXECUTED=1, IN_PROGRESS=19}；报名写入 1 条
+replay	完成后再发 5 次：{REPLAYED=5}，返回「201 registration for alice」；报名仍为 1 条
+mismatch	同一个键、不同的请求内容：MISMATCH「422 同一个幂等键对应了不同的请求」
+failure.retryable	第一次 FAILED（下游超时，已释放幂等键）；重试 EXECUTED；报名 1 条
+failure.permanent	第一次 FAILED（400 同行人数不合法）；同一个键再发 REPLAYED（400 同行人数不合法）；报名 0 条
+lease.SEPARATE	A（慢）→ EXECUTED，B（接管）→ EXECUTED；报名 2 条
+lease.SAME_TRANSACTION	A（慢）→ FENCED，B（接管）→ EXECUTED；报名 1 条
+crash.SEPARATE	第一次 崩溃；租约过期后重试 EXECUTED；报名 2 条
+crash.SAME_TRANSACTION	第一次 崩溃；租约过期后重试 EXECUTED；报名 1 条
