@@ -1,0 +1,3 @@
+availableProcessors	10
+synchronized-1000	5426
+reentrantlock-1000	60

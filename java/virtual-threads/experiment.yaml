@@ -1,0 +1,20 @@
+id: java/virtual-threads
+title: 虚拟线程让阻塞任务不再占用平台线程，但仍受下游连接数限制；JDK 21 的 synchronized 内阻塞会 pin 住载体线程，JDK 25 不会
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/java/virtual-threads.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5（本机）；eclipse-temurin 21.0.12、25.0.4（Docker，--cpus 6）"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

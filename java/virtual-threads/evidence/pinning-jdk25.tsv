@@ -1,0 +1,4 @@
+openjdk version "25.0.4" 2026-07-21 LTS
+availableProcessors	6
+synchronized-1000	66
+reentrantlock-1000	63
