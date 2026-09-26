@@ -1,0 +1,20 @@
+id: java/thread-pool-order
+title: ThreadPoolExecutor 先用核心线程、再排队、队列满了才扩到最大线程，最后拒绝
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/thread-pool-sizing.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

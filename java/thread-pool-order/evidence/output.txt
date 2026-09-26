@@ -1,0 +1,7 @@
+task 1 -> poolSize=1 queue=0
+task 2 -> poolSize=2 queue=0
+task 3 -> poolSize=2 queue=1
+task 4 -> poolSize=2 queue=2
+task 5 -> poolSize=3 queue=2
+task 6 -> poolSize=4 queue=2
+task 7 -> rejected
