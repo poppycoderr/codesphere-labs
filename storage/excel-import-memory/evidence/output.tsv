@@ -1,0 +1,4 @@
+generate	1000000 行、10 列，文件 62.6 MB（沿用已生成的 build/orders.xlsx）
+fesod	-Xmx 约 256 MB：读到数据行 1000000，堆使用峰值约 159 MB，耗时 7018 ms
+poi	-Xmx 约 6144 MB：OutOfMemoryError，堆使用峰值约 6138 MB，耗时 70888 ms
+poi	-Xmx 约 8192 MB：读到数据行 1000000，堆使用峰值约 7488 MB，耗时 22285 ms

@@ -1,0 +1,22 @@
+id: storage/excel-import-memory
+title: 100 万行 xlsx 用 POI XSSFWorkbook 整体加载需要 6—8 GB 堆，Apache Fesod 按批读取在 256 MB 内完成
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/storage/mysql-bulk-import.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    poi: "5.5.1"
+    fesod-sheet: "2.0.2-incubating"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"
