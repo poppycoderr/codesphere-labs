@@ -51,6 +51,14 @@
 | [storage/mysql-replication-lag](storage/mysql-replication-lag/) | MySQL 复制与延迟 | 多节点：1 source + 2 replicas | performance |
 | [storage/mysql-failover-read-consistency](storage/mysql-failover-read-consistency/) | MySQL 故障切换 | 多节点：故障注入与切换时间线 | performance |
 | [storage/mysql-backup-pitr](storage/mysql-backup-pitr/) | MySQL 误删恢复 | 多实例：隔离恢复与对照校验 | regular-docker |
+| [java/atomics-and-longadder](java/atomics-and-longadder/) | volatile、CAS 与 LongAdder | 轻量：并发与吞吐 | performance |
+| [java/class-loading-and-spi](java/class-loading-and-spi/) | 类加载与双亲委派 | 轻量：运行时编译与多个类加载器 | regular |
+| [java/jit-and-escape-analysis](java/jit-and-escape-analysis/) | JIT 与逃逸分析 | 轻量：分配字节数 | regular |
+| [spring/bean-lifecycle](spring/bean-lifecycle/) | Spring Bean 生命周期 | 轻量：真实 Spring 容器 | regular |
+| [spring/boot-auto-configuration](spring/boot-auto-configuration/) | Spring Boot 自动配置 | 轻量：Spring Boot 4.1.1 | regular |
+| [spring/circular-dependencies](spring/circular-dependencies/) | Spring 循环依赖 | 轻量：Spring Framework 与 Boot 对照 | regular |
+| [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
+| [storage/pagination-and-index-cost](storage/pagination-and-index-cost/) | SQL 调优实战（第五、六节） | 轻量 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
@@ -63,7 +71,7 @@
 
 **黄金样板**按 [验证标准](docs/verification-standard.md) 的完整要求建设，用来确定同类实验的格式；**轻量实验**只保留核心代码、一条验证入口、原始输出和简要验证记录。
 
-需要启动 Spring Boot、组合多个中间件的项目级验证（事务传播、Kafka 投递语义等），将在下一阶段用 Spring Boot 4 + Testcontainers 统一建设，目前还没有对应目录。
+需要启动 Spring Boot、组合多个中间件的项目级验证（事务传播、Kafka 投递语义等），将在下一阶段用 Spring Boot 4 + Testcontainers 统一建设。
 
 ## 快速开始
 
