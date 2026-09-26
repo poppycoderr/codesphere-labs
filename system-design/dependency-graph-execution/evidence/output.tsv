@@ -1,0 +1,12 @@
+validate	重复节点: 通知准备；缺失节点: 提交 依赖的 发票 不存在；循环依赖: 名额预留 -> 资格校验 -> 名额预留；受环阻塞: [提交, 费用计算]
+validate.ok	正常的报名图：没有错误
+order.fifo	普通队列：声明顺序 [资格校验, 名额预留, 费用计算, 通知准备, 风控复核, 提交]，倒序声明 [资格校验, 名额预留, 风控复核, 通知准备, 费用计算, 提交]
+order.sorted	按名称排序的 ready 集合：声明顺序 [资格校验, 名额预留, 费用计算, 通知准备, 风控复核, 提交]，倒序声明 [资格校验, 名额预留, 费用计算, 通知准备, 风控复核, 提交]
+parallel.1	并发上限 1：总耗时 881ms，同时运行最多 1 个，全部成功=true
+parallel.2	并发上限 2：总耗时 678ms，同时运行最多 2 个，全部成功=true
+parallel.3	并发上限 3：总耗时 471ms，同时运行最多 3 个，全部成功=true
+parallel.serial	各节点耗时之和 850ms；关键路径 资格校验 → 名额预留 → 任一 200ms 分支 → 提交 = 450ms
+failure.SKIP_DEPENDENTS	跳过后继：{资格校验=SUCCEEDED, 名额预留=SUCCEEDED, 费用计算=FAILED, 通知准备=SUCCEEDED, 风控复核=SUCCEEDED, 提交=SKIPPED}；原因 {费用计算=费用计算 调用计费服务失败, 提交=依赖 费用计算 失败}
+failure.FAIL_FAST	立即取消：{资格校验=SUCCEEDED, 名额预留=SUCCEEDED, 费用计算=FAILED, 通知准备=CANCELLED, 风控复核=CANCELLED, 提交=SKIPPED}；原因 {费用计算=费用计算 调用计费服务失败, 提交=依赖 费用计算 失败, 通知准备=取消：费用计算 失败, 风控复核=取消：费用计算 失败}
+retry.nokey	不带幂等键：名额预留调用 2 次，实际占用名额 2 个，全部成功=true
+retry.key	带幂等键（run_id + 节点）：名额预留调用 2 次，实际占用名额 1 个，全部成功=true
