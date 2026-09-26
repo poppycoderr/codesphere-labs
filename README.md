@@ -54,6 +54,9 @@
 | [java/atomics-and-longadder](java/atomics-and-longadder/) | volatile、CAS 与 LongAdder | 轻量：并发与吞吐 | performance |
 | [java/class-loading-and-spi](java/class-loading-and-spi/) | 类加载与双亲委派 | 轻量：运行时编译与多个类加载器 | regular |
 | [java/jit-and-escape-analysis](java/jit-and-escape-analysis/) | JIT 与逃逸分析 | 轻量：分配字节数 | regular |
+| [java/jmm-visibility](java/jmm-visibility/) | JMM 与 happens-before | 轻量：默认、-Xint、volatile 三种运行方式 | regular |
+| [java/thread-pool-order](java/thread-pool-order/) | 线程池参数怎么定 | 轻量：确定性输出 | regular |
+| [java/virtual-threads](java/virtual-threads/) | 虚拟线程迁移 | 轻量：本机与 Docker JDK 21、25 对照 | performance |
 | [spring/bean-lifecycle](spring/bean-lifecycle/) | Spring Bean 生命周期 | 轻量：真实 Spring 容器 | regular |
 | [spring/boot-auto-configuration](spring/boot-auto-configuration/) | Spring Boot 自动配置 | 轻量：Spring Boot 4.1.1 | regular |
 | [spring/circular-dependencies](spring/circular-dependencies/) | Spring 循环依赖 | 轻量：Spring Framework 与 Boot 对照 | regular |
