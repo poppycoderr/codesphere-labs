@@ -1,0 +1,21 @@
+id: messaging/kafka-delivery
+title: Kafka 事务的中止与提交、transactional.id 隔离旧实例、自动提交 + 异步处理丢消息、min.insync.replicas 与 ISR 收缩
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/messaging/kafka-delivery-semantics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    kafka: "4.3.1"
+    kafka-clients: "4.3.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

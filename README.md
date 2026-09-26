@@ -62,6 +62,7 @@
 | [spring/circular-dependencies](spring/circular-dependencies/) | Spring 循环依赖 | 轻量：Spring Framework 与 Boot 对照 | regular |
 | [spring/transaction-propagation](spring/transaction-propagation/) | Spring 事务传播 | 项目级：Spring Boot 4.1.1 + MySQL（Testcontainers） | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
+| [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [storage/pagination-and-index-cost](storage/pagination-and-index-cost/) | SQL 调优实战（第五、六节） | 轻量 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
