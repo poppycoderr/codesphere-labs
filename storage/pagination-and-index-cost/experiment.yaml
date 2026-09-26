@@ -1,0 +1,22 @@
+id: storage/pagination-and-index-cost
+title: 深分页与游标分页、行构造器游标与展开写法、二级索引数量对批量写入的影响
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/database-design-and-tuning.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    mysql: "8.4.11"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-26"

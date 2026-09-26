@@ -1,0 +1,40 @@
+## offset=0
+SELECT id, merchant_id, amount_cents, note FROM orders ORDER BY id LIMIT 0, 20
+-> Limit: 20 row(s)  (cost=0.0184 rows=20) (actual time=0.0105..0.0188 rows=20 loops=1)
+    -> Index scan on orders using PRIMARY  (cost=0.0184 rows=20) (actual time=0.00879..0.0162 rows=20 loops=1)
+
+SELECT id, merchant_id, amount_cents, note FROM orders WHERE id > 0 ORDER BY id LIMIT 20
+-> Limit: 20 row(s)  (cost=49928 rows=20) (actual time=0.0258..0.0291 rows=20 loops=1)
+    -> Filter: (orders.id > 0)  (cost=49928 rows=249212) (actual time=0.0252..0.0276 rows=20 loops=1)
+        -> Index range scan on orders using PRIMARY over (0 < id)  (cost=49928 rows=249212) (actual time=0.0242..0.0258 rows=20 loops=1)
+
+## offset=10000
+SELECT id, merchant_id, amount_cents, note FROM orders ORDER BY id LIMIT 10000, 20
+-> Limit/Offset: 20/10000 row(s)  (cost=29.3 rows=20) (actual time=1.45..1.45 rows=20 loops=1)
+    -> Index scan on orders using PRIMARY  (cost=29.3 rows=10020) (actual time=0.0539..1.21 rows=10020 loops=1)
+
+SELECT id, merchant_id, amount_cents, note FROM orders WHERE id > 10000 ORDER BY id LIMIT 20
+-> Limit: 20 row(s)  (cost=49928 rows=20) (actual time=0.0294..0.0326 rows=20 loops=1)
+    -> Filter: (orders.id > 10000)  (cost=49928 rows=249212) (actual time=0.0288..0.0312 rows=20 loops=1)
+        -> Index range scan on orders using PRIMARY over (10000 < id)  (cost=49928 rows=249212) (actual time=0.0276..0.0288 rows=20 loops=1)
+
+## offset=100000
+SELECT id, merchant_id, amount_cents, note FROM orders ORDER BY id LIMIT 100000, 20
+-> Limit/Offset: 20/100000 row(s)  (cost=2099 rows=20) (actual time=13.4..13.4 rows=20 loops=1)
+    -> Index scan on orders using PRIMARY  (cost=2099 rows=100020) (actual time=0.0295..11.1 rows=100020 loops=1)
+
+SELECT id, merchant_id, amount_cents, note FROM orders WHERE id > 100000 ORDER BY id LIMIT 20
+-> Limit: 20 row(s)  (cost=49928 rows=20) (actual time=0.0262..0.0295 rows=20 loops=1)
+    -> Filter: (orders.id > 100000)  (cost=49928 rows=249212) (actual time=0.0256..0.028 rows=20 loops=1)
+        -> Index range scan on orders using PRIMARY over (100000 < id)  (cost=49928 rows=249212) (actual time=0.0246..0.0261 rows=20 loops=1)
+
+## offset=400000
+SELECT id, merchant_id, amount_cents, note FROM orders ORDER BY id LIMIT 400000, 20
+-> Limit/Offset: 20/400000 row(s)  (cost=32471 rows=20) (actual time=53.7..53.7 rows=20 loops=1)
+    -> Index scan on orders using PRIMARY  (cost=32471 rows=400020) (actual time=0.0354..44.6 rows=400020 loops=1)
+
+SELECT id, merchant_id, amount_cents, note FROM orders WHERE id > 400000 ORDER BY id LIMIT 20
+-> Limit: 20 row(s)  (cost=39166 rows=20) (actual time=0.0376..0.0415 rows=20 loops=1)
+    -> Filter: (orders.id > 400000)  (cost=39166 rows=195492) (actual time=0.0367..0.0399 rows=20 loops=1)
+        -> Index range scan on orders using PRIMARY over (400000 < id)  (cost=39166 rows=195492) (actual time=0.0353..0.0375 rows=20 loops=1)
+
