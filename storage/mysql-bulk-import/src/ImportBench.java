@@ -3,9 +3,15 @@ import java.nio.file.*;
 import java.sql.*;
 import java.util.*;
 import java.util.concurrent.*;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
+import org.apache.ibatis.mapping.Environment;
+import org.apache.ibatis.session.*;
+import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 /**
- * 百万行导入的写入方式对比与批处理失败语义。JDK 21，MySQL Connector/J 8.0.27，单文件运行：java -cp <driver> ImportBench.java
+ * 百万行导入的写入方式对比与批处理失败语义。JDK 21，MySQL Connector/J 8.0.27，MyBatis 3.5.19，单文件运行：java -cp <driver>:<mybatis> ImportBench.java
  * 每种写入方式重新建表后写入固定行数，采样 3 次取中位数；失败语义用一批 6 行、第 4 行与第 2 行主键冲突的数据观察。
  */
 public class ImportBench {
@@ -20,6 +26,7 @@ public class ImportBench {
         bench("batch-1000-no-rewrite", ROWS, () -> batch(false, 1000, 0, ROWS));
         bench("batch-1000-rewrite", ROWS, () -> batch(true, 1000, 0, ROWS));
         bench("batch-5000-rewrite", ROWS, () -> batch(true, 5000, 0, ROWS));
+        bench("mybatis-foreach-1000", ROWS, () -> myBatisForeach(1000));
         bench("4-threads-batch-1000-rewrite", ROWS, ImportBench::parallel);
         bench("load-data-local-infile", ROWS, ImportBench::loadData);
         failureSemantics(false);
@@ -88,6 +95,50 @@ public class ImportBench {
                 bind(ps, n);
                 ps.addBatch();
                 if ((n - from + 1) % batchSize == 0 || n == to - 1) { ps.executeBatch(); c.commit(); }
+            }
+        }
+    }
+
+    /** 一行导入数据，字段与 bind() 写入的值相同。 */
+    public static class Row {
+        private final long orderNo, userId;
+        private final String sku, remark;
+        private final int qty;
+
+        Row(long n) {
+            orderNo = 10_000_000L + n; userId = n % 50_000; sku = "SKU-" + (n % 1000); qty = (int) (n % 5) + 1; remark = "remark-" + n;
+        }
+
+        public long getOrderNo() { return orderNo; }
+        public long getUserId() { return userId; }
+        public String getSku() { return sku; }
+        public int getQty() { return qty; }
+        public String getRemark() { return remark; }
+    }
+
+    public interface OrderMapper {
+        @Insert({"<script>INSERT INTO import_order (order_no, user_id, sku, qty, remark) VALUES",
+                "<foreach collection='rows' item='r' separator=','>(#{r.orderNo}, #{r.userId}, #{r.sku}, #{r.qty}, #{r.remark})</foreach>",
+                "</script>"})
+        int insertAll(@Param("rows") List<Row> rows);
+    }
+
+    // MyBatis <foreach> 拼成多行 VALUES，连接不开启 rewriteBatchedStatements；每批一条 SQL、一个事务
+    static void myBatisForeach(int batchSize) {
+        var ds = new UnpooledDataSource("com.mysql.cj.jdbc.Driver", URL + "&rewriteBatchedStatements=false", USER, PASSWORD);
+        var config = new Configuration(new Environment("labs", new JdbcTransactionFactory(), ds));
+        config.addMapper(OrderMapper.class);
+        var factory = new SqlSessionFactoryBuilder().build(config);
+        try (SqlSession session = factory.openSession(false)) {
+            OrderMapper mapper = session.getMapper(OrderMapper.class);
+            List<Row> rows = new ArrayList<>(batchSize);
+            for (long n = 0; n < ROWS; n++) {
+                rows.add(new Row(n));
+                if (rows.size() == batchSize || n == ROWS - 1) {
+                    mapper.insertAll(rows);
+                    session.commit();
+                    rows.clear();
+                }
             }
         }
     }

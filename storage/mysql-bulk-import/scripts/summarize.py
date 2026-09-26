@@ -28,6 +28,9 @@ print((out / "summary.md").read_text())
 check(rps["batch-1000-no-rewrite"] > 3 * base, "只用批处理（不开启重写）已比逐行自动提交快数倍：省掉了每行一次提交")
 check(rps["batch-1000-rewrite"] > 3 * rps["batch-1000-no-rewrite"], "开启 rewriteBatchedStatements 后再快数倍：一批一次往返")
 check(rps["batch-5000-rewrite"] < 1.5 * rps["batch-1000-rewrite"], "批大小 1000 → 5000 提升有限（不到 1.5 倍）")
+ratio = rps["mybatis-foreach-1000"] / rps["batch-1000-rewrite"]
+check(rps["mybatis-foreach-1000"] > 3 * rps["batch-1000-no-rewrite"] and ratio < 1,
+      f"MyBatis <foreach> 多行插入（不开启重写）远快于未重写的批处理，但比开启重写的批处理慢（{ratio:.2f} 倍）")
 check(rps["4-threads-batch-1000-rewrite"] > 1.2 * rps["batch-1000-rewrite"], "4 个线程比单线程更快")
 check(rps["load-data-local-infile"] > rps["batch-1000-rewrite"], "LOAD DATA LOCAL INFILE 快于单线程重写批处理")
 

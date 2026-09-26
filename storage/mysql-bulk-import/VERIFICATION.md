@@ -7,11 +7,12 @@
 1. 逐行自动提交最慢；只用批处理、不开启 `rewriteBatchedStatements` 已快数倍；开启后再快数倍
 2. 批大小从 1000 加到 5000 提升有限（不到 1.5 倍）
 3. 4 个线程快于单线程；`LOAD DATA LOCAL INFILE` 快于单线程重写批处理
-4. 一批 6 行、第 4 行主键冲突，捕获异常后提交：未开启重写时 `getUpdateCounts()` 为 `[1, 1, 1, -3, 1, 1]`，其余 5 行写入；开启重写时全部为 `-3`，一行都没有写入
+4. MyBatis `<foreach>` 拼成多行 `VALUES`（连接不开启重写，每批 1000 行）远快于未重写的批处理，但比开启重写的批处理慢
+5. 一批 6 行、第 4 行主键冲突，捕获异常后提交：未开启重写时 `getUpdateCounts()` 为 `[1, 1, 1, -3, 1, 1]`，其余 5 行写入；开启重写时全部为 `-3`，一行都没有写入
 
 ## 二、环境
 
-见 [`evidence/environment.txt`](evidence/environment.txt)。组件版本：mysql 8.4.11（`compose.yaml` 固定 digest，默认配置，开启 binlog），JDK 21（`eclipse-temurin:21-jdk` 固定 digest），MySQL Connector/J 8.0.27。
+见 [`evidence/environment.txt`](evidence/environment.txt)。组件版本：mysql 8.4.11（`compose.yaml` 固定 digest，默认配置，开启 binlog），JDK 21（`eclipse-temurin:21-jdk` 固定 digest），MySQL Connector/J 8.0.27，MyBatis 3.5.19。
 
 ## 三、执行步骤
 
@@ -54,3 +55,4 @@ make clean
 |---|---|---|
 | 文章发布时 | 在 JDK 21 + MySQL 8.4.11 上实测，数字见文章 | — |
 | 2026-09-24 | 迁入本仓库，默认配置下 3 次采样重跑 | 是：逐行 1,956 → 1,923 行/秒，重写批处理 134,373 → 143,266，4 线程 288,579 → 210,970，LOAD DATA 272,350 → 332,779；批大小 5000 的提升 14% → 8% |
+| 2026-09-27 | 新增 MyBatis `<foreach>` 对比，全部重跑 | 是：逐行 1,918 行/秒，普通批处理 20,454，重写批处理 129,786，批大小 5000 为 152,323（提升 17%），MyBatis `<foreach>` 79,365（重写批处理的 0.61 倍），4 线程 203,252，LOAD DATA 322,061 |
