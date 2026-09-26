@@ -1,0 +1,9 @@
+async.self	@Async 从外部调用：运行在 task-N 线程；自调用：运行在调用方线程 main
+cache.self	@Cacheable 自调用两次：方法体执行 2 次；从外部调用两次：执行 1 次
+order.cache-outer.hits	cache-outer：缓存命中 10 次，开启物理事务 0 次
+order.cache-outer.rollback	cache-outer：第一次调用回滚，表里 id=7 的行数 0；第二次调用再次抛出 UnexpectedRollbackException
+order.default.hits	default：缓存命中 10 次，开启物理事务 0 次
+order.default.rollback	default：第一次调用回滚，表里 id=7 的行数 0；第二次调用再次抛出 UnexpectedRollbackException
+order.tx-outer.hits	tx-outer：缓存命中 10 次，开启物理事务 10 次
+order.tx-outer.rollback	tx-outer：第一次调用回滚，表里 id=7 的行数 0；第二次调用返回「new-7」
+proxy.boot	Spring Boot 默认：按实现类 OrderService 取 Bean 成功，CGLIB 代理=true，JDK 代理=false

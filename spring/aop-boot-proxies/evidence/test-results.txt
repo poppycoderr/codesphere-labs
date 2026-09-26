@@ -1,0 +1,12 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  CacheOuterOrderingTest  rolledBackValueInCache
+PASS  CacheOuterOrderingTest  cacheHitsAndTransactions
+PASS  DefaultOrderingTest  rolledBackValueInCache
+PASS  DefaultOrderingTest  cacheHitsAndTransactions
+PASS  DefaultProxyTest  cacheableSelfInvocationBypassesCache
+PASS  DefaultProxyTest  asyncSelfInvocationRunsOnCaller
+PASS  DefaultProxyTest  bootUsesClassProxiesByDefault
+PASS  TxOuterOrderingTest  rolledBackValueInCache
+PASS  TxOuterOrderingTest  cacheHitsAndTransactions
+
+tests=9 failures=0

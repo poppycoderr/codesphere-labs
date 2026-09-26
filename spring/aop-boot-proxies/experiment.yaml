@@ -1,0 +1,21 @@
+id: spring/aop-boot-proxies
+title: Spring Boot 默认 CGLIB 代理、@Cacheable 与 @Async 的自调用、缓存与事务切面的顺序
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/aop-proxy-pitfalls.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

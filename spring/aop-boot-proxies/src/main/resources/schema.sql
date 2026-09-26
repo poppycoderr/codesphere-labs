@@ -1,0 +1,2 @@
+CREATE TABLE profiles (id BIGINT PRIMARY KEY, name VARCHAR(32) NOT NULL);
+INSERT INTO profiles VALUES (1, 'alice');
