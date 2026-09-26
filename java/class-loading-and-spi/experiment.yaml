@@ -1,0 +1,20 @@
+id: java/class-loading-and-spi
+title: 类加载：同名类不同加载器、初始化时机、ServiceLoader 与上下文类加载器、父优先与子优先、类加载器泄漏、版本不一致
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/class-loading-and-spi.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-25"

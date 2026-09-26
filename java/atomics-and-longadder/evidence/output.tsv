@@ -1,0 +1,14 @@
+volatile.1	8 个线程各加 100 万次：volatile long 为 1,522,470（丢失 6,477,530），AtomicLong 为 8,000,000
+volatile.2	8 个线程各加 100 万次：volatile long 为 1,582,627（丢失 6,417,373），AtomicLong 为 8,000,000
+volatile.3	8 个线程各加 100 万次：volatile long 为 1,653,809（丢失 6,346,191），AtomicLong 为 8,000,000
+cas	8 个线程各做 10 万次 CAS 更新：成功 800,000 次，计算函数执行 4,623,184 次（5.78 倍），放在循环里的副作用执行 4,623,184 次，最终余额 800,000
+aba.plain	AtomicReference：线程 1 的 CAS 成功，栈变成 [B, C]（已被弹出的 B 回到了栈顶）
+aba.stamped	AtomicStampedReference：线程 1 的 CAS 失败（版本 0 → 当前 3），栈仍是 [A, C]
+throughput.1	1 个线程（3 轮取最好）：synchronized 42,604 万次/秒；AtomicLong 14,637 万次/秒；LongAdder 14,605 万次/秒；
+throughput.2	2 个线程（3 轮取最好）：synchronized 3,803 万次/秒；AtomicLong 3,935 万次/秒；LongAdder 28,464 万次/秒；
+throughput.4	4 个线程（3 轮取最好）：synchronized 2,622 万次/秒；AtomicLong 2,756 万次/秒；LongAdder 54,790 万次/秒；
+throughput.8	8 个线程（3 轮取最好）：synchronized 2,959 万次/秒；AtomicLong 2,064 万次/秒；LongAdder 105,835 万次/秒；
+limit.1	限额 1000，8 个线程争抢：LongAdder 先 sum() 再 increment() 最终 1,000，AtomicLong 条件 CAS 最终 1,000
+limit.2	限额 1000，8 个线程争抢：LongAdder 先 sum() 再 increment() 最终 1,005，AtomicLong 条件 CAS 最终 1,000
+limit.3	限额 1000，8 个线程争抢：LongAdder 先 sum() 再 increment() 最终 1,003，AtomicLong 条件 CAS 最终 1,000
+varhandle	8 个线程对同一字段 VarHandle.compareAndSet(0 → 1)：成功 1 个，字段值 1

@@ -1,0 +1,20 @@
+id: java/atomics-and-longadder
+title: volatile 上的 i++ 丢更新、CAS 重试与副作用、ABA、AtomicLong 与 LongAdder 的吞吐、LongAdder 做限额会超发
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/java/volatile-cas-and-longadder.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-25"

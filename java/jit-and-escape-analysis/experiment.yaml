@@ -1,0 +1,20 @@
+id: java/jit-and-escape-analysis
+title: 逃逸分析与标量替换：同一个方法在默认、逃逸、调用、双态与超多态、关闭逃逸分析、禁止内联、解释执行下的每次调用分配字节数
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/jit-and-escape-analysis.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-25"

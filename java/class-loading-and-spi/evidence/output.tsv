@@ -1,0 +1,16 @@
+identity	两个加载器加载同一份 com.example.Plugin：名称相同=true，Class 对象相同=false
+identity.cast	class com.example.Plugin cannot be cast to class com.example.Plugin (com.example.Plugin is in unnamed module of loader 'plugin-b' @<hash>; com.example.Plugin is in unnamed module of loader 'plugin-a' @<hash>)
+init.step	读取编译期常量 Config.CONSTANT=7
+init.step	创建 Config[3] 数组，长度 3
+init.step	Class.forName(name, false, loader) 得到 Config
+init	Config 的静态初始化执行了；early=0，late=10
+init.step	读取 Config.BOXED=8
+spi	接口在父加载器、实现在子加载器：上下文类加载器为父加载器时找到 0 个，为子加载器时找到 1 个；用接口自己的加载器查找找到 0 个
+spi.pool	在上下文为 app 时创建的线程池，调用方切回原加载器后，工作线程的上下文类加载器仍是 app
+delegation	父加载器有 lib.Version 1.0、插件目录有 2.0：父优先得到 1.0，子优先得到 2.0
+delegation.core	子优先加载器自己定义 java.lang.Hacked：SecurityException: Prohibited package name: java.lang
+unload.clean	丢弃加载器与实例后：加载器已被回收
+unload.static	实例登记在父加载器的静态列表里：加载器仍然存活
+unload.threadlocal	实例放进长期存活线程的 ThreadLocal：加载器仍然存活
+unload.threadlocal.removed	在同一线程里 remove 之后：加载器已被回收
+mismatch	按 api 2.0 编译、运行时 classpath 上是 1.0：NoSuchMethodError: 'java.lang.String api.Client.call(int)'
