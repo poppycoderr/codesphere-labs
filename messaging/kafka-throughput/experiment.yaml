@@ -1,0 +1,21 @@
+id: messaging/kafka-throughput
+title: Kafka 的吞吐从哪里来：批处理、压缩、确认级别、分区并行与热点 key
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/messaging/why-kafka-is-fast.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    kafka: "4.3.1"
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-26"

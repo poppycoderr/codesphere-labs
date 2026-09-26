@@ -1,0 +1,108 @@
+batch-off.1	24866 records sent, 4973.2 records/sec (1.21 MB/sec), 3070.4 ms avg latency, 4542.0 ms max latency.
+batch-off.1	43036 records sent, 8607.2 records/sec (2.10 MB/sec), 7128.9 ms avg latency, 9285.0 ms max latency.
+batch-off.1	42989 records sent, 8597.8 records/sec (2.10 MB/sec), 11164.6 ms avg latency, 12430.0 ms max latency.
+batch-off.1	48392 records sent, 9678.4 records/sec (2.36 MB/sec), 10743.0 ms avg latency, 11629.0 ms max latency.
+batch-off.1	200000 records sent, 8329.862557 records/sec (2.03 MB/sec), 9007.37 ms avg latency, 12430.00 ms max latency, 10233 ms 50th, 11660 ms 95th, 12266 ms 99th, 12413 ms 99.9th.
+batch-off.1	producer-metrics:batch-size-avg:: 326.000
+batch-off.1	producer-metrics:compression-rate-avg:: 1.000
+batch-off.1	producer-metrics:records-per-request-avg:: 1.000
+batch-off.1	producer-metrics:request-rate:: 3710.718
+batch-default.1	200000 records sent, 216919.739696 records/sec (52.96 MB/sec), 65.79 ms avg latency, 176.00 ms max latency, 82 ms 50th, 127 ms 95th, 137 ms 99th, 141 ms 99.9th.
+batch-default.1	producer-metrics:batch-size-avg:: 16224.464
+batch-default.1	producer-metrics:compression-rate-avg:: 1.000
+batch-default.1	producer-metrics:records-per-request-avg:: 60.994
+batch-default.1	producer-metrics:request-rate:: 106.549
+batch-large.1	200000 records sent, 366300.366300 records/sec (89.43 MB/sec), 2.76 ms avg latency, 191.00 ms max latency, 1 ms 50th, 11 ms 95th, 30 ms 99th, 31 ms 99.9th.
+batch-large.1	producer-metrics:batch-size-avg:: 260781.314
+batch-large.1	producer-metrics:compression-rate-avg:: 1.000
+batch-large.1	producer-metrics:records-per-request-avg:: 980.392
+batch-large.1	producer-metrics:request-rate:: 6.835
+batch-off.2	41242 records sent, 8248.4 records/sec (2.01 MB/sec), 2309.1 ms avg latency, 4398.0 ms max latency.
+batch-off.2	47209 records sent, 9441.8 records/sec (2.31 MB/sec), 6725.1 ms avg latency, 9168.0 ms max latency.
+batch-off.2	47167 records sent, 9433.4 records/sec (2.30 MB/sec), 10266.6 ms avg latency, 10766.0 ms max latency.
+batch-off.2	50106 records sent, 10021.2 records/sec (2.45 MB/sec), 10195.7 ms avg latency, 10543.0 ms max latency.
+batch-off.2	200000 records sent, 9450.455985 records/sec (2.31 MB/sec), 7744.70 ms avg latency, 10766.00 ms max latency, 9821 ms 50th, 10571 ms 95th, 10755 ms 99th, 10765 ms 99.9th.
+batch-off.2	producer-metrics:batch-size-avg:: 326.000
+batch-off.2	producer-metrics:compression-rate-avg:: 1.000
+batch-off.2	producer-metrics:records-per-request-avg:: 1.000
+batch-off.2	producer-metrics:request-rate:: 3917.346
+batch-default.2	200000 records sent, 182149.362477 records/sec (44.47 MB/sec), 241.16 ms avg latency, 423.00 ms max latency, 266 ms 50th, 414 ms 95th, 419 ms 99th, 421 ms 99.9th.
+batch-default.2	producer-metrics:batch-size-avg:: 16224.464
+batch-default.2	producer-metrics:compression-rate-avg:: 1.000
+batch-default.2	producer-metrics:records-per-request-avg:: 60.994
+batch-default.2	producer-metrics:request-rate:: 105.934
+batch-large.2	200000 records sent, 335570.469799 records/sec (81.93 MB/sec), 2.66 ms avg latency, 186.00 ms max latency, 1 ms 50th, 7 ms 95th, 31 ms 99th, 32 ms 99.9th.
+batch-large.2	producer-metrics:batch-size-avg:: 260781.314
+batch-large.2	producer-metrics:compression-rate-avg:: 1.000
+batch-large.2	producer-metrics:records-per-request-avg:: 980.392
+batch-large.2	producer-metrics:request-rate:: 6.823
+batch-off.3	39586 records sent, 7917.2 records/sec (1.93 MB/sec), 2330.5 ms avg latency, 4567.0 ms max latency.
+batch-off.3	50121 records sent, 10024.2 records/sec (2.45 MB/sec), 6617.1 ms avg latency, 9344.0 ms max latency.
+batch-off.3	50349 records sent, 10069.8 records/sec (2.46 MB/sec), 9888.7 ms avg latency, 10401.0 ms max latency.
+batch-off.3	53704 records sent, 10740.8 records/sec (2.62 MB/sec), 9818.2 ms avg latency, 10398.0 ms max latency.
+batch-off.3	200000 records sent, 9745.638827 records/sec (2.38 MB/sec), 7540.33 ms avg latency, 10401.00 ms max latency, 9468 ms 50th, 10180 ms 95th, 10377 ms 99th, 10395 ms 99.9th.
+batch-off.3	producer-metrics:batch-size-avg:: 326.000
+batch-off.3	producer-metrics:compression-rate-avg:: 1.000
+batch-off.3	producer-metrics:records-per-request-avg:: 1.000
+batch-off.3	producer-metrics:request-rate:: 3967.625
+batch-default.3	200000 records sent, 161030.595813 records/sec (39.31 MB/sec), 374.40 ms avg latency, 479.00 ms max latency, 429 ms 50th, 473 ms 95th, 477 ms 99th, 479 ms 99.9th.
+batch-default.3	producer-metrics:batch-size-avg:: 16224.464
+batch-default.3	producer-metrics:compression-rate-avg:: 1.000
+batch-default.3	producer-metrics:records-per-request-avg:: 60.994
+batch-default.3	producer-metrics:request-rate:: 105.515
+batch-large.3	200000 records sent, 393700.787402 records/sec (96.12 MB/sec), 3.25 ms avg latency, 188.00 ms max latency, 1 ms 50th, 21 ms 95th, 34 ms 99th, 35 ms 99.9th.
+batch-large.3	producer-metrics:batch-size-avg:: 260781.314
+batch-large.3	producer-metrics:compression-rate-avg:: 1.000
+batch-large.3	producer-metrics:records-per-request-avg:: 980.392
+batch-large.3	producer-metrics:request-rate:: 6.843
+compression-none	200000 records sent, 363636.363636 records/sec (52.86 MB/sec), 2.14 ms avg latency, 194.00 ms max latency, 1 ms 50th, 4 ms 95th, 35 ms 99th, 41 ms 99.9th.
+compression-none	producer-metrics:batch-size-avg:: 65356.700
+compression-none	producer-metrics:compression-rate-avg:: 1.000
+compression-none	producer-metrics:records-per-request-avg:: 402.414
+compression-none	producer-metrics:request-rate:: 16.466
+compression-lz4	200000 records sent, 180180.180180 records/sec (26.19 MB/sec), 252.65 ms avg latency, 329.00 ms max latency, 284 ms 50th, 325 ms 95th, 328 ms 99th, 329 ms 99.9th.
+compression-lz4	producer-metrics:batch-size-avg:: 27239.625
+compression-lz4	producer-metrics:compression-rate-avg:: 0.241
+compression-lz4	producer-metrics:records-per-request-avg:: 694.444
+compression-lz4	producer-metrics:request-rate:: 9.432
+compression-zstd	200000 records sent, 334448.160535 records/sec (48.61 MB/sec), 4.57 ms avg latency, 190.00 ms max latency, 2 ms 50th, 25 ms 95th, 29 ms 99th, 33 ms 99.9th.
+compression-zstd	producer-metrics:batch-size-avg:: 23192.161
+compression-zstd	producer-metrics:compression-rate-avg:: 0.140
+compression-zstd	producer-metrics:records-per-request-avg:: 1041.667
+compression-zstd	producer-metrics:request-rate:: 6.429
+disk.none	32482280
+disk.lz4	7845012
+disk.zstd	4452895
+acks-latency-0	99943 records sent, 19988.6 records/sec (4.88 MB/sec), 2.4 ms avg latency, 178.0 ms max latency.
+acks-latency-0	200000 records sent, 20000.000000 records/sec (4.88 MB/sec), 2.08 ms avg latency, 178.00 ms max latency, 2 ms 50th, 5 ms 95th, 12 ms 99th, 31 ms 99.9th.
+acks-latency-0	producer-metrics:batch-size-avg:: 16214.612
+acks-latency-0	producer-metrics:compression-rate-avg:: 1.000
+acks-latency-0	producer-metrics:records-per-request-avg:: 60.957
+acks-latency-0	producer-metrics:request-rate:: 82.374
+acks-max-0	200000 records sent, 187265.917603 records/sec (45.72 MB/sec), 221.50 ms avg latency, 359.00 ms max latency, 225 ms 50th, 354 ms 95th, 357 ms 99th, 359 ms 99.9th.
+acks-max-0	producer-metrics:batch-size-avg:: 16224.464
+acks-max-0	producer-metrics:compression-rate-avg:: 1.000
+acks-max-0	producer-metrics:records-per-request-avg:: 60.994
+acks-max-0	producer-metrics:request-rate:: 106.071
+acks-latency-1	99987 records sent, 19985.4 records/sec (4.88 MB/sec), 3.7 ms avg latency, 173.0 ms max latency.
+acks-latency-1	200000 records sent, 20000.000000 records/sec (4.88 MB/sec), 3.38 ms avg latency, 173.00 ms max latency, 3 ms 50th, 11 ms 95th, 33 ms 99th, 43 ms 99.9th.
+acks-latency-1	producer-metrics:batch-size-avg:: 16199.855
+acks-latency-1	producer-metrics:compression-rate-avg:: 1.000
+acks-latency-1	producer-metrics:records-per-request-avg:: 60.901
+acks-latency-1	producer-metrics:request-rate:: 82.429
+acks-max-1	200000 records sent, 172860.847018 records/sec (42.20 MB/sec), 162.46 ms avg latency, 319.00 ms max latency, 149 ms 50th, 307 ms 95th, 316 ms 99th, 318 ms 99.9th.
+acks-max-1	producer-metrics:batch-size-avg:: 16224.464
+acks-max-1	producer-metrics:compression-rate-avg:: 1.000
+acks-max-1	producer-metrics:records-per-request-avg:: 60.994
+acks-max-1	producer-metrics:request-rate:: 105.743
+acks-latency-all	99659 records sent, 19820.8 records/sec (4.84 MB/sec), 19.6 ms avg latency, 309.0 ms max latency.
+acks-latency-all	200000 records sent, 19996.000800 records/sec (4.88 MB/sec), 12.38 ms avg latency, 309.00 ms max latency, 3 ms 50th, 63 ms 95th, 183 ms 99th, 204 ms 99.9th.
+acks-latency-all	producer-metrics:batch-size-avg:: 16199.855
+acks-latency-all	producer-metrics:compression-rate-avg:: 1.000
+acks-latency-all	producer-metrics:records-per-request-avg:: 60.901
+acks-latency-all	producer-metrics:request-rate:: 82.531
+acks-max-all	200000 records sent, 78247.261346 records/sec (19.10 MB/sec), 634.59 ms avg latency, 1511.00 ms max latency, 528 ms 50th, 1464 ms 95th, 1507 ms 99th, 1510 ms 99.9th.
+acks-max-all	producer-metrics:batch-size-avg:: 16224.464
+acks-max-all	producer-metrics:compression-rate-avg:: 1.000
+acks-max-all	producer-metrics:records-per-request-avg:: 60.994
+acks-max-all	producer-metrics:request-rate:: 101.236
