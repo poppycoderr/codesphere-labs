@@ -1,0 +1,3 @@
+default.config	applicationTaskExecutor=ThreadPoolTaskExecutor，corePoolSize=8，maxPoolSize=2147483647，队列剩余容量=2147483647
+default.load	提交 50 个卡住的 @Async 任务：线程数 8，排队 42，同时在运行的任务 8 个，执行线程 platform
+virtual.config	spring.threads.virtual.enabled=true：applicationTaskExecutor=SimpleAsyncTaskExecutor，@Async 方法运行在 virtual 线程上，同时在运行的任务 50 个

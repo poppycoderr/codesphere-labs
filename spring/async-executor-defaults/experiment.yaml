@@ -1,0 +1,21 @@
+id: spring/async-executor-defaults
+title: Spring Boot 默认异步执行器队列无界、线程数停在 8；开启虚拟线程后换成不限并发的 SimpleAsyncTaskExecutor
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/thread-pool-sizing.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

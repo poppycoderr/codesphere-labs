@@ -1,0 +1,40 @@
+01:06:06.648 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [labs.async.DefaultExecutorTest]: DefaultExecutorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:06:06.698 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration labs.async.AsyncApp for test class labs.async.DefaultExecutorTest
+01:06:06.736 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [labs.async.DefaultExecutorTest]: DefaultExecutorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:06:06.737 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration labs.async.AsyncApp for test class labs.async.DefaultExecutorTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+<timestamp> INFO 90669 --- [           main] labs.async.DefaultExecutorTest           : Starting DefaultExecutorTest using Java 21.0.5 with PID 90669 (started by <user> in /workspace/spring/async-executor-defaults)
+<timestamp> INFO 90669 --- [           main] labs.async.DefaultExecutorTest           : No active profile set, falling back to 1 default profile: "default"
+<timestamp> INFO 90669 --- [           main] labs.async.DefaultExecutorTest           : Started DefaultExecutorTest in 0.384 seconds (process running for 0.913)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (~/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.11/byte-buddy-agent-1.18.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+<timestamp> INFO 90669 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [labs.async.VirtualThreadsExecutorTest]: VirtualThreadsExecutorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+<timestamp> INFO 90669 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration labs.async.AsyncApp for test class labs.async.VirtualThreadsExecutorTest
+<timestamp> INFO 90669 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [labs.async.VirtualThreadsExecutorTest]: VirtualThreadsExecutorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+<timestamp> INFO 90669 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration labs.async.AsyncApp for test class labs.async.VirtualThreadsExecutorTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+<timestamp> INFO 90669 --- [           main] labs.async.VirtualThreadsExecutorTest    : Starting VirtualThreadsExecutorTest using Java 21.0.5 with PID 90669 (started by <user> in /workspace/spring/async-executor-defaults)
+<timestamp> INFO 90669 --- [           main] labs.async.VirtualThreadsExecutorTest    : No active profile set, falling back to 1 default profile: "default"
+<timestamp> INFO 90669 --- [           main] labs.async.VirtualThreadsExecutorTest    : Started VirtualThreadsExecutorTest in 0.062 seconds (process running for 1.681)

@@ -1,0 +1,5 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  DefaultExecutorTest  unboundedQueueKeepsPoolAtCoreSize
+PASS  VirtualThreadsExecutorTest  virtualThreadsSwitchExecutor
+
+tests=2 failures=0
