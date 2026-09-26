@@ -1,0 +1,3 @@
+conflict	group.protocol=consumer 且保留 session.timeout.ms：应用启动失败，根因 ConfigException：session.timeout.ms cannot be set when group.protocol=CONSUMER
+consumer	只设置 group.protocol=consumer：group.protocol = consumer，group.remote.assignor = null，收到消息=true
+defaults	@KafkaListener 默认：group.protocol = classic，partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]，收到消息=true

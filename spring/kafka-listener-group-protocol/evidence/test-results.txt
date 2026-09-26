@@ -1,0 +1,6 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  ListenerDefaultsTest  defaultsAreClassicAndRange(CapturedOutput)
+PASS  ListenerNewProtocolConflictTest  sessionTimeoutIsRejected
+PASS  ListenerNewProtocolTest  newProtocolWorksWithOneProperty(CapturedOutput)
+
+tests=3 failures=0

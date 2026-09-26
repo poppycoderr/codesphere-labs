@@ -1,0 +1,21 @@
+id: messaging/kafka-rebalance
+title: 消费组扩容时 eager、协作式与 KIP-848 新协议的停顿，慢成员的影响，处理超时导致的重复，静态成员身份
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/messaging/kafka-consumer-rebalance.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    kafka: "4.3.1"
+    kafka-clients: "4.3.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

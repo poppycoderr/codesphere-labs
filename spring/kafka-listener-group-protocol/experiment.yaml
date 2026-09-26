@@ -1,0 +1,24 @@
+id: spring/kafka-listener-group-protocol
+title: Spring Kafka 的 @KafkaListener 默认用经典协议与 RangeAssignor；切换到新协议只需一个配置项，但要删掉 session.timeout.ms
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/messaging/kafka-consumer-rebalance.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.1"
+    spring-kafka: "4.1.1"
+    kafka-clients: "4.2.1"
+    kafka-broker: "4.3.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

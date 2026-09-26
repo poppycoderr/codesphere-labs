@@ -1,0 +1,139 @@
+defaults	kafka-clients 4.3.1 默认：group.protocol=classic，partition.assignment.strategy=[RangeAssignor, CooperativeStickyAssignor]
+config	新协议下设置 session.timeout.ms：ConfigException：session.timeout.ms cannot be set when group.protocol=CONSUMER
+scale.eager.healthy	扩容前 {0=C1, 1=C1, 2=C1, 3=C2, 4=C2, 5=C2}，扩容后 {0=C1, 1=C1, 2=C2, 3=C2, 4=C3, 5=C3}；被撤销的分区 6 个 [0, 1, 2, 3, 4, 5]；各分区最长中断 {0=133, 1=127, 2=147, 3=137, 4=133, 5=148}；超过 300ms 的分区 0 个
+scale.eager.healthy.gaps	各分区最长中断的起止时间 {0=12210→12343, 1=27359→27486, 2=18657→18804, 3=27864→28001, 4=12210→12343, 5=18656→18804}
+scale.eager.healthy.split	所有者没变的分区 [0, 1, 3] 最长中断 137 ms；换了所有者的分区 [2, 4, 5] 最长中断 148 ms
+scale.eager.healthy.timeline	 12001 ms  C3 启动
+scale.eager.healthy.timeline	 12553 ms  C1 撤销 [0, 1, 2]
+scale.eager.healthy.timeline	 12553 ms  C2 撤销 [3, 4, 5]
+scale.eager.healthy.timeline	 12559 ms  C1 分配 [0, 1]
+scale.eager.healthy.timeline	 12559 ms  C2 分配 [2, 3]
+scale.eager.healthy.timeline	 12559 ms  C3 分配 [4, 5]
+scale.eager.slow	扩容前 {0=C1, 1=C1, 2=C1, 3=C2, 4=C2, 5=C2}，扩容后 {0=C1, 1=C1, 2=C2, 3=C2, 4=C3, 5=C3}；被撤销的分区 6 个 [0, 1, 2, 3, 4, 5]；各分区最长中断 {0=7698, 1=8559, 2=7724, 3=8101, 4=8108, 5=9054}；超过 300ms 的分区 6 个
+scale.eager.slow.gaps	各分区最长中断的起止时间 {0=12142→19840, 1=12132→20691, 2=12116→19840, 3=11712→19813, 4=11734→19842, 5=11723→20777}
+scale.eager.slow.split	所有者没变的分区 [0, 1, 3] 最长中断 8559 ms；换了所有者的分区 [2, 4, 5] 最长中断 9054 ms
+scale.eager.slow.detail	C1 保留的分区 [0, 1] 最长中断 [7698, 8559] ms；从 C1 移给 C3 的分区 [] 最长中断 [] ms；C2 慢处理结束 19801 ms；C1 首次撤销 12180 ms（慢处理结束之前）；扩容后首次分配 19819 ms（慢处理结束之后）
+scale.eager.slow.timeline	 11800 ms  C2 开始一次 8 秒的慢处理
+scale.eager.slow.timeline	 12003 ms  C3 启动
+scale.eager.slow.timeline	 12180 ms  C1 撤销 [0, 1, 2]
+scale.eager.slow.timeline	 19801 ms  C2 慢处理结束
+scale.eager.slow.timeline	 19815 ms  C2 撤销 [3, 4, 5]
+scale.eager.slow.timeline	 19819 ms  C1 分配 [0, 1]
+scale.eager.slow.timeline	 19819 ms  C2 分配 [2, 3]
+scale.eager.slow.timeline	 19819 ms  C3 分配 [4, 5]
+scale.coop.healthy	扩容前 {0=C1, 1=C2, 2=C1, 3=C2, 4=C1, 5=C2}，扩容后 {0=C1, 1=C2, 2=C1, 3=C2, 4=C3, 5=C3}；被撤销的分区 2 个 [4, 5]；各分区最长中断 {0=171, 1=134, 2=150, 3=135, 4=3388, 5=3088}；超过 300ms 的分区 2 个
+scale.coop.healthy.gaps	各分区最长中断的起止时间 {0=14025→14196, 1=14844→14978, 2=14035→14185, 3=14833→14968, 4=12109→15497, 5=12093→15181}
+scale.coop.healthy.split	所有者没变的分区 [0, 1, 2, 3] 最长中断 171 ms；换了所有者的分区 [4, 5] 最长中断 3388 ms
+scale.coop.healthy.timeline	 12011 ms  C3 启动
+scale.coop.healthy.timeline	 12160 ms  C1 撤销 [4]
+scale.coop.healthy.timeline	 12160 ms  C2 撤销 [5]
+scale.coop.healthy.timeline	 15161 ms  C3 分配 [4, 5]
+scale.coop.slow	扩容前 {0=C1, 1=C2, 2=C1, 3=C2, 4=C1, 5=C2}，扩容后 {0=C1, 1=C2, 2=C1, 3=C2, 4=C3, 5=C3}；被撤销的分区 2 个 [4, 5]；各分区最长中断 {0=142, 1=9912, 2=145, 3=8110, 4=1270, 5=8101}；超过 300ms 的分区 4 个
+scale.coop.slow.gaps	各分区最长中断的起止时间 {0=22843→22985, 1=11807→21719, 2=23818→23963, 3=11796→19906, 4=24339→25609, 5=11784→19885}
+scale.coop.slow.split	所有者没变的分区 [0, 1, 2, 3] 最长中断 9912 ms；换了所有者的分区 [4, 5] 最长中断 8101 ms
+scale.coop.slow.detail	C1 保留的分区 [0, 2] 最长中断 [142, 145] ms；从 C1 移给 C3 的分区 [4] 最长中断 [1270] ms；C2 慢处理结束 19874 ms；C1 首次撤销 22616 ms（慢处理结束之后）；扩容后首次分配 23177 ms（慢处理结束之后）
+scale.coop.slow.timeline	 11872 ms  C2 开始一次 8 秒的慢处理
+scale.coop.slow.timeline	 12013 ms  C3 启动
+scale.coop.slow.timeline	 19874 ms  C2 慢处理结束
+scale.coop.slow.timeline	 22616 ms  C1 撤销 [4]
+scale.coop.slow.timeline	 22623 ms  C2 撤销 [5]
+scale.coop.slow.timeline	 23177 ms  C3 分配 [4, 5]
+scale.consumer.healthy	扩容前 {0=C2, 1=C2, 2=C2, 3=C1, 4=C1, 5=C1}，扩容后 {0=C2, 1=C2, 2=C3, 3=C1, 4=C1, 5=C3}；被撤销的分区 2 个 [2, 5]；各分区最长中断 {0=149, 1=161, 2=649, 3=162, 4=150, 5=601}；超过 300ms 的分区 2 个
+scale.consumer.healthy.gaps	各分区最长中断的起止时间 {0=22409→22558, 1=31032→31193, 2=20301→20950, 3=31032→31194, 4=22409→22559, 5=20289→20890}
+scale.consumer.healthy.split	所有者没变的分区 [0, 1, 3, 4] 最长中断 162 ms；换了所有者的分区 [2, 5] 最长中断 649 ms
+scale.consumer.healthy.timeline	 15364 ms  C3 启动
+scale.consumer.healthy.timeline	 20375 ms  C2 撤销 [2]
+scale.consumer.healthy.timeline	 20381 ms  C1 撤销 [5]
+scale.consumer.healthy.timeline	 20576 ms  C3 分配 [2, 5]
+scale.consumer.slow	扩容前 {0=C2, 1=C2, 2=C2, 3=C1, 4=C1, 5=C1}，扩容后 {0=C2, 1=C2, 2=C3, 3=C1, 4=C1, 5=C3}；被撤销的分区 2 个 [2, 5]；各分区最长中断 {0=8105, 1=8115, 2=8094, 3=134, 4=155, 5=1233}；超过 300ms 的分区 4 个
+scale.consumer.slow.gaps	各分区最长中断的起止时间 {0=15148→23253, 1=15127→23242, 2=15137→23231, 3=18978→19112, 4=18968→19123, 5=25776→27009}
+scale.consumer.slow.split	所有者没变的分区 [0, 1, 3, 4] 最长中断 8115 ms；换了所有者的分区 [2, 5] 最长中断 8094 ms
+scale.consumer.slow.detail	C1 保留的分区 [3, 4] 最长中断 [134, 155] ms；从 C1 移给 C3 的分区 [5] 最长中断 [1233] ms；C2 慢处理结束 23220 ms；C1 首次撤销 20366 ms（慢处理结束之前）；扩容后首次分配 20508 ms（慢处理结束之前）
+scale.consumer.slow.timeline	 15218 ms  C2 开始一次 8 秒的慢处理
+scale.consumer.slow.timeline	 15347 ms  C3 启动
+scale.consumer.slow.timeline	 20366 ms  C1 撤销 [5]
+scale.consumer.slow.timeline	 20508 ms  C3 分配 [5]
+scale.consumer.slow.timeline	 23220 ms  C2 慢处理结束
+scale.consumer.slow.timeline	 23253 ms  C2 撤销 [2]
+scale.consumer.slow.timeline	 25523 ms  C3 分配 [2]
+scale.eager.healthy	扩容前 {0=C2, 1=C2, 2=C2, 3=C1, 4=C1, 5=C1}，扩容后 {0=C2, 1=C2, 2=C1, 3=C1, 4=C3, 5=C3}；被撤销的分区 6 个 [0, 1, 2, 3, 4, 5]；各分区最长中断 {0=141, 1=128, 2=126, 3=128, 4=131, 5=127}；超过 300ms 的分区 0 个
+scale.eager.healthy.gaps	各分区最长中断的起止时间 {0=23803→23944, 1=18726→18854, 2=17409→17535, 3=20445→20573, 4=23813→23944, 5=17408→17535}
+scale.eager.healthy.split	所有者没变的分区 [0, 1, 3] 最长中断 141 ms；换了所有者的分区 [2, 4, 5] 最长中断 131 ms
+scale.eager.healthy.timeline	 12009 ms  C3 启动
+scale.eager.healthy.timeline	 12152 ms  C1 撤销 [3, 4, 5]
+scale.eager.healthy.timeline	 12163 ms  C2 撤销 [0, 1, 2]
+scale.eager.healthy.timeline	 12166 ms  C1 分配 [2, 3]
+scale.eager.healthy.timeline	 12166 ms  C3 分配 [4, 5]
+scale.eager.healthy.timeline	 12167 ms  C2 分配 [0, 1]
+scale.eager.slow	扩容前 {0=C1, 1=C1, 2=C1, 3=C2, 4=C2, 5=C2}，扩容后 {0=C1, 1=C1, 2=C2, 3=C2, 4=C3, 5=C3}；被撤销的分区 6 个 [0, 1, 2, 3, 4, 5]；各分区最长中断 {0=7824, 1=8627, 2=7802, 3=8943, 4=8092, 5=8933}；超过 300ms 的分区 6 个
+scale.eager.slow.gaps	各分区最长中断的起止时间 {0=12076→19900, 1=12087→20714, 2=12100→19902, 3=11775→20718, 4=11785→19877, 5=11795→20728}
+scale.eager.slow.split	所有者没变的分区 [0, 1, 3] 最长中断 8943 ms；换了所有者的分区 [2, 4, 5] 最长中断 8933 ms
+scale.eager.slow.detail	C1 保留的分区 [0, 1] 最长中断 [7824, 8627] ms；从 C1 移给 C3 的分区 [] 最长中断 [] ms；C2 慢处理结束 19866 ms；C1 首次撤销 12172 ms（慢处理结束之前）；扩容后首次分配 19882 ms（慢处理结束之后）
+scale.eager.slow.timeline	 11866 ms  C2 开始一次 8 秒的慢处理
+scale.eager.slow.timeline	 12005 ms  C3 启动
+scale.eager.slow.timeline	 12172 ms  C1 撤销 [0, 1, 2]
+scale.eager.slow.timeline	 19866 ms  C2 慢处理结束
+scale.eager.slow.timeline	 19879 ms  C2 撤销 [3, 4, 5]
+scale.eager.slow.timeline	 19882 ms  C1 分配 [0, 1]
+scale.eager.slow.timeline	 19882 ms  C2 分配 [2, 3]
+scale.eager.slow.timeline	 19882 ms  C3 分配 [4, 5]
+scale.coop.healthy	扩容前 {0=C1, 1=C2, 2=C1, 3=C2, 4=C1, 5=C2}，扩容后 {0=C1, 1=C2, 2=C1, 3=C2, 4=C3, 5=C3}；被撤销的分区 2 个 [4, 5]；各分区最长中断 {0=152, 1=143, 2=132, 3=144, 4=3407, 5=3072}；超过 300ms 的分区 2 个
+scale.coop.healthy.gaps	各分区最长中断的起止时间 {0=26438→26590, 1=26446→26589, 2=18216→18348, 3=15443→15587, 4=12102→15509, 5=12113→15185}
+scale.coop.healthy.split	所有者没变的分区 [0, 1, 2, 3] 最长中断 152 ms；换了所有者的分区 [4, 5] 最长中断 3407 ms
+scale.coop.healthy.timeline	 12009 ms  C3 启动
+scale.coop.healthy.timeline	 12134 ms  C1 撤销 [4]
+scale.coop.healthy.timeline	 12134 ms  C2 撤销 [5]
+scale.coop.healthy.timeline	 15164 ms  C3 分配 [4, 5]
+scale.coop.slow	扩容前 {0=C1, 1=C2, 2=C1, 3=C2, 4=C1, 5=C2}，扩容后 {0=C1, 1=C2, 2=C1, 3=C2, 4=C3, 5=C3}；被撤销的分区 2 个 [4, 5]；各分区最长中断 {0=125, 1=8097, 2=132, 3=8089, 4=3078, 5=8110}；超过 300ms 的分区 4 个
+scale.coop.slow.gaps	各分区最长中断的起止时间 {0=27927→28052, 1=11776→19873, 2=22692→22824, 3=11763→19852, 4=19862→22940, 5=11753→19863}
+scale.coop.slow.split	所有者没变的分区 [0, 1, 2, 3] 最长中断 8097 ms；换了所有者的分区 [4, 5] 最长中断 8110 ms
+scale.coop.slow.detail	C1 保留的分区 [0, 2] 最长中断 [125, 132] ms；从 C1 移给 C3 的分区 [4] 最长中断 [3078] ms；C2 慢处理结束 19842 ms；C1 首次撤销 19877 ms（慢处理结束之后）；扩容后首次分配 22917 ms（慢处理结束之后）
+scale.coop.slow.timeline	 11841 ms  C2 开始一次 8 秒的慢处理
+scale.coop.slow.timeline	 12010 ms  C3 启动
+scale.coop.slow.timeline	 19842 ms  C2 慢处理结束
+scale.coop.slow.timeline	 19877 ms  C1 撤销 [4]
+scale.coop.slow.timeline	 22917 ms  C3 分配 [4]
+scale.coop.slow.timeline	 23372 ms  C2 撤销 [5]
+scale.coop.slow.timeline	 25916 ms  C3 分配 [5]
+scale.consumer.healthy	扩容前 {0=C1, 1=C1, 2=C1, 3=C2, 4=C2, 5=C2}，扩容后 {0=C1, 1=C1, 2=C3, 3=C2, 4=C2, 5=C3}；被撤销的分区 2 个 [2, 5]；各分区最长中断 {0=150, 1=149, 2=547, 3=150, 4=149, 5=595}；超过 300ms 的分区 2 个
+scale.consumer.healthy.gaps	各分区最长中断的起止时间 {0=29008→29158, 1=29019→29168, 2=20314→20861, 3=29008→29158, 4=29019→29168, 5=20323→20918}
+scale.consumer.healthy.split	所有者没变的分区 [0, 1, 3, 4] 最长中断 150 ms；换了所有者的分区 [2, 5] 最长中断 595 ms
+scale.consumer.healthy.timeline	 15288 ms  C3 启动
+scale.consumer.healthy.timeline	 20325 ms  C1 撤销 [2]
+scale.consumer.healthy.timeline	 20351 ms  C2 撤销 [5]
+scale.consumer.healthy.timeline	 20443 ms  C3 分配 [2]
+scale.consumer.healthy.timeline	 20546 ms  C3 分配 [5]
+scale.consumer.slow	扩容前 {0=C1, 1=C1, 2=C1, 3=C2, 4=C2, 5=C2}，扩容后 {0=C1, 1=C1, 2=C3, 3=C2, 4=C2, 5=C3}；被撤销的分区 2 个 [2, 5]；各分区最长中断 {0=145, 1=129, 2=1321, 3=8113, 4=8114, 5=8083}；超过 300ms 的分区 4 个
+scale.consumer.slow.gaps	各分区最长中断的起止时间 {0=27285→27430, 1=23044→23173, 2=25662→26983, 3=15139→23252, 4=15128→23242, 5=15149→23232}
+scale.consumer.slow.split	所有者没变的分区 [0, 1, 3, 4] 最长中断 8114 ms；换了所有者的分区 [2, 5] 最长中断 8083 ms
+scale.consumer.slow.detail	C1 保留的分区 [0, 1] 最长中断 [145, 129] ms；从 C1 移给 C3 的分区 [2] 最长中断 [1321] ms；C2 慢处理结束 23221 ms；C1 首次撤销 20308 ms（慢处理结束之前）；扩容后首次分配 20393 ms（慢处理结束之前）
+scale.consumer.slow.timeline	 15221 ms  C2 开始一次 8 秒的慢处理
+scale.consumer.slow.timeline	 15345 ms  C3 启动
+scale.consumer.slow.timeline	 20308 ms  C1 撤销 [2]
+scale.consumer.slow.timeline	 20393 ms  C3 分配 [2]
+scale.consumer.slow.timeline	 23221 ms  C2 慢处理结束
+scale.consumer.slow.timeline	 23273 ms  C2 撤销 [5]
+scale.consumer.slow.timeline	 25408 ms  C3 分配 [5]
+dup.eager	共 2000 条，处理过的不同消息 2000 条，其中 100 条被处理了两次或以上；提交失败 1 次
+dup.eager.timeline	    93 ms  C1 分配 [0]
+dup.eager.timeline	    93 ms  C2 分配 [1]
+dup.eager.timeline	  9138 ms  C2 撤销 [1]
+dup.eager.timeline	  9143 ms  C2 分配 [0, 1]
+dup.eager.timeline	  9419 ms  C1 提交失败：CommitFailedException
+dup.eager.timeline	  9423 ms  C1 丢失 [0]（已被移出组）
+dup.eager.timeline	 12566 ms  C2 撤销 [0, 1]
+dup.eager.timeline	 12572 ms  C1 分配 [0]
+dup.eager.timeline	 12573 ms  C2 分配 [1]
+dup.eager.timeline	 18930 ms  C1 撤销 [0]
+dup.eager.timeline	 19449 ms  C2 撤销 [1]
+member.eager.static	C1 重启前持有 [0, 1]；C1 关闭、3 秒后重启、再观察 22 秒，C2 被撤销 0 次、分配 0 次；C1 重启后 53 ms 拿回 [0, 1]
+member.eager.dynamic	C1 重启前持有 [2, 3]；C1 关闭、3 秒后重启、再观察 22 秒，C2 被撤销 2 次、分配 2 次；C1 重启后 3008 ms 拿回 [2, 3]
+dup.consumer	共 2000 条，处理过的不同消息 2000 条，其中 0 条被处理了两次或以上；提交失败 0 次
+dup.consumer.timeline	   196 ms  C1 分配 [0, 1]
+dup.consumer.timeline	  9661 ms  C1 丢失 [0, 1]（已被移出组）
+dup.consumer.timeline	  9762 ms  C1 分配 [0]
+dup.consumer.timeline	 10283 ms  C2 分配 [1]
+dup.consumer.timeline	 20984 ms  C1 撤销 [0]
+dup.consumer.timeline	 21295 ms  C2 撤销 [1]
+member.consumer.static	C1 重启前持有 [0, 1]；C1 关闭、3 秒后重启、再观察 22 秒，C2 被撤销 0 次、分配 0 次；C1 重启后 50 ms 拿回 [0, 1]
+member.consumer.dynamic	C1 重启前持有 [2, 3]；C1 关闭、3 秒后重启、再观察 22 秒，C2 被撤销 1 次、分配 1 次；C1 重启后 5197 ms 拿回 [2, 3]
