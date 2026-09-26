@@ -1,0 +1,20 @@
+id: java/jmm-visibility
+title: 普通字段做停止标记，JIT 编译后工作线程停不下来；-Xint 或 volatile 时正常退出
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/jmm-and-happens-before.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

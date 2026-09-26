@@ -1,0 +1,9 @@
+default	plain	1	worker alive after 3s: true
+Xint	plain	1	worker alive after 3s: false
+default	volatile	1	worker alive after 3s: false
+default	plain	2	worker alive after 3s: true
+Xint	plain	2	worker alive after 3s: false
+default	volatile	2	worker alive after 3s: false
+default	plain	3	worker alive after 3s: true
+Xint	plain	3	worker alive after 3s: false
+default	volatile	3	worker alive after 3s: false
