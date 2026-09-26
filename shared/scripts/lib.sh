@@ -79,7 +79,7 @@ write_environment() {
 }
 
 # normalize_paths：把输出中的仓库绝对路径替换为 /workspace
-normalize_paths() { sed -e "s#$LABS_ROOT#/workspace#g" -e "s#$HOME#~#g"; }
+normalize_paths() { sed -e "s#$LABS_ROOT#/workspace#g" -e "s#$HOME#~#g" -e "s#started by $(id -un) in#started by <user> in#g"; }
 
 # expect_line <文件> <固定字符串> [说明]：断言证据中出现某一行
 expect_line() {

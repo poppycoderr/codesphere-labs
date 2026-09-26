@@ -8,12 +8,12 @@
 
  :: Spring Boot ::                (v4.1.1)
 
-[2026-09-26 08:49:31.960] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Starting ForkedBooter v3.5.3 using Java 21.0.5 with PID 11050 (started by poppycoder in /workspace/spring/circular-dependencies)
-[2026-09-26 08:49:31.969] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: No active profile set, falling back to 1 default profile: "default"
-[2026-09-26 08:49:31.981] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Started ForkedBooter in 0.134 seconds (process running for 0.656)
-[2026-09-26 08:49:32.068] - 11050 INFO [main] --- org.springframework.beans.factory.support.DefaultListableBeanFactory: Bean 'labs.cycles.Cycles$AsyncOrder' marked for pre-instantiation (not lazy-init) but currently initialized by other thread - skipping it in mainline thread
-[2026-09-26 08:49:32.083] - 11050 WARNING [main] --- org.springframework.context.annotation.AnnotationConfigApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'labs.cycles.Cycles$CtorOrder': Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'labs.cycles.Cycles$CtorInventory': Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'labs.cycles.Cycles$CtorOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-[2026-09-26 08:49:32.089] - 11050 WARNING [main] --- org.springframework.context.annotation.AnnotationConfigApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Unsatisfied dependency expressed through field 'inventory': Error creating bean with name 'labs.cycles.Cycles$FieldInventory': Unsatisfied dependency expressed through field 'order': Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
+[2026-09-27 00:35:25.465] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Starting ForkedBooter v3.5.3 using Java 21.0.5 with PID 86661 (started by <user> in /workspace/spring/circular-dependencies)
+[2026-09-27 00:35:25.475] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: No active profile set, falling back to 1 default profile: "default"
+[2026-09-27 00:35:25.486] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Started ForkedBooter in 0.146 seconds (process running for 0.628)
+[2026-09-27 00:35:25.581] - 86661 INFO [main] --- org.springframework.beans.factory.support.DefaultListableBeanFactory: Bean 'labs.cycles.Cycles$AsyncOrder' marked for pre-instantiation (not lazy-init) but currently initialized by other thread - skipping it in mainline thread
+[2026-09-27 00:35:25.594] - 86661 WARNING [main] --- org.springframework.context.annotation.AnnotationConfigApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'labs.cycles.Cycles$CtorOrder': Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'labs.cycles.Cycles$CtorInventory': Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'labs.cycles.Cycles$CtorOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
+[2026-09-27 00:35:25.600] - 86661 WARNING [main] --- org.springframework.context.annotation.AnnotationConfigApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Unsatisfied dependency expressed through field 'inventory': Error creating bean with name 'labs.cycles.Cycles$FieldInventory': Unsatisfied dependency expressed through field 'order': Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -24,10 +24,10 @@
 
  :: Spring Boot ::                (v4.1.1)
 
-[2026-09-26 08:49:32.100] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Starting ForkedBooter v3.5.3 using Java 21.0.5 with PID 11050 (started by poppycoder in /workspace/spring/circular-dependencies)
-[2026-09-26 08:49:32.100] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: No active profile set, falling back to 1 default profile: "default"
-[2026-09-26 08:49:32.103] - 11050 WARNING [main] --- org.springframework.context.annotation.AnnotationConfigApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Unsatisfied dependency expressed through field 'inventory': Error creating bean with name 'labs.cycles.Cycles$FieldInventory': Unsatisfied dependency expressed through field 'order': Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
-[2026-09-26 08:49:32.110] - 11050 SEVERE [main] --- org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter: 
+[2026-09-27 00:35:25.613] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Starting ForkedBooter v3.5.3 using Java 21.0.5 with PID 86661 (started by <user> in /workspace/spring/circular-dependencies)
+[2026-09-27 00:35:25.613] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: No active profile set, falling back to 1 default profile: "default"
+[2026-09-27 00:35:25.616] - 86661 WARNING [main] --- org.springframework.context.annotation.AnnotationConfigApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Unsatisfied dependency expressed through field 'inventory': Error creating bean with name 'labs.cycles.Cycles$FieldInventory': Unsatisfied dependency expressed through field 'order': Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?
+[2026-09-27 00:35:25.623] - 86661 SEVERE [main] --- org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter: 
 
 ***************************
 APPLICATION FAILED TO START
@@ -58,6 +58,6 @@ Relying upon circular references is discouraged and they are prohibited by defau
 
  :: Spring Boot ::                (v4.1.1)
 
-[2026-09-26 08:49:32.124] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Starting ForkedBooter v3.5.3 using Java 21.0.5 with PID 11050 (started by poppycoder in /workspace/spring/circular-dependencies)
-[2026-09-26 08:49:32.125] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: No active profile set, falling back to 1 default profile: "default"
-[2026-09-26 08:49:32.127] - 11050 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Started ForkedBooter in 0.016 seconds (process running for 0.803)
+[2026-09-27 00:35:25.638] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Starting ForkedBooter v3.5.3 using Java 21.0.5 with PID 86661 (started by <user> in /workspace/spring/circular-dependencies)
+[2026-09-27 00:35:25.639] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: No active profile set, falling back to 1 default profile: "default"
+[2026-09-27 00:35:25.642] - 86661 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Started ForkedBooter in 0.017 seconds (process running for 0.784)
