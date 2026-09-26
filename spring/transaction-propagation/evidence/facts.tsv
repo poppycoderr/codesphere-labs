@@ -1,0 +1,12 @@
+afterCommit	AFTER_COMMIT 监听器：提交的订单 5 收到，回滚的订单 6 没有收到
+nested	NESTED：第 2 行失败回滚到保存点，提交后留下 [1, 3]
+nested.required	同样的批次改用 REQUIRED：UnexpectedRollbackException，留下 0 行
+required.noRollbackFor	内层 noRollbackFor：外层正常提交，订单行数 1
+required.swallow	外层吞掉内层异常：抛出 UnexpectedRollbackException，订单行数 0
+requiresNew.audit	订单回滚后：订单行数 0，REQUIRES_NEW 写入的审计行数 1
+requiresNew.lock	外层 FOR UPDATE 后内层 REQUIRES_NEW 更新同一行：CannotAcquireLockException，根因 Lock wait timeout exceeded; try restarting transaction
+requiresNew.lock.elapsed	等满 innodb_lock_wait_timeout（2 秒）才失败，InnoDB 不把它当作死锁
+requiresNew.pool	连接池 2 个连接、2 个外层事务各占 1 个：两个 REQUIRES_NEW 都失败 [CannotCreateTransactionException <- SQLTransientConnectionException, CannotCreateTransactionException <- SQLTransientConnectionException]
+requiresNew.pool.elapsed	等待了连接超时（1 秒）之后才失败
+rollbackOn.all	rollbackOn = ALL_EXCEPTIONS 时抛出受检异常：事务回滚，订单行数 0
+rollbackOn.default	默认规则下抛出受检异常：事务提交，订单行数 1

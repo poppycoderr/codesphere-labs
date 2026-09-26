@@ -1,0 +1,12 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  PropagationTest  requiredInnerFailureMarksSharedTransactionRollbackOnly
+PASS  PropagationTest  requiresNewWaitsForOuterRowLock
+PASS  PropagationTest  requiresNewCommitsIndependently
+PASS  PropagationTest  checkedExceptionCommitsByDefault
+PASS  PropagationTest  noRollbackForLetsOuterCommit
+PASS  PropagationTest  afterCommitListenerRunsOnlyOnCommit
+PASS  PropagationTest  nestedRollsBackToSavepointOnly
+PASS  PropagationTest  requiresNewStarvesWhenPoolIsFull
+PASS  RollbackOnAllExceptionsTest  checkedExceptionRollsBack
+
+tests=9 failures=0

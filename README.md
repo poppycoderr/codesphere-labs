@@ -60,6 +60,7 @@
 | [spring/bean-lifecycle](spring/bean-lifecycle/) | Spring Bean 生命周期 | 轻量：真实 Spring 容器 | regular |
 | [spring/boot-auto-configuration](spring/boot-auto-configuration/) | Spring Boot 自动配置 | 轻量：Spring Boot 4.1.1 | regular |
 | [spring/circular-dependencies](spring/circular-dependencies/) | Spring 循环依赖 | 轻量：Spring Framework 与 Boot 对照 | regular |
+| [spring/transaction-propagation](spring/transaction-propagation/) | Spring 事务传播 | 项目级：Spring Boot 4.1.1 + MySQL（Testcontainers） | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [storage/pagination-and-index-cost](storage/pagination-and-index-cost/) | SQL 调优实战（第五、六节） | 轻量 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |

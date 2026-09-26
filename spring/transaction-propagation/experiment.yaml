@@ -1,0 +1,23 @@
+id: spring/transaction-propagation
+title: REQUIRED 吞异常得到 UnexpectedRollbackException、NESTED 回滚到保存点、REQUIRES_NEW 的独立提交与连接池耗尽和同行锁等待、rollbackOn、AFTER_COMMIT
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/spring/transaction-propagation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.1"
+    spring-framework: "7.0.9"
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"
