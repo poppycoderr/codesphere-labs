@@ -1,0 +1,6 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  CircularDependencyTest  lazyAndExtraction
+PASS  CircularDependencyTest  proxiesInsideACycle
+PASS  CircularDependencyTest  frameworkVersusBoot
+
+tests=3 failures=0

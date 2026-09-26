@@ -1,0 +1,23 @@
+id: spring/circular-dependencies
+title: Spring 循环依赖：构造器、字段、prototype 循环，Framework 与 Boot 4 的默认值，@Transactional 与 @Async 参与的循环，@Lazy 与拆出第三个服务
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/circular-dependencies.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    spring-boot: "4.1.1"
+    spring-framework: "7.0.9"
+    junit: "6.0.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-26"

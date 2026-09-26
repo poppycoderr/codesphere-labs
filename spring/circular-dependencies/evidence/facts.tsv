@@ -1,0 +1,11 @@
+async.eager	@Async 的 AsyncOrder 与 AsyncInventory 字段循环，容器启动时创建：启动成功；AsyncOrder 构造 2 次，AsyncInventory 构造 2 次；最终两边持有同一个代理=true
+async.on_demand	同样的循环改为延迟初始化，首次 getBean(AsyncOrder)：失败：BeanCurrentlyInCreationException（Error creating bean with name 'labs.cycles.Cycles$AsyncOrder': Bean with name 'labs.cycles.Cycles$AsyncOrder' has been injected into other beans [labs.cycles.Cycles$AsyncInventory] in its raw version as part of a circular reference, but has eventually been wrapped. This means that said other beans do not use the final version of the bean. This is often the result of over-eager type matching - consider using 'getBeanNamesForType' with the 'allowEagerInit' flag turned off, for example.）
+ctor.framework	构造器循环，Spring Framework 默认：启动失败：BeanCurrentlyInCreationException（Error creating bean with name 'labs.cycles.Cycles$CtorOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?）
+extracted	拆出 Checkout 依赖订单与库存、两者互不依赖，Spring Boot 4.1.1 默认：启动成功
+field.boot	字段循环，Spring Boot 4.1.1 默认：启动失败：BeanCurrentlyInCreationException（Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?）
+field.boot_allow	字段循环，Spring Boot 4.1.1 + spring.main.allow-circular-references=true：启动成功
+field.framework	字段循环，Spring Framework 默认：启动成功
+field.framework_disallow	字段循环，Spring Framework setAllowCircularReferences(false)：启动失败：BeanCurrentlyInCreationException（Error creating bean with name 'labs.cycles.Cycles$FieldOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?）
+lazy	构造器循环，一侧参数加 @Lazy：启动成功；注入的是代理=true，第一次调用时才解析，返回「inventory」
+prototype	prototype 字段循环，Spring Framework 默认：getBean 失败：BeanCurrentlyInCreationException（Error creating bean with name 'labs.cycles.Cycles$ProtoOrder': Requested bean is currently in creation: Is there an unresolvable circular reference or an asynchronous initialization dependency?）
+tx	@Transactional 的 TxOrder 与 TxInventory 字段循环：启动成功；容器里的 TxOrder 是代理=true，TxInventory 持有的也是同一个代理=true

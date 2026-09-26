@@ -1,0 +1,6 @@
+early	被后处理器提前创建的 AuditService：是代理=false，调用 @Transactional 方法时事务活跃=false
+order.shutdown	ContextClosedEvent → SmartLifecycle.stop → @PreDestroy → DisposableBean.destroy → @Bean(destroyMethod)
+order.startup	BeanFactoryPostProcessor 修改 priceCache 的定义：timeoutMs=500 → Clock 构造 → PriceCache 构造（注入 Clock） → 属性填充 timeoutMs=500 → BeanNameAware.setBeanName → BeanFactoryAware.setBeanFactory → ApplicationContextAware.setApplicationContext → BeanPostProcessor.before → @PostConstruct → InitializingBean.afterPropertiesSet → @Bean(initMethod) → BeanPostProcessor.after（拿到的是代理） → SmartInitializingSingleton.afterSingletonsInstantiated → SmartLifecycle.start → ContextRefreshedEvent
+prototype	取 2 次 prototype Bean 后关闭容器：@PostConstruct 2 次，@PreDestroy 0 次
+proxy	getBean 返回 PriceCache$$SpringCGLIB$$<n>，与构造出的实例相同=false；@PostConstruct 里调用 @Transactional 方法：事务活跃=false；启动后经容器取得的对象调用：事务活跃=true；timeoutMs=500
+proxy.jdk	@EnableTransactionManagement 默认：priceCache 是 JDK 动态代理=true，按类型 getBean(PriceCache.class)：NoSuchBeanDefinitionException

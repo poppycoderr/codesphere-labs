@@ -1,0 +1,1 @@
+<timestamp> INFO [main] --- org.springframework.beans.factory.support.DefaultListableBeanFactory: Bean 'labs.cycles.Cycles$AsyncOrder' marked for pre-instantiation (not lazy-init) but currently initialized by other thread - skipping it in mainline thread

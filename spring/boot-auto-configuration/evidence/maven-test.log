@@ -1,0 +1,13 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.1)
+
+[2026-09-25 23:19:59.901] - 3492 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Starting ForkedBooter v3.5.3 using Java 21.0.5 with PID 3492 (started by poppycoder in /workspace/spring/boot-auto-configuration)
+[2026-09-25 23:19:59.909] - 3492 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: No active profile set, falling back to 1 default profile: "default"
+[2026-09-25 23:20:00.024] - 3492 INFO [main] --- org.apache.maven.surefire.booter.ForkedBooter: Started ForkedBooter in 0.194 seconds (process running for 0.765)

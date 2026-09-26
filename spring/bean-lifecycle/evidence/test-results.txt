@@ -1,0 +1,8 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  LifecycleTest  jdkProxyByDefault
+PASS  LifecycleTest  containerHandsOutTheProxy
+PASS  LifecycleTest  earlyCreatedBeanMissesProxying
+PASS  LifecycleTest  singletonCallbackOrder
+PASS  LifecycleTest  prototypeIsNotDestroyed
+
+tests=5 failures=0

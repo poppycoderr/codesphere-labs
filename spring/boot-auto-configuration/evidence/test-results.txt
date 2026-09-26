@@ -1,0 +1,6 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  AutoConfigurationTest  conditions
+PASS  AutoConfigurationTest  realApplicationLoadsFromImportsFile
+PASS  AutoConfigurationTest  orderingBetweenAutoConfigurations
+
+tests=3 failures=0

@@ -1,0 +1,23 @@
+id: spring/boot-auto-configuration
+title: Spring Boot 自动配置：四类条件与条件报告、自动配置之间的顺序、不在扫描路径里的自动配置经 imports 文件加载
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/boot-auto-configuration.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    spring-boot: "4.1.1"
+    spring-framework: "7.0.9"
+    junit: "6.0.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-25"

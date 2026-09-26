@@ -1,0 +1,22 @@
+id: spring/bean-lifecycle
+title: Bean 生命周期：单例回调顺序、容器交出的是代理、@PostConstruct 里事务不生效、JDK 代理与按类型取 Bean、prototype 不销毁、提前创建的 Bean 错过代理
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/bean-lifecycle.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21"
+    spring-framework: "7.0.9"
+    junit: "5.13.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-25"
