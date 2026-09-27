@@ -1,0 +1,23 @@
+id: distributed/lock-and-transaction
+title: 锁在事务提交前后释放的差别与唯一键兜底、先查后改与条件更新的状态流转、自增与 UUID 主键的插入耗时和空间
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/distributed-lock-in-practice.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "21"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"
