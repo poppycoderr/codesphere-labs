@@ -1,0 +1,18 @@
+resolve.default	networkaddress.cache.ttl=未设置（默认），DNS 记录 TTL 5 秒：改写记录前解析到 172.29.53.11；改写后 30155 ms 后才解析到新地址
+resolve.5	networkaddress.cache.ttl=5，DNS 记录 TTL 5 秒：改写记录前解析到 172.29.53.11；改写后 5103 ms 后才解析到新地址
+resolve.0	networkaddress.cache.ttl=0，DNS 记录 TTL 5 秒：改写记录前解析到 172.29.53.11；改写后 617 ms 后才解析到新地址
+negative	先查一个不存在的名字得到 UnknownHost；加上记录后 10188 ms 后才查到
+pool.event	2 ms JVM 解析 api.lab.test 得到 172.29.53.11
+pool.event	3133 ms 改写 DNS 记录为 backend-2
+pool.event	3652 ms JVM 解析 api.lab.test 得到 172.29.53.12
+pool.event	20153 ms 让 backend-1 开始关闭连接（Connection: close）
+pool.before	改写 DNS 之前的请求：{backend-1=6}
+pool.switched	改写 DNS 之后、旧后端关闭连接之前（约 17 秒）：{backend-1=1, backend-2=32}
+pool.drained	旧后端开始关闭连接之后：{backend-2=39}，失败 0 次，第一次落到 backend-2 在 20158 ms
+pool-urlconnection.event	2 ms JVM 解析 api.lab.test 得到 172.29.53.11
+pool-urlconnection.event	3080 ms 改写 DNS 记录为 backend-2
+pool-urlconnection.event	4099 ms JVM 解析 api.lab.test 得到 172.29.53.12
+pool-urlconnection.event	20395 ms 让 backend-1 开始关闭连接（Connection: close）
+pool-urlconnection.before	改写 DNS 之前的请求：{backend-1=6}
+pool-urlconnection.switched	改写 DNS 之后、旧后端关闭连接之前（约 17 秒）：{backend-1=34}
+pool-urlconnection.drained	旧后端开始关闭连接之后：{backend-1=1, backend-2=38}，失败 0 次，第一次落到 backend-2 在 20944 ms

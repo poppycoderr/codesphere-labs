@@ -1,0 +1,21 @@
+id: network/dns-jvm-cache
+title: 记录 TTL 5 秒而 JVM 默认缓存 30 秒；负缓存 10 秒；HttpClient 随 DNS 切换，HttpURLConnection 一直复用到旧后端关闭连接
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/dns-change-and-java-clients.md
+runtime:
+  os: macOS 27.0（实验在 Docker 网络内运行）
+  architecture: arm64
+  components:
+    jdk: "eclipse-temurin 21.0.12"
+    coredns: "1.14.7"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

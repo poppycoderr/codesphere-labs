@@ -1,0 +1,8 @@
+# lab.test 的记录来自 /dns/hosts（实验运行时改写），应答 TTL 5 秒，每秒检查一次文件变化
+lab.test:53 {
+    hosts /dns/hosts {
+        ttl 5
+        reload 1s
+    }
+    errors
+}

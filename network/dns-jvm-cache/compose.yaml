@@ -1,0 +1,22 @@
+# 权威 DNS（CoreDNS，只负责 lab.test）+ 两个后端，只在自建网络内可达，不涉及任何真实域名
+x-jdk: &jdk
+  image: eclipse-temurin@sha256:78ab9771b4650066c3ef748d46e05dbd6094d8bb34e0667a074486812efd655b
+  volumes: ["./src:/src:ro"]
+networks:
+  lab:
+    ipam:
+      config: [{ subnet: 172.29.53.0/24 }]
+services:
+  dns:
+    image: coredns/coredns@sha256:7efd3c635b03efd68c4e8398fc45f0d993d0e9ab016f72c1cefb0fd6d01aa286
+    command: ["-conf", "/etc/coredns/Corefile"]
+    volumes: ["./dns/Corefile:/etc/coredns/Corefile:ro", "./build/dns:/dns:ro"]
+    networks: { lab: { ipv4_address: 172.29.53.53 } }
+  backend1:
+    <<: *jdk
+    command: ["java", "/src/Backend.java", "backend-1"]
+    networks: { lab: { ipv4_address: 172.29.53.11 } }
+  backend2:
+    <<: *jdk
+    command: ["java", "/src/Backend.java", "backend-2"]
+    networks: { lab: { ipv4_address: 172.29.53.12 } }
