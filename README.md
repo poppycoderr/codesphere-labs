@@ -67,6 +67,7 @@
 | [spring/kafka-listener-group-protocol](spring/kafka-listener-group-protocol/) | Kafka 消费组重平衡（Spring Kafka 部分） | Spring Boot 4.1.1 + Kafka（Testcontainers） | regular-docker |
 | [system-design/dependency-graph-execution](system-design/dependency-graph-execution/) | 依赖任务图的执行 | 轻量：单文件调度器 | regular |
 | [system-design/sorting-selection-topk](system-design/sorting-selection-topk/) | 排序、选择与 Top K | 轻量：100 万条对象排序与选择 | performance |
+| [system-design/amortized-cost-tail](system-design/amortized-cost-tail/) | 均摊代价与尾延迟 | 轻量：扩容尖峰与小 N 查找 | performance |
 | [distributed/http-timeout-layers](distributed/http-timeout-layers/) | 一次 HTTP 调用的超时分层 | 轻量：容器内服务端与客户端，JDK 21 与 25 | regular-docker |
 | [distributed/retry-amplification](distributed/retry-amplification/) | 重试放大与超时预算 | 轻量：单 JVM 三级调用链 | regular |
 | [network/dns-jvm-cache](network/dns-jvm-cache/) | DNS 切换与 Java 客户端 | 自建网络：CoreDNS + 两个后端 | regular-docker |
