@@ -67,6 +67,9 @@ public class Amortized {
                 cap <<= 1;
             }
         }
+        int table = Integer.highestOneBit(MAP_N - 1) << 1;           // 与 HashMap.tableSizeFor 相同：不小于参数的 2 的幂
+        int capacityGrowAt = table / 4 * 3;
+        out("map.capacity.model", "new HashMap<>(%,d)：table %,d，阈值 %,d，放入第 %,d 个键时仍要 rehash 一次".formatted(MAP_N, table, capacityGrowAt, capacityGrowAt + 1));
         out("map.model", "默认容量放入 %,d 个键：rehash %d 次，累计搬移 %,d 个节点（%.2f 倍 N）".formatted(MAP_N, growAt.size(), moved, (double) moved / MAP_N));
         Integer[] keys = new Integer[MAP_N];
         for (int i = 0; i < MAP_N; i++) {
@@ -75,8 +78,12 @@ public class Amortized {
         long[] t = new long[MAP_N];
         for (int round = 1; round <= ROUNDS; round++) {
             boolean last = round == ROUNDS;
-            for (boolean presized : new boolean[] {false, true}) {
-                HashMap<Integer, Integer> map = presized ? HashMap.newHashMap(MAP_N) : new HashMap<>();
+            for (String variant : new String[] {"default", "capacity", "presized"}) {
+                HashMap<Integer, Integer> map = switch (variant) {
+                    case "default" -> new HashMap<>();
+                    case "capacity" -> new HashMap<>(MAP_N);          // 参数是 table 容量，不是预期元素数
+                    default -> HashMap.newHashMap(MAP_N);
+                };
                 long begin = System.nanoTime();
                 for (int i = 0; i < MAP_N; i++) {
                     long s = System.nanoTime();
@@ -85,7 +92,11 @@ public class Amortized {
                 }
                 long total = System.nanoTime() - begin;
                 if (last) {
-                    report(presized ? "map.presized" : "map.default", t, total, presized ? Set.of() : growAt);
+                    report("map." + variant, t, total, switch (variant) {
+                        case "default" -> growAt;
+                        case "capacity" -> Set.of(capacityGrowAt);
+                        default -> Set.of();
+                    });
                 }
             }
         }

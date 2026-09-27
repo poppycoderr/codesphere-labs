@@ -1,39 +1,43 @@
 list.model	默认容量加入 10,000,000 个元素：扩容 36 次，累计复制 27,690,301 个引用（2.77 倍 N）
-list.default	总耗时 271.3 ms，均值 27.1 ns/次，p50 0 ns，p99 42 ns，p99.99 125 ns，最大 2.37 ms，≥100µs 的操作 8 次
-list.default.top	最慢 10 次（*为扩容点）：#9,230,100=2.37ms*, #6,153,400=1.66ms*, #4,102,267=1.06ms*, #2,734,845=0.72ms*, #1,823,230=0.47ms*, #1,215,487=0.31ms*, #810,325=0.22ms*, #540,217=0.15ms*, #360,145=0.07ms*, #240,097=0.06ms*
-list.default.ongrow	最慢 10 次中落在扩容点上的：10 次
-list.presized	总耗时 264.7 ms，均值 26.5 ns/次，p50 0 ns，p99 42 ns，p99.99 125 ns，最大 0.05 ms，≥100µs 的操作 0 次
-list.presized.top	最慢 10 次（*为扩容点）：#4,751,590=0.05ms, #2,269,979=0.05ms, #9,033,777=0.04ms, #7,011,487=0.04ms, #9,147,386=0.03ms, #4,510,316=0.02ms, #8,649,234=0.02ms, #7,892,106=0.02ms, #4,879,628=0.02ms, #9,406,455=0.02ms
+list.default	总耗时 259.6 ms，均值 26.0 ns/次，p50 0 ns，p99 42 ns，p99.99 125 ns，最大 2.41 ms，≥100µs 的操作 11 次
+list.default.top	最慢 10 次（*为扩容点）：#9,230,100=2.41ms*, #6,153,400=1.65ms*, #4,102,267=1.14ms*, #2,734,845=0.73ms*, #1,823,230=0.51ms*, #212,931=0.41ms, #1,215,487=0.30ms*, #810,325=0.25ms*, #229,990=0.18ms, #360,145=0.13ms*
+list.default.ongrow	最慢 10 次中落在扩容点上的：8 次
+list.presized	总耗时 243.1 ms，均值 24.3 ns/次，p50 0 ns，p99 42 ns，p99.99 125 ns，最大 0.05 ms，≥100µs 的操作 0 次
+list.presized.top	最慢 10 次（*为扩容点）：#8,178,328=0.05ms, #4,675,787=0.03ms, #8,586,608=0.02ms, #8,847,997=0.02ms, #7,624,416=0.01ms, #3,626,877=0.01ms, #6,351,059=0.01ms, #4,598,416=0.01ms, #5,202,090=0.01ms, #7,460,809=0.01ms
+map.capacity.model	new HashMap<>(2,000,000)：table 2,097,152，阈值 1,572,864，放入第 1,572,865 个键时仍要 rehash 一次
 map.model	默认容量放入 2,000,000 个键：rehash 18 次，累计搬移 3,145,734 个节点（1.57 倍 N）
-map.default	总耗时 191.5 ms，均值 95.7 ns/次，p50 42 ns，p99 250 ns，p99.99 4291 ns，最大 21.46 ms，≥100µs 的操作 8 次
-map.default.top	最慢 10 次（*为扩容点）：#1,572,864=21.46ms*, #786,432=10.17ms*, #393,216=6.57ms*, #196,608=2.72ms*, #98,304=1.10ms*, #49,152=0.52ms*, #24,576=0.27ms*, #12,288=0.14ms*, #6,144=0.06ms*, #1,891,201=0.04ms
+map.default	总耗时 172.0 ms，均值 86.0 ns/次，p50 41 ns，p99 250 ns，p99.99 3959 ns，最大 21.27 ms，≥100µs 的操作 8 次
+map.default.top	最慢 10 次（*为扩容点）：#1,572,864=21.27ms*, #786,432=10.76ms*, #393,216=5.35ms*, #196,608=2.31ms*, #98,304=1.14ms*, #49,152=0.52ms*, #24,576=0.28ms*, #12,288=0.13ms*, #6,144=0.06ms*, #1,816,243=0.04ms
 map.default.ongrow	最慢 10 次中落在扩容点上的：9 次
-map.presized	总耗时 130.4 ms，均值 65.2 ns/次，p50 41 ns，p99 208 ns，p99.99 4250 ns，最大 0.41 ms，≥100µs 的操作 1 次
-map.presized.top	最慢 10 次（*为扩容点）：#0=0.41ms, #631,822=0.05ms, #281,152=0.04ms, #850,413=0.03ms, #1,985,072=0.03ms, #469,419=0.02ms, #1,345,618=0.02ms, #1,772,532=0.02ms, #1,858,557=0.02ms, #629,249=0.02ms
-lookup.1	N=1：顺序扫描 2.74 ns/次，HashMap 6.46 ns/次（校验和 0）
-lookup.2	N=2：顺序扫描 10.38 ns/次，HashMap 5.88 ns/次（校验和 914）
-lookup.4	N=4：顺序扫描 15.60 ns/次，HashMap 5.98 ns/次（校验和 390）
-lookup.8	N=8：顺序扫描 22.01 ns/次，HashMap 5.89 ns/次（校验和 654）
-lookup.16	N=16：顺序扫描 30.57 ns/次，HashMap 9.91 ns/次（校验和 372）
-lookup.32	N=32：顺序扫描 46.23 ns/次，HashMap 9.15 ns/次（校验和 900）
-lookup.64	N=64：顺序扫描 76.75 ns/次，HashMap 8.24 ns/次（校验和 700）
-lookup.128	N=128：顺序扫描 136.19 ns/次，HashMap 7.73 ns/次（校验和 352）
-lookup.256	N=256：顺序扫描 255.49 ns/次，HashMap 11.87 ns/次（校验和 658）
-lookup-skewed.1	N=1：顺序扫描 2.62 ns/次，HashMap 6.07 ns/次（校验和 0）
-lookup-skewed.2	N=2：顺序扫描 3.90 ns/次，HashMap 7.01 ns/次（校验和 828）
-lookup-skewed.4	N=4：顺序扫描 4.97 ns/次，HashMap 6.60 ns/次（校验和 172）
-lookup-skewed.8	N=8：顺序扫描 5.98 ns/次，HashMap 6.64 ns/次（校验和 98）
-lookup-skewed.16	N=16：顺序扫描 7.33 ns/次，HashMap 7.13 ns/次（校验和 128）
-lookup-skewed.32	N=32：顺序扫描 8.61 ns/次，HashMap 6.94 ns/次（校验和 164）
-lookup-skewed.64	N=64：顺序扫描 11.70 ns/次，HashMap 6.91 ns/次（校验和 324）
-lookup-skewed.128	N=128：顺序扫描 17.55 ns/次，HashMap 6.81 ns/次（校验和 482）
-lookup-skewed.256	N=256：顺序扫描 29.10 ns/次，HashMap 7.29 ns/次（校验和 10）
-lookup-int.1	N=1：顺序扫描 2.05 ns/次，HashMap 2.99 ns/次（校验和 0）
-lookup-int.2	N=2：顺序扫描 5.31 ns/次，HashMap 3.04 ns/次（校验和 914）
-lookup-int.4	N=4：顺序扫描 7.46 ns/次，HashMap 3.11 ns/次（校验和 390）
-lookup-int.8	N=8：顺序扫描 9.91 ns/次，HashMap 3.04 ns/次（校验和 654）
-lookup-int.16	N=16：顺序扫描 13.86 ns/次，HashMap 3.07 ns/次（校验和 372）
-lookup-int.32	N=32：顺序扫描 21.06 ns/次，HashMap 3.08 ns/次（校验和 900）
-lookup-int.64	N=64：顺序扫描 34.22 ns/次，HashMap 3.01 ns/次（校验和 700）
-lookup-int.128	N=128：顺序扫描 58.89 ns/次，HashMap 3.02 ns/次（校验和 352）
-lookup-int.256	N=256：顺序扫描 106.89 ns/次，HashMap 3.03 ns/次（校验和 658）
+map.capacity	总耗时 174.2 ms，均值 87.1 ns/次，p50 42 ns，p99 250 ns，p99.99 4042 ns，最大 21.14 ms，≥100µs 的操作 2 次
+map.capacity.top	最慢 10 次（*为扩容点）：#1,572,864=21.14ms*, #0=0.20ms, #1,381,196=0.09ms, #82,572=0.05ms, #1,382,491=0.03ms, #1,928,364=0.03ms, #1,544,624=0.03ms, #1,544,633=0.02ms, #1,418,111=0.02ms, #1,988,414=0.02ms
+map.capacity.ongrow	最慢 10 次中落在扩容点上的：1 次
+map.presized	总耗时 156.0 ms，均值 78.0 ns/次，p50 42 ns，p99 209 ns，p99.99 4250 ns，最大 0.44 ms，≥100µs 的操作 1 次
+map.presized.top	最慢 10 次（*为扩容点）：#0=0.44ms, #1,509,111=0.05ms, #1,010,221=0.04ms, #1,414,527=0.04ms, #427,228=0.04ms, #11,511=0.04ms, #1,150,951=0.03ms, #928,526=0.03ms, #1,529,113=0.02ms, #176,611=0.01ms
+lookup.1	N=1：顺序扫描 2.83 ns/次，HashMap 5.83 ns/次（校验和 0）
+lookup.2	N=2：顺序扫描 10.95 ns/次，HashMap 6.14 ns/次（校验和 914）
+lookup.4	N=4：顺序扫描 15.98 ns/次，HashMap 6.14 ns/次（校验和 390）
+lookup.8	N=8：顺序扫描 22.08 ns/次，HashMap 6.00 ns/次（校验和 654）
+lookup.16	N=16：顺序扫描 31.14 ns/次，HashMap 10.40 ns/次（校验和 372）
+lookup.32	N=32：顺序扫描 46.45 ns/次，HashMap 9.43 ns/次（校验和 900）
+lookup.64	N=64：顺序扫描 76.55 ns/次，HashMap 8.48 ns/次（校验和 700）
+lookup.128	N=128：顺序扫描 142.32 ns/次，HashMap 8.02 ns/次（校验和 352）
+lookup.256	N=256：顺序扫描 256.12 ns/次，HashMap 12.15 ns/次（校验和 658）
+lookup-skewed.1	N=1：顺序扫描 2.87 ns/次，HashMap 6.04 ns/次（校验和 0）
+lookup-skewed.2	N=2：顺序扫描 3.40 ns/次，HashMap 5.82 ns/次（校验和 828）
+lookup-skewed.4	N=4：顺序扫描 4.55 ns/次，HashMap 5.86 ns/次（校验和 172）
+lookup-skewed.8	N=8：顺序扫描 5.35 ns/次，HashMap 5.75 ns/次（校验和 98）
+lookup-skewed.16	N=16：顺序扫描 6.36 ns/次，HashMap 6.20 ns/次（校验和 128）
+lookup-skewed.32	N=32：顺序扫描 8.12 ns/次，HashMap 6.12 ns/次（校验和 164）
+lookup-skewed.64	N=64：顺序扫描 11.23 ns/次，HashMap 6.06 ns/次（校验和 324）
+lookup-skewed.128	N=128：顺序扫描 16.96 ns/次，HashMap 5.96 ns/次（校验和 482）
+lookup-skewed.256	N=256：顺序扫描 28.89 ns/次，HashMap 6.50 ns/次（校验和 10）
+lookup-int.1	N=1：顺序扫描 2.06 ns/次，HashMap 3.78 ns/次（校验和 0）
+lookup-int.2	N=2：顺序扫描 5.26 ns/次，HashMap 3.85 ns/次（校验和 914）
+lookup-int.4	N=4：顺序扫描 7.52 ns/次，HashMap 3.81 ns/次（校验和 390）
+lookup-int.8	N=8：顺序扫描 10.07 ns/次，HashMap 3.81 ns/次（校验和 654）
+lookup-int.16	N=16：顺序扫描 13.70 ns/次，HashMap 3.74 ns/次（校验和 372）
+lookup-int.32	N=32：顺序扫描 21.22 ns/次，HashMap 3.69 ns/次（校验和 900）
+lookup-int.64	N=64：顺序扫描 34.18 ns/次，HashMap 3.69 ns/次（校验和 700）
+lookup-int.128	N=128：顺序扫描 58.88 ns/次，HashMap 3.74 ns/次（校验和 352）
+lookup-int.256	N=256：顺序扫描 106.97 ns/次，HashMap 3.72 ns/次（校验和 658）

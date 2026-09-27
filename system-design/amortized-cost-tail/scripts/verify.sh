@@ -18,6 +18,7 @@ isolated=(-XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -Xms6g -Xmx6g -XX:+
 } >"$f"
 write_environment "$OUT/environment.txt"
 expect_line "$f" "默认容量加入 10,000,000 个元素：扩容 36 次，累计复制 27,690,301 个引用（2.77 倍 N）" "ArrayList 扩容次数与累计复制量"
+expect_line "$f" "new HashMap<>(2,000,000)：table 2,097,152，阈值 1,572,864，放入第 1,572,865 个键时仍要 rehash 一次" "按容量构造的 HashMap 的 rehash 点"
 expect_line "$f" "默认容量放入 2,000,000 个键：rehash 18 次，累计搬移 3,145,734 个节点（1.57 倍 N）" "HashMap rehash 次数与累计搬移量"
 python3 - "$f" <<'PY'
 import re, sys
@@ -33,6 +34,10 @@ for c in ("list", "map"):
     assert on >= 7, (c, on)
     assert d_max > 20 * p_max and d_max * 1e6 > 10_000 * d_mean, (c, d_max, p_max, d_mean)
     print(f"通过：{c} 默认容量最慢 10 次有 {on} 次落在扩容点，最大 {d_max} ms，是均值 {d_mean} ns 的 {d_max * 1e6 / d_mean:,.0f} 倍；预分配后最大 {p_max} ms")
+c_max, = map(float, get("map.capacity", r"最大 ([\d.]+) ms"))
+c_top = re.search(r"^map\.capacity\.top\t最慢 10 次（\*为扩容点）：#([\d,]+)=", t, re.M).group(1)
+assert c_top == "1,572,864" and c_max > 20 * p_max, (c_top, c_max, p_max)
+print(f"通过：new HashMap<>(n) 最慢一次在第 {c_top} 次 put（{c_max} ms），newHashMap(n) 最大 {p_max} ms")
 def lookup(prefix):
     rows = re.findall(rf"^{prefix}\.(\d+)\t.*顺序扫描 ([\d.]+) ns/次，HashMap ([\d.]+) ns/次", t, re.M)
     return {int(n): (float(s), float(h)) for n, s, h in rows}
