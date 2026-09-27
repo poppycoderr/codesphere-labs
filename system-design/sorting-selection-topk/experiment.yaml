@@ -1,0 +1,20 @@
+id: system-design/sorting-selection-topk
+title: 减法比较器溢出、同分规则决定 Top K 是否一致、全排序与堆与快速选择在不同 K 下的耗时、分片 Top K 的准确性
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/system-design/sorting-selection-and-topk.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"

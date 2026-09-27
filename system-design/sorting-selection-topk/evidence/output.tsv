@@ -1,0 +1,11 @@
+overflow.subtract	按提交时间排序 1 万条（跨度半年），比较器写成 (int) (a.createdAt - b.createdAt)：抛出 IllegalArgumentException：Comparison method violates its general contract!
+overflow.compare	改用 Comparator.comparingLong：相邻逆序 0 处
+overflow.small	同样的比较器只排 20 条：没有异常，相邻逆序 9 处
+ties.score	只按分数比较：第 100 名的分数 999，同分记录 1016 条；全排序、堆、快速选择选出的 100 条是否相同=false（ID 集合摘要 30eb5e6 / 30eb5e6 / 300bbee）
+ties.full	分数、提交时间、ID 依次比较：第 100 名的分数 999，同分记录 1016 条；全排序、堆、快速选择选出的 100 条是否相同=true（ID 集合摘要 3251928 / 3251928 / 3251928）
+cost.100	N=1,000,000，K=100：全排序 501 ms，堆 34 ms，快速选择 89 ms（5 次中位数，三者结果相同）
+cost.10000	N=1,000,000，K=10,000：全排序 472 ms，堆 53 ms，快速选择 89 ms（5 次中位数，三者结果相同）
+cost.500000	N=1,000,000，K=500,000：全排序 457 ms，堆 593 ms，快速选择 366 ms（5 次中位数，三者结果相同）
+shards.records	按记录排名，3 个分片各取前 100 再合并：与全局前 100 相同=true
+shards.keys.2	按 key 聚合计数取第一名，每个分片上报本地前 2：合并后第一名 a=50（全局真实第一名 x=120）
+shards.keys.3	按 key 聚合计数取第一名，每个分片上报本地前 3：合并后第一名 x=120（全局真实第一名 x=120）
