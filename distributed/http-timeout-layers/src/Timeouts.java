@@ -13,12 +13,14 @@ import javax.net.ssl.*;
 /**
  * JDK HttpClient 的 connectTimeout 与请求 timeout 各管一次调用的哪一段。输出为「键<TAB>事实」。
  * 服务端都在同一个 JVM 里：9443 是可控的 HTTPS 服务，9444 接受 TCP 连接但不做 TLS 握手，
- * 9445 的接收队列被占满（Linux 会丢弃新的 SYN），9446 没有监听。需要在 Linux 上运行（容器内）。
+ * 9445、9447 的接收队列被占满（Linux 会丢弃新的 SYN），9446 没有监听。需要在 Linux 上运行（容器内）。
  */
 public class Timeouts {
     static final Map<String, AtomicInteger> reservations = new ConcurrentHashMap<>();
     static final Map<String, String> results = new ConcurrentHashMap<>();
     static final AtomicInteger sideEffects = new AtomicInteger();
+    // 必须保留引用：ServerSocket 被回收后端口关闭，「SYN 没有回应」就变成了「拒绝连接」
+    static final List<ServerSocket> listeners = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
         char[] pass = "example_password".toCharArray();          // 演示值，只用于本地自签证书
@@ -39,7 +41,8 @@ public class Timeouts {
 
         startHttps(ssl);
         startTcpOnly();
-        List<Socket> fillers = startFullBacklog();
+        List<Socket> fillers = new ArrayList<>(startFullBacklog(9445));
+        fillers.addAll(startFullBacklog(9447));   // 每个「SYN 没有回应」的场景各用一个新端口，互不影响
 
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_1_1)
@@ -52,6 +55,9 @@ public class Timeouts {
         call(client, "syn-dropped", "https://127.0.0.1:9445/ok", Duration.ofSeconds(2));
         call(client, "tls-stalled", "https://127.0.0.1:9444/ok", Duration.ofSeconds(2));
         call(client, "tls-stalled-no-request-timeout", "https://127.0.0.1:9444/ok", null);
+        HttpClient noConnectTimeout = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1).sslContext(ssl).build();
+        call(noConnectTimeout, "syn-dropped-request-timeout-only", "https://127.0.0.1:9447/ok", Duration.ofSeconds(2));
+        call(noConnectTimeout, "tls-stalled-request-timeout-only", "https://127.0.0.1:9444/ok", Duration.ofSeconds(2));
         call(client, "headers-stalled", "https://127.0.0.1:9443/slow-headers", Duration.ofSeconds(2));
         call(client, "headers-stalled-no-request-timeout", "https://127.0.0.1:9443/slow-headers", null);
         call(client, "body-stalled", "https://127.0.0.1:9443/slow-body", Duration.ofSeconds(2));
@@ -198,12 +204,12 @@ public class Timeouts {
     }
 
     /** backlog 为 1 且从不 accept，先用两个连接占满接收队列；之后 Linux 会丢弃新的 SYN，建连一直得不到回应。 */
-    static List<Socket> startFullBacklog() throws IOException {
-        new ServerSocket(9445, 1, InetAddress.getLoopbackAddress());
+    static List<Socket> startFullBacklog(int port) throws IOException {
+        listeners.add(new ServerSocket(port, 1, InetAddress.getLoopbackAddress()));
         List<Socket> fillers = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             Socket s = new Socket();
-            s.connect(new InetSocketAddress("127.0.0.1", 9445), 1000);
+            s.connect(new InetSocketAddress("127.0.0.1", port), 1000);
             fillers.add(s);
         }
         return fillers;

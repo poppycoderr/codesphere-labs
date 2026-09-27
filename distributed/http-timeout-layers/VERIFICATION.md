@@ -12,6 +12,8 @@ JDK 21.0.12 与 25.0.4 结果相同（`connectTimeout` 1 秒，请求 `timeout` 
 | SYN 没有回应 | `HttpConnectTimeoutException` | 约 1 秒 |
 | TCP 已连上，TLS 握手没有回应 | `HttpConnectTimeoutException` | 约 1 秒 |
 | 同上，不设请求 `timeout` | `HttpConnectTimeoutException` | 约 1 秒 |
+| SYN 没有回应，不设 `connectTimeout`，请求 `timeout` 2 秒 | `HttpConnectTimeoutException` | 约 2 秒 |
+| TLS 握手没有回应，不设 `connectTimeout`，请求 `timeout` 2 秒 | `HttpConnectTimeoutException` | 约 2 秒 |
 | 响应头迟迟不发 | `HttpTimeoutException` | 约 2 秒 |
 | 同上，不设请求 `timeout` | 等到服务端响应，HTTP 200 | 约 5 秒 |
 | 响应头已发出，响应体发到一半停住 | 请求 `timeout` 没有触发，等到 HTTP 200 | 约 5 秒 |
@@ -20,7 +22,7 @@ JDK 21.0.12 与 25.0.4 结果相同（`connectTimeout` 1 秒，请求 `timeout` 
 结论：
 
 1. `connectTimeout` 覆盖 TCP 建连和 TLS 握手（HTTPS 下，一个「连接」要握手完成才算建立）。
-2. 请求 `timeout` 只覆盖到收到响应头；响应体的读取不受它约束。需要限制整次调用时，要在外面再加一个截止时间。
+2. 请求 `timeout` 从发起调用开始计时，到收到响应头为止：不设 `connectTimeout` 时，建连和 TLS 握手也由它管（异常类型仍是 `HttpConnectTimeoutException`）；响应体的读取不受它约束。需要限制整次调用时，要在外面再加一个截止时间。
 3. 服务端已经提交、响应却超时：客户端看到的是 `HttpTimeoutException`，无法区分「没执行」和「执行了但没回来」。等 1.5 秒后重试一次：不带幂等键时服务端预留了 2 次；带 `Idempotency-Key` 时，重试直接拿到第一次的结果，只预留 1 次。
 
 ## 二、环境
@@ -54,4 +56,4 @@ make clean
 
 | 日期 | 结果 | 文章是否需要更新 |
 |---|---|---|
-| 2026-09-27 | 首次建立，全部断言通过 | 新文章，数字取自本次证据 |
+| 2026-09-27 | 首次建立，全部断言通过；补充「只设请求 timeout」的两个场景 | 新文章，数字取自本次证据 |

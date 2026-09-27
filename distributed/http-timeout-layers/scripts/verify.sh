@@ -30,6 +30,8 @@ for v in ("21", "25"):
     check(rows["syn-dropped"].startswith("HttpConnectTimeoutException") and 1000 <= ms("syn-dropped") < 1500, "SYN 没有回应：1 秒 connectTimeout 触发")
     check(rows["tls-stalled"].startswith("HttpConnectTimeoutException") and 1000 <= ms("tls-stalled") < 1500, "TCP 已连上、TLS 握手卡住：同样由 connectTimeout 在 1 秒触发")
     check(rows["tls-stalled-no-request-timeout"].startswith("HttpConnectTimeoutException"), "TLS 握手卡住与请求 timeout 无关")
+    check(rows["syn-dropped-request-timeout-only"].startswith("HttpConnectTimeoutException") and 2000 <= ms("syn-dropped-request-timeout-only") < 2500, "不设 connectTimeout：2 秒请求 timeout 从调用开始计时，建连阶段也归它管")
+    check(rows["tls-stalled-request-timeout-only"].startswith("HttpConnectTimeoutException") and 2000 <= ms("tls-stalled-request-timeout-only") < 2500, "不设 connectTimeout：TLS 握手卡住也由请求 timeout 在 2 秒触发")
     check(rows["headers-stalled"].startswith("HttpTimeoutException") and 2000 <= ms("headers-stalled") < 2500, "响应头卡住：2 秒请求 timeout 触发")
     check(rows["headers-stalled-no-request-timeout"].startswith("HTTP 200") and ms("headers-stalled-no-request-timeout") >= 5000, "不设请求 timeout：一直等到服务端 5 秒后响应")
     check(rows["body-stalled"].startswith("HTTP 200 1000") and ms("body-stalled") >= 5000, "响应头已到、响应体卡住：2 秒请求 timeout 不起作用，等了 5 秒")
