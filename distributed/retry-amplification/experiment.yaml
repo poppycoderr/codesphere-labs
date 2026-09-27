@@ -1,0 +1,20 @@
+id: distributed/retry-amplification
+title: 三级调用链上每层重试让下游请求放大 27 倍；超时倒挂让用户放弃后下游仍在干活，传递截止时间可以避免
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/distributed/timeout-budgets-and-retries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"
