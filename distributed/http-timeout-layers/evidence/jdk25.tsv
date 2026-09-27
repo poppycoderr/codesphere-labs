@@ -1,0 +1,15 @@
+config	25.0.4+7-LTS：connectTimeout=1s，请求 timeout=2s，服务端每个阶段卡 5 秒；整次调用的截止时间默认 8 秒（防止测试挂住），body-stalled-with-deadline 设为 3 秒
+refused	ConnectException，耗时 18 ms
+syn-dropped	HttpConnectTimeoutException（HTTP connect timed out），耗时 1011 ms
+tls-stalled	HttpConnectTimeoutException（HTTP connect timed out），耗时 1005 ms
+tls-stalled-no-request-timeout	HttpConnectTimeoutException（HTTP connect timed out），耗时 1009 ms
+headers-stalled	HttpTimeoutException（request timed out），耗时 2010 ms
+headers-stalled-no-request-timeout	HTTP 200 2 字节，耗时 5052 ms
+body-stalled	HTTP 200 1000 字节，耗时 5026 ms
+body-stalled-with-deadline	3 秒截止时间到，取消调用，耗时 3004 ms
+commit-then-timeout.nokey.1	HttpTimeoutException（request timed out），耗时 2007 ms
+commit-then-timeout.nokey.2	HttpTimeoutException（request timed out），耗时 2006 ms
+reserve.nokey	不带幂等键：第一次 HttpTimeoutException，重试 HttpTimeoutException；服务端实际预留名额 2 次
+commit-then-timeout.key.1	HttpTimeoutException（request timed out），耗时 2006 ms
+commit-then-timeout.key.2	HTTP 200 10 字节，耗时 15 ms
+reserve.key	带幂等键：第一次 HttpTimeoutException，重试 HTTP 200 10 字节；服务端实际预留名额 1 次

@@ -1,0 +1,20 @@
+id: distributed/http-timeout-layers
+title: JDK HttpClient 的 connectTimeout 管到 TLS 握手结束，请求 timeout 只管到响应头；服务端已提交后客户端超时，重试需要幂等键
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/timeout-layers.md
+runtime:
+  os: macOS 27.0（实验在 Linux 容器内运行）
+  architecture: arm64
+  components:
+    jdk: "eclipse-temurin 21.0.12、25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-27"
