@@ -1,0 +1,23 @@
+id: ai/ml-and-nlp-basics
+title: 机器学习与 NLP 基础：鸢尾花上的交叉验证、标准化、混淆矩阵与模型对比；词袋、TF-IDF 权重与一次注意力计算
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/python-and-ml-basics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.7"
+    scikit-learn: "1.9.1"
+    numpy: "2.5.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
