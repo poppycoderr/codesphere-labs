@@ -1,0 +1,23 @@
+id: kubernetes/service-request-path
+title: 一次请求经过 Service、EndpointSlice、DNS 与 NetworkPolicy：kube-proxy 规则、按连接分配、Service 配错、search 与 ndots、被策略挡住的 DNS
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/service-request-path.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    kind: "v0.33.0"
+    kubernetes: "1.36.4"
+    python: "3.14.7"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

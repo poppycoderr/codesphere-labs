@@ -1,0 +1,2 @@
+[INFO] 10.244.1.4:42388 - 35777 "AAAA IN example.com. udp 29 false 512" NOERROR qr,rd,ra 29 0.001377708s
+[INFO] 10.244.1.4:42388 - 40387 "A IN example.com. udp 29 false 512" NOERROR qr,rd,ra 83 0.002380042s

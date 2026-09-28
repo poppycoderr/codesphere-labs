@@ -1,0 +1,2 @@
+[INFO] 10.244.1.4:51112 - 18733 "AAAA IN web.default.svc.cluster.local. udp 47 false 512" NOERROR qr,aa,rd 140 0.000101792s
+[INFO] 10.244.1.4:51112 - 17195 "A IN web.default.svc.cluster.local. udp 47 false 512" NOERROR qr,aa,rd 92 0.00013825s

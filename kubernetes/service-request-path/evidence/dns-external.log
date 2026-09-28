@@ -1,0 +1,8 @@
+[INFO] 10.244.1.4:40199 - 57137 "AAAA IN example.com.svc.cluster.local. udp 47 false 512" NXDOMAIN qr,aa,rd 140 0.000114333s
+[INFO] 10.244.1.4:40199 - 13616 "A IN example.com.svc.cluster.local. udp 47 false 512" NXDOMAIN qr,aa,rd 140 0.00015675s
+[INFO] 10.244.1.4:51676 - 24109 "A IN example.com.cluster.local. udp 43 false 512" NXDOMAIN qr,aa,rd 136 0.000065292s
+[INFO] 10.244.1.4:51676 - 44847 "AAAA IN example.com.cluster.local. udp 43 false 512" NXDOMAIN qr,aa,rd 136 0.000114458s
+[INFO] 10.244.1.4:59398 - 26360 "AAAA IN example.com.default.svc.cluster.local. udp 55 false 512" NXDOMAIN qr,aa,rd 148 0.000121458s
+[INFO] 10.244.1.4:59398 - 27902 "A IN example.com.default.svc.cluster.local. udp 55 false 512" NXDOMAIN qr,aa,rd 148 0.000163208s
+[INFO] 10.244.1.4:59574 - 4999 "AAAA IN example.com. udp 29 false 512" NOERROR qr,rd,ra 29 0.001458291s
+[INFO] 10.244.1.4:59574 - 38790 "A IN example.com. udp 29 false 512" NOERROR qr,rd,ra 83 0.395755125s

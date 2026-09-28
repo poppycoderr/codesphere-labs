@@ -1,0 +1,11 @@
+# 由 shared/scripts/lib.sh write_environment 生成
+date_utc: 2026-09-28T10:53:59Z
+os: Darwin 27.0.0
+arch: arm64
+os_version: macOS 27.0
+cpus: 10
+memory_gb: 32
+java: 21.0.5+9-LTS-239 (Oracle Corporation)
+docker_server: 29.8.0
+kind_node_image: kindest/node:v1.36.4@sha256:099e049362a1526b2db71494e1947aae99bd16290d7c895f2b7ea312e3cbfaed
+app_image: python:3.14.7-slim@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d
