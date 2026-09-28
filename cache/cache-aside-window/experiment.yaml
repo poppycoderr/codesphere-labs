@@ -1,0 +1,23 @@
+id: cache/cache-aside-window
+title: 缓存一致性的窗口：Cache Aside 脏回填、事务内删缓存、延迟双删的快慢两种情况、写入标记、不加控制的自然并发
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/cache/cache-consistency.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    mysql: "8.4.11"
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
