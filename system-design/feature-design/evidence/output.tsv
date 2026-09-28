@@ -1,0 +1,8 @@
+tie.raw	ZADD 100 userA、100 userB、90 userC → ZREVRANGE：userB 100, userA 100, userC 90
+tie.packed	score = 得分 × 10^11 + (10^11 − 提交时间的后 11 位)，userA 先提交 → ZREVRANGE：[userA, userB, userC]；userA 的 score / 10^11 取整 = 100
+tie.precision	2^53 = 9,007,199,254,740,992，得分上限约 90,072
+rank.big	100 万成员：ZCARD=1000000，OBJECT ENCODING=skiplist，MEMORY USAGE=74.1 MB
+geo.1km	GEOSEARCH FROMLONLAT 116.400 39.910 BYRADIUS 1 km ASC WITHDIST → 店A 0.2790, 店B 0.7009
+geo.10km	GEOSEARCH FROMLONLAT 116.400 39.910 BYRADIUS 10 km ASC WITHDIST → 店A 0.2790, 店B 0.7009, 店C 8.6047
+geo.type	TYPE shops = zset
+redpacket	100 元分给 10 人、模拟 100,000 轮：金额不等于总额的轮次 0；最小 0.01 元，最大 62.37 元；各位置平均：10.00  9.98  9.98  10.00  9.99  9.99  10.02  10.00  10.02  10.02

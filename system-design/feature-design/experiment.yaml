@@ -1,0 +1,22 @@
+id: system-design/feature-design
+title: 典型业务功能：ZSET 同分排序与分数编码、百万成员排行榜的内存与取榜及深翻页耗时、GEOSEARCH、二倍均值法拆红包
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/feature-design.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
