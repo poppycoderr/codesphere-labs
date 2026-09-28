@@ -1,0 +1,22 @@
+id: distributed/redis-delay-queue
+title: Redis ZSET 延时队列：轮询间隔与批量上限造成的触发延迟、两步取删的重复消费、取出后崩溃的任务丢失与租约回收
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/message-queue.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
