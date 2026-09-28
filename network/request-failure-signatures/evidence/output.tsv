@@ -1,0 +1,14 @@
+ok.http	http://172.31.7.10:8080/ok → HTTP 200，耗时 < 50 ms
+ok.socket	172.31.7.10:8080 → 连接成功，耗时 < 50 ms
+http_503.http	http://172.31.7.10:8080/fail → HTTP 503，耗时 < 50 ms
+http_503.socket	172.31.7.10:8080 → 连接成功，耗时 < 50 ms
+dns_nxdomain.http	http://no-such-service.invalid:8080/ok → ConnectException ← ConnectException ← UnresolvedAddressException，耗时 < 50 ms
+dns_nxdomain.socket	no-such-service.invalid:8080 → UnknownHostException(no-such-service.invalid)，耗时 < 50 ms
+route_unreachable.http	http://10.201.0.5:8080/ok → ConnectException(No route to host) ← ConnectException(No route to host) ← NoRouteToHostException(No route to host)，耗时 < 50 ms
+route_unreachable.socket	10.201.0.5:8080 → NoRouteToHostException(No route to host)，耗时 < 50 ms
+neighbor_failed.http	http://172.31.7.99:8080/ok → HttpConnectTimeoutException(HTTP connect timed out) ← HttpConnectTimeoutException(HTTP connect timed out) ← ConnectException(HTTP connect timed out)，耗时 约 2.0 秒
+neighbor_failed.socket	172.31.7.98:8080 → NoRouteToHostException(No route to host)，耗时 约 3.1 秒
+port_closed.http	http://172.31.7.10:9090/ok → ConnectException ← ConnectException ← ClosedChannelException，耗时 < 50 ms
+port_closed.socket	172.31.7.10:9090 → ConnectException(Connection refused)，耗时 < 50 ms
+syn_dropped.http	http://172.31.7.10:8081/ok → HttpConnectTimeoutException(HTTP connect timed out) ← HttpConnectTimeoutException(HTTP connect timed out) ← ConnectException(HTTP connect timed out)，耗时 约 2.0 秒
+syn_dropped.socket	172.31.7.10:8081 → SocketTimeoutException(Connect timed out)，耗时 约 10.0 秒

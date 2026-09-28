@@ -1,0 +1,22 @@
+id: network/request-failure-signatures
+title: 请求失败在客户端的样子：DNS 失败、无路由、邻居解析失败、端口无人监听、SYN 被丢弃、HTTP 5xx，JDK HttpClient 与 Socket 各自报什么
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/request-failure-signatures.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "21"
+    netshoot: "v0.16"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

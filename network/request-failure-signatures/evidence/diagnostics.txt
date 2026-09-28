@@ -1,0 +1,9 @@
+## ip neigh（客户端访问之后）
+172.31.7.99 dev eth0 FAILED 
+172.31.7.98 dev eth0 FAILED 
+172.31.7.10 dev eth0 lladdr 8e:c7:79:78:94:71 REACHABLE 
+## ping 服务端（它的 9090 端口没有进程监听）
+2 packets transmitted, 2 received, 0% packet loss, time 1049ms
+rtt min/avg/max/mdev = 0.101/0.146/0.191/0.045 ms
+## curl 9090
+000 Failed to connect to 172.31.7.10:9090 after 0 ms: Could not connect to server

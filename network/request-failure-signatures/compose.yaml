@@ -1,0 +1,28 @@
+# 自建网络：一个 HTTP 服务端，一个带 NET_ADMIN 的 netshoot（客户端网络命名空间，用来配路由与防火墙规则）。
+# 只改 netshoot 自己命名空间里的路由和 iptables，不动宿主机；不暴露宿主机端口
+name: csl-request-failures
+services:
+  server:
+    image: eclipse-temurin:21-jdk@sha256:78ab9771b4650066c3ef748d46e05dbd6094d8bb34e0667a074486812efd655b
+    command: ["java", "/w/src/Server.java"]
+    volumes: ["./src:/w/src:ro"]
+    networks:
+      lab:
+        ipv4_address: 172.31.7.10
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fs http://127.0.0.1:8080/ok || exit 1"]
+      interval: 1s
+      timeout: 3s
+      retries: 60
+  netns:
+    image: nicolaka/netshoot:v0.16@sha256:b09d9b21381f47a79b3cbcb30da25266dc17186ea00ae65e99fdc51396f48e70
+    command: ["sleep", "infinity"]
+    cap_add: ["NET_ADMIN", "NET_RAW"]
+    networks:
+      lab:
+        ipv4_address: 172.31.7.20
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 172.31.7.0/24

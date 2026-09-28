@@ -1,0 +1,10 @@
+## ip route get
+172.31.7.10 dev eth0 src 172.31.7.20 uid 0 
+172.31.7.99 dev eth0 src 172.31.7.20 uid 0 
+RTNETLINK answers: Host is unreachable
+## ip route（非默认）
+unreachable 10.201.0.0/16 
+172.31.7.0/24 dev eth0 proto kernel scope link src 172.31.7.20 
+## iptables OUTPUT
+-P OUTPUT ACCEPT
+-A OUTPUT -d 172.31.7.10/32 -p tcp -m tcp --dport 8081 -j DROP
