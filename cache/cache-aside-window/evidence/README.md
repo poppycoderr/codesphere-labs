@@ -5,4 +5,5 @@
 | 文件 | 内容 |
 |---|---|
 | `output.tsv` | 五个场景结束后库与缓存的状态（键、事实） |
+| `gauge.tsv` | 两种 Micrometer gauge 写法的读数 |
 | `environment.txt` | 运行环境 |
