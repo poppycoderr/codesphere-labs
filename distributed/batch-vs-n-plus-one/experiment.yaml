@@ -1,0 +1,23 @@
+id: distributed/batch-vs-n-plus-one
+title: 分两次查时 N+1、去重后逐条、一次 IN 批量与同库 JOIN 的耗时，直连与约 1 ms 往返两种网络
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/cross-database-join.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "21"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

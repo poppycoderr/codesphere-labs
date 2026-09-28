@@ -1,0 +1,8 @@
+direct.n_plus_one	直连：1000 次查询，耗时 81.2 ms（5 次中位数）
+direct.dedup_then_each	直连：200 次查询，耗时 14.8 ms（5 次中位数）
+direct.batch_in	直连：1 次查询，耗时 0.6 ms（5 次中位数）
+direct.join	直连：1 次查询，耗时 0.7 ms（5 次中位数）
+rtt1ms.n_plus_one	约 1 ms 往返：1000 次查询，耗时 1227.7 ms（5 次中位数）
+rtt1ms.dedup_then_each	约 1 ms 往返：200 次查询，耗时 246.0 ms（5 次中位数）
+rtt1ms.batch_in	约 1 ms 往返：1 次查询，耗时 1.7 ms（5 次中位数）
+rtt1ms.join	约 1 ms 往返：1 次查询，耗时 2.0 ms（5 次中位数）
