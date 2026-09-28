@@ -1,0 +1,20 @@
+noprobe.pods_3s	发布 3 秒后 v2 Pod（phase/ready）：Running/true Running/true Running/true ；日志末行：v2 starting, warm-up 10.0s 
+noprobe.rollout	rollout status 返回耗时 3.5 秒
+noprobe.client	{"fail": 456, "ok": 1663, "reasons": {"connection refused": 456}, "versions": {"v1": 160, "v2": 1503}}
+readiness.pods_3s	发布 3 秒后 v2 Pod（phase/ready）：Running/false 
+readiness.rollout	rollout status 返回耗时 33.7 秒
+readiness.client	{"fail": 0, "ok": 2856, "reasons": {}, "versions": {"v1": 1204, "v2": 1652}}
+noprestop.client	{"fail": 4, "ok": 2704, "reasons": {"connection refused": 1, "timeout": 3}, "versions": {"v1": 1097, "v2": 1607}}
+stuck.status	rollout status 失败：error: deployment "web" exceeded its progress deadline
+stuck.condition	Progressing 条件：False ProgressDeadlineExceeded
+stuck.pods	v2（phase/ready）：Running/true Running/true Running/true ；v3：Running/false ；v3 事件：Readiness probe failed: HTTP probe failed with statuscode: 503
+stuck.endpoints	Service 就绪端点数：3
+stuck.undo	undo 后到 v3 Pod 删除完毕耗时 3.5 秒；v2：Running/true Running/true Running/true ；v3：
+stuck.client	{"fail": 0, "ok": 2367, "reasons": {}, "versions": {"v2": 2367}}
+stuck_unavail.pods	v2（phase/ready）：Running/true Running/true ；v3：Running/false ；Service 就绪端点数：2
+dep_probe.down	依赖停止 30 秒后：Service 就绪端点数 0；各 Pod 重启次数 2 2 2 
+dep_probe.client	{"fail": 93, "ok": 98, "reasons": {"connection refused": 39, "http 503": 20, "timeout": 34}, "versions": {"v2": 98}}
+dep_probe.recover	依赖恢复后到 3 个端点全部就绪耗时 8.8 秒；各 Pod 重启次数 3 3 3 
+local_probe.down	依赖停止 30 秒后：Service 就绪端点数 3；各 Pod 重启次数 0 0 0 
+local_probe.client	{"fail": 195, "ok": 96, "reasons": {"http 503": 195}, "versions": {"v2": 96}}
+local_probe.recover	依赖恢复后到 3 个端点全部就绪耗时 1.0 秒；各 Pod 重启次数 0 0 0 

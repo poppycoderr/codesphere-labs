@@ -1,0 +1,23 @@
+id: kubernetes/pod-readiness-rollout
+title: Running 不等于可用：没有就绪探针的滚动发布、就绪探针与 preStop、坏版本卡住与回滚、探针检查共用依赖的放大效应
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/pod-readiness-rollout.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    kind: "v0.33.0"
+    kubernetes: "1.36.4"
+    python: "3.14.7"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
