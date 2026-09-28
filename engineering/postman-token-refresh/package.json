@@ -1,0 +1,8 @@
+{
+  "name": "postman-token-refresh",
+  "private": true,
+  "description": "Newman 下 token 获取与刷新脚本的几种写法",
+  "dependencies": {
+    "newman": "6.2.2"
+  }
+}

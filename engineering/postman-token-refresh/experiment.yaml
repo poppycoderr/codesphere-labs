@@ -1,0 +1,22 @@
+id: engineering/postman-token-refresh
+title: Postman 集合在 Newman 下的 token 脚本：常见写法与改进写法在正常、密钥错误时的表现，变量作用域、顶层 await、回调里 throw 三个坑
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/postman-auth-automation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    node: "24.21.0"
+    newman: "6.2.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

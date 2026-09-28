@@ -14,3 +14,4 @@ target/
 
 # 代理的本地草稿（计划、评审、可视化）
 .agentdocs/
+node_modules/
