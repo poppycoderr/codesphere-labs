@@ -115,3 +115,45 @@ expect_regex() {
   grep -qE -- "$2" "$1" || fail "${3:-断言失败}：$1 中没有匹配 /$2/ 的行"
   log "通过：${3:-$2}"
 }
+
+# kind 与 Kubernetes 节点镜像：二进制按平台从官方 release 下载并校验 sha256
+KIND_VERSION=v0.33.0
+KIND_NODE_IMAGE="kindest/node:v1.36.4@sha256:099e049362a1526b2db71494e1947aae99bd16290d7c895f2b7ea312e3cbfaed"
+kind_bin() {
+  local os arch want bin
+  os=$(uname -s | tr '[:upper:]' '[:lower:]')
+  arch=$(uname -m); [ "$arch" = x86_64 ] && arch=amd64; [ "$arch" = aarch64 ] && arch=arm64
+  case "$os-$arch" in
+    darwin-arm64) want=0c8c7dbe5e23594a198b786c4bc13dacc101fa6196b0cb0b23a1ca44e61f4b4f ;;
+    darwin-amd64) want=5a99f26f57246dc9319dd294803313197a0f34d33c525b3ea8b655db5916ece0 ;;
+    linux-arm64)  want=20022bee6cfcd5086cb7234d218e3454e6090022f2a8f55d1fa7fcf42c3867a2 ;;
+    linux-amd64)  want=aee6151561422756b764a4ae28e7f44cda5af5a9eead3cc9985112b1de8d8e0d ;;
+    *) fail "kind 不支持的平台 $os-$arch" ;;
+  esac
+  bin="$LABS_CACHE/bin/kind-$KIND_VERSION"
+  if [ ! -x "$bin" ]; then
+    mkdir -p "$LABS_CACHE/bin"
+    log "下载 kind $KIND_VERSION（$os-$arch）"
+    curl -fsSL -o "$bin.tmp" "https://github.com/kubernetes-sigs/kind/releases/download/$KIND_VERSION/kind-$os-$arch"
+    local got
+    got=$(shasum -a 256 "$bin.tmp" 2>/dev/null | cut -d' ' -f1 || sha256sum "$bin.tmp" | cut -d' ' -f1)
+    [ "$got" = "$want" ] || { rm -f "$bin.tmp"; fail "kind 校验失败：$got"; }
+    chmod +x "$bin.tmp" && mv "$bin.tmp" "$bin"
+  fi
+  echo "$bin"
+}
+# kind_up <集群名> [配置文件]：创建集群，不等待节点就绪（关闭默认 CNI 时节点不会就绪）
+kind_up() {
+  require docker
+  local kind; kind=$(kind_bin)
+  "$kind" delete cluster --name "$1" >/dev/null 2>&1 || true
+  # kind 会把宿主机的代理变量写进节点；指向 127.0.0.1 的代理在节点内不可达，这里不传
+  env -u HTTP_PROXY -u HTTPS_PROXY -u NO_PROXY -u http_proxy -u https_proxy -u no_proxy -u ALL_PROXY -u all_proxy \
+    "$kind" create cluster --name "$1" --image "$KIND_NODE_IMAGE" ${2:+--config "$2"} >&2
+}
+kind_down() { "$(kind_bin)" delete cluster --name "$1" >&2; }
+# kctl <集群名> [kubectl 参数...]：使用控制面节点内的 kubectl，版本与集群一致，标准输入透传
+kctl() {
+  local c="$1"; shift
+  docker exec -i "$c-control-plane" kubectl --kubeconfig /etc/kubernetes/admin.conf "$@"
+}
