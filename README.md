@@ -77,6 +77,7 @@
 | [distributed/batch-vs-n-plus-one](distributed/batch-vs-n-plus-one/) | 分两次查：N+1 与批量查询 | 轻量：MySQL 8.4 + JDBC，模拟 1 ms 往返 | regular-docker |
 | [distributed/capacity-knee](distributed/capacity-knee/) | 容量拐点 | 性能：MySQL 点查与更新的并发曲线、Redis 吞吐 | performance |
 | [network/dns-jvm-cache](network/dns-jvm-cache/) | DNS 切换与 Java 客户端 | 自建网络：CoreDNS + 两个后端 | regular-docker |
+| [engineering/ssh-and-git-identity](engineering/ssh-and-git-identity/) | GitHub SSH 与多账号 | 轻量：离线，OpenSSH 与 Git | regular |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |

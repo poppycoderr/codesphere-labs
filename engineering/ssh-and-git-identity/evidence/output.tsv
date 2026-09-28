@@ -1,0 +1,8 @@
+key.ed25519	Ed25519 公钥 94 字节，私钥权限 600
+key.rsa4096	RSA 4096 公钥 738 字节
+ssh.bad	Host * 在前：identityfile ~/.ssh/id_ed25519_personal；identityfile ~/.ssh/id_ed25519_work
+ssh.good	每个别名一个密钥：hostname github.com；identitiesonly yes；identityfile ~/.ssh/id_ed25519_work
+git.work	~/code/work/order-service：user.email=me@work.example，远程 git@github-work:acme/order-service.git
+git.personal	~/code/personal/blog：user.email=me@personal.example，远程 git@github.com:me/blog.git
+git.clone	在 ~/code/work/ 下 clone git@github.com:acme/payment.git：ssh 连接的是 git@github-work
+git.nonrepo	在 ~/code/work/ 下、还不是仓库的目录里：user.email=me@personal.example

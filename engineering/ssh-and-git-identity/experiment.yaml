@@ -1,0 +1,21 @@
+id: engineering/ssh-and-git-identity
+title: GitHub SSH 与多账号：公钥大小与私钥权限、ssh -G 下 IdentityFile 的累加、按目录切换 Git 身份与远程地址（离线）
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/engineering/github-ssh-key-on-mac.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    openssh: "10.3p1"
+    git: "2.55.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
