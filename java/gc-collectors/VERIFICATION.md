@@ -15,7 +15,7 @@
    - ZGC 的停顿低两个数量级，单次不到 0.1 ms；这个负载下它的吞吐也最高，CPU 比 G1 多用约 0.3 核；
    - Parallel CPU 最省，老年代满了就做一次全程停顿的 Full GC（约 50 ms），20 秒 6 次；
    - G1 停顿合计与 Parallel 相当，但单次控制在 10 ms 以内，没有 Full GC。
-2. **G1 各类停顿**（第一轮）：Young (Normal) 47 次、Concurrent Start 47 次、Remark 47 次、Cleanup 48 次、Prepare Mixed 48 次、Mixed 47 次，最长都在 10 ms 以内；其中 38 次带 `Evacuation Failure`，但都没有退化成 Full GC。
+2. **G1 各类停顿**（第一轮）：Young (Normal) 47 次、Concurrent Start 47 次、Remark 47 次、Cleanup 48 次、Prepare Mixed 48 次、Mixed 47 次，最长都在 10 ms 以内；其中 30 次带 `Evacuation Failure`，但都没有退化成 Full GC。
 3. **存活数据的死亡方式决定 G1 会不会退化**：同样 800 MB、同样的替换速率，随机替换时 G1 20 秒内 13 次 Full GC（`Pause Full (G1 Compaction Pause)`，最长 75 ms），吞吐降到 2,742 万次/秒，探针 p99.9 26 ms；ZGC 在随机替换下没有 Full GC、没有分配停顿，最长停顿 0.03 ms。调试时试过把 `G1MixedGCLiveThresholdPercent` 调到 100（让更多老年代 Region 进入 Mixed 回收），Full GC 反而更多，所以没有把原因归到这个阈值上。
 4. **堆余量不足时 ZGC 的退化是分配停顿**：存活 1,400 MB（堆的 70%）、顺序替换，ZGC 的停顿仍然只有 0.04 ms，但出现 62 次 `Allocation Stall`，合计 0.3 s、中位数 3.9 ms、最长 9.8 ms，吞吐从约 4,900 万降到 3,734 万次/秒；探针线程几乎不分配，p99.9 仍为 0.92 ms。同样条件下 G1 没有 Full GC。
 5. **`System.gc()`**（约 400 MB 存活数据）：
