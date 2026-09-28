@@ -1,0 +1,18 @@
+sched.node	工作节点可分配 CPU 6 核，已被请求 100m；创建 3 个各请求 2 核、只执行 sleep 的 Pod
+sched.pods	idle-1=Running idle-2=Running idle-3=Pending 
+sched.reason	FailedScheduling: 0/2 nodes are available: 1 Insufficient cpu, 1 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/2 nodes are available: 1 No preemption victims found for incoming pod, 1 Preemption is not helpful for scheduling.
+sched.usage	此时工作节点容器的实际 CPU 占用：2.60%（占 Docker 虚拟机全部 CPU 的比例）
+sched.besteffort	不写 requests 的 Pod：Running，QoS BestEffort
+preempt.result	urgent：Running；被抢占的 Pod：idle-1（Preempted by pod 3ce281d9-6f61-46ee-a337-2996e7d466f9 on node csl-rs-worker）；剩余 idle Pod：idle-2=Running idle-3=Pending 
+qos.guaranteed	QoS Guaranteed，oom_score_adj=-997
+qos.burstable	QoS Burstable，oom_score_adj=996
+qos.besteffort	QoS BestEffort，oom_score_adj=1000
+cpu.task	每个任务的循环次数 1678556，任务之间空闲 200ms，每种 limit 跑 100 个任务
+cpu.limit_none	p50=63ms p99=74ms 平均占用=0.24核 被限流周期=0/0
+cpu.limit_1	p50=63ms p99=70ms 平均占用=0.24核 被限流周期=0/261
+cpu.limit_500m	p50=99ms p99=118ms 平均占用=0.22核 被限流周期=51/300
+cpu.limit_250m	p50=285ms p99=318ms 平均占用=0.17核 被限流周期=257/463
+oom.state	limit 128Mi 申请 320MB：重启 3 次，当前 terminated Error，上一次退出：OOMKilled 退出码 137
+oom.fits	limit 512Mi 申请 320MB：Running，重启 0 次
+evict.disk	创建后 15.9 秒：Failed Evicted：Pod ephemeral local storage usage exceeds the total limit of containers 100Mi. 
+evict.restart	被驱逐的 Pod 重启次数：0，容器退出码：137

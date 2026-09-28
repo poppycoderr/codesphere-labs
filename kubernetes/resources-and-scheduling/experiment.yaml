@@ -1,0 +1,23 @@
+id: kubernetes/resources-and-scheduling
+title: Pending、OOMKilled、Evicted：调度看 requests、优先级抢占、QoS 与 oom_score_adj、CPU limit 的限流延迟、内存与临时存储超限
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/resources-and-scheduling.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    kind: "v0.33.0"
+    kubernetes: "1.36.4"
+    python: "3.14.7"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
