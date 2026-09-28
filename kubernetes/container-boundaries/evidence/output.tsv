@@ -1,0 +1,21 @@
+kernel	alpine 里 uname -r：7.0.12-linuxkit；busybox 里 uname -r：7.0.12-linuxkit；temurin（Ubuntu）里 uname -r：7.0.12-linuxkit
+ns.pid	与宿主机不同
+ns.net	与宿主机不同
+ns.mnt	与宿主机不同
+ns.uts	与宿主机不同
+ns.ipc	与宿主机不同
+ns.cgroup	与宿主机不同
+ns.user	与宿主机相同（user:[4026531837]）
+ns.uid	容器进程在宿主机上的 uid：0
+ns.pid_inside	容器里看到的进程：1:sleep 7:ps 
+cgroup.files	memory.max=268435456 cpu.max=50000 100000
+cgroup.tools	nproc=6 /proc/meminfo MemTotal=15970MB
+cgroup.jvm	availableProcessors=1 maxHeapMB=121
+cgroup.jvm_1g	availableProcessors=2 maxHeapMB=247
+cgroup.jvm_unlimited	availableProcessors=6 maxHeapMB=3994
+oom	退出码 137，OOMKilled=true
+layer.diff	docker diff：A /data C /tmp A /tmp/in-layer.txt 
+layer.after_rm	删除容器后新容器里：/tmp/in-layer.txt 不存在，卷里的 in-volume.txt 存在
+pid1.sleep	sleep 作为 PID 1：docker stop 耗时 5.2 秒，退出码 137
+pid1.init	加 --init（tini 作为 PID 1）：docker stop 耗时 0.1 秒，退出码 143
+pid1.java	Java 作为 PID 1：docker stop 耗时 0.1 秒，退出码 143

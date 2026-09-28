@@ -1,0 +1,22 @@
+id: kubernetes/container-boundaries
+title: 容器的边界：共享内核、namespace 与默认不隔离的 user namespace、cgroup v2 限额与进程看到的资源、OOM、可写层与卷、PID 1 与 SIGTERM
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/container-boundaries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    kernel: "7.0.12-linuxkit（Docker Desktop 虚拟机）"
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
