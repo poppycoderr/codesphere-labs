@@ -1,0 +1,5 @@
+gc.xmx512m	3 次中位数，每次 8 秒、分配约 2,571 MB/s：Young GC 517 次，平均 2.07 ms，最长 4.07 ms，合计 1071 ms；并发标记周期 86 次；Full GC 0 次（3 次的平均暂停分别为 2.05、2.07、2.14 ms）
+gc.xmx2g	3 次中位数，每次 8 秒、分配约 2,556 MB/s：Young GC 39 次，平均 6.99 ms，最长 13.82 ms，合计 265 ms；并发标记周期 4 次；Full GC 0 次（3 次的平均暂停分别为 6.99、7.40、6.62 ms）
+gc.xmx512m-pause50	3 次中位数，每次 8 秒、分配约 2,501 MB/s：Young GC 504 次，平均 2.19 ms，最长 4.89 ms，合计 1090 ms；并发标记周期 86 次；Full GC 0 次（3 次的平均暂停分别为 2.19、2.21、2.13 ms）
+oom.dump.64k	-Xmx256m、每次保留 64 KB 的数组，OutOfMemoryError 后生成的 hprof：244 MB
+oom.dump.1024k	-Xmx256m、每次保留 1024 KB 的数组，OutOfMemoryError 后生成的 hprof：133 MB

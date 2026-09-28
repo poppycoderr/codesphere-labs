@@ -1,0 +1,21 @@
+id: java/gc-baseline
+title: GC 基线：容器内的默认堆参数、堆大小与暂停目标对 G1 的影响、jstat 与 jcmd 的输出、OOM 自动转储的文件大小
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/jvm-troubleshooting.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "21.0.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

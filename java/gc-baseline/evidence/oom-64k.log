@@ -1,0 +1,9 @@
+java.lang.OutOfMemoryError: Java heap space
+Dumping heap to /w/build/tmp/oom.hprof ...
+Heap dump file created [256529071 bytes in 0.227 secs]
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at Oom.main(Oom.java:10)
+	at java.base/java.lang.invoke.LambdaForm$DMH/0x0000009801031000.invokeStatic(LambdaForm$DMH)
+	at java.base/java.lang.invoke.LambdaForm$MH/0x0000009801145400.invoke(LambdaForm$MH)
+	at java.base/java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
