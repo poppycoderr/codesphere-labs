@@ -10,7 +10,7 @@ runtime:
   architecture: arm64
   docker: "29.8.0"
   components:
-    jdk: "21.0.12"
+    jdk: "25.0.4"
 commands:
   verify: make verify
   evidence: make evidence

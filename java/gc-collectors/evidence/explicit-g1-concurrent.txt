@@ -1,4 +1,4 @@
-call_from_uptime_ms	1726
-call_to_uptime_ms	1797
-call_ms	70.7
+call_from_uptime_ms	1699
+call_to_uptime_ms	1777
+call_ms	76.4
 live	403298

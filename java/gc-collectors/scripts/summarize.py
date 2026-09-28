@@ -12,7 +12,7 @@ STALL = re.compile(r"^\[(\d+\.\d+)s\].*Allocation Stall \([^)]*\) ([\d.]+)ms$", 
 
 
 def kv(p):
-    return dict(l.split("\t") for l in p.read_text().splitlines() if "\t" in l)
+    return dict(l.split("\t") for l in p.read_text().splitlines() if "\t" in l and not l.startswith("mxbean"))
 
 
 def window(log, start_ms, end_ms, rx):
@@ -38,6 +38,8 @@ for f in sorted(out.glob("run-*.txt")):
              f"最长 {max(stalls):.1f} ms") if stalls else "；分配停顿 0 次"
     rows.append(f"run.{name}\t吞吐 {int(v['ops_per_s']) // 1000}k 次/秒，CPU {v['cpu_cores']} 核，停顿 {len(ms)} 次，合计 {sum(ms):.0f} ms，"
                 f"最长 {max(ms):.2f} ms，Full GC {full} 次，探针 p99 {v['probe_p99_ms']} ms、p99.9 {v['probe_p999_ms']} ms、最大 {v['probe_max_ms']} ms{stall}")
+    beans = [l.split("\t")[1] for l in f.read_text().splitlines() if l.startswith("mxbean")]
+    rows.append(f"mxbean.{name}\t" + "；".join(beans))
     rows.append(f"kinds.{name}\t" + "；".join(f"{k} {len(x)} 次，最长 {max(x):.2f} ms" for k, x in sorted(kinds.items())))
 for f in sorted(out.glob("explicit-*.txt")):
     name = f.stem[9:]

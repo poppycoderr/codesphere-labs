@@ -1,0 +1,11 @@
+measure_from_uptime_ms	4037
+measure_ms	20000
+ops_per_s	30225246
+cpu_cores	3.24
+probe_p99_ms	0.57
+probe_p999_ms	1.91
+probe_max_ms	2.64
+mxbean	ZGC Minor Cycles：1825 次，16248 ms
+mxbean	ZGC Minor Pauses：5552 次，35 ms
+mxbean	ZGC Major Cycles：110 次，21808 ms
+mxbean	ZGC Major Pauses：476 次，3 ms

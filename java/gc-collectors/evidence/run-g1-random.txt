@@ -1,7 +1,10 @@
-measure_from_uptime_ms	3443
-measure_ms	20000
-ops_per_s	27422908
-cpu_cores	2.42
-probe_p99_ms	3.52
-probe_p999_ms	26.08
-probe_max_ms	81.03
+measure_from_uptime_ms	3473
+measure_ms	20005
+ops_per_s	26709348
+cpu_cores	2.39
+probe_p99_ms	3.99
+probe_p999_ms	21.38
+probe_max_ms	97.70
+mxbean	G1 Young Generation：222 次，1485 ms
+mxbean	G1 Concurrent GC：74 次，49 ms
+mxbean	G1 Old Generation：14 次，1074 ms

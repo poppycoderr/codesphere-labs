@@ -1,7 +1,9 @@
-measure_from_uptime_ms	3410
+measure_from_uptime_ms	3474
 measure_ms	20000
-ops_per_s	37322832
+ops_per_s	36910330
 cpu_cores	2.10
-probe_p99_ms	2.97
-probe_p999_ms	3.72
-probe_max_ms	49.59
+probe_p99_ms	3.07
+probe_p999_ms	3.91
+probe_max_ms	65.92
+mxbean	PS MarkSweep：8 次，481 ms
+mxbean	PS Scavenge：420 次，1317 ms

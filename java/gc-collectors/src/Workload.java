@@ -90,5 +90,8 @@ public class Workload {
         System.out.printf("probe_p99_ms\t%.2f%n", p[(int) (p.length * 0.99)] / 1e6);
         System.out.printf("probe_p999_ms\t%.2f%n", p[(int) (p.length * 0.999)] / 1e6);
         System.out.printf("probe_max_ms\t%.2f%n", p[p.length - 1] / 1e6);
+        for (var gc : ManagementFactory.getGarbageCollectorMXBeans()) {          // 整个进程生命周期的累计值
+            System.out.printf("mxbean\t%s：%d 次，%d ms%n", gc.getName(), gc.getCollectionCount(), gc.getCollectionTime());
+        }
     }
 }
