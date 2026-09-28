@@ -1,0 +1,28 @@
+gen.sequential	自增 ID 转 Base62，连续 5 个：[15FTGg, 15FTGh, 15FTGi, 15FTGj, 15FTGk]
+gen.random7.1000000	随机 7 位 Base62（空间 62^7 = 3,521,614,606,208）生成 1,000,000 个：重复 0 个，生日界估计 0.1 个
+gen.random7.10000000	随机 7 位 Base62（空间 62^7 = 3,521,614,606,208）生成 10,000,000 个：重复 11 个，生日界估计 14.2 个
+gen.hash32.100000	SHA-256 截取 32 位，100,000 个不同 URL：碰撞 0 个，生日界估计 1.2 个
+gen.hash32.1000000	SHA-256 截取 32 位，1,000,000 个不同 URL：碰撞 105 个，生日界估计 116.4 个
+gen.hash32.10000000	SHA-256 截取 32 位，10,000,000 个不同 URL：碰撞 11,823 个，生日界估计 11,641.5 个
+same_url.check_then_insert	20 个并发请求创建同一个长 URL：表里 20 行，调用方拿到 20 个不同的短码
+same_url.unique_constraint	20 个并发请求创建同一个长 URL：表里 1 行，调用方拿到 1 个不同的短码
+validate	https://example.com/a?b=1 → 放行
+validate	javascript:alert(1) → 拒绝：协议 javascript
+validate	data:text/html,<script>alert(1)</script> → 拒绝：URISyntaxException
+validate	ftp://example.com/file → 拒绝：协议 ftp
+validate	http://127.0.0.1/admin → 拒绝：解析到 127.0.0.1
+validate	http://localhost/admin → 拒绝：解析到 127.0.0.1
+validate	http://169.254.169.254/latest/meta-data/ → 拒绝：解析到 169.254.169.254
+validate	http://[::1]/ → 拒绝：解析到 0:0:0:0:0:0:0:1
+validate	http://internal.example/ → 拒绝：解析到 10.1.2.3
+validate	http://example.com@127.0.0.1/ → 拒绝：包含 userinfo
+validate	http://2130706433/ → 拒绝：解析到 127.0.0.1
+validate	http://0x7f000001/ → 拒绝：UnknownHostException
+redirect.jdk.301	JDK HttpClient POST 到返回 301 的短链，目标收到：GET 0
+redirect.jdk.302	JDK HttpClient POST 到返回 302 的短链，目标收到：GET 0
+redirect.jdk.307	JDK HttpClient POST 到返回 307 的短链，目标收到：POST 3
+redirect.jdk.308	JDK HttpClient POST 到返回 308 的短链，目标收到：POST 3
+redirect.curl.301	curl -L -d POST 到返回 301 的短链，目标收到：GET 0
+redirect.curl.302	curl -L -d POST 到返回 302 的短链，目标收到：GET 0
+redirect.curl.307	curl -L -d POST 到返回 307 的短链，目标收到：POST 3
+redirect.curl.308	curl -L -d POST 到返回 308 的短链，目标收到：POST 3

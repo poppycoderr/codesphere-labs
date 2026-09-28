@@ -1,0 +1,23 @@
+id: system-design/short-url-service
+title: 短链服务：短码生成方式的可枚举性与碰撞、并发创建同一个长 URL、301/302/307/308 跳转后的请求方法、目标地址校验
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/short-url-service.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "21"
+    curl: "8.18.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
