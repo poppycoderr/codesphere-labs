@@ -1,0 +1,5 @@
+compat/bad-mapper/BadMapper.java:21: error: Unmapped target property: "nickname".
+    Target map(Source source);
+           ^
+1 error
+编译失败

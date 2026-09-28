@@ -82,6 +82,7 @@
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [java/gc-baseline](java/gc-baseline/) | GC 基线与排查工具输出 | 轻量：JDK 21 容器 | regular-docker |
 | [java/gc-collectors](java/gc-collectors/) | G1、分代 ZGC、Parallel 对比 | 性能：JDK 21 容器，4 CPU | performance |
+| [java/call-and-mapping-cost](java/call-and-mapping-cost/) | 调用与映射的开销 | 性能：JMH、Maven | performance |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |

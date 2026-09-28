@@ -1,0 +1,265 @@
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.call.CallBench.byteBuddy
+
+# Run progress: 0.00% complete, ETA 00:01:04
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.708 ns/op
+# Warmup Iteration   2: 0.713 ns/op
+# Warmup Iteration   3: 0.702 ns/op
+Iteration   1: 0.702 ns/op
+Iteration   2: 0.704 ns/op
+Iteration   3: 0.706 ns/op
+Iteration   4: 0.704 ns/op
+Iteration   5: 0.706 ns/op
+
+
+Result "labs.call.CallBench.byteBuddy":
+  0.704 ±(99.9%) 0.006 ns/op [Average]
+  (min, avg, max) = (0.702, 0.704, 0.706), stdev = 0.002
+  CI (99.9%): [0.698, 0.710] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.call.CallBench.direct
+
+# Run progress: 12.50% complete, ETA 00:00:58
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.707 ns/op
+# Warmup Iteration   2: 0.709 ns/op
+# Warmup Iteration   3: 0.703 ns/op
+Iteration   1: 0.735 ns/op
+Iteration   2: 0.703 ns/op
+Iteration   3: 0.702 ns/op
+Iteration   4: 0.703 ns/op
+Iteration   5: 0.737 ns/op
+
+
+Result "labs.call.CallBench.direct":
+  0.716 ±(99.9%) 0.070 ns/op [Average]
+  (min, avg, max) = (0.702, 0.716, 0.737), stdev = 0.018
+  CI (99.9%): [0.646, 0.786] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.call.CallBench.jdkProxy
+
+# Run progress: 25.00% complete, ETA 00:00:50
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.189 ns/op
+# Warmup Iteration   2: 3.737 ns/op
+# Warmup Iteration   3: 2.423 ns/op
+Iteration   1: 2.423 ns/op
+Iteration   2: 2.430 ns/op
+Iteration   3: 2.422 ns/op
+Iteration   4: 2.421 ns/op
+Iteration   5: 2.423 ns/op
+
+
+Result "labs.call.CallBench.jdkProxy":
+  2.424 ±(99.9%) 0.015 ns/op [Average]
+  (min, avg, max) = (2.421, 2.424, 2.430), stdev = 0.004
+  CI (99.9%): [2.409, 2.439] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.call.CallBench.reflection
+
+# Run progress: 37.50% complete, ETA 00:00:41
+# Fork: 1 of 1
+# Warmup Iteration   1: 7.724 ns/op
+# Warmup Iteration   2: 7.751 ns/op
+# Warmup Iteration   3: 7.587 ns/op
+Iteration   1: 7.567 ns/op
+Iteration   2: 7.589 ns/op
+Iteration   3: 7.571 ns/op
+Iteration   4: 7.561 ns/op
+Iteration   5: 7.563 ns/op
+
+
+Result "labs.call.CallBench.reflection":
+  7.570 ±(99.9%) 0.042 ns/op [Average]
+  (min, avg, max) = (7.561, 7.570, 7.589), stdev = 0.011
+  CI (99.9%): [7.528, 7.612] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.call.CallBench.springCglib
+
+# Run progress: 50.00% complete, ETA 00:00:33
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.673 ns/op
+# Warmup Iteration   2: 2.649 ns/op
+# Warmup Iteration   3: 2.621 ns/op
+Iteration   1: 2.615 ns/op
+Iteration   2: 2.612 ns/op
+Iteration   3: 2.614 ns/op
+Iteration   4: 2.611 ns/op
+Iteration   5: 2.622 ns/op
+
+
+Result "labs.call.CallBench.springCglib":
+  2.615 ±(99.9%) 0.016 ns/op [Average]
+  (min, avg, max) = (2.611, 2.615, 2.622), stdev = 0.004
+  CI (99.9%): [2.598, 2.631] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.mapping.MappingBench.beanUtils
+
+# Run progress: 62.50% complete, ETA 00:00:25
+# Fork: 1 of 1
+# Warmup Iteration   1: 311.022 ns/op
+# Warmup Iteration   2: 290.780 ns/op
+# Warmup Iteration   3: 289.084 ns/op
+Iteration   1: 289.131 ns/op
+Iteration   2: 289.938 ns/op
+Iteration   3: 289.004 ns/op
+Iteration   4: 288.847 ns/op
+Iteration   5: 288.280 ns/op
+
+
+Result "labs.mapping.MappingBench.beanUtils":
+  289.040 ±(99.9%) 2.303 ns/op [Average]
+  (min, avg, max) = (288.280, 289.040, 289.938), stdev = 0.598
+  CI (99.9%): [286.737, 291.343] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.mapping.MappingBench.handwritten
+
+# Run progress: 75.00% complete, ETA 00:00:16
+# Fork: 1 of 1
+# Warmup Iteration   1: 8.016 ns/op
+# Warmup Iteration   2: 7.601 ns/op
+# Warmup Iteration   3: 7.529 ns/op
+Iteration   1: 7.539 ns/op
+Iteration   2: 7.547 ns/op
+Iteration   3: 7.515 ns/op
+Iteration   4: 7.574 ns/op
+Iteration   5: 7.532 ns/op
+
+
+Result "labs.mapping.MappingBench.handwritten":
+  7.542 ±(99.9%) 0.084 ns/op [Average]
+  (min, avg, max) = (7.515, 7.542, 7.574), stdev = 0.022
+  CI (99.9%): [7.458, 7.625] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.5, Java HotSpot(TM) 64-Bit Server VM, 21.0.5+9-LTS-239
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/java
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: labs.mapping.MappingBench.mapstruct
+
+# Run progress: 87.50% complete, ETA 00:00:08
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.858 ns/op
+# Warmup Iteration   2: 2.445 ns/op
+# Warmup Iteration   3: 2.426 ns/op
+Iteration   1: 2.428 ns/op
+Iteration   2: 2.435 ns/op
+Iteration   3: 2.508 ns/op
+Iteration   4: 2.415 ns/op
+Iteration   5: 2.428 ns/op
+
+
+Result "labs.mapping.MappingBench.mapstruct":
+  2.443 ±(99.9%) 0.144 ns/op [Average]
+  (min, avg, max) = (2.415, 2.443, 2.508), stdev = 0.037
+  CI (99.9%): [2.299, 2.587] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:01:06
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                           Mode  Cnt    Score   Error  Units
+l.call.CallBench.byteBuddy          avgt    5    0.704 ± 0.006  ns/op
+l.call.CallBench.direct             avgt    5    0.716 ± 0.070  ns/op
+l.call.CallBench.jdkProxy           avgt    5    2.424 ± 0.015  ns/op
+l.call.CallBench.reflection         avgt    5    7.570 ± 0.042  ns/op
+l.call.CallBench.springCglib        avgt    5    2.615 ± 0.016  ns/op
+l.mapping.MappingBench.beanUtils    avgt    5  289.040 ± 2.303  ns/op
+l.mapping.MappingBench.handwritten  avgt    5    7.542 ± 0.084  ns/op
+l.mapping.MappingBench.mapstruct    avgt    5    2.443 ± 0.144  ns/op
+
+Benchmark result is saved to /workspace/java/call-and-mapping-cost/target/jmh.csv

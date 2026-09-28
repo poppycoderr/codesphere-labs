@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.ExceptionInInitializerError
+	at OldCglib.main(OldCglib.java:13)
+Caused by: net.sf.cglib.core.CodeGenerationException: java.lang.reflect.InaccessibleObjectException-->Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @2a32de6c

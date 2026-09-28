@@ -1,0 +1,22 @@
+id: java/call-and-mapping-cost
+title: 调用与映射的开销（JMH）：直接调用、JDK 代理、反射、Byte Buddy 与 Spring CGLIB 代理；手写、MapStruct、BeanUtils 映射；旧版字节码库在 JDK 21 上的兼容性；MapStruct 的漏映射检查
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/java/bytecode-libraries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    maven: "3.9.9"
+    jmh: "1.37"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

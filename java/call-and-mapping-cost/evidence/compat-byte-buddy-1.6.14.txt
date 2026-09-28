@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.UnsupportedOperationException: Cannot define class using reflection
+	at net.bytebuddy.dynamic.loading.ClassInjector$UsingReflection$Dispatcher$Unavailable.defineClass(ClassInjector.java:821)
+	at net.bytebuddy.dynamic.loading.ClassInjector$UsingReflection.inject(ClassInjector.java:185)
