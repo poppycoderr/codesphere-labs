@@ -1,0 +1,21 @@
+id: system-design/dedup-and-filter
+title: 判存结构与敏感词过滤：位图与 HashSet 的内存、布隆过滤器的误判率与漏判、前缀树与逐词 indexOf 的耗时
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/system-design/dedup-and-filter.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    jol: "0.17"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
