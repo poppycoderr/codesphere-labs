@@ -1,0 +1,14 @@
+layout.first_field	OneInt.a 的偏移 8 字节，OneLong.a 的偏移 8 字节
+layout.array_base	byte[] 元素起始偏移 12 字节，long[] 元素起始偏移 16 字节
+size.Object	Object：新增实例 1,000,000 个，每个 8.0 字节
+size.Integer	Integer：新增实例 1,000,000 个，每个 16.0 字节
+size.Long	Long：新增实例 1,000,000 个，每个 16.0 字节
+size.OneInt	OneInt：新增实例 1,000,000 个，每个 16.0 字节
+size.TwoInts	TwoInts：新增实例 1,000,000 个，每个 16.0 字节
+size.ThreeInts	ThreeInts：新增实例 1,000,000 个，每个 24.0 字节
+size.NodeLike	NodeLike：新增实例 1,000,000 个，每个 24.0 字节
+size.byte[0]	byte[0]：新增实例 1,000,000 个，每个 16.0 字节
+size.byte[4]	byte[4]：新增实例 1,000,000 个，每个 16.0 字节
+size.byte[8]	byte[8]：新增实例 1,000,000 个，每个 24.0 字节
+hashmap	100 万个条目的 HashMap<Long, Order>：堆占用增加 115.1 MB
+hashmap.parts	java.util.HashMap$Node 1,000,000 个 22.9 MB（每个 24 字节）；java.lang.Long 1,000,000 个 15.3 MB（每个 16 字节）；ObjectSizes$Order 1,000,000 个 22.9 MB（每个 24 字节）；java.lang.String 1,000,013 个 22.9 MB（每个 24 字节）；[B 1,000,014 个 22.9 MB（每个 24 字节）；[Ljava.util.HashMap$Node; 1 个 8.0 MB（每个 8388624 字节）
