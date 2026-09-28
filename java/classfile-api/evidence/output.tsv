@@ -1,0 +1,7 @@
+jdk25.generate	生成的类主版本号 69，调用 greet() 得到「hello from generated class」
+jdk25.transform	读入主版本号 65 的 Target.class，改写后主版本号 65，调用 greet() 得到「new」
+jdk25.parse	build/classes21/Target.class：主版本号 65，解析成功
+jdk25.parse	build/classes26/Target.class：IllegalArgumentException（Unsupported class file version: 70）
+jdk26.parse	build/classes26/Target.class：主版本号 70，解析成功
+asm-9.10.1	build/classes26/Target.class：解析成功
+asm-9.7.1	build/classes26/Target.class：IllegalArgumentException（Unsupported class file major version 70）

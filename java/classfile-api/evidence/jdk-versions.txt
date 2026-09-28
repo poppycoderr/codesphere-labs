@@ -1,0 +1,2 @@
+openjdk version "25.0.4" 2026-07-21 LTS
+openjdk version "26.0.2.1" 2026-08-18

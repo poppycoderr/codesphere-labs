@@ -1,0 +1,22 @@
+id: java/classfile-api
+title: Class-File API：在 JDK 25 上生成与改写类文件；JDK 25 的 API 与不同版本的 ASM 能否读 JDK 26 编译的类
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/bytecode-libraries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4、26.0.2"
+    asm: "9.10.1、9.7.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
