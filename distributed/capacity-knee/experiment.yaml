@@ -1,0 +1,24 @@
+id: distributed/capacity-knee
+title: 容量拐点：MySQL 主键点查在 1—256 并发下的吞吐与 p99、主键更新的吞吐、同样 2 CPU 的 Redis 吞吐
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/distributed/high-concurrency.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    redis: "8.10.1"
+    jdk: "21"
+    mysql-connector-java: "8.0.27"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"
