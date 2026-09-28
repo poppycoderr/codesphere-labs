@@ -1,0 +1,21 @@
+id: java/maven-scope
+title: Maven scope：compile、runtime、test 三种类路径各包含哪些依赖；provided 依赖只按运行时类路径运行时的 NoClassDefFoundError
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/maven-scope.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    maven: "3.9.9"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

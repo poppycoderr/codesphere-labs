@@ -1,0 +1,4 @@
+commons-logging:commons-logging:jar:1.3.6:compile
+org.javassist:javassist:jar:3.29.2-GA:runtime
+org.mapstruct:mapstruct:jar:1.6.3:provided
+org.ow2.asm:asm:jar:9.9.1:test
