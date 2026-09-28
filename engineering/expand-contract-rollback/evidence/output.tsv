@@ -1,0 +1,21 @@
+rename.before	v1 成功 20、失败 0
+rename.rolling	v1 成功 0、失败 20（Unknown column 'phone' in 'field list'）；v2 成功 20、失败 0
+rename.after	v2 成功 20、失败 0
+rename.rollback	v1 成功 0、失败 20（Unknown column 'phone' in 'field list'）
+rename.rollback_needs	回退还需要反向迁移 RENAME COLUMN mobile TO phone；在它执行之前 v1 的每个请求都失败
+ec.before	v1 成功 20、失败 0
+ec.expand	v1 成功 20、失败 0
+ec.dual_write_rolling	v1 成功 20、失败 0；v1.5 成功 20、失败 0
+ec.backfill	回填 60 行
+ec.read_new_rolling	v1.5 成功 20、失败 0；v2 成功 20、失败 0
+ec.rollback_to_v1_5	v1.5 成功 20、失败 0
+ec.rollback_to_v1	v1 成功 20、失败 0
+ec.consistency_after_rollback	phone 与 mobile 不一致的行 20，mobile 为空的行 20
+ec.redeploy_v2	v2 成功 20、失败 0
+ec.consistency_before_contract	phone 与 mobile 不一致的行 0，mobile 为空的行 0
+ec.after_contract	v2 成功 20、失败 0
+ec.rollback_after_contract	v1 成功 0、失败 20（Unknown column 'phone' in 'field list'）
+event.added.strict	解析失败：UnrecognizedPropertyException（Unrecognized field "channel" (class Rollback$RegisteredV1), not marked as ignorable (3 known properties: "attendee", "id", "phone")）
+event.added.tolerant	解析成功：RegisteredV1[id=1, attendee=a, phone=13800000001]
+event.renamed.strict	解析失败：UnrecognizedPropertyException（Unrecognized field "mobile" (class Rollback$RegisteredV1), not marked as ignorable (3 known properties: "attendee", "id", "phone")）
+event.renamed.tolerant	解析成功：RegisteredV1[id=2, attendee=b, phone=null]

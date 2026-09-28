@@ -1,0 +1,23 @@
+id: engineering/expand-contract-rollback
+title: 发布的可回退性：原地改名与扩展—迁移—收缩在新旧版本并存、回退时的表现，旧消费者读取新版本事件
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/expand-contract-rollback.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "21"
+    jackson-databind: "2.22.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

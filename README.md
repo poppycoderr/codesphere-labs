@@ -81,6 +81,7 @@
 | [network/request-failure-signatures](network/request-failure-signatures/) | 请求失败在客户端的样子 | 轻量：自建网络 + netshoot + JDK 客户端 | regular-docker |
 | [engineering/ssh-and-git-identity](engineering/ssh-and-git-identity/) | GitHub SSH 与多账号 | 轻量：离线，OpenSSH 与 Git | regular |
 | [engineering/postman-token-refresh](engineering/postman-token-refresh/) | Postman 集合的 token 脚本 | 轻量：Node 容器 + Newman | regular-docker |
+| [engineering/expand-contract-rollback](engineering/expand-contract-rollback/) | 发布的可回退性 | 轻量：MySQL 8.4 + JDBC + Jackson | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |
