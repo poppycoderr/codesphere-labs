@@ -90,6 +90,7 @@ public class Rollback {
         try (Connection c = DriverManager.getConnection(URL, "root", "example_password")) {
             inPlaceRename(c);
             expandContract(c);
+            matrix(c);
         }
         events();
     }
@@ -126,6 +127,24 @@ public class Rollback {
         ddl(c, "ALTER TABLE registration DROP COLUMN phone");                        // 收缩：不可逆点
         traffic(c, "ec.after_contract", List.of(V2_ONLY));
         traffic(c, "ec.rollback_after_contract", List.of(V1));
+    }
+
+    /** 每个版本分别在三种表结构上各跑 20 次。 */
+    static void matrix(Connection c) throws Exception {
+        String[][] schemas = {
+                {"phone_only", "phone VARCHAR(32) NULL"},
+                {"both", "phone VARCHAR(32) NULL, mobile VARCHAR(32) NULL"},
+                {"mobile_only", "mobile VARCHAR(32) NULL"},
+        };
+        Version[] versions = {V1, V15, V2_DUAL, V2_ONLY};
+        String[] names = {"v1", "v1.5", "v2_dual", "v2_only"};
+        for (String[] sc : schemas) {
+            for (int i = 0; i < versions.length; i++) {
+                ddl(c, "DROP TABLE IF EXISTS registration");
+                ddl(c, "CREATE TABLE registration (id INT AUTO_INCREMENT PRIMARY KEY, attendee VARCHAR(64) NOT NULL, " + sc[1] + ")");
+                traffic(c, "matrix." + names[i] + "." + sc[0], List.of(versions[i]));
+            }
+        }
     }
 
     static void consistency(Connection c, String key) throws Exception {

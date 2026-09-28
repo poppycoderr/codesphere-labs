@@ -34,4 +34,15 @@ expect_regex "$f" "^ec\.rollback_after_contract	v1 成功 0、失败 20（Unknow
 expect_regex "$f" "^event\.added\.strict	解析失败：UnrecognizedPropertyException" "新增字段：严格解析失败"
 expect_regex "$f" "^event\.added\.tolerant	解析成功：RegisteredV1\[id=1, attendee=a, phone=13800000001\]" "新增字段：宽容解析成功"
 expect_regex "$f" "^event\.renamed\.tolerant	解析成功：RegisteredV1\[id=2, attendee=b, phone=null\]" "改名字段：宽容解析「成功」但手机号丢了"
+python3 - "$f" <<'PY2'
+import re, sys
+t = open(sys.argv[1], encoding="utf-8").read()
+ok = {(v, sc): int(n) for v, sc, n in re.findall(r"^matrix\.(\S+)\.(\S+)\t\S+ 成功 (\d+)", t, re.M)}
+expect = {("v1", "phone_only"): 20, ("v1", "both"): 20, ("v1", "mobile_only"): 0,
+          ("v1.5", "both"): 20, ("v2_dual", "both"): 20,
+          ("v2_only", "phone_only"): 0, ("v2_only", "both"): 20, ("v2_only", "mobile_only"): 20}
+for k, v in expect.items():
+    assert ok[k] == v, (k, ok[k], v)
+print("通过：版本 × 表结构矩阵与预期一致")
+PY2
 log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"

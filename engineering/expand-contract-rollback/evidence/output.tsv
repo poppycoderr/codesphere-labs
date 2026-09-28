@@ -15,6 +15,18 @@ ec.redeploy_v2	v2 成功 20、失败 0
 ec.consistency_before_contract	phone 与 mobile 不一致的行 0，mobile 为空的行 0
 ec.after_contract	v2 成功 20、失败 0
 ec.rollback_after_contract	v1 成功 0、失败 20（Unknown column 'phone' in 'field list'）
+matrix.v1.phone_only	v1 成功 20、失败 0
+matrix.v1.5.phone_only	v1.5 成功 0、失败 20（Unknown column 'mobile' in 'field list'）
+matrix.v2_dual.phone_only	v2 成功 0、失败 20（Unknown column 'mobile' in 'field list'）
+matrix.v2_only.phone_only	v2 成功 0、失败 20（Unknown column 'mobile' in 'field list'）
+matrix.v1.both	v1 成功 20、失败 0
+matrix.v1.5.both	v1.5 成功 20、失败 0
+matrix.v2_dual.both	v2 成功 20、失败 0
+matrix.v2_only.both	v2 成功 20、失败 0
+matrix.v1.mobile_only	v1 成功 0、失败 20（Unknown column 'phone' in 'field list'）
+matrix.v1.5.mobile_only	v1.5 成功 0、失败 20（Unknown column 'phone' in 'field list'）
+matrix.v2_dual.mobile_only	v2 成功 0、失败 20（Unknown column 'phone' in 'field list'）
+matrix.v2_only.mobile_only	v2 成功 20、失败 0
 event.added.strict	解析失败：UnrecognizedPropertyException（Unrecognized field "channel" (class Rollback$RegisteredV1), not marked as ignorable (3 known properties: "attendee", "id", "phone")）
 event.added.tolerant	解析成功：RegisteredV1[id=1, attendee=a, phone=13800000001]
 event.renamed.strict	解析失败：UnrecognizedPropertyException（Unrecognized field "mobile" (class Rollback$RegisteredV1), not marked as ignorable (3 known properties: "attendee", "id", "phone")）
