@@ -1,0 +1,2 @@
+可变继承：resize(new Rectangle()) = 20，resize(new Square()) = 16
+不可变 record：new Rect(5, 4).area() = 20，new Sq(4).area() = 16

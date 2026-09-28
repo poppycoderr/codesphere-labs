@@ -8,6 +8,7 @@
 2. `HashSet.addAll` 声明在 `AbstractCollection`，内部逐个调用 `add`
 3. 打 8 折再封顶减 30 的规则组合：100 元 → 80 元，500 元 → 470 元
 4. 给密封接口新增 `BuyNGetOne` 后，没有更新的 `switch` 编译失败：the switch expression does not cover all possible input values
+5. 可变的 `Square` 继承可变的 `Rectangle`：按矩形契约先设宽 5、再设高 4，传入 `Rectangle` 得到 20，传入 `Square` 得到 16；改为各自实现 `Shape` 的不可变 record 后，`Rect(5, 4)` 为 20、`Sq(4)` 为 16，没有可以被违反的「独立设置宽高」契约
 
 ## 二、环境
 
@@ -17,7 +18,7 @@
 
 `scripts/verify.sh` 依次执行：
 
-1. `java src/Inherit.java`、`src/Rules.java`、`src/Sealed.java`
+1. `java src/Inherit.java`、`src/Rules.java`、`src/Sealed.java`、`src/Liskov.java`
 2. `javac src/v2-add-subtype/Sealed.java`，期望编译失败
 
 每一项结论都有对应的断言，任何一项不满足即返回非零退出码。
@@ -30,6 +31,7 @@
 | `evidence/rules.txt` | `addAll` 的声明位置与规则组合 |
 | `evidence/sealed.txt` | 密封类型的正常结果 |
 | `evidence/sealed-v2-javac.txt` | 新增子类型后的编译错误 |
+| `evidence/liskov.txt` | 里氏替换的反例与改法 |
 
 上表中的文件由 `make evidence` 生成，未手工修改；断言内容见 `scripts/verify.sh`。
 
@@ -51,3 +53,4 @@ make clean
 |---|---|---|
 | 文章发布时 | 在会话临时目录中实测，数字见文章 | — |
 | 2026-09-22 | 迁入本仓库，全部断言通过 | 见上文「误差、限制」中与文章不同的数字 |
+| 2026-09-28 | 新增里氏替换的反例（`src/Liskov.java`），全部断言通过 | 里氏替换一文链接到本实验 |

@@ -11,3 +11,4 @@
 | `environment.txt` | 操作系统、CPU 数、JDK 版本 |
 
 规范化：测试报告中的总耗时替换为 `<elapsed>`，编译错误中的绝对路径改为相对路径，时区名替换为 `<zone>`，死锁日志中的时间戳与线程号替换为占位符；其余为原始输出。
+| `liskov.txt` | 里氏替换：可变 Square 继承 Rectangle 的反例与不可变 record 的改法 |
