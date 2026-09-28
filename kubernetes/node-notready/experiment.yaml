@@ -1,0 +1,22 @@
+id: kubernetes/node-notready
+title: 节点 NotReady：静态 Pod 与启动链、没有 CNI 时节点与 Pod 的状态、Ready 之后跨节点仍不通、kubelet 停止后的驱逐与仍在运行的旧容器
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/node-notready.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    kind: "v0.33.0"
+    kubernetes: "1.36.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

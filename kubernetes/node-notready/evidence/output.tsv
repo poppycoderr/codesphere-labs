@@ -1,0 +1,25 @@
+chain.services	控制面节点上：containerd active，kubelet active
+chain.static	kubelet staticPodPath: /etc/kubernetes/manifests；目录内容：etcd.yaml kube-apiserver.yaml kube-controller-manager.yaml kube-scheduler.yaml 
+chain.mirror	kube-apiserver Pod 的 config.source 注解：file，hostNetwork=true
+chain.cni_dir	工作节点 /etc/cni/net.d 下的文件数：0；/opt/cni/bin：host-local loopback portmap ptp 
+nocni.node	False KubeletNotReady: container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:Network plugin returns error: cni plugin not initialized
+nocni.taints	工作节点污点：node.kubernetes.io/not-ready:NoSchedule 
+nocni.system	kube-system：coredns-589f44dc88-524ph=Pending coredns-589f44dc88-st7ll=Pending etcd-csl-nn-control-plane=Running kube-apiserver-csl-nn-control-plane=Running kube-controller-manager-csl-nn-control-plane=Running kube-proxy-94h9n=Running kube-proxy-j4wcw=Running kube-proxy-xdsnt=Running kube-scheduler-csl-nn-control-plane=Running 
+nocni.plain	Pending；FailedScheduling: 0/3 nodes are available: 3 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.
+nocni.tolerant	Pending ContainerCreating；NetworkNotReady: network is not ready: container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:Network plugin returns error: cni plugin not initialized
+nocni.default_tolerations	普通 Pod 自动获得的容忍：node.kubernetes.io/not-ready=300s node.kubernetes.io/unreachable=300s 
+cni.cp	写入配置后 0.3 秒控制面节点就绪；工作节点：False KubeletNotReady
+cni.coredns	CoreDNS：Running@csl-nn-control-plane Running@csl-nn-control-plane 
+cni.all	节点：csl-nn-control-plane=Ready csl-nn-worker=Ready csl-nn-worker2=Ready ；plain 在 csl-nn-worker 上 Running
+net.before	直连 CoreDNS Pod：wget: download timed out command terminated with exit code 1 ；解析 kubernetes.default：;; connection timed out; no servers could be reached
+net.routes_before	工作节点路由表中的 Pod 网段：无
+net.after	直连 CoreDNS Pod：OK；解析 kubernetes.default：Address: 10.96.0.1
+stop.before	web Pod web-c79bc5d86-xzjkt 运行在 csl-nn-worker
+stop.notready	停止 kubelet 后 51.5 秒节点状态变化：Unknown NodeStatusUnknown: Kubelet stopped posting node status.
+stop.taints	污点：node.kubernetes.io/unreachable:NoSchedule node.kubernetes.io/unreachable:NoExecute 
+stop.evicted	停止 kubelet 后 71.7 秒旧 Pod 被标记删除（容忍 20 秒）
+stop.replaced	停止 kubelet 后 73.1 秒新 Pod 在 csl-nn-worker2 上运行
+stop.api	API 中的 web Pod：Running Terminating 
+stop.old_container	csl-nn-worker 上的容器：CONTAINER_RUNNING
+stop.old_serving	访问旧 Pod IP：web-c79bc5d86-xzjkt；访问新 Pod IP：web-c79bc5d86-dl8dd
+restart.gone	恢复 kubelet 后 7.9 秒旧 Pod 从 API 删除；csl-nn-worker 上仍在运行的 web 容器：0 个；节点：True KubeletReady
