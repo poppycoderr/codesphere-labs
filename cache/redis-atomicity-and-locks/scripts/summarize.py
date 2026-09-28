@@ -45,6 +45,10 @@ check(res["lock.a_naive_del_removes_b_lock"] == "1" and res["lock.holder_after_n
 check(res["lock.a_token_release"] == "0" and res["lock.holder_after_token_release"] == "token-b" and res["lock.b_token_release"] == "1",
       "比较 token 再删除的 Lua：A 释放返回 0、B 的锁仍在；B 释放返回 1")
 
+t0, t1, ta, tb = (int(res[k]) for k in ("renew.pttl_after_acquire", "renew.pttl_before_renew", "renew.pttl_after_a_renew", "renew.pttl_after_b_renew"))
+check(1900 <= t0 <= 2000 and 700 <= t1 <= 1000 and res["renew.a_renew"] == "0" and ta <= t1 and res["renew.b_renew"] == "1" and 4900 <= tb <= 5000,
+      f"续期：加锁后 PTTL {t0}ms，约 1.1 秒后剩 {t1}ms；非持有者续期返回 0（剩 {ta}ms），持有者续期返回 1，PTTL 变为 {tb}ms")
+
 un, fe = timelines["lease.unfenced.timeline"], timelines["lease.fenced.timeline"]
 check(res["lease.unfenced.final_value"] == "written-by-A" and any("A resumes, lock holder is now token-b" in t for t in un),
       "租约 500ms、A 停顿 1500ms：B 在 A 的锁过期后获取并写入，A 恢复后仍写入下游，最终值是旧持有者 A 写的 → " + " | ".join(un))

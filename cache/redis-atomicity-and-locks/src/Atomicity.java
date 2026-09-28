@@ -139,6 +139,13 @@ public class Atomicity {
             end
             return 0""";
 
+    /** 续期同样要校验持有者：只有 token 相同时才延长过期时间。 */
+    static final String RENEW = """
+            if redis.call('GET', KEYS[1]) == ARGV[1] then
+              return redis.call('PEXPIRE', KEYS[1], ARGV[2])
+            end
+            return 0""";
+
     /** 模拟下游存储的条件写：只接受 token 不小于已见最大 token 的写入，对应数据库里的 UPDATE ... WHERE fence <= ?。 */
     static final String FENCED_WRITE = """
             local seen = tonumber(redis.call('GET', KEYS[2]) or '0')
@@ -338,6 +345,17 @@ public class Atomicity {
             put("lock.a_token_release", a.call("EVAL", RELEASE, 1, "lock:order", "token-a"));
             put("lock.holder_after_token_release", a.call("GET", "lock:order"));
             put("lock.b_token_release", b.call("EVAL", RELEASE, 1, "lock:order", "token-b"));
+
+            // 续期：B 以 2 秒租约加锁，约 1.1 秒后 A（非持有者）与 B 分别续期到 5 秒
+            b.call("SET", "lock:order", "token-b", "NX", "PX", 2000);
+            put("renew.pttl_after_acquire", b.call("PTTL", "lock:order"));
+            Thread.sleep(1100);
+            put("renew.pttl_before_renew", b.call("PTTL", "lock:order"));
+            put("renew.a_renew", a.call("EVAL", RENEW, 1, "lock:order", "token-a", 5000));
+            put("renew.pttl_after_a_renew", b.call("PTTL", "lock:order"));
+            put("renew.b_renew", b.call("EVAL", RENEW, 1, "lock:order", "token-b", 5000));
+            put("renew.pttl_after_b_renew", b.call("PTTL", "lock:order"));
+            b.call("EVAL", RELEASE, 1, "lock:order", "token-b");
         }
         leaseExpiry(false);
         leaseExpiry(true);

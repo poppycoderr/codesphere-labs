@@ -9,6 +9,7 @@
 3. 重启后 `EVALSHA` 返回 `NOSCRIPT`，`FCALL` 仍可执行。
 4. 不校验 token 的 `DEL` 会删掉别人的锁；比较 token 的 Lua 释放不会。
 5. 租约过期后，旧持有者恢复并写入下游，覆盖新持有者的结果；下游校验 fencing token 时，旧持有者的写入被拒绝。
+6. 续期必须校验持有者：比较 token 后再 `PEXPIRE` 的 Lua，非持有者调用返回 0、TTL 不变，持有者调用返回 1、TTL 被延长。
 
 ## 二、环境
 
@@ -21,7 +22,8 @@
 1. 加载 Function 库 `quota` 与 Lua 脚本；每种写法前把名额设为 100、清空名单，50 个线程就绪后同时开始，各抢 10 次；记录客户端认为抢到的次数、名单长度、剩余名额、WATCH 重试次数与耗时。
 2. 事务：`MULTI` 中加入参数个数错误的 `INCRBY`；`MULTI` 中对字符串执行 `LPUSH`，前后各有一条 `SET`；`DISCARD`；另一个连接在 `EXEC` 前修改被 `WATCH` 的 key。
 3. 锁：A 以 300ms 租约加锁，B 获取失败；过期后 B 获取成功，A 直接 `DEL`；B 重新加锁后 A、B 分别用比较 token 的 Lua 释放。
-4. 租约：A 以 500ms 租约加锁并 `INCR` 领 token，睡眠 1500ms 后写下游；B 在第 700ms 加锁、领 token、写下游。分别在不校验 token 与校验 token（`FENCED_WRITE`）两种下游下运行。
+4. 续期：B 以 2 秒租约加锁，约 1.1 秒后 A（非持有者）与 B 分别用比较 token 的 Lua 续期到 5 秒，记录每一步的 `PTTL`。
+5. 租约：A 以 500ms 租约加锁并 `INCR` 领 token，睡眠 1500ms 后写下游；B 在第 700ms 加锁、领 token、写下游。分别在不校验 token 与校验 token（`FENCED_WRITE`）两种下游下运行。
 
 然后 `before-restart` 模式加载 Function 与脚本并各调用一次，`docker compose restart` 后 `after-restart` 模式再调用。
 
@@ -63,3 +65,4 @@ make clean
 | 日期 | 结果 | 文章是否需要更新 |
 |---|---|---|
 | 2026-09-24 | 首次建立，全部断言通过 | 新文章，数字取自本次证据 |
+| 2026-09-28 | 新增续期场景，全部断言通过 | 是：分布式锁实现一文的加锁 PTTL 与续期数字改用本实验证据 |
