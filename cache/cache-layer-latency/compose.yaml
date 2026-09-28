@@ -1,0 +1,26 @@
+# Redis 8.10.1 与 MySQL 8.4.11，固定 digest，同一个网络；客户端 JDK 容器接入这个网络，不对宿主机暴露端口
+name: csl-cache-layers
+services:
+  redis:
+    image: redis:8.10.1@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+    command: ["redis-server", "--appendonly", "no", "--save", ""]
+    cpus: 2
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+  mysql:
+    image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_DATABASE: labs
+    command: ["--skip-log-bin"]
+    cpus: 2
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+      interval: 2s
+      timeout: 5s
+      retries: 60

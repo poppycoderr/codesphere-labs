@@ -1,0 +1,24 @@
+id: cache/cache-layer-latency
+title: 缓存分层的访问延迟：Caffeine 本地缓存、Redis GET、MySQL 主键查询
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/cache/cache-design-and-redis-ops.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    mysql: "8.4.11"
+    caffeine: "3.3.0"
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

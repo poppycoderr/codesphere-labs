@@ -1,0 +1,3 @@
+local	Caffeine getIfPresent（1 万个 key 全部命中）：平均 87.3 ns/次（校验和 0）
+redis	Redis GET（单连接顺序请求 20,000 次）：p50 0.049 ms，p99 0.068 ms
+mysql	MySQL 主键查询（单连接顺序请求 20,000 次）：p50 0.071 ms，p99 0.102 ms
