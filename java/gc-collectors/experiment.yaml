@@ -1,0 +1,21 @@
+id: java/gc-collectors
+title: 收集器对比：同一负载下 G1、分代 ZGC、Parallel 的吞吐、CPU、停顿与探针延迟；存活数据的替换方式与堆余量对 G1、ZGC 退化的影响；System.gc() 的四种行为
+status: verified
+tier: performance
+article:
+  repository: codesphere
+  path: docs/java/g1-and-zgc.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "21.0.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

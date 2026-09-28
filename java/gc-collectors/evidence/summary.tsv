@@ -1,0 +1,24 @@
+run.g1-1	吞吐 33324k 次/秒，CPU 2.37 核，停顿 284 次，合计 1305 ms，最长 9.91 ms，Full GC 0 次，探针 p99 4.93 ms、p99.9 7.42 ms、最大 11.07 ms；分配停顿 0 次
+kinds.g1-1	Pause Cleanup 48 次，最长 0.33 ms；Pause Remark 47 次，最长 1.15 ms；Pause Young (Concurrent Start) (G1 Evacuation Pause) 39 次，最长 7.64 ms；Pause Young (Concurrent Start) (G1 Evacuation Pause) (Evacuation Failure) 8 次，最长 7.46 ms；Pause Young (Mixed) (G1 Evacuation Pause) 30 次，最长 7.52 ms；Pause Young (Mixed) (G1 Evacuation Pause) (Evacuation Failure) 17 次，最长 7.75 ms；Pause Young (Normal) (G1 Evacuation Pause) 47 次，最长 9.91 ms；Pause Young (Prepare Mixed) (G1 Evacuation Pause) 43 次，最长 7.50 ms；Pause Young (Prepare Mixed) (G1 Evacuation Pause) (Evacuation Failure) 5 次，最长 7.32 ms
+run.g1-2	吞吐 35976k 次/秒，CPU 2.41 核，停顿 306 次，合计 1443 ms，最长 9.33 ms，Full GC 0 次，探针 p99 6.33 ms、p99.9 7.52 ms、最大 9.36 ms；分配停顿 0 次
+kinds.g1-2	Pause Cleanup 51 次，最长 0.35 ms；Pause Remark 51 次，最长 1.53 ms；Pause Young (Concurrent Start) (G1 Evacuation Pause) 48 次，最长 7.83 ms；Pause Young (Concurrent Start) (G1 Evacuation Pause) (Evacuation Failure) 3 次，最长 7.29 ms；Pause Young (Mixed) (G1 Evacuation Pause) 32 次，最长 9.33 ms；Pause Young (Mixed) (G1 Evacuation Pause) (Evacuation Failure) 19 次，最长 7.80 ms；Pause Young (Normal) (G1 Evacuation Pause) 51 次，最长 7.64 ms；Pause Young (Prepare Mixed) (G1 Evacuation Pause) 46 次，最长 7.66 ms；Pause Young (Prepare Mixed) (G1 Evacuation Pause) (Evacuation Failure) 5 次，最长 7.15 ms
+run.g1-live1400	吞吐 38046k 次/秒，CPU 2.69 核，停顿 609 次，合计 1425 ms，最长 3.08 ms，Full GC 0 次，探针 p99 2.61 ms、p99.9 3.04 ms、最大 17.46 ms；分配停顿 0 次
+kinds.g1-live1400	Pause Cleanup 57 次，最长 0.41 ms；Pause Remark 57 次，最长 1.11 ms；Pause Young (Concurrent Start) (G1 Evacuation Pause) 57 次，最长 2.97 ms；Pause Young (Mixed) (G1 Evacuation Pause) 57 次，最长 3.08 ms；Pause Young (Normal) (G1 Evacuation Pause) 324 次，最长 2.99 ms；Pause Young (Prepare Mixed) (G1 Evacuation Pause) 57 次，最长 3.02 ms
+run.g1-random	吞吐 27422k 次/秒，CPU 2.42 核，停顿 279 次，合计 2229 ms，最长 75.47 ms，Full GC 13 次，探针 p99 3.52 ms、p99.9 26.08 ms、最大 81.03 ms；分配停顿 0 次
+kinds.g1-random	Pause Cleanup 29 次，最长 0.60 ms；Pause Full (G1 Compaction Pause) 13 次，最长 75.47 ms；Pause Remark 31 次，最长 1.07 ms；Pause Young (Concurrent Start) (G1 Evacuation Pause) 30 次，最长 7.37 ms；Pause Young (Concurrent Start) (G1 Evacuation Pause) (Evacuation Failure) 11 次，最长 11.56 ms；Pause Young (Mixed) (G1 Evacuation Pause) 16 次，最长 7.80 ms；Pause Young (Mixed) (G1 Evacuation Pause) (Evacuation Failure) 16 次，最长 32.02 ms；Pause Young (Normal) (G1 Evacuation Pause) 88 次，最长 7.76 ms；Pause Young (Normal) (G1 Evacuation Pause) (Evacuation Failure) 16 次，最长 4.03 ms；Pause Young (Prepare Mixed) (G1 Evacuation Pause) 29 次，最长 7.21 ms
+run.parallel-1	吞吐 39209k 次/秒，CPU 2.10 核，停顿 354 次，合计 1321 ms，最长 49.98 ms，Full GC 6 次，探针 p99 3.15 ms、p99.9 3.99 ms、最大 49.97 ms；分配停顿 0 次
+kinds.parallel-1	Pause Full (Ergonomics) 6 次，最长 49.98 ms；Pause Young (Allocation Failure) 348 次，最长 3.61 ms
+run.parallel-2	吞吐 37322k 次/秒，CPU 2.10 核，停顿 337 次，合计 1255 ms，最长 49.98 ms，Full GC 6 次，探针 p99 2.97 ms、p99.9 3.72 ms、最大 49.59 ms；分配停顿 0 次
+kinds.parallel-2	Pause Full (Ergonomics) 6 次，最长 49.98 ms；Pause Young (Allocation Failure) 331 次，最长 3.55 ms
+run.zgc-1	吞吐 48777k 次/秒，CPU 2.64 核，停顿 2045 次，合计 17 ms，最长 0.03 ms，Full GC 0 次，探针 p99 0.51 ms、p99.9 0.60 ms、最大 2.04 ms；分配停顿 0 次
+kinds.zgc-1	Pause Mark End 694 次，最长 0.03 ms；Pause Mark Start 621 次，最长 0.01 ms；Pause Mark Start (Major) 36 次，最长 0.01 ms；Pause Relocate Start 694 次，最长 0.01 ms
+run.zgc-2	吞吐 49881k 次/秒，CPU 2.68 核，停顿 2174 次，合计 20 ms，最长 0.04 ms，Full GC 0 次，探针 p99 0.35 ms、p99.9 1.37 ms、最大 10.84 ms；分配停顿 0 次
+kinds.zgc-2	Pause Mark End 738 次，最长 0.04 ms；Pause Mark Start 657 次，最长 0.02 ms；Pause Mark Start (Major) 41 次，最长 0.01 ms；Pause Relocate Start 738 次，最长 0.03 ms
+run.zgc-live1400	吞吐 37341k 次/秒，CPU 2.94 核，停顿 3661 次，合计 31 ms，最长 0.04 ms，Full GC 0 次，探针 p99 0.34 ms、p99.9 0.92 ms、最大 32.24 ms；分配停顿 62 次，合计 0.3 s，中位数 3.9 ms，最长 9.8 ms
+kinds.zgc-live1400	Pause Mark End 1239 次，最长 0.02 ms；Pause Mark Start 1126 次，最长 0.04 ms；Pause Mark Start (Major) 56 次，最长 0.01 ms；Pause Relocate Start 1240 次，最长 0.02 ms
+run.zgc-random	吞吐 32993k 次/秒，CPU 2.54 核，停顿 1205 次，合计 10 ms，最长 0.03 ms，Full GC 0 次，探针 p99 0.33 ms、p99.9 0.40 ms、最大 0.55 ms；分配停顿 0 次
+kinds.zgc-random	Pause Mark End 407 次，最长 0.03 ms；Pause Mark Start 376 次，最长 0.01 ms；Pause Mark Start (Major) 15 次，最长 0.01 ms；Pause Relocate Start 407 次，最长 0.02 ms
+explicit.g1-concurrent	日志：Pause Young (Concurrent Start) (System.gc())；调用期间停顿 3 次，合计 8.0 ms；System.gc() 返回耗时 70.7 ms
+explicit.g1-disabled	日志：无；调用期间停顿 0 次，合计 0.0 ms；System.gc() 返回耗时 0.0 ms
+explicit.g1	日志：Pause Full (System.gc())；调用期间停顿 1 次，合计 32.8 ms；System.gc() 返回耗时 33.4 ms
+explicit.zgc	日志：Major Collection (System.gc())；调用期间停顿 8 次，合计 0.1 ms；System.gc() 返回耗时 120.4 ms

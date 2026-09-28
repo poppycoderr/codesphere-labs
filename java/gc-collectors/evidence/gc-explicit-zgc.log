@@ -1,0 +1,162 @@
+[0.275s][info][gc] Using The Z Garbage Collector
+[0.551s][info][gc] GC(0) Major Collection (Warmup)
+[0.554s][info][gc,phases] GC(0) Y: Young Generation
+[0.554s][info][gc,phases] GC(0) Y: Pause Mark Start (Major) 0.006ms
+[0.571s][info][gc,phases] GC(0) Y: Concurrent Mark 16.788ms
+[0.571s][info][gc,phases] GC(0) Y: Pause Mark End 0.009ms
+[0.571s][info][gc,phases] GC(0) Y: Concurrent Mark Free 0.000ms
+[0.571s][info][gc,phases] GC(0) Y: Concurrent Reset Relocation Set 0.000ms
+[0.573s][info][gc,phases] GC(0) Y: Concurrent Select Relocation Set 1.771ms
+[0.573s][info][gc,phases] GC(0) Y: Pause Relocate Start 0.004ms
+[0.576s][info][gc,phases] GC(0) Y: Concurrent Relocate 3.300ms
+[0.577s][info][gc,phases] GC(0) Y: Young Generation 228M(11%)->294M(14%) 0.023s
+[0.577s][info][gc,phases] GC(0) O: Old Generation
+[0.577s][info][gc,phases] GC(0) O: Concurrent Mark 0.312ms
+[0.577s][info][gc,phases] GC(0) O: Pause Mark End 0.005ms
+[0.577s][info][gc,phases] GC(0) O: Concurrent Mark Free 0.017ms
+[0.580s][info][gc,phases] GC(0) O: Concurrent Process Non-Strong 3.065ms
+[0.580s][info][gc,phases] GC(0) O: Concurrent Reset Relocation Set 0.000ms
+[0.582s][info][gc,phases] GC(0) O: Concurrent Select Relocation Set 1.478ms
+[0.599s][info][gc,phases] GC(0) O: Concurrent Remap Roots 17.185ms
+[0.599s][info][gc,phases] GC(0) O: Pause Relocate Start 0.008ms
+[0.599s][info][gc,phases] GC(0) O: Concurrent Relocate 0.090ms
+[0.600s][info][gc,phases] GC(0) O: Old Generation 294M(14%)->392M(19%) 0.023s
+[0.600s][info][gc       ] GC(0) Major Collection (Warmup) 216M(11%)->392M(19%) 0.049s
+[0.604s][info][gc       ] GC(1) Major Collection (Warmup)
+[0.604s][info][gc,phases] GC(1) Y: Young Generation
+[0.605s][info][gc,phases] GC(1) Y: Pause Mark Start (Major) 0.005ms
+[0.635s][info][gc,phases] GC(1) Y: Concurrent Mark 30.276ms
+[0.635s][info][gc,phases] GC(1) Y: Pause Mark End 0.009ms
+[0.635s][info][gc,phases] GC(1) Y: Concurrent Mark Free 0.000ms
+[0.635s][info][gc,phases] GC(1) Y: Concurrent Reset Relocation Set 0.002ms
+[0.643s][info][gc,phases] GC(1) Y: Concurrent Select Relocation Set 7.489ms
+[0.643s][info][gc,phases] GC(1) Y: Pause Relocate Start 0.011ms
+[0.653s][info][gc,phases] GC(1) Y: Concurrent Relocate 9.698ms
+[0.653s][info][gc,phases] GC(1) Y: Young Generation 412M(20%)->614M(30%) 0.049s
+[0.653s][info][gc,phases] GC(1) O: Old Generation
+[0.653s][info][gc,phases] GC(1) O: Concurrent Mark 0.230ms
+[0.653s][info][gc,phases] GC(1) O: Pause Mark End 0.011ms
+[0.654s][info][gc,phases] GC(1) O: Concurrent Mark Free 0.000ms
+[0.656s][info][gc,phases] GC(1) O: Concurrent Process Non-Strong 2.300ms
+[0.656s][info][gc,phases] GC(1) O: Concurrent Reset Relocation Set 0.000ms
+[0.657s][info][gc,phases] GC(1) O: Concurrent Select Relocation Set 1.358ms
+[0.676s][info][gc,phases] GC(1) O: Concurrent Remap Roots 18.446ms
+[0.676s][info][gc,phases] GC(1) O: Pause Relocate Start 0.009ms
+[0.676s][info][gc,phases] GC(1) O: Concurrent Relocate 0.065ms
+[0.676s][info][gc,phases] GC(1) O: Old Generation 614M(30%)->710M(35%) 0.023s
+[0.676s][info][gc       ] GC(1) Major Collection (Warmup) 412M(20%)->710M(35%) 0.072s
+[0.676s][info][gc       ] GC(2) Major Collection (Warmup)
+[0.676s][info][gc,phases] GC(2) Y: Young Generation
+[0.677s][info][gc,phases] GC(2) Y: Pause Mark Start (Major) 0.005ms
+[0.704s][info][gc,phases] GC(2) Y: Concurrent Mark 27.485ms
+[0.704s][info][gc,phases] GC(2) Y: Pause Mark End 0.012ms
+[0.704s][info][gc,phases] GC(2) Y: Concurrent Mark Free 0.000ms
+[0.704s][info][gc,phases] GC(2) Y: Concurrent Reset Relocation Set 0.023ms
+[0.706s][info][gc,phases] GC(2) Y: Concurrent Select Relocation Set 1.559ms
+[0.706s][info][gc,phases] GC(2) Y: Pause Relocate Start 0.008ms
+[0.706s][info][gc,phases] GC(2) Y: Concurrent Relocate 0.152ms
+[0.706s][info][gc,phases] GC(2) Y: Young Generation 712M(35%)->718M(35%) 0.030s
+[0.706s][info][gc,phases] GC(2) O: Old Generation
+[0.712s][info][gc,phases] GC(2) O: Concurrent Mark 5.124ms
+[0.712s][info][gc,phases] GC(2) O: Pause Mark End 0.007ms
+[0.712s][info][gc,phases] GC(2) O: Concurrent Mark Free 0.000ms
+[0.715s][info][gc,phases] GC(2) O: Concurrent Process Non-Strong 2.646ms
+[0.715s][info][gc,phases] GC(2) O: Concurrent Reset Relocation Set 0.000ms
+[0.716s][info][gc,phases] GC(2) O: Concurrent Select Relocation Set 1.524ms
+[0.736s][info][gc,phases] GC(2) O: Concurrent Remap Roots 19.333ms
+[0.736s][info][gc,phases] GC(2) O: Pause Relocate Start 0.012ms
+[0.737s][info][gc,phases] GC(2) O: Concurrent Relocate 1.263ms
+[0.737s][info][gc,phases] GC(2) O: Old Generation 720M(35%)->846M(41%) 0.031s
+[0.737s][info][gc       ] GC(2) Major Collection (Warmup) 712M(35%)->846M(41%) 0.061s
+[0.832s][info][gc       ] GC(3) Major Collection (Allocation Rate)
+[0.832s][info][gc,phases] GC(3) Y: Young Generation
+[0.832s][info][gc,phases] GC(3) Y: Pause Mark Start (Major) 0.010ms
+[0.860s][info][gc,phases] GC(3) Y: Concurrent Mark 27.129ms
+[0.860s][info][gc,phases] GC(3) Y: Pause Mark End 0.009ms
+[0.860s][info][gc,phases] GC(3) Y: Concurrent Mark Free 0.000ms
+[0.860s][info][gc,phases] GC(3) Y: Concurrent Reset Relocation Set 0.001ms
+[0.862s][info][gc,phases] GC(3) Y: Concurrent Select Relocation Set 1.565ms
+[0.862s][info][gc,phases] GC(3) Y: Pause Relocate Start 0.004ms
+[0.862s][info][gc,phases] GC(3) Y: Concurrent Relocate 0.083ms
+[0.862s][info][gc,phases] GC(3) Y: Young Generation 1248M(61%)->562M(27%) 0.030s
+[0.862s][info][gc,phases] GC(3) O: Old Generation
+[0.868s][info][gc,phases] GC(3) O: Concurrent Mark 5.893ms
+[0.868s][info][gc,phases] GC(3) O: Pause Mark End 0.007ms
+[0.868s][info][gc,phases] GC(3) O: Concurrent Mark Free 0.000ms
+[0.871s][info][gc,phases] GC(3) O: Concurrent Process Non-Strong 2.495ms
+[0.871s][info][gc,phases] GC(3) O: Concurrent Reset Relocation Set 0.001ms
+[0.872s][info][gc,phases] GC(3) O: Concurrent Select Relocation Set 1.370ms
+[0.891s][info][gc,phases] GC(3) O: Concurrent Remap Roots 19.133ms
+[0.892s][info][gc,phases] GC(3) O: Pause Relocate Start 0.011ms
+[0.893s][info][gc,phases] GC(3) O: Concurrent Relocate 0.956ms
+[0.893s][info][gc,phases] GC(3) O: Old Generation 562M(27%)->864M(42%) 0.031s
+[0.893s][info][gc       ] GC(3) Major Collection (Allocation Rate) 1248M(61%)->864M(42%) 0.061s
+[0.904s][info][gc       ] GC(4) Minor Collection (Allocation Rate)
+[0.904s][info][gc,phases] GC(4) y: Young Generation
+[0.904s][info][gc,phases] GC(4) y: Pause Mark Start 0.004ms
+[0.936s][info][gc,phases] GC(4) y: Concurrent Mark 31.672ms
+[0.936s][info][gc,phases] GC(4) y: Pause Mark End 0.015ms
+[0.936s][info][gc,phases] GC(4) y: Concurrent Mark Free 0.000ms
+[0.936s][info][gc,phases] GC(4) y: Concurrent Reset Relocation Set 0.000ms
+[0.938s][info][gc,phases] GC(4) y: Concurrent Select Relocation Set 1.550ms
+[0.938s][info][gc,phases] GC(4) y: Pause Relocate Start 0.008ms
+[0.938s][info][gc,phases] GC(4) y: Concurrent Relocate 0.133ms
+[0.938s][info][gc,phases] GC(4) y: Young Generation 974M(48%)->754M(37%) 0.034s
+[0.938s][info][gc       ] GC(4) Minor Collection (Allocation Rate) 974M(48%)->754M(37%) 0.035s
+[0.944s][info][gc       ] GC(5) Minor Collection (Allocation Rate)
+[0.944s][info][gc,phases] GC(5) y: Young Generation
+[0.945s][info][gc,phases] GC(5) y: Pause Mark Start 0.004ms
+[0.976s][info][gc,phases] GC(5) y: Concurrent Mark 31.775ms
+[0.977s][info][gc,phases] GC(5) y: Pause Mark End 0.010ms
+[0.977s][info][gc,phases] GC(5) y: Concurrent Mark Free 0.000ms
+[0.977s][info][gc,phases] GC(5) y: Concurrent Reset Relocation Set 0.001ms
+[0.978s][info][gc,phases] GC(5) y: Concurrent Select Relocation Set 1.485ms
+[0.978s][info][gc,phases] GC(5) y: Pause Relocate Start 0.003ms
+[0.979s][info][gc,phases] GC(5) y: Concurrent Relocate 0.073ms
+[0.979s][info][gc,phases] GC(5) y: Young Generation 816M(40%)->752M(37%) 0.034s
+[0.979s][info][gc       ] GC(5) Minor Collection (Allocation Rate) 816M(40%)->754M(37%) 0.034s
+[0.994s][info][gc       ] GC(6) Minor Collection (Allocation Rate)
+[0.994s][info][gc,phases] GC(6) y: Young Generation
+[0.994s][info][gc,phases] GC(6) y: Pause Mark Start 0.004ms
+[1.026s][info][gc,phases] GC(6) y: Concurrent Mark 31.615ms
+[1.026s][info][gc,phases] GC(6) y: Pause Mark End 0.012ms
+[1.026s][info][gc,phases] GC(6) y: Concurrent Mark Free 0.000ms
+[1.026s][info][gc,phases] GC(6) y: Concurrent Reset Relocation Set 0.000ms
+[1.028s][info][gc,phases] GC(6) y: Concurrent Select Relocation Set 1.597ms
+[1.028s][info][gc,phases] GC(6) y: Pause Relocate Start 0.003ms
+[1.028s][info][gc,phases] GC(6) y: Concurrent Relocate 0.080ms
+[1.029s][info][gc,phases] GC(6) y: Young Generation 912M(45%)->754M(37%) 0.034s
+[1.029s][info][gc       ] GC(6) Minor Collection (Allocation Rate) 912M(45%)->754M(37%) 0.034s
+[2.056s][info][gc       ] GC(7) Major Collection (System.gc())
+[2.056s][info][gc,phases] GC(7) Y: Young Generation (Promote All)
+[2.056s][info][gc,phases] GC(7) Y: Pause Mark Start 0.018ms
+[2.097s][info][gc,phases] GC(7) Y: Concurrent Mark 40.931ms
+[2.097s][info][gc,phases] GC(7) Y: Pause Mark End 0.008ms
+[2.097s][info][gc,phases] GC(7) Y: Concurrent Mark Free 0.003ms
+[2.097s][info][gc,phases] GC(7) Y: Concurrent Reset Relocation Set 0.000ms
+[2.108s][info][gc,phases] GC(7) Y: Concurrent Select Relocation Set 10.758ms
+[2.108s][info][gc,phases] GC(7) Y: Pause Relocate Start 0.004ms
+[2.117s][info][gc,phases] GC(7) Y: Concurrent Relocate 8.500ms
+[2.117s][info][gc,phases] GC(7) Y: Young Generation (Promote All) 854M(42%)->432M(21%) 0.061s
+[2.117s][info][gc,phases] GC(7) Y: Young Generation (Collect Roots)
+[2.117s][info][gc,phases] GC(7) Y: Pause Mark Start (Major) 0.004ms
+[2.122s][info][gc,phases] GC(7) Y: Concurrent Mark 4.890ms
+[2.122s][info][gc,phases] GC(7) Y: Pause Mark End 0.003ms
+[2.122s][info][gc,phases] GC(7) Y: Concurrent Mark Free 0.039ms
+[2.122s][info][gc,phases] GC(7) Y: Concurrent Reset Relocation Set 0.044ms
+[2.124s][info][gc,phases] GC(7) Y: Concurrent Select Relocation Set 1.603ms
+[2.124s][info][gc,phases] GC(7) Y: Pause Relocate Start 0.002ms
+[2.124s][info][gc,phases] GC(7) Y: Concurrent Relocate 0.140ms
+[2.124s][info][gc,phases] GC(7) Y: Young Generation (Collect Roots) 432M(21%)->432M(21%) 0.007s
+[2.124s][info][gc,phases] GC(7) O: Old Generation
+[2.154s][info][gc,phases] GC(7) O: Concurrent Mark 30.100ms
+[2.154s][info][gc,phases] GC(7) O: Pause Mark End 0.010ms
+[2.155s][info][gc,phases] GC(7) O: Concurrent Mark Free 0.000ms
+[2.157s][info][gc,phases] GC(7) O: Concurrent Process Non-Strong 2.343ms
+[2.157s][info][gc,phases] GC(7) O: Concurrent Reset Relocation Set 0.000ms
+[2.158s][info][gc,phases] GC(7) O: Concurrent Select Relocation Set 1.388ms
+[2.175s][info][gc,phases] GC(7) O: Concurrent Remap Roots 16.944ms
+[2.175s][info][gc,phases] GC(7) O: Pause Relocate Start 0.006ms
+[2.176s][info][gc,phases] GC(7) O: Concurrent Relocate 0.154ms
+[2.176s][info][gc,phases] GC(7) O: Old Generation 432M(21%)->430M(21%) 0.052s
+[2.176s][info][gc       ] GC(7) Major Collection (System.gc()) 854M(42%)->430M(21%) 0.120s

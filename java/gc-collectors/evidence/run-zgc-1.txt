@@ -1,0 +1,7 @@
+measure_from_uptime_ms	3777
+measure_ms	20000
+ops_per_s	48777164
+cpu_cores	2.64
+probe_p99_ms	0.51
+probe_p999_ms	0.60
+probe_max_ms	2.04
