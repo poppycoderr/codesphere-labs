@@ -1,0 +1,21 @@
+id: java/guava-eventbus
+title: Guava EventBus：订阅者异常隔离、DeadEvent、同步与异步投递、注册关系的强引用
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/java/guava-eventbus.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    guava: "33.5.0-jre"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

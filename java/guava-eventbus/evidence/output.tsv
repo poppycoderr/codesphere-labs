@@ -1,0 +1,4 @@
+isolation	A 收到 [A-created-1001]，C 收到 [C-created-1001]；交给 SubscriberExceptionHandler 的异常 1 个（订阅者 B 处理失败）；post 向调用方抛出：无
+dead	发布没有订阅者的事件后，DeadEvent 监听器收到 [NoSubscriber[x=hello]]
+sync	订阅者 sleep 200 ms：EventBus.post 返回耗时 202 ms，AsyncEventBus.post 返回耗时 0 ms
+leak	注册后置为 null 并 GC：对象仍然存活=true；unregister 后再 GC：对象仍然存活=false
