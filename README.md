@@ -79,6 +79,7 @@
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |
 | [storage/pagination-and-index-cost](storage/pagination-and-index-cost/) | SQL 调优实战（第五、六节） | 轻量 | regular-docker |
+| [storage/elasticsearch-behaviors](storage/elasticsearch-behaviors/) | Elasticsearch 的几个行为 | 轻量：单节点 ES 9.5.3 + JDK 客户端 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [java/gc-baseline](java/gc-baseline/) | GC 基线与排查工具输出 | 轻量：JDK 21 容器 | regular-docker |
 | [java/gc-collectors](java/gc-collectors/) | G1、分代 ZGC、Parallel 对比 | 性能：JDK 21 容器，4 CPU | performance |

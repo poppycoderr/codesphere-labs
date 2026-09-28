@@ -1,0 +1,4 @@
+pool.before	调小后的 search 线程池：size=2，queue_size=10，active=0，queue=0，rejected=0，completed=0
+pool.status	60 个并发、共 120 个嵌套聚合请求：各 HTTP 状态的次数 {200=4, 429=116}
+pool.rejected	search 线程池 rejected 增加 587
+pool.reason	第一个 429 的原因：es_rejected_execution_exception：rejected execution of TimedRunnable{...} on TaskExecutionTimeTrackingEsThreadPoolExecutor[name = .../search, queue capacity = 10, task execution EWMA = 0s, total task execution time = 0s, org.elasticsearch.common.util.co…

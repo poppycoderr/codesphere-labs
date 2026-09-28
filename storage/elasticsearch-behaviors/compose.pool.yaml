@@ -1,0 +1,6 @@
+# 线程池实验：把 search 线程池调小，容易复现拒绝
+services:
+  es:
+    environment:
+      thread_pool.search.size: "2"
+      thread_pool.search.queue_size: "10"

@@ -1,0 +1,22 @@
+id: storage/elasticsearch-behaviors
+title: Elasticsearch 9.5：分词、text 与 keyword、路由、近实时刷新、terms 聚合排名误差、search 线程池的默认值与打满后的拒绝
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/elasticsearch-aggregation-and-thread-pool.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    elasticsearch: "9.5.3"
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-09-28"

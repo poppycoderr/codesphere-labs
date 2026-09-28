@@ -1,0 +1,17 @@
+analyze.standard	standard：Elasticsearch 9 支持向量检索 in production → ["elasticsearch", "9", "支", "持", "向", "量", "检", "索", "in", "production"]
+analyze.english	english：Running searches quickly → ["run", "search", "quickli"]
+mapping.dynamic	动态映射的 title：{"type":"text","fields":{"keyword":{"type":"keyword","ignore_above":256}}}
+term.text	term 查 title（text）「无线降噪耳机」：hits=0
+term.keyword	term 查 title.keyword「无线降噪耳机」：hits=1
+match.text	match 查 title「降噪」：hits=1
+agg.text	对 title（text）做 terms 聚合：HTTP 400，illegal_argument_exception：Fielddata is disabled on [title] in [tk_demo]. Text fields are not optimised for operations that require per-document field data like aggregations and sorting, so these operations are disabled by default. Please use a ke…
+routing.distribution	40 个文档（按 _id 路由）在 3 个主分片上的分布：{0=18, 1=14, 2=8}
+routing.search	?routing=user-42 搜索：_shards.total=1，返回 28 条，其中 user-42 的 10 条
+nrt.interval30s	refresh_interval=30s：写入 result=created；立即搜索 hits=0；按 ID GET found=true；POST _refresh 后搜索 hits=1
+nrt.wait_for	?refresh=wait_for 写入耗时 29966 ms，响应含 forced_refresh=false，紧接着搜索 hits=2
+nrt.true	?refresh=true 写入：响应 forced_refresh=true
+agg.truth	21531 个文档；真实前 5：[brand-hot-A=3000, brand-hot-B=2500, brand-hot-C=2000, brand-long-33=414, brand-long-09=410]
+agg.default	agg_demo（默认 shard_size）：前 5 [brand-hot-A=3000, brand-hot-B=2500, brand-hot-C=2000, brand-long-09=344, brand-long-33=340]；doc_count_error_upper_bound=370，sum_other_doc_count=13347，各桶误差上界最大=75
+agg.shard_size_1000	agg_demo（shard_size=1000）：前 5 [brand-hot-A=3000, brand-hot-B=2500, brand-hot-C=2000, brand-long-33=414, brand-long-09=410]；doc_count_error_upper_bound=0，sum_other_doc_count=13207，各桶误差上界最大=0
+agg.single_shard	agg_single（默认 shard_size）：前 5 [brand-hot-A=3000, brand-hot-B=2500, brand-hot-C=2000, brand-long-33=414, brand-long-09=410]；doc_count_error_upper_bound=0，sum_other_doc_count=13207，各桶误差上界最大=0
+pool.default	默认 search 线程池（容器 2 CPU）：size=4，queue_size=4000，active=0，queue=0，rejected=0，completed=29
