@@ -1,0 +1,30 @@
+truth.order_amount	480.00
+truth.item_subtotal	480.00
+truth.paid	430.00
+fanout.one_child.sum_order_amount	880.00
+fanout.one_child.rows_vs_orders	8 行 / 5 笔订单
+fanout.two_children.sum_paid	830.00
+fanout.two_children.sum_item_subtotal	630.00
+fanout.two_children.rows_vs_orders	9 行 / 4 笔订单
+distinct.sum_distinct_amount	380.00
+preagg.order_amount	480.00
+preagg.item_subtotal	480.00
+preagg.paid	430.00
+count.star	6
+count.payment_id	5
+count.distinct_order	5
+count.distinct_paid_order	4
+count.item_rows_sku_b	3
+count.orders_with_sku_b	2
+outer.where.user_rows	2
+outer.on.user_rows	5
+outer.on.detail	u1=300 u2=100 u3=0 u4=0 u5=0
+avg.per_order_row	112.500000
+avg.per_user_with_orders	150.000000
+avg.per_all_users	90.000000
+notin.with_null	0
+notin.filtered_null	2
+notin.not_exists	2
+empty.sum	NULL
+empty.count	0
+empty.ratio_null_safe	NULL

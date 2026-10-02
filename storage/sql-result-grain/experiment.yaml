@@ -1,0 +1,21 @@
+id: storage/sql-result-grain
+title: JOIN 之后的结果粒度：一对多扇出、两个子表互相放大、DISTINCT 修不了、先聚合再连接、四种计数、外连接后过滤、三种人均、NOT IN 遇到 NULL、空集
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/sql-result-grain.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
