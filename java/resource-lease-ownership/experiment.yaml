@@ -1,0 +1,21 @@
+id: java/resource-lease-ownership
+title: 信号量的许可与资源的身份：同一对象放两次、没拿到许可也归还、泄漏、重复归还、归还后继续使用、损坏的资源，以及带租约的池
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/resource-lease-ownership.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"

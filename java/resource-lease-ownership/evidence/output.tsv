@@ -1,0 +1,12 @@
+env	java.version=25.0.4
+permits.same_instance	2 个许可都借出：两个借用者拿到的是同一个对象（id 1 与 1）
+permits.release_without_acquire	上限 2，一次 tryAcquire 超时（返回 false）后仍在 finally 里 release：全部归还后可用许可 3
+permits.leak	两次借出后都因异常没有归还：可用许可 0，再借一次 tryAcquire(50ms) 返回 false
+return.twice	id 1 被归还两次后池里有 3 项；依次借出 id 2、1、1：其中两个借用者同时持有 id 1 = true
+return.use_after	归还后原借用者手里的引用与新借用者拿到的是同一个对象 = true：两方都能调用它
+return.broken	损坏的资源原样归还：下一个借用者拿到 id 1，broken=true
+lease.distinct	池大小 2，两个租约拿到 id 1 与 2；第三次借用：抛出 IllegalStateException（pool exhausted）
+lease.close_twice	同一个租约 close 两次：空闲资源 1 个
+lease.use_after_close	关闭后再通过租约取资源：抛出 IllegalStateException（lease closed）
+lease.exception	try-with-resources 中业务抛异常：空闲资源 2 个
+lease.broken	id 2 在使用中损坏后归还：被替换 1 个；之后池里的资源是 id [1, 3]，不含 id 2 = true
