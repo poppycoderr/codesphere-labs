@@ -1,0 +1,21 @@
+id: engineering/python-asyncio-task-lifecycle
+title: asyncio 任务的生命周期：gather 与 TaskGroup 的失败处理、取消是请求、wait_for 与吞掉取消、丢失引用的任务、无人等待的异常、阻塞调用、跨 await 的共享状态
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/python-asyncio-task-lifecycle.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
