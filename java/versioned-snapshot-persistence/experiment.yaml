@@ -1,0 +1,21 @@
+id: java/versioned-snapshot-persistence
+title: 内存状态加后台保存：先清脏标记、成功后清脏标记、逐字段读取可变对象、版本化不可变快照、乱序完成的旧写入
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/versioned-snapshot-persistence.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
