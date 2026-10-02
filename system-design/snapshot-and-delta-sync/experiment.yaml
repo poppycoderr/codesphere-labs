@@ -1,0 +1,21 @@
+id: system-design/snapshot-and-delta-sync
+title: 快照加增量的同步：取快照与订阅的先后、按序号丢弃与缺口检测、乱序、裁剪过的副本
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/snapshot-and-delta-sync.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
