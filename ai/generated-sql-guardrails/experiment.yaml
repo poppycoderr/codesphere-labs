@@ -1,0 +1,23 @@
+id: ai/generated-sql-guardrails
+title: 执行生成的 SQL 之前的检查各能挡住什么：最小权限账号、只读事务、单语句、超时与提示覆盖、输出上限、成本估算、黄金数据，以及 JDBC 一侧的默认行为
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/generated-sql-guardrails.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    jdk: "25.0.4"
+    connector-j: "9.7.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"

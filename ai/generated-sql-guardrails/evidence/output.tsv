@@ -1,0 +1,27 @@
+priv.delete	DELETE FROM orders → ERROR 1142：DELETE command denied to user report_ro for table 'orders'
+priv.sensitive_column	SELECT phone FROM users → ERROR 1142：SELECT command denied to user report_ro for table 'users'
+priv.system_table	SELECT user FROM mysql.user → ERROR 1142：SELECT command denied to user report_ro for table 'user'
+priv.outfile	SELECT … INTO OUTFILE → ERROR 1227：Access denied; you need (at least one of) the FILE privilege(s) for this operation
+priv.locking_read	SELECT … FOR UPDATE → ERROR 1142：SELECT with locking clause command denied to user report_ro for table 'orders'
+priv.view_definer	DEFINER 视图（不含 phone 列）SELECT COUNT(*) → 5
+priv.view_invoker	INVOKER 视图 SELECT COUNT(*) → ERROR 1356：View 'labs.v_users_invoker' references invalid …
+priv.view_update	UPDATE 视图 → ERROR 1142：UPDATE command denied to user report_ro for table 'v_users'
+priv.sleep	SELECT SLEEP(2) → 返回 0，用时 不少于 2 秒
+readonly.trx	读写账号在 START TRANSACTION READ ONLY 里 DELETE → ERROR 1792：Cannot execute statement in a READ ONLY transaction.；orders 仍有 5 行
+single.prepare	PREPARE 两条语句 → ERROR 1064：You have an error in your SQL syntax; check the manual th…；orders 仍有 5 行
+timeout.session	会话 MAX_EXECUTION_TIME=500，SELECT SLEEP(2) → 返回 1（1 表示被打断），1 秒内返回
+timeout.session_join	会话 MAX_EXECUTION_TIME=500，10 万行自连接 → ERROR 3024：Query execution was interrupted, maximum statement execution time exceeded
+timeout.hint_override	同一会话，语句带 /*+ MAX_EXECUTION_TIME(20000) */ → 返回 0（0 表示睡满），用时不少于 2 秒
+limit.select_limit	会话 sql_select_limit=3，SELECT id FROM events → 3 行；语句自带 LIMIT 10 → 10 行
+limit.wrap	外层包一层 SELECT * FROM (…) t LIMIT 4，内层 LIMIT 10 → 4 行
+cost.small	按状态汇总 5 行订单：query_cost=0.75
+cost.cartesian	10 万行事件表按低基数列自连接：query_cost=1003413900.76
+cost.explain_dml	EXPLAIN DELETE（查询账号）→ ERROR 1142：DELETE command denied to user report_ro for table 'orders'
+golden.wrong	订单连明细后求订单金额合计 → 880.00（手算答案 480.00）
+golden.right	直接在订单表求和 → 480.00
+jdbc.driver	MySQL Connector/J mysql-connector-j-9.7.0
+jdbc.multi_statement	默认连接参数下执行两条语句：SQLSyntaxErrorException（You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near …）
+jdbc.read_only	读写账号，setReadOnly(true) 之后执行 DELETE：SQLException（Connection is read-only. Queries leading to data modification are not allowed.）
+jdbc.query_timeout	语句自带 MAX_EXECUTION_TIME(20000) 提示，setQueryTimeout(1)：3 秒内抛出 MySQLTimeoutException（Statement cancelled due to timeout or client request）
+jdbc.max_rows	setMaxRows(100) 后查询 10 万行的表：返回 100 行
+jdbc.orders_after	实验结束后 orders 仍有 5 行
