@@ -1,0 +1,21 @@
+id: engineering/ab-test-decisions
+title: A/B 实验判断的模拟：A/A 的假阳性率、中途偷看、样本量与功效、显著结果的夸大、不显著时的置信区间、分析单位、多指标、按天汇总
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/ab-test-decisions.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
