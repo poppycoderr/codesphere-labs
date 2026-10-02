@@ -1,0 +1,21 @@
+id: engineering/python-aliasing-and-copy
+title: 名字绑定与对象别名：默认参数、嵌套列表、浅拷贝与深拷贝、+=、闭包、类属性与 dataclass
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/python-aliasing-and-copy.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"

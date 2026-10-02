@@ -1,0 +1,20 @@
+env	python=3.14.8
+default.mutable	def add(item, bucket=[]) 连续调用三次，各返回 [1]、[1, 2]、[1, 2, 3]；默认值对象现在是 [1, 2, 3]
+default.none	默认值改为 None、函数内新建列表：三次各返回 [1]、[2]、[3]
+alias.assign	b = a 之后 b.append(3)：a 是 [1, 2, 3]，a is b = True
+alias.argument	函数里 x.append(99)：调用方的列表变成 [1, 99]；函数里 x = x + [99]：调用方的列表仍是 [1]
+alias.multiply	[[0] * 3] * 3 之后只改 grid[0][0]：[[1, 0, 0], [1, 0, 0], [1, 0, 0]]
+alias.comprehension	用列表推导式逐行新建：[[1, 0, 0], [0, 0, 0], [0, 0, 0]]
+alias.fromkeys	dict.fromkeys(['a', 'b'], []) 之后只向 'a' 追加：{'a': [1], 'b': [1]}
+copy.shallow	dict(orig) 之后改副本的 name 并向副本的 tags 追加：原对象 {'name': 'v1', 'tags': ['x', 'y']}
+copy.deep	copy.deepcopy 之后向副本的 tags 追加：原对象 {'name': 'v1', 'tags': ['x']}
+copy.deep_shared	原对象里两个位置指向同一个列表，deepcopy 之后副本里两个位置是同一个对象 = True，与原来的不是同一个 = True
+iadd.list	x = y = [1] 后 x += [2]：y 是 [1, 2]；p = q = [1] 后 p = p + [2]：q 是 [1]
+iadd.tuple	s = t = (1,) 后 s += (2,)：t 是 (1,)（元组不可变，+= 创建了新对象）
+iadd.tuple_of_list	tup = ([1],) 后 tup[0] += [2]：抛出 TypeError（'tuple' object does not support item assignment），而 tup 已经是 ([1, 2],)
+closure.late	[lambda: i for i in range(3)] 依次调用：[2, 2, 2]
+closure.bound	[lambda i=i: i for i in range(3)] 依次调用：[0, 1, 2]
+class.attribute	类属性 items = []，c1.add('book') 之后 c2.items 是 ['book']
+dataclass.mutable_default	@dataclass 字段写 items: list = []：定义时抛出 ValueError（mutable default <class 'list'> for field ite…）
+dataclass.default_factory	field(default_factory=list)：g1.items 追加后 g2.items 是 []
+identity	两个内容相同的列表：== 为 True，is 为 False

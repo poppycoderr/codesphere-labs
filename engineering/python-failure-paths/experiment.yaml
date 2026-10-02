@@ -1,0 +1,21 @@
+id: engineering/python-failure-paths
+title: 失败路径上的写法：-O 下的 assert、finally 里的 return、裸 except、原地写与原子替换、子进程返回码、线程池里的异常
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/python-failure-paths.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
