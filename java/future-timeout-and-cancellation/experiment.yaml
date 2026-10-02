@@ -1,0 +1,21 @@
+id: java/future-timeout-and-cancellation
+title: 超时与取消之后任务是否停下：Future.get 超时、cancel、CompletableFuture、anyOf、请求登记表、shutdown 与 shutdownNow、invokeAll、Socket 读上的中断、结构化并发
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/future-timeout-and-cancellation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
