@@ -1,0 +1,14 @@
+direct.ignore.rows	6	7 行里只有重复的 A001 被跳过，其余 6 行全部写入
+direct.ignore.a002	amount=12.50	'12.5abc' 被截成 12.50
+direct.ignore.a003	paid_on=0000-00-00	不存在的 2 月 30 日变成零日期
+direct.ignore.a004	status=[]	不在 ENUM 里的值变成空串
+direct.ignore.a005	order_no=[  A005 ] amount=-5.00	带空格的订单号和负金额原样写入
+staging.accepted	A001=100.00 A007=70.00	只有第 1、7 行合格
+staging.rejects	第2行:金额不是数字；第3行:日期不存在；第4行:状态不在允许范围；第5行:文件内订单号重复；第6行:订单号格式不符	每个不合格的行一条原因
+staging.reconcile	原始 7 = 写入 2 + 拒绝 5	对账平衡
+staging.raw_kept	第 2 行的原始金额仍是 [12.5abc]，第 6 行的原始订单号仍是 [  A005 ]	暂存表保留原始值
+rerun	目标表 2 行，拒绝表 5 行	重跑同一批，行数不变
+snapshot.upsert_only	A001=120.00 A006=60.00 A007=70.00	只做 upsert：来源已删除的 A007 还在
+snapshot.mark_missing	未删除：A001 A006；标记删除：A007	按批次号标记本次快照里没出现的行
+late.plain_upsert	amount=100.00 source_ver=1	无条件覆盖：迟到的旧版本把金额改回 100
+late.versioned_upsert	amount=120.00 source_ver=2	按来源版本条件写入：保持 120

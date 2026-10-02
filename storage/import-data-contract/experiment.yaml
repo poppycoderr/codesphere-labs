@@ -1,0 +1,21 @@
+id: storage/import-data-contract
+title: 导入的数据合同：INSERT IGNORE 的静默转换、暂存表与拒绝原因、对账、重跑、全量快照里的删除、迟到的旧版本
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/import-data-contract.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
