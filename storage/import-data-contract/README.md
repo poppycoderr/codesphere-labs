@@ -1,6 +1,6 @@
 # 导入的数据合同
 
-对应文章：[mysql-bulk-import.md](https://github.com/poppycoderr/codesphere/blob/master/docs/storage/mysql-bulk-import.md) 第六节。
+对应文章：[mysql-bulk-import.md](https://github.com/poppycoderr/codesphere/blob/master/docs/storage/mysql-bulk-import.md) 的 5.5、5.6 两节。
 
 `schema/run.sql` 用一份 7 行的合成文件（2 行合格，5 行各有一种问题）在 MySQL 8.4.11 上依次执行：
 
