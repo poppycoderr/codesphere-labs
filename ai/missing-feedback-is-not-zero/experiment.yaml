@@ -1,0 +1,21 @@
+id: ai/missing-feedback-is-not-zero
+title: 评分矩阵里的缺失值：当成 0 分与只用已观测评分，在留出评分上的误差与推荐结果
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/missing-feedback-is-not-zero.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
