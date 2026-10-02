@@ -1,0 +1,21 @@
+id: java/rwlock-and-stampedlock
+title: 读写锁与 StampedLock 的边界：升级与降级、重入、乐观读校验、锁转换后的 stamp、全局写锁里的慢加载与按键加载
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/rwlock-and-stampedlock.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"

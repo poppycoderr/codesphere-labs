@@ -1,0 +1,14 @@
+env	java.version=25.0.4
+rw.upgrade	ReentrantReadWriteLock 持有读锁时 tryLock 写锁：false（改用阻塞的 lock() 会永远等下去）
+rw.downgrade	持有写锁时 tryLock 读锁：true；释放写锁后仍持有读锁 1 次
+reentrant.rw	ReentrantReadWriteLock 同一线程第二次获取写锁：true，持有 2 次
+reentrant.stamped	StampedLock 同一线程持有写锁时再 tryWriteLock 返回 0，tryReadLock 返回 0（0 表示失败；改用阻塞方法会自己等自己）
+optimistic.invalid	乐观读期间发生写入：读到 x=60 y=70（和为 130），validate=false
+optimistic.fallback	退回读锁重读：x=30 y=70（和为 100）
+optimistic.valid	乐观读期间没有写入：validate=true，全程没有获取任何锁（isReadLocked=false）
+convert.stamp	只有一个读者时 tryConvertToWriteLock 成功=true；之后用旧的读 stamp 解锁：抛出 IllegalMonitorStateException；isWriteLocked=true
+convert.new_stamp	用转换返回的新 stamp 解锁后：isWriteLocked=false
+convert.two_readers	有两个读者时 tryConvertToWriteLock 返回 0（0 表示失败，原来的读锁仍然持有）
+cache.global_write_lock	键 A 在全局写锁里加载时，读已经在缓存里的键 B：100ms 内拿到读锁=false
+cache.per_key	ConcurrentHashMap.computeIfAbsent 加载键 A 期间读键 B：得到 b，没有被阻塞
+cache.load_once	两个线程同时请求键 A：加载函数执行了 1 次，结果 a
