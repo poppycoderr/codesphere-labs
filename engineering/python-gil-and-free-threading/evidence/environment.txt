@@ -1,0 +1,12 @@
+# 由 shared/scripts/lib.sh write_environment 生成
+date_utc: 2026-10-02T13:05:04Z
+os: Darwin 27.0.0
+arch: arm64
+os_version: macOS 27.0.1
+cpus: 10
+memory_gb: 32
+java: 21.0.5+9-LTS-239 (Oracle Corporation)
+docker_server: 29.8.0
+uv_image: ghcr.io/astral-sh/uv:debian-slim@sha256:0d42a8146856d158fc883c0e9b92a026e1e2afb65772cd110b7fb3eb01a40e5e
+python: 3.14.8 与 3.14.8+freethreaded（uv 管理的 python-build-standalone 构建）
+container_cpus: 4

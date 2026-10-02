@@ -1,0 +1,22 @@
+id: engineering/python-gil-and-free-threading
+title: CPython 3.14.8 默认构建与 free-threaded 构建对照：CPU 密集线程的并行度、阻塞等待、进程池、不加锁的计数、重新启用 GIL
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/python-gil-and-free-threading.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8 与 3.14.8+freethreaded"
+    uv: "0.12.22"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
