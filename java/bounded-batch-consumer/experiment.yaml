@@ -1,0 +1,21 @@
+id: java/bounded-batch-consumer
+title: 队列加批量消费者的边界：批的上限、队列之外的在途量、按时间刷出、批内失败、关闭排空与毒丸
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/bounded-batch-consumer.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"

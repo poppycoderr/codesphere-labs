@@ -1,0 +1,7 @@
+env	java.version=25.0.4
+starvation.same_pool	500ms 内完成的父任务 0/2；池内活跃线程 2，队列里等待的任务 2
+starvation.child_pool	500ms 内完成的父任务 2/2
+starvation.virtual	500ms 内完成的父任务 2/2
+threadlocal.leak	任务 A set("alice") 后不清理，同一线程上的任务 B 读到：alice
+threadlocal.remove	任务在 finally 里 remove() 后，下一个任务读到：null
+scopedvalue	ScopedValue.where(USER, "carol").run(…) 结束后，下一个任务里 USER.isBound()=false

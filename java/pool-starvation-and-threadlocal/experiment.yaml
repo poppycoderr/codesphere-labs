@@ -1,0 +1,21 @@
+id: java/pool-starvation-and-threadlocal
+title: 线程池上的两个隐蔽问题：父任务在同一个池里等子任务造成线程饥饿，复用线程上残留的 ThreadLocal 与 ScopedValue 的对照
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/pool-starvation-and-threadlocal.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-02"
