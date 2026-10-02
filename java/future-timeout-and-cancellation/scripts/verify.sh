@@ -28,6 +28,7 @@ expect_regex "$f" "^registry\.or_timeout	.*登记表里还剩 0 项；迟到的�
 expect_regex "$f" "^shutdown	shutdown\(\) 用时 [0-9]ms 返回；awaitTermination\(200ms\)=false；运行中的任务：任务仍在运行" "shutdown 不等待也不中断"
 expect_regex "$f" "^shutdownNow	shutdownNow\(\) 返回 1 个未开始的任务；运行中的任务：任务已停止（被中断后退出）；.*排队任务的 Future：get 超时（未完成），isDone=false$" "shutdownNow 返回的任务，其 Future 永远不会完成"
 expect_line "$f" "shutdownNow.cancel_returned	对返回的任务逐个 cancel 之后，排队任务的 Future：CancellationException，isDone=true" "需要自己取消返回的任务"
+expect_line "$f" "discard	线程 1、队列 1 都占满后再提交，DiscardPolicy 丢弃的任务：get 超时（未完成），isDone=false，isCancelled=false" "DiscardPolicy 丢弃的任务，其 Future 永远不会完成"
 expect_regex "$f" "^invokeAll	.*响应中断的任务 isCancelled=true，任务已停止（被中断后退出）；不检查中断的任务 isCancelled=true，任务仍在运行$" "invokeAll 超时会取消，但同样依赖任务响应中断"
 expect_regex "$f" "^socket\.platform	.*仍阻塞在 read，线程存活=true$" "平台线程阻塞在 Socket 读：中断无效"
 expect_regex "$f" "^socket\.virtual	.*read 抛出 SocketException（Closed by interrupt），线程存活=false$" "虚拟线程阻塞在 Socket 读：中断会关闭 Socket"

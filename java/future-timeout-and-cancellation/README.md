@@ -11,7 +11,7 @@
 3. `CompletableFuture.cancel(true)` 与 `orTimeout`；
 4. `CompletableFuture.anyOf`：落选的任务，以及第一个完成的是失败时；
 5. 请求登记表：只在调用方 `get` 超时，与 `orTimeout` + `whenComplete` 清理；
-6. `shutdown()`、`shutdownNow()` 以及后者返回的任务对应的 `Future`；
+6. `shutdown()`、`shutdownNow()` 以及后者返回的任务对应的 `Future`；被 `DiscardPolicy` 丢弃的任务对应的 `Future`；
 7. `invokeAll` 带超时；
 8. 平台线程与虚拟线程阻塞在 Socket 读上时的 `interrupt()`；
 9. 结构化并发（JDK 25 预览 API，`--enable-preview`）：一个子任务失败后兄弟任务的状态，以及离开作用域的耗时。

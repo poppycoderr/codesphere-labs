@@ -78,6 +78,7 @@ public class CancelLab {
         anyOf();
         pendingRegistry();
         shutdown();
+        discarded();
         invokeAllTimeout();
         socketRead();
         structuredScope();
@@ -183,6 +184,18 @@ public class CancelLab {
                 + "；运行中任务的 Future：" + outcome(f1) + "；排队任务的 Future：" + outcome(f2) + "，isDone=" + f2.isDone());
         never.forEach(r -> { if (r instanceof Future<?> ft) ft.cancel(false); });
         out("shutdownNow.cancel_returned", "对返回的任务逐个 cancel 之后，排队任务的 Future：" + outcome(f2) + "，isDone=" + f2.isDone());
+    }
+
+    /** 被拒绝策略静默丢弃的任务：提交方拿到的 Future 没有人会去完成。 */
+    static void discarded() throws Exception {
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.DiscardPolicy());
+        Work running = new Work(Work.Kind.RESPONDS, 1_000);
+        pool.submit(running);
+        running.started.await();
+        pool.submit(new Work(Work.Kind.RESPONDS, 10));
+        Future<String> dropped = pool.submit(new Work(Work.Kind.RESPONDS, 10));
+        out("discard", "线程 1、队列 1 都占满后再提交，DiscardPolicy 丢弃的任务：" + outcome(dropped) + "，isDone=" + dropped.isDone() + "，isCancelled=" + dropped.isCancelled());
+        pool.shutdownNow();
     }
 
     static void invokeAllTimeout() throws Exception {

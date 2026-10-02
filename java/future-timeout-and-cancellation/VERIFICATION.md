@@ -15,6 +15,7 @@ JDK 25.0.4。「任务仍在运行」指发出超时或取消 200ms 后，任务
 4. `anyOf`：返回先完成的结果，落选的任务仍在运行；一个任务先失败、另一个 200ms 后成功时，`anyOf` 的结果是那个失败。
 5. 请求登记表：只在调用方 `get` 超时，登记项残留 1 项，迟到的响应 `complete` 返回 true；用 `orTimeout` + `whenComplete` 做比较删除后登记项为 0，迟到的响应找不到登记项，对已超时的 `Future` 再 `complete` 返回 false。
 6. `shutdown()` 0ms 返回，`awaitTermination(200ms)=false`，运行中的任务仍在运行；`shutdownNow()` 返回 1 个未开始的任务，运行中的任务被中断后退出（其 `Future` 为 `ExecutionException: InterruptedException`），排队任务的 `Future` 在 `get` 时超时、`isDone=false`；对返回的任务逐个 `cancel` 后才变为 `CancellationException`。
+   线程 1、队列 1 都占满后再提交，`DiscardPolicy` 丢弃的任务，其 `Future` 在 `get` 时超时，`isDone=false`、`isCancelled=false`。
 7. `invokeAll(…, 100ms)`：两个任务的 `Future` 都是已取消；响应中断的任务停止，不检查中断的任务仍在运行。
 8. Socket 读：平台线程 `interrupt()` 后仍阻塞，对端关闭后 `read` 返回 -1；虚拟线程 `interrupt()` 后 `read` 抛 `SocketException（Closed by interrupt）`，线程结束。
 9. 结构化并发：一个子任务失败后 `join` 抛 `FailedException`；兄弟任务响应中断时 53ms 离开作用域，不检查中断时作用域等到它自己跑完，共 1000ms。

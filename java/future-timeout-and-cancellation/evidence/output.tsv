@@ -7,12 +7,13 @@ cancel.busy.true	cancel(true) 返回 true；isDone=true，isCancelled=true，get
 cf.cancel	CompletableFuture.cancel(true) 返回 true；isCancelled=true，get 得到 CancellationException；任务仍在运行
 cf.orTimeout	orTimeout(100ms) 之后 get 得到 ExecutionException: TimeoutException；任务仍在运行
 anyOf.loser	anyOf 返回 fast；落选的任务：任务仍在运行
-anyOf.failure_first	一个任务先失败、另一个 200ms 后成功：anyOf 的结果是 ExecutionException: IllegalStateException；后一个任务最终 正常返回
+anyOf.failure_first	一个任务先失败、另一个 200ms 后成功：anyOf 的结果是 ExecutionException: IllegalStateException；后一个任务最终 get 超时（未完成）
 registry.get_timeout	只在调用方 get(100ms)：TimeoutException，登记表里还剩 1 项；迟到的响应 complete 返回 true（没有人再读它）
 registry.or_timeout	orTimeout + whenComplete 清理：登记表里还剩 0 项；迟到的响应找不到登记项，被丢弃；对已超时的 Future 再 complete 返回 false，结果仍是 ExecutionException: TimeoutException
 shutdown	shutdown() 用时 0ms 返回；awaitTermination(200ms)=false；运行中的任务：任务仍在运行；排队的任务仍会执行
 shutdownNow	shutdownNow() 返回 1 个未开始的任务；运行中的任务：任务已停止（被中断后退出）；运行中任务的 Future：ExecutionException: InterruptedException；排队任务的 Future：get 超时（未完成），isDone=false
 shutdownNow.cancel_returned	对返回的任务逐个 cancel 之后，排队任务的 Future：CancellationException，isDone=true
+discard	线程 1、队列 1 都占满后再提交，DiscardPolicy 丢弃的任务：get 超时（未完成），isDone=false，isCancelled=false
 invokeAll	invokeAll(…, 100ms) 返回后：响应中断的任务 isCancelled=true，任务已停止（被中断后退出）；不检查中断的任务 isCancelled=true，任务仍在运行
 socket.platform	平台线程阻塞在 Socket 读，interrupt() 300ms 后：仍阻塞在 read，线程存活=true
 socket.platform_after_close	对端关闭连接后：read 返回 -1
