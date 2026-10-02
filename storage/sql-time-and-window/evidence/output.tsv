@@ -1,0 +1,26 @@
+range.between_dates	3 笔 / 60
+range.between_235959	4 笔 / 100
+range.between_next_month	6 笔 / 210
+range.half_open	5 笔 / 150
+range.date_function	5 笔 / 150
+tz.utc.timestamp	5 笔 / 150
+tz.plus8.timestamp	4 笔 / 100
+tz.plus8.datetime	5 笔 / 150
+tz.plus8.row5_display	TIMESTAMP 列显示 2026-10-01 07:59:59.500；DATETIME 列显示 2026-09-30 23:59:59.500
+lag.previous_row	09-01:NULL 09-02:20 09-04:-30
+lag.only_if_adjacent	09-01:NULL 09-02:20 09-04:NULL
+lag.calendar_filled	09-01:NULL 09-02:20 09-03:-120 09-04:90
+streak.count_ge_3	u1 u2 u3
+streak.consecutive_ge_3	u1 u3
+rank.rank	a:1 b:1 c:3 d:3 e:5
+rank.dense_rank	a:1 b:1 c:2 d:2 e:3
+rank.row_number	a:1 b:2 c:3 d:4 e:5
+rank.top3_rows	RANK<=3 得 4 行；DENSE_RANK<=3 得 5 行；ROW_NUMBER<=3 得 3 行
+frame.default_range	100 220 220 230
+frame.rows	100 150 220 230
+frame.last_value_default	100 50 70 10
+frame.last_value_full	10 10 10 10
+rollup.rows	NULL:30:g0 X:100:g0 Y:50:g0 NULL:180:g1
+rollup.null_city_rows	2
+latest.join_max	3 行：d1=20 d1=21 d2=5
+latest.row_number	2 行：d1=21 d2=5

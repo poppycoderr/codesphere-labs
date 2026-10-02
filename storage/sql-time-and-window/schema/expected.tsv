@@ -1,0 +1,26 @@
+range.between_dates	3 笔 / 60	上界 '2026-09-30' 是 30 日零点：只含订单 1、2、3
+range.between_235959	4 笔 / 100	漏掉 23:59:59.500 的订单 5
+range.between_next_month	6 笔 / 210	BETWEEN 含上界：多算了 10 月 1 日零点整的订单 6
+range.half_open	5 笔 / 150	正确答案：订单 1—5
+range.date_function	5 笔 / 150	结果正确，但对列使用了函数
+tz.utc.timestamp	5 笔 / 150	会话时区 +00:00
+tz.plus8.timestamp	4 笔 / 100	字面量按 +08:00 解释，范围是 UTC 的 8 月 31 日 16:00 到 9 月 30 日 16:00：订单 5 落在范围外
+tz.plus8.datetime	5 笔 / 150	DATETIME 不随会话时区转换
+tz.plus8.row5_display	TIMESTAMP 列显示 2026-10-01 07:59:59.500；DATETIME 列显示 2026-09-30 23:59:59.500	同一行在 +08:00 会话里
+lag.previous_row	09-01:NULL 09-02:20 09-04:-30	9 月 4 日减的是 9 月 2 日的 120
+lag.only_if_adjacent	09-01:NULL 09-02:20 09-04:NULL	上一行不是前一天时不比较
+lag.calendar_filled	09-01:NULL 09-02:20 09-03:-120 09-04:90	补上 9 月 3 日为 0 之后
+streak.count_ge_3	u1 u2 u3	登录天数都不少于 3
+streak.consecutive_ge_3	u1 u3	u2 的 1、3、5 日不连续；u3 的 4、5、6 日连续
+rank.rank	a:1 b:1 c:3 d:3 e:5	并列后跳号
+rank.dense_rank	a:1 b:1 c:2 d:2 e:3	并列后不跳号
+rank.row_number	a:1 b:2 c:3 d:4 e:5	加了 id 作为第二排序键
+rank.top3_rows	RANK<=3 得 4 行；DENSE_RANK<=3 得 5 行；ROW_NUMBER<=3 得 3 行	三种「前 3 名」
+frame.default_range	100 220 220 230	第 2 天的两行互为同级，都得到 100+50+70
+frame.rows	100 150 220 230	按行累计
+frame.last_value_default	100 50 70 10	默认帧到当前行为止：LAST_VALUE 就是当前行
+frame.last_value_full	10 10 10 10	帧扩到分区末尾
+rollup.rows	NULL:30:g0 X:100:g0 Y:50:g0 NULL:180:g1	两行的 city 都显示为 NULL，GROUPING 为 1 的才是总计
+rollup.null_city_rows	2	按 city IS NULL 过滤会同时拿到未知城市和总计
+latest.join_max	3 行：d1=20 d1=21 d2=5	d1 在最新时刻有两行，都被连接上
+latest.row_number	2 行：d1=21 d2=5	用 id 打破并列，每个设备一行

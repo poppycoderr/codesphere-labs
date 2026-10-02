@@ -1,0 +1,6 @@
+# 半开区间
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	t_orders	NULL	range	idx_created_at	idx_created_at	7	NULL	5	100.00	Using where; Using index
+# 对列使用 DATE()
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	t_orders	NULL	index	NULL	idx_created_at	7	NULL	6	100.00	Using where; Using index
