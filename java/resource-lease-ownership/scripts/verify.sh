@@ -27,4 +27,4 @@ lease.use_after_close	关闭后再通过租约取资源：抛出 IllegalStateExc
 lease.exception	try-with-resources 中业务抛异常：空闲资源 2 个
 lease.broken	id 2 在使用中损坏后归还：被替换 1 个；之后池里的资源是 id [1, 3]，不含 id 2 = true
 EXPECTED
-log "全部通过：11 行输出与预期逐行一致，输出在 $OUT"
+log "全部通过：输出与预期逐行一致，输出在 $OUT"
