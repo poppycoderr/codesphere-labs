@@ -1,0 +1,8 @@
+maven_exit_code=0
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0 <<< FAILURE! -- in labs.RateTableTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 -- in labs.RateTableTest
+[WARNING] Flakes: 
+[ERROR]   Run 1: RateTableTest.usdRate:10 expected: <712> but was: <0>
+[INFO]   Run 2: PASS
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Flakes: 1
+[INFO] BUILD SUCCESS

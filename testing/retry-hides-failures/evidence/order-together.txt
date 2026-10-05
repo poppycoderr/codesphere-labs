@@ -1,0 +1,9 @@
+maven_exit_code=1
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0 <<< FAILURE! -- in labs.InventoryTest
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0 <<< FAILURE! -- in labs.InventoryTest
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0 <<< FAILURE! -- in labs.InventoryTest
+[ERROR]   Run 1: InventoryTest.b_firstDelivery:21 expected: <3> but was: <8>
+[ERROR]   Run 2: InventoryTest.b_firstDelivery:21 expected: <3> but was: <11>
+[ERROR]   Run 3: InventoryTest.b_firstDelivery:21 expected: <3> but was: <14>
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
+[INFO] BUILD FAILURE
