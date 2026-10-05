@@ -1,0 +1,21 @@
+id: java/floating-point-summation
+title: 浮点求和的顺序与精度：表示误差、大数吞掉小数、float 累加器饱和、补偿求和、分块归约得到不同结果、long 经过 double 丢失低位
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/floating-point-summation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-05"

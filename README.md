@@ -96,6 +96,7 @@
 | [java/maven-scope](java/maven-scope/) | Maven scope 与三种类路径 | 轻量：Maven 项目 | regular |
 | [java/compact-object-headers](java/compact-object-headers/) | 压缩对象头的实际收益 | 轻量：JDK 25、26 容器 | regular-docker |
 | [java/classfile-api](java/classfile-api/) | Class-File API 与类文件版本边界 | 轻量：JDK 25、26 容器 | regular-docker |
+| [java/floating-point-summation](java/floating-point-summation/) | 同一组数，换个顺序求和，结果就不一样了 | 轻量：确定性输出 | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |
