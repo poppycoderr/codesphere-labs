@@ -1,0 +1,21 @@
+id: system-design/error-detection-codes
+title: 检错与纠错的边界：奇偶位、16 位求和校验、CRC-8 的穷举漏检、CRC-32 的线性与 HMAC 的区别、Hamming(7,4) 对两位错的误纠、扩展 Hamming(8,4) 对三位错的误纠
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/error-detection-codes.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-05"
