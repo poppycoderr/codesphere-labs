@@ -1,0 +1,4 @@
+layout.adjacent	a@16 b@24
+layout.padded56	a@72 b@136
+layout.padded120	a@136 b@264
+layout.contended	a@16 b@24

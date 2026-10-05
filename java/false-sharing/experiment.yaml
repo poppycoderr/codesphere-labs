@@ -1,0 +1,21 @@
+id: java/false-sharing
+title: 伪共享：两个线程各写各的变量，相邻字段比隔开的慢一个数量级；手工填充、@Contended、数组元素间距、只读线程被旁边的写拖慢、被编译器合并的普通字段循环
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/false-sharing.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-05"

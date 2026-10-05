@@ -1,0 +1,22 @@
+env	java.version=25.0.4 cpus=6
+layout.adjacent	a@16 b@24
+layout.padded56	a@72 b@136
+layout.padded120	a@136 b@264
+layout.contended	a@144 b@280
+write.solo	6.94
+write.adjacent	41.06
+write.padded56	11.13
+write.padded120	7.29
+write.contended	7.20
+ratio.adjacent_vs_solo	5.92
+ratio.adjacent_vs_contended	5.70
+array.neighbors	62.71
+array.32_apart	7.13
+scan.64_bytes_apart	0/16
+scan.64_bytes_slow_starts	
+scan.128_bytes_apart	0/16
+read.alone	0.57
+read.next_to_writer	1.94
+read.contended_writer	0.57
+plain.adjacent	0.0000
+plain.values	a=2000000000 b=2000000000

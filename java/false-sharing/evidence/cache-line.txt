@@ -1,0 +1,4 @@
+getconf LEVEL1_DCACHE_LINESIZE: 64
+      int ContendedPaddingWidth                    = 128                                       {product} {default}
+     bool EnableContended                          = true                                      {product} {default}
+     bool RestrictContended                        = true                                      {product} {default}
