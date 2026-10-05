@@ -1,0 +1,12 @@
+env	java.version=25.0.4
+same_thread	压测请求在入口线程里直接写订单：影子表
+thread_pool	压测请求把写订单交给线程池：工作线程看到 无标记，订单写进 正式表
+completable_future	supplyAsync 里写订单：看到 无标记，订单写进 正式表
+scheduled_retry	压测请求失败后 20 毫秒重试：订单写进 正式表
+inheritable.shadow_first	压测请求先到，工作线程由它创建：压测订单写进 影子表；随后的正常订单写进 影子表
+inheritable.normal_first	正常请求先到，工作线程由它创建：正常订单写进 正式表；随后的压测订单写进 正式表
+message	压测请求发出两条消息：不带头的那条，消费者把订单写进 正式表；带 x-traffic 头的那条写进 影子表
+cache	共用键：正常请求读到价格 1；压测流量的键加前缀：正常请求读到价格 9900
+wrapped	提交时捕获、执行后清理：压测订单写进 影子表，随后的正常订单写进 正式表，工作线程上残留的标记是 无标记
+scoped_value	范围内写订单：影子表；范围内提交给线程池的任务看到 无标记；StructuredTaskScope 分叉出的子任务看到 SHADOW；范围结束后同一线程看到 无标记
+strict	标记在线程池里丢失时：抛出 IllegalStateException（traffic context missing），订单 没有写入；入口明确标为 NORMAL 的请求：订单写进 正式表

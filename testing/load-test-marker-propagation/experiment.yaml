@@ -1,0 +1,21 @@
+id: testing/load-test-marker-propagation
+title: 压测标记的传播：ThreadLocal 标记在线程池、CompletableFuture、定时任务与消息边界上丢失，InheritableThreadLocal 把标记粘在池线程上，共用缓存键被污染；提交时包装任务、消息头、ScopedValue 与拒绝无标记写入
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/load-test-marker-propagation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-05"

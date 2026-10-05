@@ -114,6 +114,7 @@
 | [testing/open-vs-closed-load-model](testing/open-vs-closed-load-model/) | 固定 10 个并发压测，服务卡了 2 秒，报告里只有 10 个慢请求 | 轻量：计时，只断言范围 | regular-docker |
 | [testing/coverage-is-not-verification](testing/coverage-is-not-verification/) | 覆盖率 100%，一个断言都没有 | 轻量：JaCoCo 与 PIT | regular-docker |
 | [testing/retry-hides-failures](testing/retry-hides-failures/) | 重跑一次就过了，这个缺陷去哪了 | 轻量：Surefire 重跑 | regular-docker |
+| [testing/load-test-marker-propagation](testing/load-test-marker-propagation/) | 压测流量的标记，过了线程池就没了 | 轻量：确定性输出 | regular-docker |
 
 **黄金样板**按 [验证标准](docs/verification-standard.md) 的完整要求建设，用来确定同类实验的格式；**轻量实验**只保留核心代码、一条验证入口、原始输出和简要验证记录。
 
