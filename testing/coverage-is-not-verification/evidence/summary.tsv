@@ -1,0 +1,4 @@
+suite	line_covered	line_total	branch_covered	branch_total	mutants	killed	survived
+NoAssertTest	11	11	10	10	17	2	ConditionalsBoundaryMutator@9,ConditionalsBoundaryMutator@9,ConditionalsBoundaryMutator@12,NegateConditionalsMutator@12,ConditionalsBoundaryMutator@16,NegateConditionalsMutator@16,MathMutator@17,MathMutator@17,MathMutator@17,MathMutator@18,MathMutator@18,NegateConditionalsMutator@20,MathMutator@21,MathMutator@21,PrimitiveReturnsMutator@23
+TypicalValueTest	11	11	10	10	17	14	ConditionalsBoundaryMutator@9,ConditionalsBoundaryMutator@12,ConditionalsBoundaryMutator@16
+BoundaryTest	11	11	10	10	17	16	ConditionalsBoundaryMutator@16
