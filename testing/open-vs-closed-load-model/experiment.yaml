@@ -1,0 +1,21 @@
+id: testing/open-vs-closed-load-model
+title: 负载模型：会卡顿 2 秒的服务在闭合模型下只留下 10 个慢样本，开放模型下有近三千个；单线程按时间表发送时计时起点决定结论；发压能力不足时实际速率不到目标的三分之一
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/open-vs-closed-load-model.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-05"

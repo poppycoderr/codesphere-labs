@@ -1,0 +1,24 @@
+env	java.version=25.0.4 cpus=6
+closed.count	15986
+closed.target_rate	无（由响应速度决定）
+closed.achieved_rate	1332
+closed.sent_during_stall	10
+closed.from_send	slow=10	p50=5	p90=7	p99=11	p999=16	max=2010
+closed.from_intended	slow=10	p50=5	p90=7	p99=11	p999=16	max=2010
+open.count	12000
+open.target_rate	1000
+open.achieved_rate	1000
+open.sent_during_stall	2000
+open.from_send	slow=3031	p50=5	p90=1263	p99=1929	p999=1996	max=2005
+open.from_intended	slow=3032	p50=6	p90=1264	p99=1930	p999=1996	max=2006
+paced_single.count	1200
+paced_single.target_rate	100
+paced_single.achieved_rate	100
+paced_single.sent_during_stall	1
+paced_single.from_send	slow=1	p50=6	p90=8	p99=11	p999=15	max=2010
+paced_single.from_intended	slow=669	p50=313	p90=1642	p99=1979	p999=2007	max=2010
+undersized.count	6825
+undersized.target_rate	2000
+undersized.achieved_rate	569
+undersized.from_send	slow=0	p50=6	p90=9	p99=12	p999=16	max=17
+undersized.from_intended	slow=6748	p50=4264	p90=7736	p99=8515	p999=8585	max=8592
