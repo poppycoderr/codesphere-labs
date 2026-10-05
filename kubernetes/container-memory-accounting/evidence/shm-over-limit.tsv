@@ -1,0 +1,3 @@
+shm_oom.written_100mb	VmRSS 10 MB	memory.current 106 MB	shmem 100 MB
+shm_oom.written_200mb	VmRSS 10 MB	memory.current 207 MB	shmem 200 MB
+shm_over_limit.container	exit=137 OOMKilled=true

@@ -1,0 +1,22 @@
+env	kernel=7.0.12-linuxkit page_size=4096 thp=[always] madvise never memory.max=1024 MB
+anon.map_256mb	VmSize +256 MB	VmRSS +0 MB	RssFile +0 MB	minflt +0	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+anon.read_every_page	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +65536	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+anon.write_every_page	VmSize +0 MB	VmRSS +256 MB	RssFile +0 MB	minflt +65536	majflt +0	cgroup anon +256 MB	cgroup file +0 MB	其中 shmem +0 MB
+anon.write_again	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +0	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+anon.unmap	VmSize -256 MB	VmRSS -256 MB	RssFile +0 MB	minflt +0	majflt +0	cgroup anon -256 MB	cgroup file +0 MB	其中 shmem +0 MB
+anon.write_every_page_thp	VmSize +256 MB	VmRSS +256 MB	RssFile +0 MB	minflt +128	majflt +0	cgroup anon +256 MB	cgroup file +0 MB	其中 shmem +0 MB
+file.write_200mb	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +258	majflt +0	cgroup anon +0 MB	cgroup file +200 MB	其中 shmem +0 MB
+file.drop_cache	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +0	majflt +0	cgroup anon +0 MB	cgroup file -200 MB	其中 shmem +0 MB
+file.read_cold	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +2044	majflt +0	cgroup anon +0 MB	cgroup file +200 MB	其中 shmem +0 MB
+file.read_again	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +994	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+file.mmap	VmSize +200 MB	VmRSS +0 MB	RssFile +0 MB	minflt +0	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+file.mmap_touch_cold	VmSize +0 MB	VmRSS +200 MB	RssFile +200 MB	minflt +503	majflt +1	cgroup anon +0 MB	cgroup file +200 MB	其中 shmem +0 MB
+file.munmap	VmSize -200 MB	VmRSS -200 MB	RssFile -200 MB	minflt +0	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+file.mmap_touch_warm	VmSize +200 MB	VmRSS +200 MB	RssFile +200 MB	minflt +504	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+workingset.after_mmap_twice	memory.current 205 MB	anon 4 MB	file 200 MB	active_file 200 MB	inactive_file 0 MB	current - inactive_file = 205 MB
+file.mmap_touch_cold_random_800_pages	VmSize +200 MB	VmRSS +3 MB	RssFile +3 MB	minflt +0	majflt +800	cgroup anon +0 MB	cgroup file +3 MB	其中 shmem +0 MB
+workingset.after_read_twice	memory.current 206 MB	anon 4 MB	file 200 MB	active_file 0 MB	inactive_file 200 MB	current - inactive_file = 6 MB
+shm.write_200mb	VmSize +1 MB	VmRSS +1 MB	RssFile +0 MB	minflt +224	majflt +0	cgroup anon +1 MB	cgroup file +200 MB	其中 shmem +200 MB
+shm.drop_cache	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +0	majflt +0	cgroup anon +0 MB	cgroup file +0 MB	其中 shmem +0 MB
+shm.unlink	VmSize +0 MB	VmRSS +0 MB	RssFile +0 MB	minflt +0	majflt +0	cgroup anon +0 MB	cgroup file -200 MB	其中 shmem -200 MB
+accounting.container	exit=0 OOMKilled=false

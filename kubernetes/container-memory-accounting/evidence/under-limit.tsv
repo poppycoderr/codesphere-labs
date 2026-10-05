@@ -1,0 +1,3 @@
+limit.after_read_600mb	memory.current 291 MB	file 286 MB	anon 4 MB	memory.events max=151 oom_kill=0
+limit.after_anon_200mb	memory.current 298 MB	file 92 MB	anon 204 MB	memory.events max=248 oom_kill=0
+under_limit.container	exit=0 OOMKilled=false
