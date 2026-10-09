@@ -1,0 +1,16 @@
+env	java.version=25.0.4.1 enableAIAcaIssuers=false
+full_chain.sent	密钥库里是叶证书加中间证书，客户端只信任根，服务端发来 2 张：CN=good（签发者 CN=Lab Intermediate CA） → CN=Lab Intermediate CA（签发者 CN=Lab Root CA）
+full_chain.client	HTTP 200
+leaf_only.sent	密钥库里只有叶证书，客户端只信任根，服务端发来 1 张：CN=good（签发者 CN=Lab Intermediate CA）
+leaf_only.client	SSLHandshakeException：(certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target（根因 SunCertPathBuilderException）
+leaf_only.inter_trusted.sent	密钥库里只有叶证书，客户端的信任库里另有中间证书，服务端发来 1 张：CN=good（签发者 CN=Lab Intermediate CA）
+leaf_only.inter_trusted.client	HTTP 200
+wrong_root.sent	完整的链，客户端信任的是另一个根，服务端发来 2 张：CN=good（签发者 CN=Lab Intermediate CA） → CN=Lab Intermediate CA（签发者 CN=Lab Root CA）
+wrong_root.client	SSLHandshakeException：(certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target（根因 SunCertPathBuilderException）
+wrong_host.sent	完整的链，证书里的域名是 other.example，服务端发来 2 张：CN=wrong-host（签发者 CN=Lab Intermediate CA） → CN=Lab Intermediate CA（签发者 CN=Lab Root CA）
+wrong_host.client	SSLHandshakeException：(certificate_unknown) No subject alternative DNS name matching localhost found.（根因 CertificateException）
+expired.sent	完整的链，叶证书已过期，服务端发来 2 张：CN=expired（签发者 CN=Lab Intermediate CA） → CN=Lab Intermediate CA（签发者 CN=Lab Root CA）
+expired.client	SSLHandshakeException：(certificate_expired) PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed（根因 CertificateExpiredException）
+aia_leaf_only.sent	只有叶证书，叶证书带 AIA 扩展指向中间证书的下载地址，客户端只信任根，服务端发来 1 张：CN=aia（签发者 CN=Lab Intermediate CA）
+aia_leaf_only.client	SSLHandshakeException：(certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target（根因 SunCertPathBuilderException）
+aia.downloads	中间证书被下载 0 次

@@ -1,0 +1,4 @@
+env	java.version=25.0.4.1 enableAIAcaIssuers=true
+aia_leaf_only.sent	只有叶证书，叶证书带 AIA 扩展指向中间证书的下载地址，客户端只信任根，服务端发来 1 张：CN=aia（签发者 CN=Lab Intermediate CA）
+aia_leaf_only.client	SSLHandshakeException：(certificate_unknown) PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target（根因 SunCertPathBuilderException）
+aia.downloads	中间证书被下载 0 次

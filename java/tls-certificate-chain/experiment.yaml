@@ -1,0 +1,22 @@
+id: java/tls-certificate-chain
+title: 证书链与信任锚：服务端只发叶证书时 JDK 客户端报 PKIX path building failed，与信任了另一个根的报错相同；信任库里有中间证书时成功；域名不符与证书过期的报错；AIA 下载中间证书需要两个开关，JDK 25 默认全部拒绝
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/tls-certificate-chain.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    openssl: "3.5.5"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-09"
