@@ -1,0 +1,13 @@
+step1.first_deploy	节点 worker	镜像 localhost:5055/app:1.0	策略 IfNotPresent	运行的内容 build-A	摘要 A	Successfully pulled image "localhost:5055/app:1.0"
+step2.repush	同一个 tag 1.0 重新推送了不同的内容：仓库里 tag 现在指向 摘要 B
+step3.other_node	节点 worker2	镜像 localhost:5055/app:1.0	策略 IfNotPresent	运行的内容 build-B	摘要 B	Successfully pulled image "localhost:5055/app:1.0"
+step3.old_pod	节点 worker 上一直在运行的 Pod：内容 build-A	摘要 A
+step4.recreate_same_node	节点 worker	镜像 localhost:5055/app:1.0	策略 IfNotPresent	运行的内容 build-A	摘要 A	Container image "localhost:5055/app:1.0" already present on machine and can be accessed by the pod
+step5.always	节点 worker	镜像 localhost:5055/app:1.0	策略 Always	运行的内容 build-B	摘要 B	Successfully pulled image "localhost:5055/app:1.0"
+step6.if_not_present_after_always	节点 worker	镜像 localhost:5055/app:1.0	策略 IfNotPresent	运行的内容 build-B	摘要 B	Container image "localhost:5055/app:1.0" already present on machine and can be accessed by the pod
+step7.by_digest	节点 worker	镜像 localhost:5055/app@<摘要 A>	策略 IfNotPresent	运行的内容 build-A	摘要 A	Container image "localhost:5055/app@<摘要 A>" already present on machine and can be accessed by the pod
+step7.by_digest	节点 worker2	镜像 localhost:5055/app@<摘要 A>	策略 IfNotPresent	运行的内容 build-A	摘要 A	Successfully pulled image "localhost:5055/app@<摘要 A>"
+step8.latest_default_policy	节点 worker2	镜像 localhost:5055/app:latest	策略 Always	运行的内容 build-B	摘要 B	Successfully pulled image "localhost:5055/app:latest"
+step9.registry_down.always	节点 worker	策略 Always	仓库停止后创建：容器状态 ErrImagePull
+step9.registry_down.if_not_present	节点 worker	镜像 localhost:5055/app:1.0	策略 IfNotPresent	运行的内容 build-B	摘要 B	Container image "localhost:5055/app:1.0" already present on machine and can be accessed by the pod
+step10.rebuild	同一份 Dockerfile 与参数不用缓存构建两次，镜像 ID 相同 = false

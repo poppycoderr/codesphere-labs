@@ -1,0 +1,24 @@
+id: kubernetes/image-tag-identity
+title: 镜像 tag 与摘要：同一个 tag 重新推送后，两个节点上按 tag 启动的 Pod 运行着不同的镜像；重建 Pod 仍用节点上的旧镜像；Always 每次解析 tag 但仓库不可用时无法启动；按摘要部署两个节点一致；同一份 Dockerfile 构建两次得到不同的镜像
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/image-tag-identity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    kubernetes: "1.37.0"
+    kind: "0.33.0"
+    containerd: "2.3.4"
+    registry: "3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-09"
