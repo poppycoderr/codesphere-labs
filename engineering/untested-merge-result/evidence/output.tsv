@@ -1,0 +1,13 @@
+skew.rename_branch	分支 rename（把 total 改名为 subtotal 并改掉全部调用方）上的检查：通过
+skew.invoice_branch	分支 invoice（新增一个调用 total 的文件）上的检查：通过
+skew.merge_tree	main 已合入 rename；预先计算 main 与 invoice 的合并结果：无文本冲突；在这个结果上运行检查：失败（AttributeError: module 'pricing' has no attribute 'total'）
+skew.up_to_date_branch	要求分支先合入最新的 main：invoice 分支更新后的检查：失败（AttributeError: module 'pricing' has no attribute 'total'）
+skew.merged_main	直接合并 invoice：文本冲突 0 处，合并提交已生成；main 上的检查：失败（AttributeError: module 'pricing' has no attribute 'total'）
+revert.after_merge	合并 feature 之后 main 上的 feature.txt：feature part 1|feature part 2|
+revert.after_revert	撤销这个合并提交之后 feature.txt 存在 = false
+revert.remerge_unchanged	feature 分支没有新提交时再次合并：Already up to date.
+revert.remerge_with_fix	feature 追加一个修复提交（新文件 feature_fix.txt）后再次合并：成功；main 上 feature_fix.txt 存在 = true，feature.txt 存在 = false
+revert.remerge_same_file	feature 再追加一个修改 feature.txt 的提交后合并：冲突（DU feature.txt：main 认为这个文件已删除，feature 认为它被修改）
+revert.revert_the_revert	先撤销那次撤销，再合并 feature：feature.txt：feature part 1|feature part 2|feature part 3|；feature_fix.txt 存在 = true
+squash.remerge	压缩合并 topic 后 main 又改了同一行，topic 继续开发后再合并：冲突（notes.txt ），尽管 topic 的那次修改早已在 main 里
+squash.merged_flag	git branch --merged main 是否列出 topic = 0

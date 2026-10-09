@@ -1,0 +1,21 @@
+id: engineering/untested-merge-result
+title: 合并结果没有被检查过：两个分支各自通过检查、没有文本冲突，合并后的提交失败；用 merge-tree 预先检查合并结果；撤销合并提交后再次合并同一个分支，原来的改动不会回来；压缩合并后继续在原分支开发产生冲突
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/engineering/untested-merge-result.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    git: "2.55.0"
+    python: "3.11.9"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
