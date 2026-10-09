@@ -1,0 +1,21 @@
+id: system-design/async-acceptance
+title: 受理不等于完成：返回 202 的任务最终失败；提交超时后重试登记了两个任务，带幂等键只有一个；任务表在内存里重启后 404；没有租约的执行中任务永远停在 RUNNING；迟到的上报把成功改回执行中；旧执行者的完成上报需要执行序号才能拒绝
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/async-acceptance.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-09"

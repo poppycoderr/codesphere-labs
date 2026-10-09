@@ -72,6 +72,7 @@
 | [system-design/feature-design](system-design/feature-design/) | 典型业务功能的几个实测 | 轻量：单节点 Redis + JDK 客户端 | regular-docker |
 | [system-design/short-url-service](system-design/short-url-service/) | 短链服务的四个契约问题 | 轻量：MySQL + JDK（含 curl） | regular-docker |
 | [system-design/error-detection-codes](system-design/error-detection-codes/) | 校验和对上了，数据就没坏吗 | 轻量：穷举，确定性输出 | regular-docker |
+| [system-design/async-acceptance](system-design/async-acceptance/) | 接口返回了 202，这件事算办完了吗 | 轻量：确定性输出 | regular-docker |
 | [distributed/http-timeout-layers](distributed/http-timeout-layers/) | 一次 HTTP 调用的超时分层 | 轻量：容器内服务端与客户端，JDK 21 与 25 | regular-docker |
 | [distributed/retry-amplification](distributed/retry-amplification/) | 重试放大与超时预算 | 轻量：单 JVM 三级调用链 | regular |
 | [distributed/lock-and-transaction](distributed/lock-and-transaction/) | 锁与事务的边界、状态流转、主键类型 | 轻量：MySQL 8.4 + JDBC | regular-docker |

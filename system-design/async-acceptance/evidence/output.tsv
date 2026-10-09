@@ -1,0 +1,13 @@
+env	java.version=25.0.4.1
+accepted.response	POST 返回 202，Location: /jobs/job-1，响应体 {"id":"job-1","state":"QUEUED"}
+accepted.final	后台执行完之后 GET：200 {"id":"job-1","state":"FAILED","attempt":1,"error":"source table missing"}
+retry.no_key	第一次提交：客户端超时；重试返回 202 {"id":"job-2","state":"QUEUED"}；服务端登记的任务数 2
+retry.with_key	带同一个 Idempotency-Key：第一次提交：客户端超时；重试返回 202 {"id":"job-1","state":"QUEUED"}；服务端登记的任务数 1
+poll.terminal_set	任务还在排队时查询到 QUEUED：「不是 RUNNING 就算结束」的判断 = true，「属于终态集合才算结束」的判断 = false
+restart.in_memory	任务表在内存里，重启后 GET job-1：404 {"error":"no such job"}
+restart.durable_no_lease	任务表持久化、没有租约：重启并经过 100 个时间单位后 GET job-1：200 {"id":"job-1","state":"RUNNING","attempt":1}；后台再取任务得到 null
+restart.durable_lease	任务表持久化、执行中的任务带租约：重启并经过 100 个时间单位后 GET job-1：200 {"id":"job-1","state":"QUEUED","attempt":1}；后台再取任务得到 job-1，执行完后 200 {"id":"job-1","state":"SUCCEEDED","attempt":2}
+transition.unguarded	任务成功之后又到了一条迟到的进度上报：写入 = true，GET：200 {"id":"job-1","state":"RUNNING","attempt":1}
+transition.guarded	终态之后拒绝回退：迟到的进度上报写入 = false，重复的完成上报写入 = false，GET：200 {"id":"job-1","state":"SUCCEEDED","attempt":1}
+stale_worker	租约过期后任务被第二个执行者接手（attempt 2），旧执行者此时上报完成：写入 = true，GET：200 {"id":"job-1","state":"SUCCEEDED","attempt":2}
+stale_worker.fenced	完成上报带上执行序号：旧执行者（attempt 1）上报写入 = false，GET：200 {"id":"job-1","state":"RUNNING","attempt":2}；当前执行者（attempt 2）上报写入 = true，GET：200 {"id":"job-1","state":"SUCCEEDED","attempt":2}
