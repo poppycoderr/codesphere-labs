@@ -1,0 +1,22 @@
+id: ai/vector-search-pitfalls
+title: 向量检索的几个口径（合成向量）：归一化后三种度量排序相同、不归一化时重合不到三成；相似度数值随维度与向量分布变化，阈值不可移植；分桶近似索引只查 1 个桶召回 0.86；先取前 10 条再按租户过滤平均只剩 0.6 条；精确最近邻不全是相关文档
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/vector-search-pitfalls.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    numpy: "2.5.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

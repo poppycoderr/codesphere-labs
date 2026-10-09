@@ -123,6 +123,7 @@
 | [cache/cache-layer-latency](cache/cache-layer-latency/) | 缓存分层的访问延迟 | 轻量：Redis + MySQL + JDK 客户端 | performance |
 | [cache/cache-aside-window](cache/cache-aside-window/) | 缓存一致性的窗口 | 轻量：Redis + MySQL + JDK 客户端 | regular-docker |
 | [ai/ml-and-nlp-basics](ai/ml-and-nlp-basics/) | 机器学习与 NLP 基础 | 轻量：Python 容器，锁定依赖版本 | regular-docker |
+| [ai/vector-search-pitfalls](ai/vector-search-pitfalls/) | 相似度 0.86，这两段文字其实毫不相干 | 轻量：numpy 合成向量，确定性输出 | regular-docker |
 | [testing/open-vs-closed-load-model](testing/open-vs-closed-load-model/) | 固定 10 个并发压测，服务卡了 2 秒，报告里只有 10 个慢请求 | 轻量：计时，只断言范围 | regular-docker |
 | [testing/coverage-is-not-verification](testing/coverage-is-not-verification/) | 覆盖率 100%，一个断言都没有 | 轻量：JaCoCo 与 PIT | regular-docker |
 | [testing/retry-hides-failures](testing/retry-hides-failures/) | 重跑一次就过了，这个缺陷去哪了 | 轻量：Surefire 重跑 | regular-docker |
