@@ -1,0 +1,28 @@
+timing	single.8_calls	412 ms
+timing	concurrent.alone	214 ms
+timing	concurrent.request	404 ms
+timing	concurrent.request	408 ms
+timing	concurrent.request	614 ms
+timing	concurrent.request	615 ms
+timing	concurrent.request	615 ms
+timing	concurrent.request	814 ms
+timing	concurrent.request	818 ms
+timing	concurrent.request	826 ms
+timing	async.12_calls_default	835 ms
+timing	async.tiny_task_wait	826 ms
+timing	async.stream_while_saturated	3 ms
+timing	async.12_calls_dedicated	206 ms
+timing	own_pool.8_calls	209 ms
+timing	cpus.1	823 ms
+timing	cpus.2	840 ms
+timing	cpus.4	420 ms
+timing	cpus.8	211 ms
+timing	java 1.8.0_504 cpus 1	202 ms
+timing	java 1.8.0_504 cpus 2	211 ms
+timing	java 1.8.0_504 cpus 4	431 ms
+timing	java 21.0.12 cpus 1	206 ms
+timing	java 21.0.12 cpus 2	205 ms
+timing	java 21.0.12 cpus 4	413 ms
+timing	java 25.0.4.1 cpus 1	1250 ms
+timing	java 25.0.4.1 cpus 2	1233 ms
+timing	java 25.0.4.1 cpus 4	421 ms

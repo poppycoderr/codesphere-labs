@@ -1,0 +1,18 @@
+env	java.version=25.0.4.1
+pool	availableProcessors = 4，公共池并行度 = 3
+single	8 次 200 ms 的阻塞调用放进并行流：参与执行的有 [公共池线程, 调用线程]；耗时在 380–650 ms 之间 = true
+concurrent.alone	单独一个请求（4 次调用）：耗时在 180–350 ms 之间 = true
+concurrent.eight	8 个请求同时进来：超过 550 ms 的不少于 4 个 = true，最慢的在 750–1100 ms 之间 = true（4 次调用完全串行是 800 ms）
+async.thread	supplyAsync 不传执行器：任务运行在公共池线程
+async.default	12 个 200 ms 的阻塞任务用默认执行器：耗时在 780–1100 ms 之间 = true
+async.tiny	这期间提交的一个空任务：等了 600 ms 以上才开始执行 = true
+async.stream	这期间的一个纯计算并行流（1000 个元素求和 = 499500）：参与执行的只有 [调用线程]，耗时不到 100 ms = true
+async.dedicated	同样 12 个任务交给 12 线程的专用线程池：耗时在 180–350 ms 之间 = true
+own_pool	在 new ForkJoinPool(8) 里提交同一个并行流：参与执行的有 [自建 ForkJoinPool 的线程]；耗时在 180–350 ms 之间 = true
+thread_local	调用线程设置了 ThreadLocal 之后跑并行流：[公共池线程读到 null, 调用线程读到 tenant-a]
+shared_list	并行流里 forEach(list::add) 往 ArrayList 里放 10 万个元素：丢元素、出现 null 或抛异常 = true；collect(toList()) 得到 100000 个
+cpus.1	-XX:ActiveProcessorCount=1：公共池并行度 1；8 次阻塞调用的并行流用了 2 个线程，约 4 轮；supplyAsync 的任务运行在公共池线程
+cpus.2	-XX:ActiveProcessorCount=2：公共池并行度 1；8 次阻塞调用的并行流用了 2 个线程，约 4 轮；supplyAsync 的任务运行在公共池线程
+cpus.4	-XX:ActiveProcessorCount=4：公共池并行度 3；8 次阻塞调用的并行流用了 4 个线程，约 2 轮；supplyAsync 的任务运行在公共池线程
+cpus.8	-XX:ActiveProcessorCount=8：公共池并行度 7；8 次阻塞调用的并行流用了 8 个线程，约 1 轮；supplyAsync 的任务运行在公共池线程
+clinit	静态初始化块里跑并行流（lambda 调用了本类的静态方法）：5 秒内没有结束，被强制终止

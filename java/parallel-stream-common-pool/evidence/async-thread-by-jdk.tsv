@@ -1,0 +1,9 @@
+java 1.8.0_504，availableProcessors = 1，公共池并行度 1：supplyAsync 运行在每个任务新建一个线程（两次的线程名 Thread-0、Thread-1）；6 个 200 ms 的阻塞任务约 1 轮跑完
+java 1.8.0_504，availableProcessors = 2，公共池并行度 1：supplyAsync 运行在每个任务新建一个线程（两次的线程名 Thread-0、Thread-1）；6 个 200 ms 的阻塞任务约 1 轮跑完
+java 1.8.0_504，availableProcessors = 4，公共池并行度 3：supplyAsync 运行在公共池线程；6 个 200 ms 的阻塞任务约 2 轮跑完
+java 21.0.12，availableProcessors = 1，公共池并行度 1：supplyAsync 运行在每个任务新建一个线程（两次的线程名 Thread-0、Thread-1）；6 个 200 ms 的阻塞任务约 1 轮跑完
+java 21.0.12，availableProcessors = 2，公共池并行度 1：supplyAsync 运行在每个任务新建一个线程（两次的线程名 Thread-0、Thread-1）；6 个 200 ms 的阻塞任务约 1 轮跑完
+java 21.0.12，availableProcessors = 4，公共池并行度 3：supplyAsync 运行在公共池线程；6 个 200 ms 的阻塞任务约 2 轮跑完
+java 25.0.4.1，availableProcessors = 1，公共池并行度 1：supplyAsync 运行在公共池线程；6 个 200 ms 的阻塞任务约 6 轮跑完
+java 25.0.4.1，availableProcessors = 2，公共池并行度 1：supplyAsync 运行在公共池线程；6 个 200 ms 的阻塞任务约 6 轮跑完
+java 25.0.4.1，availableProcessors = 4，公共池并行度 3：supplyAsync 运行在公共池线程；6 个 200 ms 的阻塞任务约 2 轮跑完

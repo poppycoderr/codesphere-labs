@@ -1,0 +1,23 @@
+id: java/parallel-stream-common-pool
+title: 并行流与公共线程池：并行度 3 时 8 个请求各 4 次 200 ms 阻塞调用，最慢的退化为完全串行的 800 ms；默认执行器的 supplyAsync 用同一个池，空任务等了 800 ms；JDK 25 在 1—2 核下不再为每个异步任务新建线程，6 个阻塞任务从 1 轮变成 6 轮
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/parallel-stream-common-pool.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jdk21: "21.0.12"
+    jdk8: "8u504"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
