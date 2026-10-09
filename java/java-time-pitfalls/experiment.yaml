@@ -1,0 +1,22 @@
+id: java/java-time-pitfalls
+title: java.time 的边界：同一个本地时间按不同时区相差 12 小时、夏令时当天加 1 天只过了 23 小时、1 月 31 日加两次一个月不等于加两个月、YYYY 把 12 月 27 日格式化成下一年、默认解析把 2 月 30 日改成 2 月 28 日
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/java-time-pitfalls.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    tzdata: "2026b"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-09"
