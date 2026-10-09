@@ -1,0 +1,21 @@
+id: java/money-rounding-and-allocation
+title: 金额的舍入与分摊：2.675 保留两位的五种写法得到 2.67 与 2.68 两种结果；(long)(19.99*100) 得 1998，一万个金额里错 573 个；逐笔 HALF_UP 使 1000 笔半分金额多出 5.00；各自舍入的拆分合计对不上，最大余数法守恒
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/money-rounding-and-allocation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

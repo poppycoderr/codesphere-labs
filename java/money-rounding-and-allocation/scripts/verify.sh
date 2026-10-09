@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# 金额的舍入与分摊：小数的构造、五种保留两位的写法、转成分、舍入方式与偏差、除法与输出、舍入顺序、最大余数法、分次退款、货币的小数位
+# 用法：scripts/verify.sh [输出目录]，默认 build/run；make evidence 时输出到 evidence/
+# 资源：固定 digest 的 temurin 25 容器；约 10 秒
+set -euo pipefail
+cd "$(dirname "$0")/.."
+source ../../shared/scripts/lib.sh
+require docker
+OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.md -delete
+J25="eclipse-temurin@sha256:8c0a84ea11c8f6ed52600fc19f1040121f2a162998e9f50a5faebbbad9172dcc"
+f="$OUT/output.tsv"
+docker run --rm -e TZ=UTC -v "$PWD:/w" -w /w "$J25" java -Duser.timezone=UTC  src/MoneyLab.java 2>/dev/null >"$f"
+write_environment "$OUT/environment.txt" "jdk25_image: $J25"
+cat "$f" >&2
+# 场景顺序执行，输出是确定的：与预期逐行比较
+diff - "$f" <<'EXPECTED' || fail "输出与预期不一致"
+env	java.version=25.0.4.1
+construct.from_double	new BigDecimal(0.1) = 0.1000000000000000055511151231257827021181583404541015625
+construct.from_string	new BigDecimal("0.1") = 0.1
+construct.value_of	BigDecimal.valueOf(0.1) = 0.1
+construct.2_675	new BigDecimal(2.675) = 2.67499999999999982236431605997495353221893310546875
+round.bigdecimal_from_double	new BigDecimal(2.675).setScale(2, HALF_UP) = 2.67
+round.bigdecimal_from_string	new BigDecimal("2.675").setScale(2, HALF_UP) = 2.68
+round.math_round	Math.round(2.675 * 100) / 100.0 = 2.68（2.675 * 100 = 267.5）
+round.math_round_1_005	Math.round(1.005 * 100) / 100.0 = 1.0（1.005 * 100 = 100.49999999999999）
+round.string_format	String.format("%.2f", 2.675) = 2.68
+round.decimal_format	new DecimalFormat("0.00").format(2.675) = 2.67
+round.decimal_format_default	DecimalFormat 的默认舍入方式 = HALF_EVEN；format(0.125) = 0.12，format(0.375) = 0.38
+to_minor.cast	(long) (19.99 * 100) = 1998（19.99 * 100 = 1998.9999999999998）
+to_minor.cast_more	(long) (0.29 * 100) = 28，(long) (4.35 * 100) = 434，(long) (1.15 * 100) = 114
+to_minor.cast_scan	0.00 到 99.99 这一万个金额里，强制转换得到的分数不对的有 573 个
+to_minor.exact	new BigDecimal("19.99").movePointRight(2).longValueExact() = 1999
+mode.HALF_UP	2.5 → 3  3.5 → 4  -2.5 → -3  2.1 → 2  -2.1 → -2
+mode.HALF_EVEN	2.5 → 2  3.5 → 4  -2.5 → -2  2.1 → 2  -2.1 → -2
+mode.HALF_DOWN	2.5 → 2  3.5 → 3  -2.5 → -2  2.1 → 2  -2.1 → -2
+mode.UP	2.5 → 3  3.5 → 4  -2.5 → -3  2.1 → 3  -2.1 → -3
+mode.DOWN	2.5 → 2  3.5 → 3  -2.5 → -2  2.1 → 2  -2.1 → -2
+mode.CEILING	2.5 → 3  3.5 → 4  -2.5 → -2  2.1 → 3  -2.1 → -2
+mode.FLOOR	2.5 → 2  3.5 → 3  -2.5 → -3  2.1 → 2  -2.1 → -3
+bias	1000 笔恰好落在半分上的金额：精确合计 5000.000，逐笔 HALF_UP 后合计 5005.00（多 5.000），逐笔 HALF_EVEN 后合计 5000.00（多 0.000）
+divide.no_scale	new BigDecimal("1").divide(new BigDecimal("3")) 抛出 ArithmeticException：Non-terminating decimal expansion; no exact representable decimal result.
+divide.terminating	1 ÷ 4 不指定精度 = 0.25（除得尽就不报错）
+divide.scale_of_dividend	new BigDecimal("10").divide(new BigDecimal("3"), HALF_UP) = 3；被除数写成 "10.00" = 3.33
+divide.math_context	new BigDecimal("1234.567").round(new MathContext(2)) = 1.2E+3（MathContext 的 2 是有效数字，不是小数位）
+print.strip	new BigDecimal("100.00").stripTrailingZeros() 的 toString = 1E+2，toPlainString = 100
+order.tax	3 件 0.99 的商品，税率 8.25%：逐行算税再相加 = 0.24，按合计算税 = 0.25
+split.equal	100.00 平分给 3 方，各自舍入 = 33.33，三份合计 99.99
+split.tiny	0.05 平分给 10 方，各自 HALF_UP = 0.01，十份合计 0.10
+split.last_takes_rest	同上，前 9 份各自舍入、最后一份拿余数：最后一份 = -0.04
+split.ratio	0.05 按 5:3:2 拆，各自 HALF_UP = 0.03 0.02 0.01，合计 0.06
+allocate.equal	最大余数法，100.00 按 1:1:1 = [33.34, 33.33, 33.33]，合计 100.00
+allocate.tiny	最大余数法，0.05 按十个 1 = [0.01, 0.01, 0.01, 0.01, 0.01, 0.00, 0.00, 0.00, 0.00, 0.00]，合计 0.05
+allocate.ratio	最大余数法，0.05 按 5:3:2 = [0.03, 0.01, 0.01]，合计 0.05
+refund.on_demand	3 件 33.33 的商品用了 10.00 的优惠，实付 89.99；退款时按比例现算每件 = 30.00 30.00 30.00，三件都退合计 90.00
+refund.allocated	下单时用最大余数法把实付分到每件并保存 = [30.00, 30.00, 29.99]，合计 89.99
+currency.USD	小数位 2；数据库里存的 1000 个最小单位 = 10.00 USD
+currency.CNY	小数位 2；数据库里存的 1000 个最小单位 = 10.00 CNY
+currency.JPY	小数位 0；数据库里存的 1000 个最小单位 = 1000 JPY
+currency.KRW	小数位 0；数据库里存的 1000 个最小单位 = 1000 KRW
+currency.KWD	小数位 3；数据库里存的 1000 个最小单位 = 1.000 KWD
+currency.BHD	小数位 3；数据库里存的 1000 个最小单位 = 1.000 BHD
+currency.CLF	小数位 4；数据库里存的 1000 个最小单位 = 0.1000 CLF
+EXPECTED
+log "全部通过：输出与预期逐行一致，输出在 $OUT"

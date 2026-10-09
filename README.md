@@ -117,6 +117,7 @@
 | [java/maven-dependency-mediation](java/maven-dependency-mediation/) | 两行依赖对调了一下顺序，运行时少了一个方法 | 轻量：Maven 3.10.0，确定性输出 | regular-docker |
 | [java/lock-identity](java/lock-identity/) | 加了 synchronized，计数还是少了 | 轻量：确定性输出 | regular-docker |
 | [java/parallel-stream-common-pool](java/parallel-stream-common-pool/) | 一个 parallelStream，拖慢了不相干的接口 | 轻量：结论确定，耗时只断言区间 | regular-docker |
+| [java/money-rounding-and-allocation](java/money-rounding-and-allocation/) | 对账差了一分钱 | 轻量：确定性输出 | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |
