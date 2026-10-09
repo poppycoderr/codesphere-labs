@@ -1,0 +1,27 @@
+env	java.version=25.0.4.1
+finally.return_value	try { return 1; } finally { return 2; } 返回 2
+finally.swallow	try { throw …; } finally { return -1; }：方法正常返回 -1，调用方看不到异常
+finally.javac_default	javac 默认参数：没有任何提示
+finally.javac_xlint	javac -Xlint:finally：WARNING finally clause cannot complete normally
+close.finally	手写 finally 关闭：调用方收到 IOException（关闭连接失败），被压住的异常 0 个，原来的「写入失败」不见了
+close.twr	try-with-resources：调用方收到 IllegalStateException（写入失败），getSuppressed() = [IOException（关闭连接失败）]
+close.order	三个资源、第三个打开失败：打开A → 打开B → 关闭B → 关闭A；收到 IOException（打开C失败）
+close.manual_leak	手写：两个资源先都打开再进 try，第二个打开失败：打开A（A 没有被关闭）
+wrap.no_cause	throw new RuntimeException("…" + e.getMessage())：getCause() = null，调用栈第一帧在 main，找不到 originate
+wrap.with_cause	throw new RuntimeException("…", e)：getCause() = IllegalStateException（库存服务返回 503），原因的第一帧在 originate
+wrap.null_message	"失败：" + e.getMessage() 遇到没有消息的异常 = 失败：null；"失败：" + e = 失败：java.lang.IllegalStateException
+wrap.npe_message	空指针异常的消息：Cannot invoke "Object.toString()" because "<local3>" is null
+shared.static	static final 的异常对象从 pay() 抛出时第一帧是 <clinit>，从 refund() 抛出时第一帧是 <clinit>
+shared.stackless	关掉调用栈的异常（writableStackTrace = false）：getStackTrace().length = 0
+fastthrow.default	默认参数：20 万次里出现了调用栈为空的异常，消息 = null，后面的异常与它是同一个对象 = true
+fastthrow.disabled	-XX:-OmitStackTraceInFastThrow：20 万次里每一次都带调用栈
+pool.handler	submit 与 execute 各提交一个抛异常的任务，未捕获异常处理器收到：[IllegalStateException（推送失败）]
+pool.submit	submit 的异常只在 Future.get() 时出现：IllegalStateException（对账失败）；没有人调用 get 就没有任何输出
+pool.scheduled	scheduleAtFixedRate 每 20 ms 一次，第 3 次抛异常：又过了 400 ms 后一共执行了 3 次；isDone = true；未捕获异常处理器收到的仍是 1 条
+cf.direct	completeExceptionally(ISE) 之后 exceptionally 收到 IllegalStateException
+cf.async	supplyAsync 里抛 ISE，exceptionally 收到 CompletionException，原因是 IllegalStateException
+cf.dependent	completeExceptionally(ISE) 之后再 thenApply，下一级的 exceptionally 收到 CompletionException
+cf.join	join() 抛 CompletionException，原因 IllegalStateException（超时）
+cf.get	get() 抛 ExecutionException，原因 IllegalStateException（超时）
+cf.unobserved	没有任何后续处理的失败任务：isCompletedExceptionally = true，标准错误与未捕获异常处理器都没有输出
+lock.leaked	lock(); 处理; unlock(); 处理中途抛异常，线程已经结束：isLocked = true，另一个线程 tryLock(200 ms) = false

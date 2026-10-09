@@ -1,0 +1,21 @@
+id: java/java-failure-paths
+title: 出错路径上丢掉的信息：finally 里的 return 吞掉异常；手写 finally 关闭时关闭失败盖住原异常，try-with-resources 把它放进 suppressed；热点代码里的隐式空指针异常在默认参数下变成没有调用栈、没有消息的同一个对象；submit 与周期任务的异常没有任何输出
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/java-failure-paths.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
