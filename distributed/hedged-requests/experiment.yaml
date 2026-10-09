@@ -1,0 +1,21 @@
+id: distributed/hedged-requests
+title: 备份请求（离散事件模拟）：负载一半时 30 毫秒后发备份把 p99 从 300 ms 降到 40 ms，只多 2% 的执行；负载接近容量时同样的策略让 98% 的请求都发了备份、p50 升到 10 秒；加上 5% 的预算后稳定
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/hedged-requests.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
