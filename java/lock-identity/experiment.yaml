@@ -1,0 +1,21 @@
+id: java/lock-identity
+title: 锁对象的身份：两个实例的同步方法、synchronized 与 ReentrantLock 混用、每次新建的锁对象、synchronized (boxed) 都会丢更新；运行时拼出来的字符串和 Long.valueOf 大数互不阻塞，字面量和 Integer.valueOf(100) 全进程共用一把锁
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/lock-identity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

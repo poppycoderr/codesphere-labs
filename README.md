@@ -115,6 +115,7 @@
 | [java/equality-and-collection-views](java/equality-and-collection-views/) | 同一个金额，HashSet 里是两个，TreeSet 里是一个 | 轻量：确定性输出 | regular-docker |
 | [java/tls-certificate-chain](java/tls-certificate-chain/) | 浏览器能打开的 HTTPS 地址，Java 调用报 PKIX | 轻量：现场生成三级证书 | regular-docker |
 | [java/maven-dependency-mediation](java/maven-dependency-mediation/) | 两行依赖对调了一下顺序，运行时少了一个方法 | 轻量：Maven 3.10.0，确定性输出 | regular-docker |
+| [java/lock-identity](java/lock-identity/) | 加了 synchronized，计数还是少了 | 轻量：确定性输出 | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |
