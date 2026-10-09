@@ -1,0 +1,21 @@
+id: java/equality-and-collection-views
+title: 相等契约与集合视图：BigDecimal 在 HashSet 与 TreeSet 里个数不同、Long 键用 int 查不到、修改参与 hashCode 的字段后找不到元素、父子类 equals 不对称、比较器与 equals 不一致；asList 与 subList 是视图、List.of 不接受 null、Stream.toList 不可修改
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/equality-and-collection-views.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-09"

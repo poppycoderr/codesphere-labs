@@ -102,6 +102,7 @@
 | [java/false-sharing](java/false-sharing/) | 两个线程各写各的变量，为什么互相拖慢 | 轻量：计时，只断言倍数范围 | regular-docker |
 | [java/regex-backtracking](java/regex-backtracking/) | 正则只多了一个字符，匹配时间就翻倍 | 轻量：确定性输出，JDK 8 与 25 对照 | regular-docker |
 | [java/java-time-pitfalls](java/java-time-pitfalls/) | 加一天，为什么只过了 23 小时 | 轻量：确定性输出 | regular-docker |
+| [java/equality-and-collection-views](java/equality-and-collection-views/) | 同一个金额，HashSet 里是两个，TreeSet 里是一个 | 轻量：确定性输出 | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |

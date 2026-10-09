@@ -1,0 +1,18 @@
+env	java.version=25.0.4.1
+bigdecimal	1.0 与 1.00：equals = false，compareTo = 0；HashSet 里有 2 个，TreeSet 里有 1 个；stripTrailingZeros 之后 HashSet 里有 1 个
+boxed.identity	Integer 127 == 127：true；128 == 128：false；128 equals 128：true
+boxed.map_key	Map<Long, String> 放入 1L 后，get(1) = null，get(1L) = alice；Long.valueOf(1).equals(1) = false
+mutable_key	放进 HashSet 后修改参与 hashCode 的字段：contains(同一个对象) = false，remove = false，size = 1，遍历能找到 = true
+no_hashcode	只重写 equals：两个相等对象 equals = true，HashSet.contains(相等的另一个对象) = false，ArrayList.contains = true
+asymmetric	父类与子类：p.equals(cp) = true，cp.equals(p) = false；List.of(cp).contains(p) = true，List.of(p).contains(cp) = false
+comparator	忽略大小写的比较器：TreeSet 加入 Order-1 与 ORDER-1 后是 [Order-1]；TreeMap 依次 put 后是 {Order-1=2}
+record_array	record 的数组分量：两个内容相同的 record equals = false
+as_list	Arrays.asList(int[]) 的 size = 1；Arrays.asList(Integer[]) 上 set(0, 99) 后原数组是 [99, 2, 3]；add(4)：抛出 UnsupportedOperationException
+sub_list	对 subList(1, 3) 调用 clear() 后原列表是 [1, 4, 5]；取了 subList 之后再修改原列表，访问 subList：抛出 ConcurrentModificationException
+unmodifiable	源列表追加元素后：unmodifiableList 看到 [a, b]，List.copyOf 看到 [a]；对 unmodifiableList 调用 add：抛出 UnsupportedOperationException
+list_of_null	List.of(1, 2).contains(null)：抛出 NullPointerException；Arrays.asList(1, 2).contains(null)：false
+stream_to_list	Stream.toList() 的结果 [a, null] 调用 add：抛出 UnsupportedOperationException；Collectors.toList() 的结果调用 add：true
+to_map	Collectors.toMap 遇到重复键：抛出 IllegalStateException；遇到 null 值：抛出 NullPointerException
+key_set	从 keySet() 里删除 a 之后 Map 是 {b=2}
+remove_overload	列表 [10, 20, 30, 1] 调用 remove(1) 后是 [10, 30, 1]；再调用 remove(Integer.valueOf(1)) 后是 [10, 30]
+shallow_copy	new ArrayList<>(源) 之后修改副本里的元素，源里的元素是 42
