@@ -1,0 +1,15 @@
+# 由 shared/scripts/lib.sh write_environment 生成
+date_utc: 2026-10-09T17:15:32Z
+os: Darwin 27.0.0
+arch: arm64
+os_version: macOS 27.0.1
+cpus: 10
+memory_gb: 32
+java: 21.0.5+9-LTS-239 (Oracle Corporation)
+docker_server: 29.8.0
+maven_image: maven@sha256:0396dcd8cd0d46a0d2026449b714b2a5bbe53cce030975b5a41f8ffa3f5f0525
+container_maven: Apache Maven 3.10.0 (c43a36b8d67be7e0805a411bc0898af1a51f5472)
+container_java: openjdk version "25.0.4.1" 2026-08-18 LTS
+maven-dependency-plugin: 3.11.0
+maven-enforcer-plugin: 3.6.3
+maven-compiler-plugin: 3.16.0

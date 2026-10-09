@@ -1,0 +1,10 @@
+nearest	BUILD SUCCESS	类路径上的 util 版本 1.0	LibA.shout -> HI；LibB.headline -> NoSuchMethodError: 'java.lang.String labs.util.Text.title(java.lang.String)'
+order-a-first	BUILD SUCCESS	类路径上的 util 版本 1.0	LibA.shout -> HI；LibB.headline -> NoSuchMethodError: 'java.lang.String labs.util.Text.title(java.lang.String)'
+order-b-first	BUILD SUCCESS	类路径上的 util 版本 2.0	LibA.shout -> HI；LibB.headline -> Hello
+managed	BUILD SUCCESS	类路径上的 util 版本 2.0	LibA.shout -> HI；LibB.headline -> Hello
+direct	BUILD SUCCESS	类路径上的 util 版本 2.0	LibA.shout -> HI；LibB.headline -> Hello
+bom-x-then-y	BUILD SUCCESS	类路径上的 util 版本 1.0	LibA.shout -> HI；LibB.headline -> NoSuchMethodError: 'java.lang.String labs.util.Text.title(java.lang.String)'
+bom-y-then-x	BUILD SUCCESS	类路径上的 util 版本 2.0	LibA.shout -> HI；LibB.headline -> Hello
+own-before-bom	BUILD SUCCESS	类路径上的 util 版本 2.0	LibA.shout -> HI；LibB.headline -> Hello
+explicit-over-managed	BUILD SUCCESS	类路径上的 util 版本 1.0	LibA.shout -> HI；LibB.headline -> NoSuchMethodError: 'java.lang.String labs.util.Text.title(java.lang.String)'
+managed-only	BUILD SUCCESS	类路径上的 util 版本 不在类路径上	（无输出）

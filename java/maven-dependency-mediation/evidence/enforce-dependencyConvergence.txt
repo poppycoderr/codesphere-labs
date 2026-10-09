@@ -1,0 +1,3 @@
+BUILD FAILURE
+Rule 0: org.apache.maven.enforcer.rules.dependency.DependencyConvergence failed with message:
+Dependency convergence error for labs.mediation:util:jar:1.0. Paths to dependency are:

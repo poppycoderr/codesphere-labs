@@ -1,0 +1,24 @@
+id: java/maven-dependency-mediation
+title: Maven 依赖仲裁：两个版本的同一个库经不同路径进入依赖树时，路径短的胜出、同样深时先声明的胜出，构建成功而运行时 NoSuchMethodError；依赖管理、直接声明、BOM 导入顺序与显式版本各自的效果；Enforcer 的 dependencyConvergence 与 requireUpperBoundDeps
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/maven-dependency-mediation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    maven: "3.10.0"
+    jdk: "25.0.4.1"
+    maven-dependency-plugin: "3.11.0"
+    maven-enforcer-plugin: "3.6.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
