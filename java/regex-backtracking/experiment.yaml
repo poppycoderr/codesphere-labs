@@ -1,0 +1,22 @@
+id: java/regex-backtracking
+title: 正则回溯：用 charAt 调用次数衡量匹配的工作量；嵌套量词在 JDK 8 上按指数增长、在 JDK 25 上按平方增长，加上反向引用、懒惰外层量词或第三层嵌套后在 JDK 25 上仍按指数增长；占有量词、原子组与改写；预算与长度上限
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/regex-backtracking.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jdk8: "1.8.0_504"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-09"
