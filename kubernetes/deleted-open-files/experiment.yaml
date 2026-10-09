@@ -1,0 +1,22 @@
+id: kubernetes/deleted-open-files
+title: 文件删除与打开句柄：删除仍被进程打开的日志后目录里看不到文件而空间没有释放，进程继续写还会增长；通过 /proc 的 fd 入口读回与清空；清空文件时写入方是否 O_APPEND 的差别；改名后写入跟着文件走；硬链接
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/deleted-open-files.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    linux_kernel: "7.0.12-linuxkit"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-09"

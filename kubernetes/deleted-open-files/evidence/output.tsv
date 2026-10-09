@@ -1,0 +1,11 @@
+delete.before	进程写了 100 MB 日志	文件系统已用 100 MB	目录下文件合计 100 MB	目录内容 ['app.log']
+delete.after_rm	rm app.log	文件系统已用 100 MB	目录下文件合计 0 MB	目录内容 []	写入进程的 fd 指向 /data/app.log (deleted)
+delete.keep_writing	进程继续写 50 MB	文件系统已用 150 MB	目录下文件合计 0 MB	目录内容 []
+delete.readable	通过 /proc/<pid>/fd 仍可读到内容	文件系统已用 150 MB	目录下文件合计 0 MB	目录内容 []	前 4 个字节 b'xxxx'
+delete.truncate_via_proc	对 /proc/<pid>/fd/<n> 做截断	文件系统已用 0 MB	目录下文件合计 0 MB	目录内容 []
+delete.closed	进程退出	文件系统已用 0 MB	目录下文件合计 0 MB	目录内容 []
+truncate.append	写 100 MB、清空、再写 1 MB（O_APPEND）	文件系统已用 1 MB	目录下文件合计 1 MB	目录内容 ['append.log']	文件长度 1 MB，实际占用 1 MB
+truncate.plain	写 100 MB、清空、再写 1 MB（未加 O_APPEND）	文件系统已用 1 MB	目录下文件合计 1 MB	目录内容 ['plain.log']	文件长度 101 MB，实际占用 1 MB
+rename	写 10 MB、mv app.log app.log.1、再写 10 MB	文件系统已用 20 MB	目录下文件合计 20 MB	目录内容 ['app.log.1']	app.log.1 长度 20 MB，app.log 存在 = False
+hardlink	20 MB 的文件有两个名字，删掉其中一个	文件系统已用 20 MB	目录下文件合计 20 MB	目录内容 ['b.bin']	剩余的名字的链接数 1
+clean	全部删除并关闭之后	文件系统已用 0 MB	目录下文件合计 0 MB	目录内容 []
