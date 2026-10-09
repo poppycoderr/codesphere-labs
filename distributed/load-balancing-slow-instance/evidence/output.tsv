@@ -1,0 +1,11 @@
+env	java.version=25.0.4.1
+setup	10 个实例，每个 8 个处理槽、正常处理时间 10 ms（单实例上限 800 请求/秒）；到达速率 4000 请求/秒，模拟 30 秒；实例 3 异常：变慢时处理时间 100 ms（上限 80 请求/秒），快速失败时 1 ms 返回错误
+slow.round_robin	送到异常实例 10.0%	p50 10 ms	p99 108279 ms	最大 120.3 s	超过 1 秒 9.92%	返回错误 0.00%
+slow.random	送到异常实例 9.9%	p50 10 ms	p99 105608 ms	最大 117.6 s	超过 1 秒 9.79%	返回错误 0.00%
+slow.least_in_flight	送到异常实例 1.3%	p50 10 ms	p99 100 ms	最大 0.1 s	超过 1 秒 0.00%	返回错误 0.00%
+slow.two_choices	送到异常实例 1.8%	p50 10 ms	p99 100 ms	最大 0.2 s	超过 1 秒 0.00%	返回错误 0.00%
+fail_fast.round_robin	送到异常实例 10.0%	p50 10 ms	p99 10 ms	最大 0.0 s	超过 1 秒 0.00%	返回错误 10.00%
+fail_fast.random	送到异常实例 9.9%	p50 10 ms	p99 13 ms	最大 0.0 s	超过 1 秒 0.00%	返回错误 9.86%
+fail_fast.least_in_flight	送到异常实例 42.7%	p50 10 ms	p99 10 ms	最大 0.0 s	超过 1 秒 0.00%	返回错误 42.72%
+fail_fast.two_choices	送到异常实例 18.3%	p50 10 ms	p99 10 ms	最大 0.0 s	超过 1 秒 0.00%	返回错误 18.32%
+fail_fast.least_in_flight_with_ejection	送到异常实例 0.0%	p50 10 ms	p99 10 ms	最大 0.0 s	超过 1 秒 0.00%	返回错误 0.03%	摘除 6 次

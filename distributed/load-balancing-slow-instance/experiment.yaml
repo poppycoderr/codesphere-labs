@@ -1,0 +1,21 @@
+id: distributed/load-balancing-slow-instance
+title: 负载均衡遇到异常实例（离散事件模拟）：1 个实例慢 10 倍时轮询与随机让约 10% 的请求超过 1 秒，最少在途与两次随机选择只送去 1%—2%；实例快速返回错误时最少在途把 43% 的请求送给它，加上连续失败摘除后降到 0.03%
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/load-balancing-slow-instance.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
