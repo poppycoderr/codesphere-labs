@@ -1,0 +1,21 @@
+id: engineering/tcp-message-framing
+title: TCP 字节流上的消息边界：三次写被一次读到、一条消息的第一次读只拿到前 20 字节；长度前缀加读满、内容里的分隔符把一条消息拆成两行；把 GET 当成长度得到 1195725856；响应乱序时按顺序配对会张冠李戴；读超时后复用连接读到上一个请求的响应；非阻塞写一次写不完
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/tcp-message-framing.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

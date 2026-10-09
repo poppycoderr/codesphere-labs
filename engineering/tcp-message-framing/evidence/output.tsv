@@ -1,0 +1,12 @@
+env	java.version=25.0.4.1
+merge	发送方分三次写出三条消息；接收方稍后的一次 read 得到 24 字节：{"id":1}{"id":2}{"id":3}
+split	一条 34 字节的消息分两段到达；接收方的第一次 read 得到 20 字节：{"orderId":"A-1001",
+length_prefix	4 字节长度加内容，readFully 读满：收到 4 条：[{"id":1}, {"id":2}, {"id":3}, {"orderId":"A-1001","amount":1999}]
+delimiter	换行分隔，发出 2 条消息（第 2 条的内容里有换行）：接收方读到 3 行：{"note":"first"} ‖ {"note":"line one ‖ line two"}
+length.http	把 "GET " 这 4 个字节当作长度 = 1195725856
+length.tls	把 TLS 握手记录的前 4 个字节 16 03 01 02 当作长度 = 369295618
+length.limit	上限 1 MB 的接收方收到一个 HTTP 请求：拒绝并关闭连接（frame length 1195725856 exceeds limit 1048576）
+correlation.by_order	先发慢请求再发快请求，按到达顺序配对：慢请求拿到 result-of-fast，快请求拿到 result-of-slow
+correlation.by_id	按帧里的请求编号配对：请求 7（慢）拿到 result-of-slow，请求 8（快）拿到 result-of-fast
+reuse_after_timeout	第一个请求（查 alice）读超时；在同一条连接上接着发第二个请求（查 bob），读到的响应是 answer-to-balance-of-alice
+partial_write	非阻塞通道一次 write 64 MB，对端不读：返回值小于 64 MB = true，缓冲区里还有数据没写出 = true
