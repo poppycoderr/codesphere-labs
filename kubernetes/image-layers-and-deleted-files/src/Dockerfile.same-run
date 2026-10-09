@@ -1,0 +1,4 @@
+FROM busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e
+COPY token.txt /tmp/token.txt
+RUN wc -c /tmp/token.txt > /build.log && rm /tmp/token.txt
+RUN dd if=/dev/zero of=/big.bin bs=1M count=20 2>/dev/null && rm /big.bin

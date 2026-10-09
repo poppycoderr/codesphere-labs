@@ -85,6 +85,7 @@
 | [kubernetes/container-memory-accounting](kubernetes/container-memory-accounting/) | 进程只用了 10 MB，容器却因为内存被杀 | 轻量：cgroup v2 计数与 OOM | regular-docker |
 | [kubernetes/deleted-open-files](kubernetes/deleted-open-files/) | 日志删掉了，磁盘空间没有回来 | 轻量：确定性输出 | regular-docker |
 | [kubernetes/image-tag-identity](kubernetes/image-tag-identity/) | 同一个镜像 tag，两个节点上跑的不是同一个镜像 | 多节点：kind 与本地镜像仓库 | regular-docker |
+| [kubernetes/image-layers-and-deleted-files](kubernetes/image-layers-and-deleted-files/) | Dockerfile 里删掉的文件，还在镜像里 | 轻量：Docker 构建与镜像包解析 | regular-docker |
 | [engineering/ssh-and-git-identity](engineering/ssh-and-git-identity/) | GitHub SSH 与多账号 | 轻量：离线，OpenSSH 与 Git | regular |
 | [engineering/postman-token-refresh](engineering/postman-token-refresh/) | Postman 集合的 token 脚本 | 轻量：Node 容器 + Newman | regular-docker |
 | [engineering/expand-contract-rollback](engineering/expand-contract-rollback/) | 发布的可回退性 | 轻量：MySQL 8.4 + JDBC + Jackson | regular-docker |

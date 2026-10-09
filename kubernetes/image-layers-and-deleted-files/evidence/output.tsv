@@ -1,0 +1,36 @@
+leaky.size	镜像大小约 24 MB
+leaky.runtime	容器里：/tmp/token.txt 存在 = false，/big.bin 存在 = false，/build.log 的内容 = 24 /tmp/token.txt
+leaky.layers	共 6 层，其中基础镜像 1 层
+leaky.layer_1	文件 ['tmp/token.txt']	删除标记 无	内容约 0 MB	含有令牌 = true
+leaky.layer_2	文件 ['build.log']	删除标记 无	内容约 0 MB	含有令牌 = false
+leaky.layer_3	文件 无	删除标记 ['tmp/token.txt']	内容约 0 MB	含有令牌 = false
+leaky.layer_4	文件 ['big.bin']	删除标记 无	内容约 20 MB	含有令牌 = false
+leaky.layer_5	文件 无	删除标记 ['big.bin']	内容约 0 MB	含有令牌 = false
+leaky.config	镜像配置的构建历史里含有令牌 = false
+leaky.history	docker history 的输出里含有令牌 = false
+same-run.size	镜像大小约 4 MB
+same-run.runtime	容器里：/tmp/token.txt 存在 = false，/big.bin 存在 = false，/build.log 的内容 = 24 /tmp/token.txt
+same-run.layers	共 4 层，其中基础镜像 1 层
+same-run.layer_1	文件 ['tmp/token.txt']	删除标记 无	内容约 0 MB	含有令牌 = true
+same-run.layer_2	文件 ['build.log']	删除标记 ['tmp/token.txt']	内容约 0 MB	含有令牌 = false
+same-run.layer_3	文件 无	删除标记 无	内容约 0 MB	含有令牌 = false
+same-run.config	镜像配置的构建历史里含有令牌 = false
+same-run.history	docker history 的输出里含有令牌 = false
+multi-stage.size	镜像大小约 4 MB
+multi-stage.runtime	容器里：/tmp/token.txt 存在 = false，/big.bin 存在 = false，/build.log 的内容 = 24 /tmp/token.txt
+multi-stage.layers	共 2 层，其中基础镜像 1 层
+multi-stage.layer_1	文件 ['build.log']	删除标记 无	内容约 0 MB	含有令牌 = false
+multi-stage.config	镜像配置的构建历史里含有令牌 = false
+multi-stage.history	docker history 的输出里含有令牌 = false
+secret-mount.size	镜像大小约 4 MB
+secret-mount.runtime	容器里：/tmp/token.txt 存在 = false，/big.bin 存在 = false，/build.log 的内容 = 24 /run/secrets/token
+secret-mount.layers	共 2 层，其中基础镜像 1 层
+secret-mount.layer_1	文件 ['build.log']	删除标记 无	内容约 0 MB	含有令牌 = false
+secret-mount.config	镜像配置的构建历史里含有令牌 = false
+secret-mount.history	docker history 的输出里含有令牌 = false
+arg.size	镜像大小约 4 MB
+arg.runtime	容器里：/tmp/token.txt 存在 = false，/big.bin 存在 = false，/build.log 的内容 = 25
+arg.layers	共 2 层，其中基础镜像 1 层
+arg.layer_1	文件 ['build.log']	删除标记 无	内容约 0 MB	含有令牌 = false
+arg.config	镜像配置的构建历史里含有令牌 = true
+arg.history	docker history 的输出里含有令牌 = true

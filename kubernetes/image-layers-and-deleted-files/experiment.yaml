@@ -1,0 +1,23 @@
+id: kubernetes/image-layers-and-deleted-files
+title: 镜像层与被删除的文件：后面的指令删除文件后镜像没有变小，文件仍在前面的层里；同一条 RUN 里创建并删除不留痕迹，但 COPY 进来的文件自成一层；多阶段构建与 secret 挂载不把文件带进最终镜像；构建参数留在镜像历史里
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/image-layers-and-deleted-files.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    docker: "29.8.0"
+    buildx: "v0.37.1"
+    busybox: "1.37.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
