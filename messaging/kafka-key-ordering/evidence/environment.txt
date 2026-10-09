@@ -1,0 +1,13 @@
+# 由 shared/scripts/lib.sh write_environment 生成
+date_utc: 2026-10-09T17:24:29Z
+os: Darwin 27.0.0
+arch: arm64
+os_version: macOS 27.0.1
+cpus: 10
+memory_gb: 32
+java: 21.0.5+9-LTS-239 (Oracle Corporation)
+docker_server: 29.8.0
+kafka_image: apache/kafka:4.3.1@sha256:77e3df9054047a88b520d0cc46e16696d3b22022e1d580aeccd2632df6532837
+kafka-clients: 4.3.1
+javac_image: eclipse-temurin@sha256:8c0a84ea11c8f6ed52600fc19f1040121f2a162998e9f50a5faebbbad9172dcc
+client_java: openjdk version "21.0.11" 2026-04-21 LTS

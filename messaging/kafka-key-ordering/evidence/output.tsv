@@ -1,0 +1,8 @@
+resize.moved	20 个订单里有 7 个在扩容后换了分区：order-1（2→6）、order-3（3→7）、order-5（2→6）、order-8（1→5）、order-11（2→6）、order-12（3→7）、order-15（0→4）
+resize.interleave	order-1 的三个版本分布在两个分区；新分区先被消费时的处理顺序：order-1:v3@分区6 → order-1:v1@分区2 → order-1:v2@分区2；按到达顺序覆盖，最后留下的是 v2
+resize.within_partition	每个分区内部，同一个订单的版本都是递增的 = true
+parallel.pool	同一个分区的 12 条消息交给 4 个线程的池：order-1 最后留下 v5，order-2 最后留下 v5（日志里最后一条都是 v6）
+parallel.lanes	按订单号把消息分到 4 条各自串行的通道：order-1 最后留下 v6，order-2 最后留下 v6；两个订单是否并行处理 = true
+retry.sequence	v1 处理失败，转入重试主题；v2 处理成功；重试 v1，按版本比较被丢弃
+retry.final	直接覆盖：sku-1 最后是 v1；只接受更大的版本：sku-1 最后是 v2
+partitioner	8 个分区下，20 个订单号按 murmur2 取模（Java 客户端默认）与按 CRC32 取模得到不同分区的有 18 个；murmur2 的计算与实际写入的分区全部一致

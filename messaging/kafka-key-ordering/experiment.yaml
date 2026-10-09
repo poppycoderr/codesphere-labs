@@ -1,0 +1,23 @@
+id: messaging/kafka-key-ordering
+title: 按业务键保序在哪里会断：分区数从 4 改成 8 后 20 个订单里 7 个换了分区，新旧分区的消费先后决定最后留下哪个版本；同一个分区交给线程池并行处理后留下的不是最后一条；失败消息延迟重试覆盖了新值；murmur2 与 CRC32 两种分区算法对 18 个键给出不同分区
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/messaging/kafka-key-ordering.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    kafka: "4.3.1"
+    kafka-clients: "4.3.1"
+    client-java: "21.0.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
