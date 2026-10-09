@@ -80,6 +80,7 @@
 | [distributed/batch-vs-n-plus-one](distributed/batch-vs-n-plus-one/) | 分两次查：N+1 与批量查询 | 轻量：MySQL 8.4 + JDBC，模拟 1 ms 往返 | regular-docker |
 | [distributed/capacity-knee](distributed/capacity-knee/) | 容量拐点 | 性能：MySQL 点查与更新的并发曲线、Redis 吞吐 | performance |
 | [distributed/load-balancing-slow-instance](distributed/load-balancing-slow-instance/) | 十个实例里一个变慢，为什么十分之一的请求都超时了 | 轻量：离散事件模拟，确定性输出 | regular-docker |
+| [distributed/snowflake-id-pitfalls](distributed/snowflake-id-pitfalls/) | 订单号重复了：雪花算法依赖的三件事 | 轻量：确定性输出 | regular-docker |
 | [network/dns-jvm-cache](network/dns-jvm-cache/) | DNS 切换与 Java 客户端 | 自建网络：CoreDNS + 两个后端 | regular-docker |
 | [network/request-failure-signatures](network/request-failure-signatures/) | 请求失败在客户端的样子 | 轻量：自建网络 + netshoot + JDK 客户端 | regular-docker |
 | [kubernetes/container-boundaries](kubernetes/container-boundaries/) | 容器的边界 | 轻量：Docker | regular-docker |

@@ -1,0 +1,21 @@
+id: distributed/snowflake-id-pitfalls
+title: 雪花算法式 ID 的前提：时钟回拨 5 毫秒重复 500 个 ID、回拨检查在重启后失效、同一毫秒超过 4096 个时序列号回绕重复 904 个、两个实例同号全部重复、50 个实例把主机名哈希成机器号有 70% 的概率撞号、跨实例只是大致有序
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/snowflake-id-pitfalls.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

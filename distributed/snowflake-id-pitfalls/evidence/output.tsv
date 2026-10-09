@@ -1,0 +1,17 @@
+env	java.version=25.0.4.1
+rollback.naive	生成 2000 个 ID，中途时钟回拨 5 毫秒：重复 500 个
+rollback.guarded	带回拨检查的生成器在时钟回拨后：抛出 IllegalStateException（clock moved backwards by 5 ms）
+restart.memory_only	带回拨检查的生成器重启（重启期间时钟回退 5 毫秒）后继续生成：重复 500 个
+restart.persisted	重启时恢复了上次持久化的时间戳：抛出 IllegalStateException（clock moved backwards by 4 ms）
+burst.naive	同一毫秒内生成 5000 个，序列号直接回绕：重复 904 个
+burst.guarded	序列号用完时等到下一毫秒：重复 0 个，生成器等过的毫秒数 1
+worker.same_id	两个实例都用机器号 5，同一毫秒各生成 100 个：重复 100 个
+worker.ip_low_bits	机器号取 IP 的低 10 位：10.0.0.5 得到 5，10.0.4.5 得到 5
+worker.hash_collision_10	10 个实例各自把主机名哈希到 1024 个机器号：至少两个实例同号的概率 4.3%
+worker.hash_collision_30	30 个实例各自把主机名哈希到 1024 个机器号：至少两个实例同号的概率 34.9%
+worker.hash_collision_50	50 个实例各自把主机名哈希到 1024 个机器号：至少两个实例同号的概率 70.4%
+worker.hash_collision_100	100 个实例各自把主机名哈希到 1024 个机器号：至少两个实例同号的概率 99.3%
+order.across_workers	实例 B 的时钟快 3 毫秒：B 先生成的 ID 比 A 两毫秒之后生成的 ID 更大 = true
+bits.lifetime	41 位毫秒时间戳可用 69.7 年；纪元取 2020-01-01 时用到 2089-09-06
+bits.js_safe	ID 超过 2^53 发生在纪元之后 24.9 天；第 200 天的一个 ID 72477573120020481 转成 double 再转回是 72477573120020480
+bits.rate	单个机器号每毫秒最多 4096 个，即每秒 4096000 个；机器号最多 1024 个
