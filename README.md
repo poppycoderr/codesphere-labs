@@ -106,6 +106,7 @@
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |
 | [messaging/kafka-key-ordering](messaging/kafka-key-ordering/) | 按订单号发到同一个分区，为什么还是乱序了 | 单节点 Kafka 4.3.1，确定性输出 | regular-docker |
+| [messaging/event-time-windows](messaging/event-time-windows/) | 晚到了五十秒的那次点击，算在哪一分钟 | 轻量：确定性输出（Kafka Streams 4.3.1） | regular-docker |
 | [storage/pagination-and-index-cost](storage/pagination-and-index-cost/) | SQL 调优实战（第五、六节） | 轻量 | regular-docker |
 | [storage/elasticsearch-behaviors](storage/elasticsearch-behaviors/) | Elasticsearch 的几个行为 | 轻量：单节点 ES 9.5.3 + JDK 客户端 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |

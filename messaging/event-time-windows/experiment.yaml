@@ -1,0 +1,22 @@
+id: messaging/event-time-windows
+title: 事件时间与窗口（Kafka Streams 4.3.1）：一个晚到 50 秒的事件按到达时间被算进下一分钟；不允许晚到时它被丢弃且没有任何输出；只在窗口关闭后输出时，没有新事件窗口就一直不输出；一个时间戳在一小时后的事件让之后的正常事件全部被丢弃
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/messaging/event-time-windows.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    kafka-streams: "4.3.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
