@@ -1,0 +1,4 @@
+timing	flush.default	stop 1004 ms, written 504
+timing	exit-return	written 0
+timing	exit-system-exit	written 0
+timing	exit-stop-first	written 200

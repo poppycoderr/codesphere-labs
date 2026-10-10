@@ -1,0 +1,23 @@
+id: engineering/async-logging-loss
+title: 异步日志的丢失（Logback 1.5.38）：默认队列 256、剩余不足 51 时丢弃 INFO，下游卡住时 1001 条 INFO 只写出 207 条；队列满后 ERROR 阻塞业务线程，neverBlock 时 50 条 ERROR 全丢；关闭时只等 1 秒；main 返回或 System.exit 时队列里的日志不写出
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/async-logging-loss.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    logback: "1.5.38"
+    slf4j: "2.0.20"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

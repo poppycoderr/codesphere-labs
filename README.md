@@ -97,6 +97,7 @@
 | [engineering/untested-merge-result](engineering/untested-merge-result/) | 两个分支的检查都通过了，合并之后主干挂了 | 轻量：宿主机 git，确定性输出 | regular |
 | [engineering/tcp-message-framing](engineering/tcp-message-framing/) | 发了三条消息，对方一次全收到了 | 轻量：回环连接，确定性输出 | regular-docker |
 | [engineering/serialization-compatibility](engineering/serialization-compatibility/) | 上游加了一个字段，下游全部反序列化失败 | 轻量：确定性输出（Jackson 2/3、protobuf-java） | regular-docker |
+| [engineering/async-logging-loss](engineering/async-logging-loss/) | 出事的那几秒，日志恰好是空的 | 轻量：结论确定（Logback 1.5.38） | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |
