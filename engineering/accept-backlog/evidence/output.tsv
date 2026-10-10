@@ -1,0 +1,11 @@
+default.setup	listen(backlog=5)，net.core.somaxconn = 4096，tcp_abort_on_overflow = 0
+default.connect	服务端不 accept，同时发起 40 个连接，2 秒后：握手完成 6 个，仍在等待 34 个
+default.counters	内核计数器 ListenOverflows 增加了 = True，ListenDrops 增加了 = True
+default.request	在握手完成的连接上发请求：send 返回 36 字节（成功）；随后读取：1 秒内没有任何响应（读超时）
+default.new_connection	队列满了之后再来一个连接（连接超时设 1 秒）：connect 超时，耗时约 1 秒
+somaxconn_8.setup	listen(backlog=1000)，net.core.somaxconn = 8，tcp_abort_on_overflow = 0
+somaxconn_8.connect	服务端不 accept，同时发起 40 个连接，2 秒后：握手完成 9 个，仍在等待 31 个
+somaxconn_8.counters	内核计数器 ListenOverflows 增加了 = True，ListenDrops 增加了 = True
+somaxconn_8.request	在握手完成的连接上发请求：send 返回 36 字节（成功）；随后读取：1 秒内没有任何响应（读超时）
+somaxconn_8.new_connection	队列满了之后再来一个连接（连接超时设 1 秒）：connect 超时，耗时约 1 秒
+java.default	new ServerSocket(port) 不指定 backlog、不 accept，同时发起 80 个连接（超时 2 秒）：握手完成 51 个（java.version=25.0.4.1）

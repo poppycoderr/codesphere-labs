@@ -1,0 +1,22 @@
+id: engineering/accept-backlog
+title: 监听队列（Linux 容器内）：listen(5) 且不 accept 时握手完成 6 个，其余连接超时；握手完成的连接上 send 成功、读超时；listen(1000) 被 somaxconn=8 封顶为 9 个；Java 的 ServerSocket 默认 backlog 下完成 51 个
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/accept-backlog.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
