@@ -1,0 +1,22 @@
+id: storage/lsm-write-amplification
+title: LSM 树的放大（RocksDB 11.1.2，关闭压缩）：写入 180 MB，顺序键写放大 1.0，随机键 3.9（另有 516 MB 压实写入）；同一批键写 5 遍后磁盘占 179 MB，压实后 36 MB；全部删除后文件从 36 MB 变成 40 MB，压实后才归零
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/lsm-write-amplification.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    rocksdbjni: "11.1.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

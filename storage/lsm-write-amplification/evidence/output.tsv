@@ -1,0 +1,26 @@
+env	java.version=25.0.4.1 rocksdb=11.1.2
+setup	1500000 个键，每个键 16 字节、值 110 字节，关闭压缩；内存表 8 MB，第 1 层目标 32 MB
+sequential_leveled.user_mb	180
+sequential_leveled.flush_mb	179
+sequential_leveled.compaction_mb	0
+sequential_leveled.write_amplification	1.0
+sequential_leveled.sst_mb	179
+sequential_leveled.levels	Level Files Size(MB) -------------------- 0 2 9 1 0 0 2 0 0 3 0 0 4 0 0 5 1 7 6 25 163
+random_leveled.user_mb	180
+random_leveled.flush_mb	181
+random_leveled.compaction_mb	516
+random_leveled.write_amplification	3.9
+random_leveled.sst_mb	181
+random_leveled.levels	Level Files Size(MB) -------------------- 0 0 0 1 0 0 2 0 0 3 0 0 4 0 0 5 4 30 6 24 151
+random_universal.user_mb	180
+random_universal.flush_mb	181
+random_universal.compaction_mb	482
+random_universal.write_amplification	3.7
+random_universal.sst_mb	181
+random_universal.levels	Level Files Size(MB) -------------------- 0 2 9 1 0 0 2 0 0 3 0 0 4 0 0 5 0 0 6 22 171
+overwrite.live_mb	36
+overwrite.sst_before_compaction_mb	179
+overwrite.sst_after_compaction_mb	36
+delete.sst_after_delete_mb	40
+delete.visible_keys	0
+delete.sst_after_compaction_mb	0

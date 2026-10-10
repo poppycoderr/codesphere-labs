@@ -110,6 +110,7 @@
 | [messaging/event-time-windows](messaging/event-time-windows/) | 晚到了五十秒的那次点击，算在哪一分钟 | 轻量：确定性输出（Kafka Streams 4.3.1） | regular-docker |
 | [storage/pagination-and-index-cost](storage/pagination-and-index-cost/) | SQL 调优实战（第五、六节） | 轻量 | regular-docker |
 | [storage/elasticsearch-behaviors](storage/elasticsearch-behaviors/) | Elasticsearch 的几个行为 | 轻量：单节点 ES 9.5.3 + JDK 客户端 | regular-docker |
+| [storage/lsm-write-amplification](storage/lsm-write-amplification/) | 写了 180 MB，磁盘实际写了 700 MB | 轻量：RocksDB，只断言范围 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [java/gc-baseline](java/gc-baseline/) | GC 基线与排查工具输出 | 轻量：JDK 21 容器 | regular-docker |
 | [java/gc-collectors](java/gc-collectors/) | G1、分代 ZGC、Parallel 对比 | 性能：JDK 21 容器，4 CPU | performance |
