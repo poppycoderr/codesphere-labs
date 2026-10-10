@@ -1,0 +1,22 @@
+id: distributed/circuit-breaker-defaults
+title: 熔断器默认配置（Resilience4j 2.4.0）：连续失败 99 次不打开；先成功 100 次后要连续失败 50 次；半开放行 10 个，这 10 个不返回就一直卡在半开；业务异常默认算失败；30 秒才返回的调用不算慢；两个接口共用时一个坏了另一个也被拒绝
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/circuit-breaker-defaults.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    resilience4j: "2.4.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

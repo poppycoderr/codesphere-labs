@@ -1,0 +1,11 @@
+# 由 shared/scripts/lib.sh write_environment 生成
+date_utc: 2026-10-09T18:13:52Z
+os: Darwin 27.0.0
+arch: arm64
+os_version: macOS 27.0.1
+cpus: 10
+memory_gb: 32
+java: 21.0.5+9-LTS-239 (Oracle Corporation)
+docker_server: 29.8.0
+jdk25_image: eclipse-temurin@sha256:8c0a84ea11c8f6ed52600fc19f1040121f2a162998e9f50a5faebbbad9172dcc
+libraries: io.github.resilience4j:resilience4j-circuitbreaker:2.4.0 io.github.resilience4j:resilience4j-core:2.4.0 org.slf4j:slf4j-api:2.0.20
