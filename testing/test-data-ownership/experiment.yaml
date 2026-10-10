@@ -1,0 +1,23 @@
+id: testing/test-data-ownership
+title: 测试数据的归属（MySQL 8.4.11）：两个测试都插入固定邮箱时后一个唯一键冲突；数整张表的断言被另一个测试的数据打破；按模式清理删掉了别人的行；事务回滚隔离时别的连接看不到数据、同键插入等锁超时；每个进程一个库时固定数据互不影响
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/test-data-ownership.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    mysql: "8.4.11"
+    mysql-connector-j: "9.7.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
