@@ -1,0 +1,7 @@
+env	java.version=25.0.4.1
+setup	2000000 条记录，每条一个约 20 个字符的城市字段，取值共 100 种
+plain.bytes_per_record	64.5	167	每条记录各建一个 String
+intern.bytes_per_record	0.4	249	解析后调用 intern()
+map.bytes_per_record	0.4	182	用自己的 HashMap 归一成同一个对象
+dedup.bytes_per_record	24.4	183	每条各建一个 String，加 -XX:+UseStringDeduplication
+plain_cjk.bytes_per_record	87.7	226	每条各建一个 String，字段末尾多一个汉字

@@ -1,0 +1,21 @@
+id: java/string-duplication
+title: 内容相同的字符串（JDK 25.0.4.1）：200 万条记录、100 种取值的字段，各建各的每个约 64 字节；intern 或自己的 Map 归一后接近 0；G1 字符串去重后约 24 字节；字段里多一个汉字变成约 88 字节
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/string-duplication.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
