@@ -1,0 +1,23 @@
+id: engineering/crypto-misuse
+title: 加密与口令存储的误用：Cipher.getInstance("AES") 是 ECB，相同的块密文相同；GCM 随机数重复时不用密钥就能算出另一条明文；CBC 改 IV 一个字节把 100 改成 900；BCrypt 只看前 72 字节，Spring Security 7.1.1 编码时拒绝、校验时仍截断；两个输出就能预测 java.util.Random
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/crypto-misuse.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring-security-crypto: "7.1.1"
+    jbcrypt: "0.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
