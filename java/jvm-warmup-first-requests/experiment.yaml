@@ -1,0 +1,21 @@
+id: java/jvm-warmup-first-requests
+title: 进程刚启动时的前几个请求（JDK 25.0.4.1，2 个 CPU）：同一个处理函数第 1 次调用 28 毫秒，稳定后 10 微秒；第 100 次仍慢 9 倍；只用解释器时一直是 392 微秒；AOT 缓存让第 1 次调用减半；先预热 3000 次，第一个真实请求 0.1 毫秒
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/jvm-warmup-first-requests.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

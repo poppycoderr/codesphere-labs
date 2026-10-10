@@ -122,6 +122,7 @@
 | [java/parallel-stream-common-pool](java/parallel-stream-common-pool/) | 一个 parallelStream，拖慢了不相干的接口 | 轻量：结论确定，耗时只断言区间 | regular-docker |
 | [java/money-rounding-and-allocation](java/money-rounding-and-allocation/) | 对账差了一分钱 | 轻量：确定性输出 | regular-docker |
 | [java/java-failure-paths](java/java-failure-paths/) | 出了错，日志里却没有可用的信息 | 轻量：确定性输出 | regular-docker |
+| [java/jvm-warmup-first-requests](java/jvm-warmup-first-requests/) | 每次发版后的头几秒，接口都会超时 | 轻量：计时，只断言倍数关系 | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |
