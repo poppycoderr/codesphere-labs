@@ -1,0 +1,22 @@
+id: engineering/cors-browser-behavior
+title: 跨源请求在 Chromium 153 里的表现：响应没有跨源头时脚本读不到内容，但 GET 与 text/plain 的 POST 已经到达接口并被执行；application/json 触发预检，预检失败时 POST 不会发出；带 Cookie 时 Allow-Origin 不能是星号；响应头要显式暴露才读得到
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/cors-browser-behavior.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    chromium: "153.0.8010.12"
+    playwright: "1.63.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

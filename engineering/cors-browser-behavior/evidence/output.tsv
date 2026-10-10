@@ -1,0 +1,14 @@
+env	chromium=153.0.8010.12
+tool.direct	不经过浏览器，用脚本直接请求同一个接口（没有任何跨源头）：{"ok": true, "cookie": ""}
+get.no_header	页面里 fetch 这个接口：脚本拿到 TypeError，读不到任何内容；接口收到这个 GET 1 次
+get.console	浏览器控制台的报错里提到 Access-Control-Allow-Origin = True
+post.simple	页面里发一个 text/plain 的 POST 到 /transfer（没有跨源头）：脚本拿到 TypeError，读不到任何内容；接口收到 POST 1 次，转账次数 = 1
+post.json	换成 application/json（接口不处理 OPTIONS）：脚本拿到 TypeError，读不到任何内容；接口收到 OPTIONS 1 次、POST 0 次
+post.json_ok	接口正确应答预检并带上跨源头：读到响应（状态 200），X-Request-Id = null；接口收到 OPTIONS 1 次、POST 1 次
+allow.star	响应带 Access-Control-Allow-Origin: *：读到响应（状态 200），X-Request-Id = null
+allow.expose	响应另外带 Access-Control-Expose-Headers: X-Request-Id：读到响应（状态 200），X-Request-Id = req-42
+cred.star	请求带上 Cookie（credentials: include），响应是 Allow-Origin: *：脚本拿到 TypeError，读不到任何内容
+cred.exact_only	响应写明了源，但没有 Allow-Credentials：脚本拿到 TypeError，读不到任何内容
+cred.exact	响应写明了源，并带 Allow-Credentials: true：读到响应（状态 200），X-Request-Id = null
+cred.sent	上面三次请求，接口都收到了 = True
+preflight.cache	预检响应带 Access-Control-Max-Age: 600，连续发两次 POST：接口收到 OPTIONS 1 次、POST 2 次
