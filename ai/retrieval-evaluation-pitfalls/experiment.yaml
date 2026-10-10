@@ -1,0 +1,22 @@
+id: ai/retrieval-evaluation-pitfalls
+title: 检索评估的口径（合成数据，numpy 2.5.3）：标注只覆盖旧系统返回过的文档时，真实准确率 0.985 的新系统被评成 0.182；两个系统在首个命中排名与前 10 条准确率上结论相反；30 个查询时差异的区间下限贴着 0；平均 0.867 之下有 12% 的查询一条都没中
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/retrieval-evaluation-pitfalls.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    numpy: "2.5.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
