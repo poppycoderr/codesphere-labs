@@ -1,0 +1,23 @@
+id: engineering/sql-injection-boundaries
+title: SQL 注入的边界（MySQL 8.4.11、Connector/J 9.7.0）：ORDER BY ? 绑定列名不排序也不报错；把排序参数拼进 SQL 后用 CASE 子查询逐位读出别的表里的令牌；LIKE 绑定 % 返回全部行；IN (?) 绑定 "1,2,3" 只匹配 1；allowMultiQueries 打开后一次输入执行两条语句
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/sql-injection-boundaries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    mysql: "8.4.11"
+    mysql-connector-j: "9.7.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

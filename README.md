@@ -99,6 +99,7 @@
 | [engineering/serialization-compatibility](engineering/serialization-compatibility/) | 上游加了一个字段，下游全部反序列化失败 | 轻量：确定性输出（Jackson 2/3、protobuf-java） | regular-docker |
 | [engineering/async-logging-loss](engineering/async-logging-loss/) | 出事的那几秒，日志恰好是空的 | 轻量：结论确定（Logback 1.5.38） | regular-docker |
 | [engineering/crypto-misuse](engineering/crypto-misuse/) | 用了 AES，密文还是被改了 | 轻量：确定性输出（JCE、Spring Security 7.1.1、jBCrypt） | regular-docker |
+| [engineering/sql-injection-boundaries](engineering/sql-injection-boundaries/) | 全部用了预编译语句，还是被注入了 | 标准：MySQL 8.4，确定性输出 | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |
