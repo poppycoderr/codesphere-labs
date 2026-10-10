@@ -1,0 +1,24 @@
+id: engineering/config-received-not-applied
+title: 运行中改配置（Spring Framework 7.0.9、Logback 1.5.38、HikariCP 7.0.2）：属性源改成 500 后 @Value 字段仍是 100；线程池最大线程数从 4 改成 16，无界队列下实际线程还是 4；root 调成 DEBUG，显式配过级别的 logger 不变；HikariCP 启动后改地址被拒绝、改大小生效
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/config-received-not-applied.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring-framework: "7.0.9"
+    logback: "1.5.38"
+    hikaricp: "7.0.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"
