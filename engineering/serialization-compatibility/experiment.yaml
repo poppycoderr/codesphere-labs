@@ -1,0 +1,24 @@
+id: engineering/serialization-compatibility
+title: 序列化的版本兼容：多一个字段时 Jackson 2 默认抛异常、Jackson 3 默认忽略；按旧类读改写后新字段丢失；Protobuf 的旧版本保留并转发不认识的字段；字段编号重用同类型时把 email 读成 nickname；proto3 的 0 与没填序列化结果相同
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/serialization-compatibility.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jackson2: "2.22.3"
+    jackson3: "3.2.3"
+    protobuf-java: "4.36.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-10"

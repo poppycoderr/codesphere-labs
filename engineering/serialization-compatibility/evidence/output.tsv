@@ -1,0 +1,27 @@
+env	java.version=25.0.4.1 jackson2=2.22.3 jackson3=3.2.3 protobuf=4.36.2
+json.unknown_field.jackson2	发送方多了一个 giftWrap 字段，Jackson 2 默认：抛出 UnrecognizedPropertyException
+json.unknown_field.jackson3	同一条消息，Jackson 3 默认：OrderV1[id=A1, quantity=2]
+json.missing_primitive	消息里没有 quantity（int）：Jackson 2 OrderV1[id=A1, quantity=0]；Jackson 3 OrderV1[id=A1, quantity=0]
+json.null_primitive	quantity 是 null：Jackson 2 OrderV1[id=A1, quantity=0]；Jackson 3 抛出 MismatchedInputException
+json.absent_vs_null.pojo	「没传 nickname」与「nickname 传了 null」读进对象之后：null 与 null，分不出来
+json.absent_vs_null.tree	读成树：没传时 has("nickname") = false；传了 null 时 has = true，isNull = true
+json.unknown_enum	发送方新增了枚举值 REFUNDING：Jackson 2 抛出 InvalidFormatException；Jackson 3 抛出 InvalidFormatException
+json.round_trip.pojo	按旧版本的类读入、数量改成 3、再写出：{"id":"A1","quantity":3}（giftWrap 没有了）
+json.round_trip.any	类上用 @JsonAnySetter / @JsonAnyGetter 收下不认识的字段：{"id":"A1","quantity":3,"giftWrap":true}
+json.untyped_numbers	读成 Map 之后各个值的类型：small → Integer  big → Long  id → Long  price → Double
+json.untyped_cast	(Long) map.get("small")：抛出 ClassCastException
+json.instant.jackson2	Jackson 2 默认写 Instant：抛出 InvalidDefinitionException
+json.instant.jackson2_module	Jackson 2 注册 JavaTimeModule 后：{"id":"e1","at":1791619200.000000000}
+json.instant.jackson3	Jackson 3 默认：{"id":"e1","at":"2026-10-10T08:00:00Z"}
+json.instant.cross	Jackson 3 读 Jackson 2 写的：2026-10-10T08:00:00Z；Jackson 2 读 Jackson 3 写的：2026-10-10T08:00:00Z
+json.trailing	合法 JSON 后面跟着多余内容：Jackson 2 OrderV1[id=A1, quantity=1]；Jackson 3 抛出 StreamReadException
+proto.unknown_field	旧版本解析新版本的消息：quantity = 2，不认识的字段编号 [3] 留在 unknown fields 里
+proto.round_trip	旧版本把数量改成 3 再发出去，新版本读到：quantity = 3，gift_wrap = true
+proto.reuse_same_type	编号 2 原来是 email（string），删掉后给了 nickname（string）；读旧数据：nickname = a@example.com
+proto.reuse_other_type	编号 2 给了 age（int32）；读旧数据：age = 0，编号 [2] 进了 unknown fields，不报错
+proto.narrowed	编号 3 从 int64 改成 int32；原值 5000000000 读成 705032704
+proto.renamed	编号 2 只改名为 mail_address；读旧数据：a@example.com
+proto.presence.implicit	proto3 的 int32 quantity = 2：填 0 与不填，序列化结果相同 = true（都是 4 字节），字段能否判断有没有填 = false
+proto.presence.optional	改成 optional int32 quantity = 2：填 0 是 6 字节、不填是 4 字节；hasField 分别是 true 与 false
+proto.unknown_enum.proto3	proto3：旧版本读到 status = UNKNOWN_ENUM_VALUE_Status_2（数值 2），unknown fields []；原样转发后新版本读到 REFUNDING
+proto.unknown_enum.proto2	proto2：旧版本读到 status = CREATED（数值 0），unknown fields [2]；原样转发后新版本读到 REFUNDING
