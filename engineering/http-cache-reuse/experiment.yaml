@@ -1,0 +1,22 @@
+id: engineering/http-cache-reuse
+title: 浏览器的 HTTP 缓存（Chromium 153）：max-age 与只有 Last-Modified 的响应第二次都不回源；no-store 与没有任何头的响应每次回源；no-cache 加 ETag 时带 If-None-Match 验证，内容换版后拿到新版本；Age: 599 让 max-age=600 的响应 2 秒后就回源；普通刷新时 max-age 的子资源不回源，标不标 immutable 都一样
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/http-cache-reuse.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    chromium: "153.0.8010.12"
+    playwright: "1.63.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

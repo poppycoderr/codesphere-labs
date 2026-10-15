@@ -1,0 +1,9 @@
+env	chromium=153.0.8010.12
+twice.max-age	Cache-Control: max-age=600：连续 fetch 两次，源站收到 1 次；页面第二次拿到「200 body of /max-age」
+twice.nothing	没有任何缓存相关的头：连续 fetch 两次，源站收到 2 次；页面第二次拿到「200 body of /nothing」
+twice.heuristic	没有 Cache-Control，只有 Last-Modified（10 天前）：连续 fetch 两次，源站收到 1 次；页面第二次拿到「200 body of /heuristic」
+twice.no-store	Cache-Control: no-store：连续 fetch 两次，源站收到 2 次；页面第二次拿到「200 body of /no-store」
+twice.no-cache	Cache-Control: no-cache，带 ETag：连续 fetch 两次，源站收到 2 次；第二次回源带 If-None-Match = "v1"；页面第二次拿到「200 body of /no-cache」
+age	max-age=600 但响应带 Age: 599，取一次、等 2 秒再取：源站收到 2 次
+validate	no-cache 加 ETag，内容在第二次和第三次之间换了版本：三次拿到「200 release 1」「200 release 1」「200 release 2」；源站收到 3 次，其中带验证头的 2 次
+reload	页面普通刷新：两个子资源都是 max-age=600，没标 immutable 的回源 0 次，标了 immutable 的回源 0 次
