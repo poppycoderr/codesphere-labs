@@ -1,0 +1,21 @@
+id: distributed/raft-states-with-etcd
+title: "etcd 3.7.2 三节点的写入、复制、提交与读：隔离一个 follower 后多数派照常写入，被隔离节点上线性一致读与写入失败、可串行读返回旧值、raft index 落后，恢复后追平；把 leader 隔离到少数派后另外两个节点以更高的 term 选出新 leader，原 leader 不再认为自己是 leader，写入与线性一致读失败、可串行读返回旧值，恢复后不打断新 leader"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/raft-states-with-etcd.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    etcd: "3.7.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

@@ -1,0 +1,20 @@
+# 三节点 etcd：节点之间只通过 raft 网络（别名 eN-peer）通信，客户端只通过 client 网络（别名 eN）访问；不暴露宿主机端口
+x-etcd: &etcd
+  image: quay.io/coreos/etcd:v3.7.2@sha256:e9afa62b1e914f02db62e5c46a7a140d8cdf026f2ed888cab4e5a142ec4d06fd
+  mem_limit: 256m
+services:
+  e1:
+    <<: *etcd
+    command: "etcd --name=e1 --data-dir=/tmp/e1 --listen-peer-urls=http://0.0.0.0:2380 --initial-advertise-peer-urls=http://e1-peer:2380 --listen-client-urls=http://0.0.0.0:2379 --advertise-client-urls=http://e1:2379 --initial-cluster=e1=http://e1-peer:2380,e2=http://e2-peer:2380,e3=http://e3-peer:2380 --initial-cluster-state=new --initial-cluster-token=lab"
+    networks: { raft: { aliases: [e1-peer] }, client: { aliases: [e1] } }
+  e2:
+    <<: *etcd
+    command: "etcd --name=e2 --data-dir=/tmp/e2 --listen-peer-urls=http://0.0.0.0:2380 --initial-advertise-peer-urls=http://e2-peer:2380 --listen-client-urls=http://0.0.0.0:2379 --advertise-client-urls=http://e2:2379 --initial-cluster=e1=http://e1-peer:2380,e2=http://e2-peer:2380,e3=http://e3-peer:2380 --initial-cluster-state=new --initial-cluster-token=lab"
+    networks: { raft: { aliases: [e2-peer] }, client: { aliases: [e2] } }
+  e3:
+    <<: *etcd
+    command: "etcd --name=e3 --data-dir=/tmp/e3 --listen-peer-urls=http://0.0.0.0:2380 --initial-advertise-peer-urls=http://e3-peer:2380 --listen-client-urls=http://0.0.0.0:2379 --advertise-client-urls=http://e3:2379 --initial-cluster=e1=http://e1-peer:2380,e2=http://e2-peer:2380,e3=http://e3-peer:2380 --initial-cluster-state=new --initial-cluster-token=lab"
+    networks: { raft: { aliases: [e3-peer] }, client: { aliases: [e3] } }
+networks:
+  raft: {}
+  client: {}
