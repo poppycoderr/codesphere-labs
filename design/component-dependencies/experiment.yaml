@@ -1,0 +1,22 @@
+id: design/component-dependencies
+title: "包之间的依赖：订单与账单互相依赖时 jdeps 显示双向边、ArchUnit 报环；订单定义端口、账单实现后依赖单向，订单不稳定度 0、账单 1；再加一个引用订单的 common 包又形成 common 与 order 之间的环"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/component-dependencies.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    archunit: "1.5.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

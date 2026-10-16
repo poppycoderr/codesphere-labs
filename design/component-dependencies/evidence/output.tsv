@@ -1,0 +1,7 @@
+env	java.version=25.0.4.1 archunit=1.5.1
+v1.jdeps	包依赖 {billing=[order], order=[billing]}；不稳定度 billing I=0.50 order I=0.50
+v1.archunit	slices().matching("shop.(*)..").should().beFreeOfCycles()：违反：Cycle detected: Slice billing -> Slice order -> Slice billing 1. Dependencies of Slice billing
+v2.jdeps	包依赖 {billing=[order]}；不稳定度 billing I=1.00 order I=0.00
+v2.archunit	slices().matching("shop.(*)..").should().beFreeOfCycles()：通过
+v3.jdeps	包依赖 {billing=[order], common=[order], order=[common]}；不稳定度 billing I=1.00 common I=0.50 order I=0.33
+v3.archunit	slices().matching("shop.(*)..").should().beFreeOfCycles()：违反：Cycle detected: Slice common -> Slice order -> Slice common 1. Dependencies of Slice common
