@@ -1,0 +1,21 @@
+id: engineering/vim-file-encoding
+title: "Vim 打开中文文件：默认 fileencodings 把 GBK 文件识别成 latin1 显示乱码；把 gbk 放进 fileencodings 后识别为 cp936；gbk 放在 utf-8 之前时，UTF-8 的「你好」被识别成 GBK 显示为乱码，「中文测试」却碰巧没有；++enc 重新打开；设置 fileencoding 后保存转换为 UTF-8；nobomb 去掉 BOM；按 latin1 打开再保存不破坏原有字节"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/vim-file-encoding.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    vim: "9.1.1230"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

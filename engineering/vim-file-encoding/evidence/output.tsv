@@ -1,0 +1,12 @@
+bytes	utf8.txt：e4 b8 ad e6 96 87 e6 b5 8b e8 af 95 0a；gbk.txt：d6 d0 ce c4 b2 e2 ca d4 0a
+default.gbk	utf-8 / ucs-bom,utf-8,default,latin1 → fileencoding=latin1，第一行：ÖÐÎÄ²âÊÔ
+default.utf8	utf-8 / ucs-bom,utf-8,default,latin1 → fileencoding=utf-8，第一行：中文测试
+fencs_gbk.gbk	utf-8 / ucs-bom,utf-8,gbk,latin1 → fileencoding=cp936，第一行：中文测试
+fencs_gbk.utf8	utf-8 / ucs-bom,utf-8,gbk,latin1 → fileencoding=utf-8，第一行：中文测试
+fencs_gbk_first.utf8	utf-8 / ucs-bom,gbk,utf-8,latin1 → fileencoding=utf-8，第一行：中文测试
+fencs_gbk_first.nihao	utf-8 / ucs-bom,gbk,utf-8,latin1 → fileencoding=cp936，第一行：浣犲ソ
+bom.default	utf-8 / ucs-bom,utf-8,default,latin1 → fileencoding=utf-8，第一行：中文
+reopen.enc	++enc=gbk 重新打开：fileencoding=cp936，第一行：中文测试
+save.convert	以 gbk 打开后 set fileencoding=utf-8 再保存：e4 b8 ad e6 96 87 e6 b5 8b e8 af 95 0a
+save.nobomb	带 BOM 的文件 set nobomb 后保存：e4 b8 ad e6 96 87 0a
+save.latin1_roundtrip	按 latin1 打开 GBK 文件、加一个字符后保存：d6 d0 ce c4 b2 e2 ca d4 21 0a（原有字节未变）
