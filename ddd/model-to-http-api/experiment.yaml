@@ -1,0 +1,22 @@
+id: ddd/model-to-http-api
+title: "从模型到 HTTP 接口：两个客户端各自 PUT 整体替换时客服的修改丢失且都返回 200；If-Match 让后到的得到 412、缺少时 428；PUT 缺字段把备注清空、PATCH 不会；PUT 状态字段绕过「已发货不能取消」，命令端点返回 409；重发 POST 新增 2 个订单，同一幂等键只新增 1 个；报表受理返回 202 与状态资源"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/model-to-http-api.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring: "7.0.9"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

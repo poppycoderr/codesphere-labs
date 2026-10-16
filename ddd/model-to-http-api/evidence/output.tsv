@@ -1,0 +1,10 @@
+env	java.version=25.0.4.1 spring=7.0.9
+lost_update	两个客户端都读到 {"address":"北京","note":"","status":"NEW"}；客服 PUT 改地址为上海，用户随后基于旧数据 PUT 加备注：最终 {"address":"北京","note":"放门口","status":"NEW"}，客服的修改丢了，两次都是 200
+if_match	两个客户端都带 If-Match: "1"：第一个 200，第二个 412（版本已变为 2），最终 {"address":"上海","note":"","status":"NEW"}
+if_match.missing	不带 If-Match 的 PUT：428（缺少 If-Match）
+put_missing_field	PUT 只带 address：{"address":"上海","note":null,"status":"NEW"}，note 被清空：PUT 的语义是整体替换
+patch	PATCH 只带 address：{"address":"深圳","note":"放门口","status":"NEW"}
+status_field	已发货的订单，PUT 把 status 写成 CANCELLED：{"address":"北京","note":null,"status":"CANCELLED"}，没有经过「已发货不能取消」
+command	改用 POST /orders/o-d/cancellation：409（已发货不能取消）
+idempotency	响应丢失后客户端重发同一个 POST：不带幂等键新增 2 个订单；带同一个 Idempotency-Key：第一次 /orders/o-3，重发 /orders/o-3，新增 1 个
+accepted	生成报表：202，Location /reports/j-1，状态资源 {"status":"RUNNING"}

@@ -54,6 +54,7 @@
 | [ddd/collections-behind-queries](ddd/collections-behind-queries/) | 领域模型里的集合背后的查询 | 常规：PostgreSQL 容器 | regular-docker |
 | [ddd/roles-of-a-party](ddd/roles-of-a-party/) | 同一个人的几种角色 | 轻量：确定性输出 | regular-docker |
 | [ddd/data-provenance-snapshots](ddd/data-provenance-snapshots/) | 金额的来历：快照、价格版本与凭证链 | 常规：PostgreSQL 容器 | regular-docker |
+| [ddd/model-to-http-api](ddd/model-to-http-api/) | 从模型到 HTTP 接口：条件更新、命令与受理 | 轻量：确定性输出 | regular-docker |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
 | [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
 | [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |

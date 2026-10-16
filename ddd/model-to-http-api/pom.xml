@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <!-- 只用来把运行所需的 jar 下载到一个目录，程序本身以单文件源码方式运行 -->
+  <groupId>labs</groupId><artifactId>model-to-http-api</artifactId><version>1</version><packaging>pom</packaging>
+  <dependencies>
+    <dependency><groupId>org.springframework</groupId><artifactId>spring-webmvc</artifactId><version>7.0.9</version></dependency>
+    <dependency><groupId>org.springframework</groupId><artifactId>spring-test</artifactId><version>7.0.9</version></dependency>
+    <dependency><groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId><version>6.1.0</version></dependency>
+    <dependency><groupId>tools.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>3.2.3</version></dependency>
+  </dependencies>
+</project>
