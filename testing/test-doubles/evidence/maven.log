@@ -1,0 +1,91 @@
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! -- in lab.InMemoryOrdersContractTest
+[ERROR] lab.InMemoryOrdersContractTest.byCustomer_newestFirst -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+Expecting actual:
+  ["o-1", "o-2", "o-3"]
+to contain exactly (and in same order):
+  ["o-2", "o-3", "o-1"]
+but there were differences at these indexes:
+  - element at index 0: expected "o-2" but was "o-1"
+  - element at index 1: expected "o-3" but was "o-2"
+  - element at index 2: expected "o-1" but was "o-3"
+
+
+[ERROR] lab.InMemoryOrdersContractTest.insert_duplicateId_rejected -- Time elapsed: 0.001 s <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting code to raise a throwable.
+
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.151 s <<< FAILURE! -- in lab.RecordedResponseTest
+[ERROR] lab.RecordedResponseTest.b_againstRunningProvider -- Time elapsed: 0.146 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: "PAID"
+ but was: "UNKNOWN"
+	at lab.RecordedResponseTest.b_againstRunningProvider(RecordedResponseTest.java:25)
+
+[ERROR] Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.524 s <<< FAILURE! -- in lab.MatcherTest
+[ERROR] lab.MatcherTest.c_exactArgument_strictStubs -- Time elapsed: 0.009 s <<< ERROR!
+org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'find' method:
+    repo.find("c-9");
+    -> at lab.Orders$CancelService.cancel(Orders.java:69)
+ - has following stubbing(s) with different arguments:
+    1. repo.find("o-1"); stubbed with: [Returns: Optional[Order[id=o-1, customer=c-9, createdAt=2026-10-01T00:00:00Z, status=NEW]]]
+      -> at lab.MatcherTest.c_exactArgument_strictStubs(MatcherTest.java:37)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at lab.MatcherTest.c_exactArgument_strictStubs(MatcherTest.java:38)
+
+[ERROR] lab.MatcherTest.b_exactArgument_lenient -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: 订单不存在
+	at lab.MatcherTest.b_exactArgument_lenient(MatcherTest.java:32)
+
+[ERROR] Failures: 
+[ERROR]   InMemoryOrdersContractTest>RepositoryContract.byCustomer_newestFirst:18 
+Expecting actual:
+  ["o-1", "o-2", "o-3"]
+to contain exactly (and in same order):
+  ["o-2", "o-3", "o-1"]
+but there were differences at these indexes:
+  - element at index 0: expected "o-2" but was "o-1"
+  - element at index 1: expected "o-3" but was "o-2"
+  - element at index 2: expected "o-1" but was "o-3"
+
+[ERROR]   InMemoryOrdersContractTest>RepositoryContract.insert_duplicateId_rejected:23 
+Expecting code to raise a throwable.
+[ERROR]   RecordedResponseTest.b_againstRunningProvider:25 
+expected: "PAID"
+ but was: "UNKNOWN"
+[ERROR] Errors: 
+[ERROR]   MatcherTest.b_exactArgument_lenient:32 » IllegalArgument 订单不存在
+[ERROR]   MatcherTest.c_exactArgument_strictStubs:38 » PotentialStubbingProblem 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'find' method:
+    repo.find("c-9");
+    -> at lab.Orders$CancelService.cancel(Orders.java:69)
+ - has following stubbing(s) with different arguments:
+    1. repo.find("o-1"); stubbed with: [Returns: Optional[Order[id=o-1, customer=c-9, createdAt=2026-10-01T00:00:00Z, status=NEW]]]
+      -> at lab.MatcherTest.c_exactArgument_strictStubs(MatcherTest.java:37)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+[ERROR] Tests run: 9, Failures: 3, Errors: 2, Skipped: 0
+[ERROR] There are test failures.
+
+See /w/target/surefire-reports for the individual test results.
+See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

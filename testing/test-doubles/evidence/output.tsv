@@ -1,0 +1,10 @@
+env	java.version=25.0.4.1 junit=6.1.3 mockito=5.24.0 h2=2.4.240
+InMemoryOrdersContractTest.byCustomer_newestFirst	失败：Expecting actual: ⏎ ["o-1", "o-2", "o-3"] ⏎ to contain exactly (and in same order): ⏎ ["o-2", "o-3", "o-1"]
+InMemoryOrdersContractTest.insert_duplicateId_rejected	失败：Expecting code to raise a throwable.
+JdbcOrdersContractTest.byCustomer_newestFirst	通过
+JdbcOrdersContractTest.insert_duplicateId_rejected	通过
+MatcherTest.a_anyMatcher_lenient	通过
+MatcherTest.b_exactArgument_lenient	错误：订单不存在
+MatcherTest.c_exactArgument_strictStubs	错误：Strict stubbing argument mismatch. Please check: ⏎ - this invocation of 'find' method: ⏎ repo.find("c-9"); ⏎ -> at lab.Orders$CancelService.cancel(Orders.java:69)
+RecordedResponseTest.a_againstRecordedStub	通过
+RecordedResponseTest.b_againstRunningProvider	失败：expected: "PAID" ⏎ but was: "UNKNOWN"
