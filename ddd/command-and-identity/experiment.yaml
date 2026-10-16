@@ -1,0 +1,23 @@
+id: ddd/command-and-identity
+title: "请求、可信身份与命令（Spring MVC 7.0.9）：请求体直接绑定到领域对象时，客户端在 JSON 里写的租户、所有者和状态都被保存；绑定到命令对象、身份取自请求上下文后被忽略；只按 id 查找读到了别的租户的订单，按租户和 id 查为 not found；表单绑定多带的 role=admin 生效，限定允许字段后无效"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/command-and-identity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring-webmvc: "7.0.9"
+    jackson: "3.2.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

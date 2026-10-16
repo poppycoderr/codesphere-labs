@@ -1,0 +1,7 @@
+env	java.version=25.0.4.1 spring=7.0.9
+bind.entity	请求体直接绑定到领域对象，客户端在 JSON 里带上 tenantId、ownerId、status：保存的是 Order[tenant=t-bob, owner=bob, sku=A1, qty=2, status=PAID]
+bind.command	绑定到只含 sku、qty 的命令对象，身份取自请求上下文，同样的 JSON：保存的是 Order[tenant=t-alice, owner=alice, sku=A1, qty=2, status=NEW]
+lookup.by_id	租户 t-alice 的用户按 id 读取 t-bob 的订单（Order[tenant=t-bob, ow…），只按 id 查：Order[tenant=t-bob, owner=bob, sku=B9, qty=1, status=NEW]
+lookup.by_tenant	按（租户，id）查：not found
+form.open	表单绑定到有 setRole 的对象，请求参数里多带 role=admin：nickname=al, role=admin
+form.allowed	在 @InitBinder 里只允许 nickname：nickname=al, role=member
