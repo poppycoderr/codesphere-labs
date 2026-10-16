@@ -1,0 +1,21 @@
+id: distributed/quorum-beyond-overlap
+title: "W+R>N 之后还缺什么：读集合与写集合相交时取最先返回的副本仍会读到旧值；W+R≤N 读到旧值；只有一个副本确认的失败写入有时被读到；带时钟偏差的最后写入获胜静默丢弃后发生的写；版本向量保留两个并发值等待合并；宽松 quorum 下 W+R=4>3 读写集合却不相交；会话版本号保证读自己的写"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/quorum-beyond-overlap.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

@@ -105,6 +105,7 @@
 | [distributed/circuit-breaker-defaults](distributed/circuit-breaker-defaults/) | 下游挂了一分钟，熔断器始终没有打开 | 轻量：确定性输出（Resilience4j 2.4.0） | regular-docker |
 | [distributed/raft-states-with-etcd](distributed/raft-states-with-etcd/) | 写入、复制、提交、读取：etcd 三节点分区实测 | 常规：etcd 三节点容器 | regular-docker |
 | [distributed/consistent-hashing](distributed/consistent-hashing/) | 一致性哈希的迁移、均衡与热点 | 轻量：确定性输出 | regular-docker |
+| [distributed/quorum-beyond-overlap](distributed/quorum-beyond-overlap/) | W+R>N 之后还缺什么：quorum 的确定性模拟 | 轻量：确定性输出 | regular-docker |
 | [network/dns-jvm-cache](network/dns-jvm-cache/) | DNS 切换与 Java 客户端 | 自建网络：CoreDNS + 两个后端 | regular-docker |
 | [network/request-failure-signatures](network/request-failure-signatures/) | 请求失败在客户端的样子 | 轻量：自建网络 + netshoot + JDK 客户端 | regular-docker |
 | [kubernetes/container-boundaries](kubernetes/container-boundaries/) | 容器的边界 | 轻量：Docker | regular-docker |
