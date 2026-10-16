@@ -1,0 +1,10 @@
+env	java.version=25.0.4.1 postgres=18.6
+reference.reprice	10 月 1 日下单 o-1（A×2、B×1），当时合计 230.00；10 月 20 日 A 调价到 120 后再查这张历史订单：270.00
+snapshot.reprice	下单时把单价抄进订单行，同样调价后 o-2 的合计：230.00；但快照只有一个数字，问「这个 100 是标价、会员价还是促销价」答不上来
+version.overlap	给 A 再加一个与现有标价重叠的版本：被拒绝（conflicting key value violates exclusion constraint "price_version_product_id_kind_valid_excl"）
+version.trace	10 月 5 日下单 o-3，单价与来源：90.00 来自 PROMO 版本 #3 [2026-10-01,2026-10-08)
+version.as_of	按日期回答「A 当天的标价」：10 月 5 日 100.00，10 月 25 日 120.00
+version.delete_used	删除已被订单引用的促销价版本：被拒绝（update or delete on table "price_version" violates foreign key constraint "order_line_ver_price_version_id_fkey" on table "order_line_ver"）
+quote.validity	q-1 报价 200、有效期至 10 月 10 日：10 月 9 日接受 → 按报价 200.00 成交；10 月 12 日接受 → 报价已过期，需重新报价
+chain.drift	开票后订单被改成 200（版本 2）：发票仍是 230；按「发票记录的订单版本 ≠ 订单当前版本」能查出不一致的发票 1 张；只存 order_id 时，这张发票看起来与订单「对不上」，却说不清是哪一方变了
+chain.freeze	加上「已开票的订单金额不可改」的触发器后再改：被拒绝（订单 o-4 已开票，不能修改金额，请开红字发票或更正单）
