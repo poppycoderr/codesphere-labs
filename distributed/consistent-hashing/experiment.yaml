@@ -1,0 +1,21 @@
+id: distributed/consistent-hashing
+title: "一致性哈希减少了迁移，没有解决热点：10 万个键从 10 个节点扩到 11 个，取模迁移 90.8%，哈希环约 9%；每个节点 1 个点时最多是平均的 2.26 倍，1000 个虚拟节点降到 1.05 倍；有界负载把上限压到 c 倍，代价是更多迁移；一个占 20% 请求的键让所在节点承担 27.7% 的请求"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/consistent-hashing.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"
