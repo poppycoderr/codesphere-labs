@@ -1,0 +1,22 @@
+id: ddd/subtype-or-type-field
+title: "子类型还是类型字段：新增类型 LEAVE 后两段带 default 的分支一处按内部项目、一处按客户项目处理；sealed 接口让 switch 表达式编译失败；休假子类拒绝父类的 charge；复制与动态继承的默认值在租户修改后不同；分表各自自增时两个目标 id 都是 1、引用无法加外键，共同父表挡住悬空引用与类型错配，但挡不住缺少子类行"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/subtype-or-type-field.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    postgresql: "18.6"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

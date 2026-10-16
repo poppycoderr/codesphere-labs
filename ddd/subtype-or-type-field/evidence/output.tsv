@@ -1,0 +1,14 @@
+env	java.version=25.0.4.1 postgres=18.6
+typefield.new_value	新增类型 LEAVE（休假）后没有改任何分支：时薪 0，可计费 true：一处按内部项目处理，另一处按客户项目处理
+sealed.before	编译通过
+sealed.after	加入 LeaveActivity、不改 Billing：编译失败，第 6 行：the switch expression does not cover all possible input values
+lsp.charge_all	对所有登记目标统一 charge(2)：第 2 个目标抛出 UnsupportedOperationException（休假不能计费），第 1 个已经计费 2 小时
+default.changed	租户把每日上限从 8 改为 7.5：创建时复制的项目 A 仍是 8；动态继承的项目 A 变成 7.5；覆盖为 10 的项目 B 仍是 10
+override.disabled	租户随后关闭「允许项目覆盖」：项目 B 存着的覆盖值仍是 10，生效值变成 7.5；B 之前按 10 小时登记的工时是否仍然有效，要看规则是否带版本或生效日期
+per_table.ids	每个具体类型一张表、各自自增：client_project (1, 客户项目 A)，leave_activity (1, 年假)：两个目标的 id 都是 1
+per_table.reference	工时表用 (target_type, target_id) 引用，无法声明外键：引用不存在的 LEAVE 99 成功；删除客户项目 1 也成功；现在有 2 条工时指向不存在的目标
+super_table.ids	共同父表 work_target 分配身份：(1, CLIENT) (2, LEAVE)，两个目标的 id 不会相同
+super_table.dangling	工时引用不存在的目标 99：被拒绝（insert or update on table "t2_entry" violates foreign key constraint "t2_entry_target_id_fkey"）
+super_table.delete	删除仍被工时引用的目标 1：被拒绝（update or delete on table "work_target" violates foreign key constraint "t2_entry_target_id_fkey" on table "t2_entry"）
+super_table.kind_mismatch	把 LEAVE 目标 2 同时登记成客户项目：被拒绝（insert or update on table "t2_client" violates foreign key constraint "t2_client_id_kind_fkey"）
+super_table.missing_child	只插入父表一行 (3, CLIENT)、不插子表：成功；父表里没有子类行的目标 1 个：「恰好有一个子类行」外键表达不了

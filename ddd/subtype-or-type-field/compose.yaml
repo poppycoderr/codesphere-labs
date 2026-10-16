@@ -1,0 +1,13 @@
+# 子类型分表时的身份与引用：一个 PostgreSQL 18，不暴露宿主机端口
+services:
+  postgres:
+    image: postgres:18-alpine@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
+    environment:
+      POSTGRES_PASSWORD: example_password
+      POSTGRES_DB: labs
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
