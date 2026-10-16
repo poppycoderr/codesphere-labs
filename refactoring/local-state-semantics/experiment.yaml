@@ -1,0 +1,21 @@
+id: refactoring/local-state-semantics
+title: "换一种写法改变了什么（JDK 25）：List.of 拒绝 null、连 contains(null) 也抛 NPE，Stream.toList 不可改却接受 null；unmodifiableList 是视图、copyOf 是快照；final 与 record 都是浅的；占位初值让编译器不再检查漏掉的分支；var 加菱形推断出 ArrayList<Object>"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/refactoring/local-state-semantics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
