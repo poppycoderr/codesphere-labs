@@ -1,0 +1,21 @@
+id: refactoring/duplication-and-extraction
+title: "重复的知识与偶然的相似：税率只改一处后开票 109 退款 106；合并昵称与优惠码规则后按昵称需求修改，优惠码也接受中文；提取公共方法后原异常被通知失败盖住；提取后日志参数被求值 1000 次、短路条件的额度被扣 100 次"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/refactoring/duplication-and-extraction.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

@@ -1,0 +1,11 @@
+env	java.version=25.0.4.1
+knowledge.before	开票与退款各写一遍税率 6%：开票 106.00，退款 106.00
+knowledge.change	税率改成 9%，只改到了开票：开票 109.00，退款仍是 106.00
+knowledge.single_source	两处都调用同一个 TaxPolicy，改一处：开票 109.00，退款 109.00
+similar.before	昵称与优惠码今天的规则一样（4 到 20 位字母数字）：昵称 "bob2026" true，优惠码 "七折优惠" false
+similar.merged_change	合并成 isValidShortText 之后按昵称的新需求修改：昵称 "小明" true，优惠码 "七折优惠" 也变成 true
+failure.inline	原写法：调用方收到 DbError（写入失败）
+failure.extracted	提取成 runAndNotify 之后：调用方收到 NotifierDown（通知服务不可用）
+failure.fixed	提取时把通知失败挂到原异常上：调用方收到 DbError（写入失败），suppressed 里有 NotifierDown
+evaluation.eager	日志关闭时循环 1000 次：内联的 if 里 expensive() 调用 0 次；提取成 logIf(on, expensive()) 后 1000 次；参数改成 Supplier 后 0 次
+evaluation.short_circuit	cheapCheck() && consumeQuota() 执行 100 次，额度被扣 0 次；提取成 both(cheapCheck(), consumeQuota()) 后被扣 100 次
