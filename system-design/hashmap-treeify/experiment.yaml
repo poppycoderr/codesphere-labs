@@ -1,0 +1,21 @@
+id: system-design/hashmap-treeify
+title: "HashMap 冲突链树化：同一个桶里冲突的键超过 8 个时，表长小于 64 先扩容（16 到 32 到 64），第 11 个键时才转成红黑树；1000 个 hashCode 全相同的键，实现 Comparable 时平均每次查找调用 equals 10 次，不可比较时 501 次，与一直是链表相当"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/amortized-cost-and-tail-latency.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

@@ -93,6 +93,7 @@
 | [system-design/error-detection-codes](system-design/error-detection-codes/) | 校验和对上了，数据就没坏吗 | 轻量：穷举，确定性输出 | regular-docker |
 | [system-design/async-acceptance](system-design/async-acceptance/) | 接口返回了 202，这件事算办完了吗 | 轻量：确定性输出 | regular-docker |
 | [system-design/unread-count-watermark](system-design/unread-count-watermark/) | 未读数显示 3，点进去一条新消息也没有 | 标准：MySQL 8.4，确定性输出 | regular-docker |
+| [system-design/hashmap-treeify](system-design/hashmap-treeify/) | HashMap 冲突链的树化条件与查找代价 | 轻量：确定性输出 | regular-docker |
 | [distributed/http-timeout-layers](distributed/http-timeout-layers/) | 一次 HTTP 调用的超时分层 | 轻量：容器内服务端与客户端，JDK 21 与 25 | regular-docker |
 | [distributed/retry-amplification](distributed/retry-amplification/) | 重试放大与超时预算 | 轻量：单 JVM 三级调用链 | regular |
 | [distributed/lock-and-transaction](distributed/lock-and-transaction/) | 锁与事务的边界、状态流转、主键类型 | 轻量：MySQL 8.4 + JDBC | regular-docker |
