@@ -1,0 +1,21 @@
+id: design/shared-flow-extension-points
+title: "多个产品共用一套流程：共用流程里按产品分支 5 处；可替换任意步骤的流水线让秒杀产品跳过风控；平台持有骨架、只开放 prepare、fee、fulfil 三个扩展点时新增产品只需注册，未注册的产品被拒绝；对 5 个扩展跑的手续费契约测试发现团购退款单收了正手续费"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/shared-flow-extension-points.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

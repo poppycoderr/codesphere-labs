@@ -1,0 +1,7 @@
+env	java.version=25.0.4.1
+if.branches	共用流程里按产品判断的分支 5 处（三种产品）；新增「直播」时，每一处都要判断要不要加，按这段代码，漏改时直播会落到 else 按默认费率收手续费，也不会开通权限
+pipeline.skip	流水线允许产品替换任一步骤，秒杀产品换掉了第 2 步：执行轨迹 [validate, fast-approve, pay]，riskChecked=false
+skeleton.flow	平台骨架下单课程：轨迹 [prepare, risk, pay, fulfil]，riskChecked=true，手续费 10；产品只能实现 prepare、fee、fulfil 三个扩展点
+skeleton.new_product	新增直播：注册一个扩展，平台代码不变；直播订单轨迹 [prepare, risk, pay, fulfil]
+skeleton.unknown	没有注册扩展的产品下单：被拒绝（未注册的产品：GIFT_CARD），而不是落到某个默认分支
+contract	平台对 5 个扩展跑手续费契约（0 ≤ 手续费 ≤ 金额，退款单反号）：失败 1 项 [GROUP_BUY 金额 -50 的手续费 3]
