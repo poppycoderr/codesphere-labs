@@ -1,0 +1,22 @@
+id: refactoring/rename-boundaries
+title: "改名的边界：JSON 字段改名后旧消费方读到 0；反射按旧方法名查找抛 NoSuchMethodException；按名字存下的枚举改名后读回抛异常，按序号存的插入常量后读错；配置键改名后读到 null；@JsonProperty 保留对外名字后新旧互通"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/refactoring/naming-and-renaming.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jackson: "3.2.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
