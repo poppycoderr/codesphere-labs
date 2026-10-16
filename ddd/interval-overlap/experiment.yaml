@@ -1,0 +1,23 @@
+id: ddd/interval-overlap
+title: "时间区间不重叠：唯一键 (member_id, starts) 让重叠的值班照样插入；两个事务先查后插（REPEATABLE READ）都提交成功；先锁成员行后只成功一个；PostgreSQL 18 的排他约束让并发插入只成功一个；半开区间可以首尾相接，闭区间不行"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/interval-overlap.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    mysql: "8.4.11"
+    postgresql: "18.6"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

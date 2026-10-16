@@ -1,0 +1,7 @@
+env	java.version=25.0.4.1 mysql=8.4.11 postgres=18.6
+unique_key	唯一键 (member_id, starts)，已有 09:00—12:00，再插入 10:00—11:00：插入成功，现在有 2 条重叠的值班
+check_then_insert	两个事务各自先查「有没有重叠」再插入（REPEATABLE READ）：提交成功 2 个；表里重叠的值班 2
+lock_member	检查前先 SELECT … FOR UPDATE 锁住成员行（后到的事务在这里等待先到的提交）：提交成功 1 个，另一个失败（IllegalStateException：重叠）；表里的值班 1
+pg_exclude	PostgreSQL 排他约束 EXCLUDE (member_id WITH =, period WITH &&)，两个事务并发插入重叠区间：提交成功 1 个，另一个失败（PSQLException：conflicting key value violates exclusion constraint "duty_member_id_period_excl"）；表里的值班 1
+pg_boundaries	另一天：半开区间 [09:00, 12:00) 之后接 [12:00, 15:00)：插入成功；闭区间 [15:00, 18:00] 之后接 [18:00, 20:00)：被拒绝（18:00 同时属于两段）
+pg_other_member	另一个成员同一时段：插入成功

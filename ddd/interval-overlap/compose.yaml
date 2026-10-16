@@ -1,0 +1,25 @@
+# 时间区间不重叠：MySQL 8.4.11 与 PostgreSQL 18 各一个，不暴露宿主机端口
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_DATABASE: labs
+    command: ["--skip-log-bin"]
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
+  postgres:
+    image: postgres:18-alpine@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873
+    environment:
+      POSTGRES_PASSWORD: example_password
+      POSTGRES_DB: labs
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
