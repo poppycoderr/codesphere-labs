@@ -1,0 +1,19 @@
+env	java.version=25.0.4.1 mysql=8.4.11
+xa.normal.prepared	两个分支都 PREPARE 之后，XA RECOVER 列出 [t1a, t1b]
+xa.normal.committed	两个分支都 COMMIT：a=900 b=1100
+xa.orphan.recover	准备之后协调者的连接全部断开：XA RECOVER 仍列出 [t2a, t2b]；余额仍是 a=900 b=1100
+xa.orphan.lock	另一个事务更新 bank_a 的同一行（锁等待超时 2 秒）：失败（Lock wait timeout exceeded; try restarting transaction）
+xa.orphan.other_row	更新同一张表的另一行：成功
+xa.partial	协调者提交了分支 a 后消失：bank_a.id=2 已是 700，XA RECOVER 列出 [t2a, t2b, t3b]；只看数据库无法知道 t3 该提交还是回滚，需要协调者自己记录的决定
+restart.recover	MySQL 实例重启之后 XA RECOVER：[t2a, t2b, t3b]
+restart.lock	重启之后，另一个事务更新 bank_a.id=1：失败（Lock wait timeout exceeded; try restarting transaction）
+restart.resolve	由恢复程序按协调者的决定从新会话 XA COMMIT 剩余分支：XA RECOVER []；id=1 a=700 b=1300；id=2 a=700 b=1300
+tcc.1_naive.empty_cancel	Try 请求丢失、协调者超时后发来 Cancel：balance=1100 frozen=-100
+tcc.1_naive.hanging	Cancel 之后迟到的 Try 才到达：balance=1000 frozen=0（之后不会再有 Confirm 或 Cancel）
+tcc.1_naive.double_confirm	Try 后 Confirm 被重试两次：balance=900 frozen=-100
+tcc.2_empty_only.empty_cancel	Try 请求丢失、协调者超时后发来 Cancel：balance=1000 frozen=0
+tcc.2_empty_only.hanging	Cancel 之后迟到的 Try 才到达：balance=900 frozen=100（之后不会再有 Confirm 或 Cancel）
+tcc.2_empty_only.double_confirm	Try 后 Confirm 被重试两次：balance=900 frozen=0
+tcc.3_guarded.empty_cancel	Try 请求丢失、协调者超时后发来 Cancel：balance=1000 frozen=0
+tcc.3_guarded.hanging	Cancel 之后迟到的 Try 才到达：balance=1000 frozen=0（之后不会再有 Confirm 或 Cancel）
+tcc.3_guarded.double_confirm	Try 后 Confirm 被重试两次：balance=900 frozen=0

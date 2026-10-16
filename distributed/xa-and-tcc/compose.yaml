@@ -1,0 +1,13 @@
+# 两阶段提交与 TCC：一个 MySQL 8.4.11，不暴露宿主机端口
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+    command: ["--skip-log-bin", "--innodb-lock-wait-timeout=2"]
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+      interval: 2s
+      timeout: 5s
+      retries: 60

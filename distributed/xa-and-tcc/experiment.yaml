@@ -1,0 +1,22 @@
+id: distributed/xa-and-tcc
+title: "两阶段提交与 TCC：MySQL 8.4.11 上准备好的 XA 分支在协调者断开与实例重启后仍在、仍持有行锁，只提交了一个分支时数据库无法判断另一个该提交还是回滚，由恢复程序按协调者的决定提交；TCC 的朴素实现在空回滚时凭空增加余额、重复确认让冻结金额变负，只处理空回滚的实现在迟到的 Try 后永久冻结 100，带分支状态表的实现三种情况都正确"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/xa-and-tcc.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"
