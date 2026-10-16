@@ -1,0 +1,21 @@
+id: refactoring/parameter-placement
+title: "参数放在哪里：单例把当前用户放进字段后 alice 收到 hello bob；同类型的时间参数写反时编译通过、返回 0 条，换成参数对象后构造时就报错；线程池里上一个任务的租户没清理，下一个任务读到 tenant-a"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/refactoring/parameter-placement.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

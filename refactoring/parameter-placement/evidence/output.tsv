@@ -1,0 +1,7 @@
+env	java.version=25.0.4.1
+field.shared	单例服务把当前用户放在字段里，alice 的请求等 I/O 时 bob 的请求进来：alice 收到「hello bob」
+field.param	作为参数传入：alice 收到「hello alice」
+swap.raw	count(from, to) 正确调用 2 条；参数写反成 count(oct10, oct1)：编译通过，返回 0 条，没有任何错误
+swap.object	换成参数对象 Period(from, to)，写反时：构造时抛出 IllegalArgumentException（from 必须早于 to：2026-10-10T00:00:00Z / 2026-10-01T00:00:00Z）
+context.leak	线程池里的上一个任务设置了租户、没有清理；同一个线程上的下一个任务读到：tenant-a
+context.cleaned	改成 try/finally 里 remove：下一个任务读到 null
