@@ -1,0 +1,22 @@
+src/Shipping.java:9:	CognitiveComplexity:	The method 'nested(Region, int, boolean, boolean)' has a cognitive complexity of 16, current threshold is 1
+src/Shipping.java:9:	CyclomaticComplexity:	The method 'nested(Region, int, boolean, boolean)' has a cyclomatic complexity of 6.
+src/Shipping.java:9:	NPathComplexity:	The method 'nested(Region, int, boolean, boolean)' has an NPath complexity of 9, current threshold is 1
+src/Shipping.java:35:	CognitiveComplexity:	The method 'guarded(Region, int, boolean, boolean)' has a cognitive complexity of 7, current threshold is 1
+src/Shipping.java:35:	CyclomaticComplexity:	The method 'guarded(Region, int, boolean, boolean)' has a cyclomatic complexity of 7.
+src/Shipping.java:35:	NPathComplexity:	The method 'guarded(Region, int, boolean, boolean)' has an NPath complexity of 19, current threshold is 1
+src/Shipping.java:44:	CognitiveComplexity:	The method 'switched(Region, int, boolean, boolean)' has a cognitive complexity of 5, current threshold is 1
+src/Shipping.java:44:	CyclomaticComplexity:	The method 'switched(Region, int, boolean, boolean)' has a cyclomatic complexity of 7.
+src/Shipping.java:44:	NPathComplexity:	The method 'switched(Region, int, boolean, boolean)' has an NPath complexity of 9, current threshold is 1
+src/Shipping.java:56:	CognitiveComplexity:	The method 'table(Region, int, boolean, boolean)' has a cognitive complexity of 4, current threshold is 1
+src/Shipping.java:56:	CyclomaticComplexity:	The method 'table(Region, int, boolean, boolean)' has a cyclomatic complexity of 5.
+src/Shipping.java:56:	NPathComplexity:	The method 'table(Region, int, boolean, boolean)' has an NPath complexity of 7, current threshold is 1
+src/Shipping.java:63:	CyclomaticComplexity:	The method 'base(boolean)' has a cyclomatic complexity of 1.
+src/Shipping.java:63:	NPathComplexity:	The method 'base(boolean)' has an NPath complexity of 1, current threshold is 1
+src/Shipping.java:68:	CognitiveComplexity:	The method 'strategy(Region, int, boolean, boolean)' has a cognitive complexity of 2, current threshold is 1
+src/Shipping.java:68:	CyclomaticComplexity:	The method 'strategy(Region, int, boolean, boolean)' has a cyclomatic complexity of 3.
+src/Shipping.java:68:	NPathComplexity:	The method 'strategy(Region, int, boolean, boolean)' has an NPath complexity of 3, current threshold is 1
+src/Shipping.java:74:	CognitiveComplexity:	The method 'main(String[])' has a cognitive complexity of 21, current threshold is 1
+src/Shipping.java:74:	CyclomaticComplexity:	The method 'main(String[])' has a cyclomatic complexity of 7.
+src/Shipping.java:74:	NPathComplexity:	The method 'main(String[])' has an NPath complexity of 7, current threshold is 1
+env	java.version=25.0.4.1
+equivalence	48 组输入（3 个地区 × 4 个金额 × 是否会员 × 是否超重），另外四种写法与嵌套写法不一致的次数：0

@@ -34,6 +34,7 @@
 | [refactoring/duplication-and-extraction](refactoring/duplication-and-extraction/) | 抽一个公共方法之前：同一条知识，还是只是长得像 | 轻量：确定性输出 | regular-docker |
 | [refactoring/behavior-preserving-extraction](refactoring/behavior-preserving-extraction/) | 把长方法拆开，哪些行为最容易被改掉 | 轻量：确定性输出 | regular-docker |
 | [refactoring/parameter-placement](refactoring/parameter-placement/) | 参数放在哪里：请求数据、依赖与上下文 | 轻量：确定性输出 | regular-docker |
+| [refactoring/control-flow-complexity](refactoring/control-flow-complexity/) | 嵌套、卫语句、switch 与多态：复杂度到底降了没有 | 轻量：确定性输出（PMD 7.28.0） | regular-docker |
 | [ddd/registration-acceptance-tests](ddd/registration-acceptance-tests/) | 事件风暴；领域建模 | 轻量：规则表与验收测试 | regular |
 | [ddd/entities-and-value-objects](ddd/entities-and-value-objects/) | 实体与值对象 | 轻量 | regular |
 | [ddd/aggregate-boundaries](ddd/aggregate-boundaries/) | 聚合边界 | 轻量：MySQL 并发 | regular-docker |

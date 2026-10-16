@@ -1,0 +1,19 @@
+nested	Cognitive	16
+nested	Cyclomatic	6
+nested	NPath	9
+guarded	Cognitive	7
+guarded	Cyclomatic	7
+guarded	NPath	19
+switched	Cognitive	5
+switched	Cyclomatic	7
+switched	NPath	9
+table	Cognitive	4
+table	Cyclomatic	5
+table	NPath	7
+base	Cyclomatic	1
+base	NPath	1
+strategy	Cognitive	2
+strategy	Cyclomatic	3
+strategy	NPath	3
+env	java.version=25.0.4.1
+equivalence	48 组输入（3 个地区 × 4 个金额 × 是否会员 × 是否超重），另外四种写法与嵌套写法不一致的次数：0

@@ -1,0 +1,22 @@
+id: refactoring/control-flow-complexity
+title: "控制流与复杂度（PMD 7.28.0）：同一条运费规则的五种写法在 48 组输入上结果一致；认知复杂度从嵌套的 16 降到卫语句 7、switch 5、查表 4、策略 2，圈复杂度却是 6、7、7、5、3；策略写法里 lambda 中的条件不计入任何方法"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/refactoring/control-flow-complexity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    pmd: "7.28.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
