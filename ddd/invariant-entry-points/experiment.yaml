@@ -1,0 +1,22 @@
+id: ddd/invariant-entry-points
+title: "不变量的入口：构造器拒绝数量 0，但同样的 JSON 经无参构造器的类被接受，record 与 @JsonCreator 拒绝；改过的 Java 序列化字节与反射写字段都绕过构造器；暴露内部列表让购物车有 4 行，只读视图挡住 add 却挡不住可变元素；父类公共 setter 跳过支付；Long 128 == 128 为 false"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/invariant-entry-points.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jackson: "3.2.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

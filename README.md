@@ -45,6 +45,7 @@
 | [ddd/context-integration-outbox](ddd/context-integration-outbox/) | 上下文集成 | 组件：outbox、去重、乱序与死信 | regular-docker |
 | [ddd/cqrs-read-models](ddd/cqrs-read-models/) | CQRS 读模型 | 轻量：MySQL 读模型与投影 | regular-docker |
 | [ddd/legacy-modernization-slice](ddd/legacy-modernization-slice/) | 遗留系统的精益切片 | 轻量：字符化与影子比对 | regular |
+| [ddd/invariant-entry-points](ddd/invariant-entry-points/) | 构造器里写了校验，对象就一定合法吗 | 轻量：确定性输出（Jackson 3.2.3） | regular-docker |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
 | [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
 | [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |
