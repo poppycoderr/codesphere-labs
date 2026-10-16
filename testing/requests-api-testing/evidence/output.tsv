@@ -1,0 +1,14 @@
+env	python=3.14.8 requests=2.34.2
+params.fstring	自己拼 URL「?q=a b&c」：服务端收到 {'q': ['a b'], 'c': [''], 'tag': ['x']}
+params.dict	params={'q': 'a b&c', 'tag': ['x', 'y']}：查询串 q=a+b%26c&tag=x&tag=y，服务端收到 {'q': ['a b&c'], 'tag': ['x', 'y']}
+body.data_dict	data=dict：Content-Type application/x-www-form-urlencoded，请求体 sku=A1&qty=2
+body.json	json=dict：Content-Type application/json，请求体 {"sku": "A1", "qty": 2}
+body.data_str	data=json.dumps(...)：Content-Type None，请求体 {"sku": "A1", "qty": 2}；没有声明 JSON，按 Content-Type 分派的服务端不会按 JSON 解析
+body.data_nested	data 里放嵌套结构：请求体 items=sku&items=sku
+timeout.none	不设 timeout 请求一个 3 秒才响应的接口：等了约 3 秒；requests 默认不设超时，对方一直不响应就一直等
+timeout.set	timeout=1：约 1 秒后抛出 ReadTimeout
+status.unchecked	500 响应：不抛异常，resp.ok=False；只断言 resp.json() 有内容的测试照样通过
+status.raise	raise_for_status()：HTTPError：500 Server Error: Internal Server Error
+session.none	不用 Session：先登录再访问 /me，状态 401
+session.cookie	Session：登录后访问 /me，状态 200；7 次请求用了 1 个 TCP 连接
+session.connections	不用 Session 发 7 次请求：用了 7 个 TCP 连接

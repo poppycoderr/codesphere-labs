@@ -1,0 +1,22 @@
+id: testing/requests-api-testing
+title: "用 requests 写接口测试：自己拼查询串时 & 和空格被拆错，params 正确编码；data=dict 是表单、json= 才是 JSON、data=json.dumps 没有 Content-Type；不设 timeout 一直等；500 不抛异常；不用 Session 时 Cookie 不保留、7 次请求 7 个连接，Session 复用 1 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/requests-api-testing.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    requests: "2.34.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
