@@ -1,0 +1,23 @@
+id: engineering/regex-escape-layers
+title: "反斜杠数了三遍：Java 源码 4 个反斜杠才匹配 1 个、Python 原始字符串 2 个、JS 字面量 2 个；quote 与 escape 让点号不再匹配任意字符；用户输入的  在 Java 替换模板里抛 No group 5、在 JS 里原样输出，$& 被当成整个匹配；Python 替换模板里的反斜杠 5 报错；替换参数传函数时不解释模板"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/regex-escape-layers.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    python: "3.14.8"
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

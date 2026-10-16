@@ -1,0 +1,29 @@
+java	backslash.literal_replace	String.replace 不用正则：C:/temp/a.txt
+node	backslash.literal_replace	replace 传字符串只替换第一个：C:/temp\a.txt；replaceAll：C:/temp/a.txt
+python	backslash.literal_replace	str.replace 不用正则：C:/temp/a.txt
+node	backslash.new_regexp	new RegExp("\\\\")（源码 4 个反斜杠）：C:/temp/a.txt
+java	backslash.regex_source	"\\\\"（源码 4 个反斜杠 → 字符串 2 个 → 正则匹配 1 个）：C:/temp/a.txt
+node	backslash.regex_source	/\\/g（字面量里 2 个反斜杠 → 匹配 1 个）：C:/temp/a.txt
+python	backslash.regex_source	r"\\"（原始字符串 2 个反斜杠 → 正则匹配 1 个）：C:/temp/a.txt
+java	dot.quoted	Pattern.quote("a.b") 匹配 axb：false
+node	dot.quoted	RegExp.escape("a.b") 匹配 axb：false
+python	dot.quoted	re.escape('a.b') 匹配 axb：False
+java	dot.unescaped	a.b 匹配 axb：true
+node	dot.unescaped	a.b 匹配 axb：true
+python	dot.unescaped	a.b 匹配 axb：True
+java	replacement.backslash_escaped	替换串是两个反斜杠（源码写 "\\\\"）：a\b
+java	replacement.backslash_quoted	Matcher.quoteReplacement("\\")：a\b
+java	replacement.backslash_raw	替换串是一个反斜杠（源码写 "\\"）：异常 IllegalArgumentException：character to be escaped is missing
+python	replacement.backslash_user	把 {price} 替换成用户输入的 "\5"：异常 PatternError：invalid group reference 5 at position 1
+node	replacement.dollar_amp	用户输入 "$&"：价格 {price}
+java	replacement.dollar_quoted	Matcher.quoteReplacement：价格 $5
+java	replacement.dollar_raw	把 {price} 替换成用户输入的 "$5"：异常 IndexOutOfBoundsException：No group 5
+node	replacement.dollar_raw	把 {price} 替换成用户输入的 "$5"：价格 $5
+python	replacement.dollar_raw	替换成 "$5"：价格 $5
+node	replacement.function	替换参数传函数，返回 "$&"：价格 $&
+python	replacement.function	替换参数传函数：价格 \5
+java	source.length	C:\temp\a.txt，长度 13
+node	source.length	C:\temp\a.txt，长度 13
+python	source.length	C:\temp\a.txt，长度 13
+python	source.non_raw_warning	非原始字符串 "\d"：长度 2，编译时警告 ['SyntaxWarning']
+java	textblock.backslash	文本块里的 \d 仍是转义：true
