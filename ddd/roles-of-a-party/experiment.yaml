@@ -1,0 +1,21 @@
+id: ddd/roles-of-a-party
+title: "同一个人的几种角色：大实体撤销讲师后课时费仍在、历史丢失；只该用学员接口的代码转换回实现类拿到管理员权限；参与方加角色对象保留两段讲师经历、规则放在角色自己的构造器里"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/roles-of-a-party.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
