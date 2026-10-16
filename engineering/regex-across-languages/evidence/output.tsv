@@ -1,0 +1,47 @@
+java	case.insensitive_unicode	false / false
+node	case.insensitive_unicode	false / true
+python	case.insensitive_unicode	False / True
+java	case.insensitive_unicode_case	true（加 UNICODE_CASE）
+java	digit.arabic_indic	false
+node	digit.arabic_indic	false
+python	digit.arabic_indic	True
+java	digit.fullwidth	false
+node	digit.fullwidth	false
+python	digit.fullwidth	True
+java	digit.unicode_character_class	true（加 UNICODE_CHARACTER_CLASS）
+java	dollar.trailing_newline	true
+node	dollar.trailing_newline	false
+python	dollar.trailing_newline	True
+java	dot.newline	false
+node	dot.newline	false
+python	dot.newline	False
+node	global.lastIndex	[true,false,true,false]
+node	global.lastIndex_without_g	[true,true,true,true]
+java	named.syntax_java_style	2026
+node	named.syntax_java_style	2026
+python	named.syntax_java_style	异常 PatternError
+python	named.syntax_python_style	2026
+java	replace.backslash_template	2/1
+node	replace.backslash_template	\2/\1
+python	replace.backslash_template	10/2026
+java	replace.named	10/2026
+node	replace.named	10/2026
+python	replace.named	10/2026
+java	replace.numbered	10/2026
+node	replace.numbered	10/2026
+python	replace.numbered	$2/$1
+java	split.dot	[]
+node	split.dot	["","","","","",""]
+python	split.dot	['', '', '', '', '', '']
+java	split.trailing_empty	[a, b]
+node	split.trailing_empty	["a","b","",""]
+python	split.trailing_empty	['a', 'b', '', '']
+java	version	25.0.4.1
+node	version	v24.21.0
+python	version	3.14.8
+java	whole.match_api	false（matches）/ true（find）
+node	whole.match_api	true（test）/ false（加 ^$）
+python	whole.match_api	True（match）/ False（fullmatch）
+java	word.chinese	false
+node	word.chinese	false
+python	word.chinese	True

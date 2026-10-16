@@ -1,0 +1,23 @@
+id: engineering/regex-across-languages
+title: "同一个正则在 Java、Python、JavaScript 里：数字与单词字符 是否包含非 ASCII 字符、$ 是否匹配末尾换行之前、整串匹配的 API、命名分组语法、替换模板、split 的尾部空串与点号、忽略大小写的范围，以及 JS 带 g 标志的正则复用时 test 交替返回 true 与 false"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/regex-across-languages.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    python: "3.14.8"
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

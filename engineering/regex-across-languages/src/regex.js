@@ -1,0 +1,21 @@
+// 与 Regex.java、regex.py 同一组用例
+const out = (k, v) => console.log(`node\t${k}\t${v}`);
+const tryIt = (f) => { try { return f(); } catch (e) { return `异常 ${e.name}`; } };
+out("version", process.version);
+out("digit.arabic_indic", /^\d+$/.test("١٢٣"));
+out("digit.fullwidth", /^\d+$/.test("１２３"));
+out("word.chinese", /^\w+$/.test("中文"));
+out("dollar.trailing_newline", /abc$/.test("abc\n"));
+out("dot.newline", /a.b/.test("a\nb"));
+out("whole.match_api", `${/\d{3}/.test("1234")}（test）/ ${/^\d{3}$/.test("1234")}（加 ^$）`);
+out("named.syntax_java_style", tryIt(() => "2026-10".match(/(?<y>\d{4})-(?<m>\d{2})/).groups.y));
+out("replace.numbered", "2026-10".replace(/(\d{4})-(\d{2})/, "$2/$1"));
+out("replace.backslash_template", "2026-10".replace(/(\d{4})-(\d{2})/, "\\2/\\1"));
+out("replace.named", "2026-10".replace(/(?<y>\d{4})-(?<m>\d{2})/, "$<m>/$<y>"));
+out("split.trailing_empty", JSON.stringify("a,b,,".split(",")));
+out("split.dot", JSON.stringify("a.b.c".split(/./)));
+out("case.insensitive_unicode", `${/straße/i.test("STRASSE")} / ${/é/i.test("É")}`);
+const g = /\d/g;
+out("global.lastIndex", JSON.stringify(["1", "2", "3", "4"].map((s) => g.test(s))));
+const ug = /\d/;
+out("global.lastIndex_without_g", JSON.stringify(["1", "2", "3", "4"].map((s) => ug.test(s))));
