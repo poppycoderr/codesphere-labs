@@ -1,0 +1,21 @@
+id: ddd/script-or-domain-model
+title: "事务脚本还是领域模型：同一报名需求经历候补、调换场次、VIP 保留席位三次变化，两种实现都通过 7 个验收场景；事务脚本 43 行、名额条件写了 3 处，领域模型 61 行、名额条件收敛到 1 处，但 v3 的改动行数更多（+28 −17 对 +16 −4）"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/script-or-domain-model.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
