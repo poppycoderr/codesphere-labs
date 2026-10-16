@@ -1,0 +1,22 @@
+id: ddd/organization-structure
+title: "组织结构的知识层与实例层：按允许的上下级类型校验挂接，在知识层加一行即可新增规则，删掉规则后存量里留下 1 条不合法的关系；同一团队在行政线与职能线上各有上级；排他约束让同一结构线上的上级关系不重叠，按日期查到调动前后的上级；两个事务并发加边，READ COMMITTED 下形成环，SERIALIZABLE 与锁住结构线只成功一个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/organization-structure.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    postgresql: "18.6"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
