@@ -1,0 +1,145 @@
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.169 s <<< FAILURE! -- in lab.ShippingRuleTest
+[ERROR] lab.ShippingRuleTest.feeWithoutNames(int, int)[2] -- Time elapsed: 0.009 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 20
+ but was: 10
+	at lab.ShippingRuleTest.feeWithoutNames(ShippingRuleTest.java:20)
+
+[ERROR] lab.ShippingRuleTest.fee(int, int, String)[2] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 20
+ but was: 10
+	at lab.ShippingRuleTest.fee(ShippingRuleTest.java:16)
+
+[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.027 s <<< FAILURE! -- in lab.FailureMessageTest
+[ERROR] lab.FailureMessageTest.a_assertTrue_contains -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at lab.FailureMessageTest.a_assertTrue_contains(FailureMessageTest.java:12)
+
+[ERROR] lab.FailureMessageTest.b_assertEquals_list -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[apple, banana, pear]> but was: <[apple, pear]>
+	at lab.FailureMessageTest.b_assertEquals_list(FailureMessageTest.java:13)
+
+[ERROR] lab.FailureMessageTest.d_assertj_described -- Time elapsed: 0.012 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+[alice 的购物车] 
+Expecting actual:
+  ["apple", "pear"]
+to contain exactly (and in same order):
+  ["apple", "banana", "pear"]
+but could not find the following elements:
+  ["banana"]
+
+	at lab.FailureMessageTest.d_assertj_described(FailureMessageTest.java:15)
+
+[ERROR] lab.FailureMessageTest.c_assertj_contains -- Time elapsed: 0.003 s <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting List12:
+  ["apple", "pear"]
+to contain:
+  ["banana"]
+but could not find the following element(s):
+  ["banana"]
+
+	at lab.FailureMessageTest.c_assertj_contains(FailureMessageTest.java:14)
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction (file:/root/.m2/repository/net/bytebuddy/byte-buddy/1.18.3/byte-buddy-1.18.3.jar)
+WARNING: Please consider reporting this to the maintainers of class net.bytebuddy.dynamic.loading.ClassInjector$UsingUnsafe$Dispatcher$CreationAction
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[ERROR] Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.474 s <<< FAILURE! -- in lab.GroupedAssertionTest
+[ERROR] lab.GroupedAssertionTest.c_softAssertions -- Time elapsed: 0.461 s <<< FAILURE!
+org.assertj.core.error.AssertJMultipleFailuresError: 
+
+Multiple Failures (2 failures)
+-- failure 1 --
+[total] 
+expected: 100.00
+ but was: 90.00
+at GroupedAssertionTest.c_softAssertions(GroupedAssertionTest.java:29)
+-- failure 2 --
+[status] 
+expected: "PAID"
+ but was: "NEW"
+at GroupedAssertionTest.c_softAssertions(GroupedAssertionTest.java:30)
+	at lab.GroupedAssertionTest.c_softAssertions(GroupedAssertionTest.java:31)
+
+[ERROR] lab.GroupedAssertionTest.b_assertAll -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.MultipleFailuresError: 
+订单摘要 (2 failures)
+	org.opentest4j.AssertionFailedError: total ==> expected: <100.00> but was: <90.00>
+	org.opentest4j.AssertionFailedError: status ==> expected: <PAID> but was: <NEW>
+	at lab.GroupedAssertionTest.b_assertAll(GroupedAssertionTest.java:20)
+
+[ERROR] lab.GroupedAssertionTest.a_sequential -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <100.00> but was: <90.00>
+	at lab.GroupedAssertionTest.a_sequential(GroupedAssertionTest.java:15)
+
+[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.327 s <<< FAILURE! -- in lab.RefactorSafetyTest
+[ERROR] lab.RefactorSafetyTest.interaction_v2 -- Time elapsed: 0.006 s <<< FAILURE!
+org.mockito.exceptions.verification.TooFewActualInvocations: 
+
+taxService.rate();
+Wanted 3 times:
+-> at lab.RefactorSafetyTest.interaction_v2(RefactorSafetyTest.java:21)
+But was 1 time:
+-> at lab.Shop.totalV2(Shop.java:29)
+
+	at lab.RefactorSafetyTest.interaction_v2(RefactorSafetyTest.java:21)
+
+[ERROR] Failures: 
+[ERROR]   FailureMessageTest.a_assertTrue_contains:12 expected: <true> but was: <false>
+[ERROR]   FailureMessageTest.b_assertEquals_list:13 expected: <[apple, banana, pear]> but was: <[apple, pear]>
+[ERROR]   FailureMessageTest.c_assertj_contains:14 
+Expecting List12:
+  ["apple", "pear"]
+to contain:
+  ["banana"]
+but could not find the following element(s):
+  ["banana"]
+
+[ERROR]   FailureMessageTest.d_assertj_described:15 [alice 的购物车] 
+Expecting actual:
+  ["apple", "pear"]
+to contain exactly (and in same order):
+  ["apple", "banana", "pear"]
+but could not find the following elements:
+  ["banana"]
+
+[ERROR]   GroupedAssertionTest.a_sequential:15 expected: <100.00> but was: <90.00>
+[ERROR]   GroupedAssertionTest.b_assertAll:20 订单摘要 (2 failures)
+	org.opentest4j.AssertionFailedError: total ==> expected: <100.00> but was: <90.00>
+	org.opentest4j.AssertionFailedError: status ==> expected: <PAID> but was: <NEW>
+[ERROR]   GroupedAssertionTest.c_softAssertions:31 
+Multiple Failures (2 failures)
+-- failure 1 --
+[total] 
+expected: 100.00
+ but was: 90.00
+at GroupedAssertionTest.c_softAssertions(GroupedAssertionTest.java:29)
+-- failure 2 --
+[status] 
+expected: "PAID"
+ but was: "NEW"
+at GroupedAssertionTest.c_softAssertions(GroupedAssertionTest.java:30)
+[ERROR]   RefactorSafetyTest.interaction_v2:21 
+taxService.rate();
+Wanted 3 times:
+-> at lab.RefactorSafetyTest.interaction_v2(RefactorSafetyTest.java:21)
+But was 1 time:
+-> at lab.Shop.totalV2(Shop.java:29)
+
+[ERROR]   ShippingRuleTest.fee:16 
+expected: 20
+ but was: 10
+[ERROR]   ShippingRuleTest.feeWithoutNames:20 
+expected: 20
+ but was: 10
+[ERROR] Tests run: 17, Failures: 10, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+See /w/target/surefire-reports for the individual test results.
+See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

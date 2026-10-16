@@ -1,0 +1,18 @@
+env	java.version=25.0.4.1 junit=6.1.3 assertj=3.27.7 mockito=5.24.0
+FailureMessageTest.a_assertTrue_contains	失败：expected: <true> but was: <false>
+FailureMessageTest.b_assertEquals_list	失败：expected: <[apple, banana, pear]> but was: <[apple, pear]>
+FailureMessageTest.c_assertj_contains	失败：Expecting List12: ⏎ ["apple", "pear"] ⏎ to contain: ⏎ ["banana"]
+FailureMessageTest.d_assertj_described	失败：[alice 的购物车] ⏎ Expecting actual: ⏎ ["apple", "pear"] ⏎ to contain exactly (and in same order):
+GroupedAssertionTest.a_sequential	失败：expected: <100.00> but was: <90.00>
+GroupedAssertionTest.b_assertAll	失败：订单摘要 (2 failures) ⏎ org.opentest4j.AssertionFailedError: total ==> expected: <100.00> but was: <90.00> ⏎ org.opentest4j.AssertionFailedError: status ==> expected: <PAID> but was: <NEW>
+GroupedAssertionTest.c_softAssertions	失败：Multiple Failures (2 failures) ⏎ -- failure 1 -- ⏎ [total] ⏎ expected: 100.00
+RefactorSafetyTest.behavior_v1	通过
+RefactorSafetyTest.behavior_v2	通过
+RefactorSafetyTest.interaction_v1	通过
+RefactorSafetyTest.interaction_v2	失败：taxService.rate(); ⏎ Wanted 3 times: ⏎ -> at lab.RefactorSafetyTest.interaction_v2(RefactorSafetyTest.java:21) ⏎ But was 1 time:
+ShippingRuleTest.fee(int, int, String) "10" 公斤 → 运费 "20"（"恰好 10 公斤"）	失败：expected: 20 ⏎ but was: 10
+ShippingRuleTest.fee(int, int, String) "11" 公斤 → 运费 "20"（"超过 10 公斤"）	通过
+ShippingRuleTest.fee(int, int, String) "9" 公斤 → 运费 "10"（"不满 10 公斤"）	通过
+ShippingRuleTest.feeWithoutNames(int, int)[1] "9", "10"	通过
+ShippingRuleTest.feeWithoutNames(int, int)[2] "10", "20"	失败：expected: 20 ⏎ but was: 10
+ShippingRuleTest.feeWithoutNames(int, int)[3] "11", "20"	通过

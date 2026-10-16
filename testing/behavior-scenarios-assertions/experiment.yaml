@@ -1,0 +1,24 @@
+id: testing/behavior-scenarios-assertions
+title: "从行为到场景到断言：同一个错误在 assertTrue、assertEquals、AssertJ 与带描述的 AssertJ 下的失败信息；逐条断言只报第一个错误，assertAll 与 SoftAssertions 一次报出两个；参数化测试的显示名指出是哪条例子失败；计价重构后测行为的测试通过、校验内部调用次数的测试失败"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/behavior-scenarios-assertions.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    junit: "6.1.3"
+    assertj: "3.27.7"
+    mockito: "5.24.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
