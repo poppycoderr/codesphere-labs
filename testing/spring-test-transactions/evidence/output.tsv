@@ -1,0 +1,13 @@
+env	java.version=25.0.4.1 spring-boot=4.1.1
+A_TransactionalTests.a1_sameEmailTwice_noError	通过
+A_TransactionalTests.a2_linesReadableAfterLoad	通过
+A_TransactionalTests.a3_mailSentAfterRegister	失败：Expecting CopyOnWriteArrayList: ⏎ [] ⏎ to contain:
+A_TransactionalTests.a4_orderVisibleToAnotherThread	失败：Expecting value to be true but was false
+B_CommittedTests.b0_auditTableEmptyAtStart	失败：[前一个测试类回滚之后，审计表里的行数] ⏎ expected: 0L ⏎ but was: 3L
+B_CommittedTests.b1_sameEmailTwice_noError	失败：Expecting code not to raise a throwable but caught ⏎ "org.springframework.dao.DataIntegrityViolationException: could not execute statement [Unique index or primary key violation: "PUBLIC.CONSTRAINT_87 INDEX PUBLIC.CONSTRAINT_INDEX_8 ON PUBLIC.MEMBER(EMAIL NULLS FIRST) VALUES ( /* 1 */ 'dup-b@example.com' )"; SQL statement: ⏎ insert into member (email,id) values (?,?) [23505-240]] [insert into member (email,id) values (?,?)]; SQL [insert into member (email,id) values (?,?)]; constraint [PUBLIC.CONSTRAINT_87 INDEX PUBLIC.CONSTRAINT_INDEX_8]
+B_CommittedTests.b2_linesReadableAfterLoad	错误：Cannot lazily initialize collection of role 'lab.App$PurchaseOrder.lines' with key 'o-b' (no session)
+B_CommittedTests.b3_mailSentAfterRegister	通过
+B_CommittedTests.b4_orderVisibleToAnotherThread	通过
+C_MockedBeanTests.c1_contextStarts	通过
+Z_ContextCountTest.z1_record	通过
+note.contexts	A、B、Z 三个测试类配置相同，C 替换了一个 Bean；整个测试过程中创建的应用上下文：2 个

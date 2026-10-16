@@ -1,0 +1,23 @@
+id: testing/spring-test-transactions
+title: "Spring 测试事务的失真：同一邮箱注册两次在测试事务里不报错，提交时违反唯一约束；懒加载的订单行在测试事务里读得到，提交后抛 LazyInitializationException；提交后发送的通知在测试事务里没有发出；另一个线程看不到测试事务里的订单；REQUIRES_NEW 写入的 3 条审计在回滚后仍留在表里；替换一个 Bean 让上下文从 1 个变成 2 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/spring-test-transactions.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring-boot: "4.1.1"
+    h2: "2.4.240"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"
