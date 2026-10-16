@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <!-- 只用来把运行所需的 jar 下载到一个目录，程序本身以单文件源码方式运行 -->
+  <groupId>labs</groupId><artifactId>collections-behind-queries</artifactId><version>1</version><packaging>pom</packaging>
+  <dependencies>
+    <dependency><groupId>org.hibernate.orm</groupId><artifactId>hibernate-core</artifactId><version>7.4.13.Final</version></dependency>
+    <dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><version>42.7.14</version></dependency>
+  </dependencies>
+</project>

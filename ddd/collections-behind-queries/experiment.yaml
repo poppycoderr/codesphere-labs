@@ -1,0 +1,23 @@
+id: ddd/collections-behind-queries
+title: "领域模型里的集合背后的查询：1000 人的场次用 size() 检查名额加载 1001 个实体、计数器只加载 1 个；只往 mappedBy 的 List 里加一项不加载集合但根版本号不变；往 Set 里加一项加载整个集合；50 个场次逐个读集合 51 条 SQL、join fetch 1 条；orphanRemoval 的 clear 逐行删除 1005 项，批量删除 1 条"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/collections-behind-queries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    hibernate: "7.4.13.Final"
+    postgresql: "18.6"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

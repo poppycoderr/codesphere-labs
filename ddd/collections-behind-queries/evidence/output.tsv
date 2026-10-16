@@ -1,0 +1,12 @@
+env	java.version=25.0.4.1 hibernate=7.4.13.Final
+size_check	1000 人的场次，聚合方法里用 registrations.size() 检查名额后报名：SQL 3 条，加载实体 1001 个
+counter_check	改用场次上的计数器检查名额：SQL 4 条，加载实体 1 个
+bag_add	不检查名额，只往 List（bag）里加一项：SQL 2 条，加载实体 1 个
+version	场次的 @Version：只往 mappedBy 的集合里加一项前后 1 → 1；同时修改计数器前后 1 → 2：只改子项时，根的版本号不变，乐观锁挡不住两个并发的报名
+set_add	往 Set 映射的候补里加一项：SQL 3 条，加载实体 1001 个
+count_query	用查询回答「报了多少人」：SQL 1 条，加载实体 0 个
+n_plus_one	查出 50 个小场次，逐个读 registrations.size()：SQL 51 条，加载实体 200 个
+join_fetch	同样的遍历，查询时 join fetch 集合：SQL 1 条，加载实体 200 个
+clear_orphans	orphanRemoval 的集合 clear()（1005 项）：SQL 1007 条，加载实体 1006 个
+after_clear	清空后报名表里这个场次剩下 0 条
+bulk_delete	50 个小场次的报名用一条批量删除：SQL 1 条，加载实体 0 个

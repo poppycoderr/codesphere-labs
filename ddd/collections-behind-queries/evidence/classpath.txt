@@ -1,0 +1,17 @@
+angus-activation-2.0.3.jar
+antlr4-runtime-4.13.2.jar
+byte-buddy-1.18.14.jar
+checker-qual-3.55.1.jar
+hibernate-core-7.4.13.Final.jar
+hibernate-models-1.1.2.jar
+istack-commons-runtime-4.1.2.jar
+jakarta.activation-api-2.1.4.jar
+jakarta.inject-api-2.0.1.jar
+jakarta.persistence-api-3.2.0.jar
+jakarta.transaction-api-2.0.1.jar
+jakarta.xml.bind-api-4.0.4.jar
+jaxb-core-4.0.7.jar
+jaxb-runtime-4.0.7.jar
+jboss-logging-3.6.1.Final.jar
+postgresql-42.7.14.jar
+txw2-4.0.7.jar
