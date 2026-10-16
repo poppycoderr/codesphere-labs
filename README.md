@@ -128,6 +128,7 @@
 | [engineering/unicode-length](engineering/unicode-length/) | 一个字符串有多长：字节、码点、UTF-16 与字形 | 轻量：确定性输出 | regular-docker |
 | [engineering/vim-editing-language](engineering/vim-editing-language/) | Vim 的编辑语言 | 轻量：确定性输出 | regular-docker |
 | [engineering/vim-file-encoding](engineering/vim-file-encoding/) | Vim 打开中文文件乱码 | 轻量：确定性输出 | regular-docker |
+| [engineering/vim-runtime-loading](engineering/vim-runtime-loading/) | Vim 的配置与插件怎样加载 | 轻量：确定性输出 | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |

@@ -1,0 +1,21 @@
+id: engineering/vim-runtime-loading
+title: "Vim 的配置与插件怎样加载：runtimepath 的顺序；启动时 vimrc、plugin、pack 的 start、after/plugin 依次加载，后赋值的生效；autoload 函数在第一次调用时才加载；opt 包要 packadd；~/.vim/ftplugin 设置的缩进被系统 python ftplugin 覆盖，放进 after/ftplugin 才生效；--noplugin 只加载 vimrc"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/vim-runtime-loading.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    vim: "9.1.1230"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

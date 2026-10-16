@@ -1,0 +1,9 @@
+runtimepath	~/.vim ~/.vim/pack/my/start/foo /var/lib/vim/addons /etc/vim /usr/share/vim/vimfiles /usr/share/vim/vim91 /usr/share/vim/vim91/pack/dist/opt/netrw /usr/share/vim/vimfiles/after /etc/vim/after /var/lib/vim/addons/after ~/.vim/after
+order.startup	vimrc plugin/a.vim pack/my/start/foo after/plugin/a.vim
+override.after	g:who = after/plugin/a.vim（vimrc、plugin、after/plugin 依次赋值，最后的生效）
+autoload.before	启动后 util#hello 是否已定义：undefined；autoload/util.vim 是否已加载：0
+autoload.call	调用 util#hello() 返回「hello from autoload」，此时加载日志：vimrc plugin/a.vim pack/my/start/foo after/plugin/a.vim autoload/util.vim
+pack.opt	执行 :packadd bar 之后的加载日志：vimrc plugin/a.vim pack/my/start/foo after/plugin/a.vim pack/my/opt/bar
+ftplugin.user	~/.vim/ftplugin/python.vim 设 shiftwidth=3，打开 demo.py：python shiftwidth=4，最后设置它的脚本：/usr/share/vim/vim91/ftplugin/python.vim
+ftplugin.after	再加 ~/.vim/after/ftplugin/python.vim 设 shiftwidth=2：python shiftwidth=2；日志：vimrc plugin/a.vim pack/my/start/foo after/plugin/a.vim ftplugin/python.vim after/ftplugin/python.vim
+noplugin	--noplugin 启动：vimrc
