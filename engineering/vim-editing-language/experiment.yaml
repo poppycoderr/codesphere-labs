@@ -1,0 +1,21 @@
+id: engineering/vim-editing-language
+title: "Vim 的编辑语言：光标在单词中间时 dw、diw、daw 的结果；ci( 改最内层括号、c2i( 改外层；点号重复；dd 覆盖无名寄存器、0 号寄存器保留最近一次复制；宏用计数执行时遇到错误停止、配合 :g 只作用于匹配行；very magic 与 \\zs 的替换；argdo 批量修改参数列表里的文件"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/vim-editing-language.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    vim: "9.1.1230"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"
