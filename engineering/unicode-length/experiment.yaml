@@ -1,0 +1,23 @@
+id: engineering/unicode-length
+title: "一个字符串有多长：一个笑脸在 Java 与 JS 里长度 2、Python 里 1、UTF-8 4 字节、字形 1；一家三口的表情 UTF-16 8 个单元、5 个码点、18 字节、1 个字形；按 UTF-16 截断留下孤立代理，按码点反转把中国国旗变成新喀里多尼亚；预组合与分解的 é 不相等，NFC 后相等；straße 转大写长度从 6 变 7"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/unicode-length.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    python: "3.14.8"
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-17"

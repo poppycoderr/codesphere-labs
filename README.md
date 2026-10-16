@@ -125,6 +125,7 @@
 | [engineering/http-cache-reuse](engineering/http-cache-reuse/) | 页面已发布，用户为什么还在用旧版本 | 标准：真实 Chromium，确定性输出 | regular-docker |
 | [engineering/regex-across-languages](engineering/regex-across-languages/) | 同一个正则在 Java、Python、JavaScript 里 | 轻量：确定性输出 | regular-docker |
 | [engineering/regex-escape-layers](engineering/regex-escape-layers/) | 反斜杠的三层转义 | 轻量：确定性输出 | regular-docker |
+| [engineering/unicode-length](engineering/unicode-length/) | 一个字符串有多长：字节、码点、UTF-16 与字形 | 轻量：确定性输出 | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |

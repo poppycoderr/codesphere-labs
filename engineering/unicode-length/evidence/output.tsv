@@ -1,0 +1,36 @@
+java	cut.first_unit	substring(0, 1) 得到 U+D83D，是孤立代理：true；编码成 UTF-8 后变成了 "?"：true
+node	cut.first_unit	slice(0, 1) 得到 U+D83D，isWellFormed=false；TextEncoder 编码成 ef bf bd（U+FFFD）
+python	cut.first_unit	s[:1] 得到 U+1F468：按码点切，一家三口只剩第一个人
+java	equals.nfc_nfd	é（预组合）equals e+重音：false；NFC 规范化后：true
+node	equals.nfc_nfd	é（预组合）=== e+重音：false；NFC 规范化后：true
+python	equals.nfc_nfd	é（预组合）== e+重音：False；NFC 规范化后：True
+java	len.e_acute_nfc	length()=1 codePoints=1 utf8=2 graphemes=1
+node	len.e_acute_nfc	length=1 codePoints=1 utf8=2 graphemes=1
+python	len.e_acute_nfc	len()=1 utf16=1 utf8=2 graphemes=标准库不支持
+java	len.e_acute_nfd	length()=2 codePoints=2 utf8=3 graphemes=1
+node	len.e_acute_nfd	length=2 codePoints=2 utf8=3 graphemes=1
+python	len.e_acute_nfd	len()=2 utf16=2 utf8=3 graphemes=标准库不支持
+java	len.family_zwj	length()=8 codePoints=5 utf8=18 graphemes=1
+node	len.family_zwj	length=8 codePoints=5 utf8=18 graphemes=1
+python	len.family_zwj	len()=5 utf16=8 utf8=18 graphemes=标准库不支持
+java	len.flag_cn	length()=4 codePoints=2 utf8=8 graphemes=1
+node	len.flag_cn	length=4 codePoints=2 utf8=8 graphemes=1
+python	len.flag_cn	len()=2 utf16=4 utf8=8 graphemes=标准库不支持
+java	len.grin	length()=2 codePoints=1 utf8=4 graphemes=1
+node	len.grin	length=2 codePoints=1 utf8=4 graphemes=1
+python	len.grin	len()=1 utf16=2 utf8=4 graphemes=标准库不支持
+java	len.thumbs_skin	length()=4 codePoints=2 utf8=8 graphemes=1
+node	len.thumbs_skin	length=4 codePoints=2 utf8=8 graphemes=1
+python	len.thumbs_skin	len()=2 utf16=4 utf8=8 graphemes=标准库不支持
+java	len.zhong	length()=1 codePoints=1 utf8=3 graphemes=1
+node	len.zhong	length=1 codePoints=1 utf8=3 graphemes=1
+python	len.zhong	len()=1 utf16=1 utf8=3 graphemes=标准库不支持
+java	reverse.flag	StringBuilder.reverse() 反转国旗：[1f1f3, 1f1e8]
+node	reverse.flag	[...s].reverse() 反转国旗：["1f1f3","1f1e8"]
+python	reverse.flag	s[::-1] 反转国旗：['1f1f3', '1f1e8']
+java	upper.sharp_s	"straße".toUpperCase()：STRASSE，长度 6 → 7
+node	upper.sharp_s	"straße".toUpperCase()：STRASSE，长度 6 → 7
+python	upper.sharp_s	'straße'.upper()：STRASSE，长度 6 → 7
+java	version	25.0.4.1
+node	version	v24.21.0
+python	version	3.14.8
