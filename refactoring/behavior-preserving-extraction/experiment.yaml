@@ -1,0 +1,21 @@
+id: refactoring/behavior-preserving-extraction
+title: "拆长方法时的行为比较：按原顺序拆分的版本在 2000 个随机订单上与原方法完全一致；把预占并进校验循环使 271 个订单多出副作用；两个折扣对调使 95 个订单金额不同；先查数量再查库存使 36 个订单报出不同的错误"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/refactoring/behavior-preserving-extraction.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

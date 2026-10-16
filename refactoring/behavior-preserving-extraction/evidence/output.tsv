@@ -1,0 +1,6 @@
+env	java.version=25.0.4.1
+setup	2000 个随机订单（固定种子）：含空订单、数量为 0 或负数、缺货商品、优惠码与会员的各种组合
+extracted	按原顺序拆成 validate、subtotal、applyCoupon、applyVip、reserveAll：返回值或异常不同 0 个，副作用不同 0 个
+merged_loop	把预占并进校验循环：返回值或异常不同 0 个，副作用不同 271 个；第一个差异 O14：原方法 [IllegalArgumentException: bad qty S4；]，新版本 [IllegalArgumentException: bad qty S4；reserve S2x3]
+swapped_discounts	两个折扣的先后对调：返回值或异常不同 95 个，副作用不同 95 个；第一个差异 O0：原方法 [returned 222；reserve S6x2，reserve S4x3，audit O0 total=222]，新版本 [returned 221；reserve S6x2，reserve S4x3，audit O0 total=221]
+split_validation	先查完所有数量、再查所有库存：返回值或异常不同 36 个，副作用不同 0 个；第一个差异 O290：原方法 [IllegalStateException: out of stock S9；]，新版本 [IllegalArgumentException: bad qty S1；]
