@@ -1,0 +1,21 @@
+id: ddd/planned-occurred-recorded
+title: "计划、发生与记录三个时刻：用 updatedAt 当支付时间，改地址后支付时间变成第二天；把计划的 Instant 每天加 24 小时，夏令时结束后提醒变成当地 8:00；迟到的读数按收到日期汇总时 10-15 少了 20；取消按收到时间被拒、按提出时间应当生效"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/planned-occurred-recorded.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-16"

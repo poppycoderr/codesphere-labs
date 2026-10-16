@@ -48,6 +48,7 @@
 | [ddd/invariant-entry-points](ddd/invariant-entry-points/) | 构造器里写了校验，对象就一定合法吗 | 轻量：确定性输出（Jackson 3.2.3） | regular-docker |
 | [ddd/interval-overlap](ddd/interval-overlap/) | 按键唯一不等于按时间不重叠 | 标准：MySQL 8.4 与 PostgreSQL 18，确定性输出 | regular-docker |
 | [ddd/command-and-identity](ddd/command-and-identity/) | 请求里的租户 ID 能不能信：请求、身份与命令 | 轻量：确定性输出（Spring MVC 7.0.9 MockMvc） | regular-docker |
+| [ddd/planned-occurred-recorded](ddd/planned-occurred-recorded/) | 计划时刻、发生时刻与记录时刻 | 轻量：确定性输出 | regular-docker |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
 | [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
 | [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |
