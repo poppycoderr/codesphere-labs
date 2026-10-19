@@ -1,0 +1,21 @@
+id: engineering/vim-script-reload
+title: "Vim 脚本的作用域与重复加载：不在 augroup 里的 autocmd 每 source 一次多注册一份；同一脚本重复 source 可以重定义函数，另一个脚本不行；s: 与 b: 变量的可见范围；nmap 会再解释右边的按键；execute 拼文件名时 # 被展开，要用 fnameescape；作业没结束时 exitval 是 0"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/vim-script-reload.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    vim: "9.1.1230"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"
