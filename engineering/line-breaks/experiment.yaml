@@ -1,0 +1,23 @@
+id: engineering/line-breaks
+title: "硬换行、软折行与渲染：默认 formatoptions 下 gq 断不开中文，加 mM 才行；J 合并中文行插入空格，加 B 不插；wrap 不改文件；gq 把代码块并成一行；root 下 modeline 默认关闭，modeline 不能设表达式选项；段落内的换行在 Chromium 与 WebKit 里显示成空格，Firefox 在汉字之间不显示"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/line-breaks.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    vim: "9.1.1230"
+    playwright: "1.63.0"
+    markdown-it-py: "4.2.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"

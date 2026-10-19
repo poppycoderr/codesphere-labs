@@ -1,0 +1,13 @@
+gq.default	textwidth=20，默认 formatoptions，gqq 一行纯中文：1 行，缓存失效之后所有请求都打到数据库上，命中率几乎掉到零，扩容的那一刻最明显
+gq.mM	formatoptions+=mM：4 行，缓存失效之后所有请求⏎都打到数据库上，命中⏎率几乎掉到零，扩容的⏎那一刻最明显
+join.default	默认 J 合并两行中文与两行英文：第一行的结尾 第二行的开头⏎end of line one start of line two
+join.B	formatoptions+=B：第一行的结尾第二行的开头⏎end of line one start of line two
+wrap	set wrap linebreak 后保存：文件内容不变，仍是 1 行
+gq.codeblock	对一段说明加代码块执行 gggqG：一段说明文字， 后面跟着代码：⏎⏎```sh make build make test ```
+modeline.root	以 root 运行、-N：modeline=0，textwidth=0
+modeline.on	set modeline 之后打开同一个文件：textwidth=33
+modeline.expr	modeline 里设置 foldexpr：E992: Not allowed in a modeline when 'modelineexpr' is off: foldexpr=Danger()；foldexpr 仍是默认值 0
+markdown	markdown-it-py 4.2.0（CommonMark）渲染两段软换行的结果：<p>中文段落的第一行⏎接着写第二行</p>⏎<p>first line of text⏎second line</p>⏎
+browser.chromium	chromium 153.0.8010.12：两个汉字之间的换行显示成空格，两个英文单词之间的换行显示成空格
+browser.firefox	firefox 155.0：两个汉字之间的换行不显示，两个英文单词之间的换行显示成空格
+browser.webkit	webkit 26.6：两个汉字之间的换行显示成空格，两个英文单词之间的换行显示成空格
