@@ -1,0 +1,22 @@
+id: testing/websocket-testing
+title: "WebSocket 接口测试：服务端先推送时一发一收拿错消息、乱序响应按发送顺序配对出错，按 id 分派正确；两个协程同时 recv 抛 ConcurrencyError；recv 没有超时；握手不带 Token 得到 HTTP 401；关闭码 1000、1008、1009 与无关闭帧的 1006；忘记关闭的连接留在服务端"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/websocket-testing.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    websockets: "17.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"
