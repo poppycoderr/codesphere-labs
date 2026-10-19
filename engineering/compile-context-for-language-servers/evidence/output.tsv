@@ -1,0 +1,8 @@
+env	Debian clangd version 19.1.7；cmake version 3.31.6
+none	没有 compile_commands.json：2 个错误：Line 2: 'config.h' file not found|Line 8: use of undeclared identifier 'MAX_ITEMS'
+cdb.command	CMake 生成的编译命令：/usr/bin/clang -Iinclude -o CMakeFiles/shop.dir/src/main.c.o -c src/main.c
+cdb	用 build/ 的编译数据库：0 个错误
+build.v2	构建改成 -DUSE_V2=ON：cmake --build 失败：error: call to undeclared function 'v2_total'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+stale	编辑器仍指向构建前生成、不含 USE_V2 的数据库：0 个错误
+fresh.command	构建后的编译命令：/usr/bin/clang -DUSE_V2 -Iinclude -o CMakeFiles/shop.dir/src/main.c.o -c src/main.c
+fresh	换成与构建一致的数据库：1 个错误：Line 6: call to undeclared function 'v2_total'; ISO C99 and later do not support implicit function declarations

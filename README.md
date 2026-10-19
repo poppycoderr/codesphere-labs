@@ -137,6 +137,7 @@
 | [engineering/vim-options-quickfix-tags](engineering/vim-options-quickfix-tags/) | Vim 的局部选项、Tab 相关选项、quickfix 与 errorformat、:grep 与 :vimgrep、tags 的搜索模式与陈旧索引 | 已验证 | regular-docker |
 | [engineering/vim-script-reload](engineering/vim-script-reload/) | Vim 脚本：重复 source 与 augroup、函数重定义、变量作用域、映射再解释、fnameescape、job 的退出状态 | 已验证 | regular-docker |
 | [engineering/line-breaks](engineering/line-breaks/) | 硬换行、软折行与渲染：Vim 的 gq、J、wrap、modeline 与段落内换行在三种浏览器里的显示 | 已验证 | regular-docker |
+| [engineering/compile-context-for-language-servers](engineering/compile-context-for-language-servers/) | 语言服务器的编译上下文：无编译数据库、CMake 生成的数据库、构建改了宏而数据库陈旧 | 已验证 | regular-docker |
 | [messaging/kafka-throughput](messaging/kafka-throughput/) | Kafka 为什么快 | 多节点：三节点 KRaft 集群 | performance |
 | [messaging/kafka-delivery](messaging/kafka-delivery/) | Kafka 不丢、不重与 Exactly Once | 多节点：1 controller + 3 broker，停节点 | regular-docker |
 | [messaging/kafka-rebalance](messaging/kafka-rebalance/) | Kafka 消费组重平衡 | 多节点：三节点 KRaft，约 12 分钟 | performance |

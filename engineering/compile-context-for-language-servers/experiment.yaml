@@ -1,0 +1,22 @@
+id: engineering/compile-context-for-language-servers
+title: "语言服务器看到的编译上下文：没有编译数据库时 clangd 找不到头文件、报未声明的宏；用 CMake 生成的数据库后 0 个错误；构建打开 USE_V2 后失败，但编辑器仍指向旧数据库时 clangd 报 0 个错误，换成新数据库才报出同一个错误"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/compile-context-for-language-servers.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    clangd: "19.1.7"
+    cmake: "3.31.6"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"

@@ -1,0 +1,2 @@
+base_image: debian@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+packages: clangd=1:19.0-63 clang=1:19.0-63 cmake=3.31.6-2 make=4.4.1-2

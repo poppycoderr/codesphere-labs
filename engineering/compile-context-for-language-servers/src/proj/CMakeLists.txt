@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(shop C)
+option(USE_V2 "use the v2 pricing api" OFF)
+add_executable(shop src/main.c)
+target_include_directories(shop PRIVATE include)
+if(USE_V2)
+  target_compile_definitions(shop PRIVATE USE_V2)
+endif()
