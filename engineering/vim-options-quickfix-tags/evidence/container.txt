@@ -1,0 +1,2 @@
+base_image: debian@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+packages: vim-nox=2:9.1.1230-2 universal-ctags=5.9.20210829.0-2

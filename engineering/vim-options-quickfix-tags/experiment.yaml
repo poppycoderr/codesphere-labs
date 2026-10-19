@@ -1,0 +1,22 @@
+id: engineering/vim-options-quickfix-tags
+title: "Vim 的局部选项、quickfix 与 tags：setlocal 只改当前缓冲区，set 连全局值一起改，ftplugin 里写 set 会影响之后打开的文件；expandtab、tabstop、softtabstop 组合下按 Tab 写进文件的内容；默认 errorformat 解析不了自定义日志；:grep 读磁盘、:vimgrep 读缓冲区；tags 用搜索模式，挪行不影响、改名后 E434，ctags -a 不删除旧条目"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/vim-options-quickfix-tags.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    vim: "9.1.1230"
+    universal-ctags: "5.9.20210829"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"
