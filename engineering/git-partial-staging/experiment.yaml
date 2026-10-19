@@ -1,0 +1,21 @@
+id: engineering/git-partial-staging
+title: "工作区、暂存区与按块暂存：git add -p 只暂存选中的块，提交只含暂存的内容；相隔一行的修改合成一个块，用 s 拆开；暂存后再改，提交的是暂存时的版本；git apply --cached 按补丁暂存；restore -p 丢弃的未暂存修改找不回；reset --hard 后只有已暂存的内容能从悬空对象找回"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/git-partial-staging.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    git: "2.54.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"
