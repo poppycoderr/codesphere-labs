@@ -1,0 +1,22 @@
+id: design/jakarta-rest-behavior
+title: "Jakarta REST 的默认行为：null 与 void 返回 204、显式 Response 保留状态与头；只有 GET 时 HEAD 调用 GET 并丢弃实体；默认 OPTIONS 列出 Allow，不存在的路径 404；映射器自身抛异常、未映射异常、没有写出器都是 500；@QueryParam/@PathParam 转换失败 404、@HeaderParam 400；primitive 缺省为 0；同时有构造器与 valueOf 时 Jersey 选 valueOf，枚举选 fromString"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/jakarta-rest-behavior.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jersey: "4.0.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"

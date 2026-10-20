@@ -1,0 +1,29 @@
+env	jersey=4.0.3 java=25.0.4.1+1-LTS
+resp.string	返回 String：HTTP 200，Content-Length: 5，body「hello」
+resp.null	返回 null：HTTP 204，body「」
+resp.void	void 方法：HTTP 204，body「」
+resp.explicit	返回 Response.status(201)：HTTP 201，X-Trace: t1，Content-Length: 7，body「created」
+resp.head	对只有 @GET 的资源发 HEAD：HTTP 200，body「」；GET 方法被调用 1 次
+resp.options	没写 @OPTIONS 时发 OPTIONS：HTTP 200，Allow: GET,HEAD,OPTIONS,PUT，Content-Length: 23，body「HEAD, GET, OPTIONS, PUT」
+resp.options_missing	对不存在的路径发 OPTIONS：HTTP 404，Content-Length: 0，body「」
+resp.405	对只有 GET/PUT 的资源发 DELETE：HTTP 405，Allow: GET,OPTIONS,PUT，Content-Length: 0，body「」
+resp.404	不存在的路径：HTTP 404，Content-Length: 0，body「」
+exc.wae	抛 WebApplicationException(409)：HTTP 409，Content-Length: 5，body「taken」
+exc.mapped	抛有映射器的异常：HTTP 422，Content-Length: 19，body「mapped:库存不足」
+exc.mapper_broken	映射器自身抛异常：HTTP 500，Content-Length: 0，body「」
+exc.unmapped	抛没有映射器的 RuntimeException：HTTP 500，Content-Length: 0，body「」
+exc.no_writer	返回没有 MessageBodyWriter 的类型：HTTP 500，Content-Length: 0，body「」
+param.int_missing	@QueryParam int 缺省：HTTP 200，Content-Length: 5，body「int=0」
+param.boxed_missing	@QueryParam Integer 缺省：HTTP 200，Content-Length: 12，body「Integer=null」
+param.default	@DefaultValue("5") 缺省：HTTP 200，Content-Length: 5，body「int=5」
+param.int_empty	@QueryParam int 传空串 ?n=：HTTP 200，Content-Length: 5，body「int=0」
+param.query_bad	@QueryParam int 传 abc：HTTP 404，Content-Length: 0，body「」
+param.path_bad	@PathParam int 传 abc：HTTP 404，Content-Length: 0，body「」
+param.header_bad	@HeaderParam int 传 abc：HTTP 400，Content-Length: 0，body「」
+param.code	类型同时有 String 构造器、valueOf、fromString：HTTP 200，Content-Length: 10，body「valueOf(7)」
+param.statics	只有 valueOf 与 fromString：HTTP 200，Content-Length: 10，body「valueOf(7)」
+param.enum	枚举（自带 valueOf，另写 fromString），传 h：HTTP 200，Content-Length: 4，body「HIGH」
+param.strict_query	@QueryParam 的转换构造器抛 IllegalArgumentException：HTTP 404，Content-Length: 0，body「」
+param.strict_header	@HeaderParam 的转换构造器抛 IllegalArgumentException：HTTP 400，Content-Length: 0，body「」
+param.list	@QueryParam List<Integer>，?x=1&x=2：HTTP 200，Content-Length: 11，body「list=[1, 2]」
+param.list_bad	@QueryParam List<Integer>，?x=1&x=b：HTTP 404，Content-Length: 0，body「」
