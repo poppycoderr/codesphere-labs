@@ -1,0 +1,23 @@
+id: system-design/jwt-validation-checks
+title: "访问令牌验签之后还要校验什么：Spring Security 7.1.1 的默认解码器只校验签名、时间和 typ（JWT 或缺失），接受错受众、错签发者的令牌和 ID Token，却拒绝 typ=at+jwt；30 秒前过期的令牌在默认 60 秒时钟偏差内被接受；没有 exp 的令牌默认被接受；错密钥、alg=none、HS256 算法混淆被拒；scope 用 indexOf 判断首项漏判、子串误判"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/jwt-validation-checks.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring-security: "7.1.1"
+    nimbus-jose-jwt: "10.9.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"

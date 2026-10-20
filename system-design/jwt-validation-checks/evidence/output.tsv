@@ -1,0 +1,26 @@
+env	spring-security=7.1.1 nimbus-jose-jwt=10.9.1 java=25.0.4.1+1-LTS
+default.at_jwt	typ=at+jwt、其余全部正确的访问令牌：默认解码器 拒绝：An error occurred while attempting to decode the Jwt: the given typ value needs to be one of [JWT]
+default.ok	签发者、受众正确：默认解码器（typ=JWT）接受（aud=[orders-api]，iss=https://idp.example）
+strict.ok	签发者、受众正确：加上签发者、受众、at+jwt 类型校验 接受（aud=[orders-api]，iss=https://idp.example）
+default.aud_other	受众是 billing-api：默认解码器（typ=JWT）接受（aud=[billing-api]，iss=https://idp.example）
+strict.aud_other	受众是 billing-api：加上签发者、受众、at+jwt 类型校验 拒绝：An error occurred while attempting to decode the Jwt: The aud claim is not valid
+default.iss_other	签发者是另一个身份服务（同一把密钥）：默认解码器（typ=JWT）接受（aud=[orders-api]，iss=https://other-idp.example）
+strict.iss_other	签发者是另一个身份服务（同一把密钥）：加上签发者、受众、at+jwt 类型校验 拒绝：An error occurred while attempting to decode the Jwt: The iss claim is not valid
+default.id_token	一个 ID Token（受众是网页应用、带 nonce）：默认解码器（typ=JWT）接受（aud=[web-app]，iss=https://idp.example）
+strict.id_token	一个 ID Token（受众是网页应用、带 nonce）：加上签发者、受众、at+jwt 类型校验 拒绝：An error occurred while attempting to decode the Jwt: The aud claim is not valid
+default.expired_30s	30 秒前过期：默认解码器（typ=JWT）接受（aud=[orders-api]，iss=https://idp.example）
+strict.expired_30s	30 秒前过期：加上签发者、受众、at+jwt 类型校验 接受（aud=[orders-api]，iss=https://idp.example）
+default.expired_5m	5 分钟前过期：默认解码器（typ=JWT）拒绝：An error occurred while attempting to decode the Jwt: Jwt expired at <时间>
+strict.expired_5m	5 分钟前过期：加上签发者、受众、at+jwt 类型校验 拒绝：An error occurred while attempting to decode the Jwt: Jwt expired at <时间>
+default.no_exp	没有 exp：默认解码器（typ=JWT）接受（aud=[orders-api]，iss=https://idp.example）
+strict.no_exp	没有 exp：加上签发者、受众、at+jwt 类型校验 接受（aud=[orders-api]，iss=https://idp.example）
+default.other_key	用另一把同 kid 的密钥签名：默认解码器（typ=JWT）拒绝：An error occurred while attempting to decode the Jwt: Signed JWT rejected: Invalid signature
+strict.other_key	用另一把同 kid 的密钥签名：加上签发者、受众、at+jwt 类型校验 拒绝：An error occurred while attempting to decode the Jwt: Signed JWT rejected: Invalid signature
+default.alg_none	alg=none 的未签名令牌：默认解码器（typ=JWT）拒绝：Unsupported algorithm of none
+strict.alg_none	alg=none 的未签名令牌：加上签发者、受众、at+jwt 类型校验 拒绝：Unsupported algorithm of none
+default.hs256_pubkey	HS256，用公钥字节当密钥签名：默认解码器（typ=JWT）拒绝：An error occurred while attempting to decode the Jwt: Signed JWT rejected: Another algorithm expected, or no m…
+strict.hs256_pubkey	HS256，用公钥字节当密钥签名：加上签发者、受众、at+jwt 类型校验 拒绝：An error occurred while attempting to decode the Jwt: Signed JWT rejected: Another algorithm expected, or no m…
+strict.no_exp.required	没有 exp：再加上 setAllowEmptyExpiryClaim(false) 的时间校验器 拒绝：An error occurred while attempting to decode the Jwt: exp is required
+scope.orders.read_orders.write	scope="orders.read orders.write"：indexOf("orders.read") > 0 → false；按空格拆成集合精确匹配 → true
+scope.profile_orders.readonly	scope="profile orders.readonly"：indexOf("orders.read") > 0 → true；按空格拆成集合精确匹配 → false
+scope.billing.read_orders.read	scope="billing.read orders.read"：indexOf("orders.read") > 0 → true；按空格拆成集合精确匹配 → true
