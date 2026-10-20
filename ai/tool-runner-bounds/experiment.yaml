@@ -1,0 +1,21 @@
+id: ai/tool-runner-bounds
+title: 工具调用循环是一个有界解释器：按名字在全局里找函数的运行器执行了未登记的 delete_all_orders、放过 qty=-5、同一步只执行第一个调用、模型不停就一直跑、写入后超时重试下了两单；有界运行器用允许列表、参数校验、逐个处理调用、5 步上限、动作 ID 幂等重放，拒绝没有下单结果的「完成」，拒绝工具结果诱导的越权退款；审核服务故障时默认放行与当作未知的对比
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/tool-runner-bounds.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
