@@ -1,0 +1,24 @@
+id: ai/streaming-response-lifecycle
+title: 流式响应的生命周期：少一个空行时两段数据合成一个 SSE 事件；客户端读到 3 个 token 后断开，异步生成器收到 CancelledError 并执行 finally、不再生成；同步生成器在线程池里多生成 1 个后被挂起，finally 一直没有执行；生成到一半抛异常时状态码已是 200，客户端只看到连接异常断开；写成显式的错误事件后客户端能区分部分结果与失败
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/streaming-response-lifecycle.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    fastapi: "0.156.2"
+    uvicorn: "0.54.0"
+    httpx: "0.28.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

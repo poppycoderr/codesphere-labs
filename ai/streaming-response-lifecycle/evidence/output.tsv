@@ -1,0 +1,6 @@
+env	fastapi=0.156.2 uvicorn=0.54.0 httpx=0.28.1
+frames	服务端写了 4 段，客户端按 SSE 规则解析出 3 个事件：message:'第一段\n第二段' | message:'多行内容第一行\n多行内容第二行' | done:'{}'
+disconnect.async	异步生成器，客户端读到 3 个后断开：断开时服务端已生成 3 个，1.5 秒后共 3 个（共 20 个）；finally 执行=True，收到 CancelledError=True
+disconnect.sync	同步（线程池）生成器，客户端读到 3 个后断开：断开时服务端已生成 3 个，1.5 秒后共 4 个（共 20 个）；finally 执行=False
+fail.implicit	生成到一半抛异常：状态码 200，客户端收到 ['data: token-0', 'data: token-1']，读取时的异常 RemoteProtocolError
+fail.explicit	把失败写成一个错误事件：状态码 200，事件 [('message', 'token-0'), ('message', 'token-1'), ('error', '{"code": "backend_failed", "partial": true}')]
