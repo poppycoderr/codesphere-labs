@@ -1,0 +1,23 @@
+id: storage/db-table-queue
+title: 用数据库表当队列：会话 A 先拿到自增 id 晚提交，消费者按 id 大于上次最大值拉取会永久漏掉它；按插入时间拉取同样漏；回滚留下空洞；按状态 FOR UPDATE SKIP LOCKED 认领不漏不重；租约过期后重新认领，旧持有者带 locked_by 条件的完成更新影响 0 行
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/db-table-queue.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    mysql: "8.4.11"
+    python: "3.14.8"
+    pymysql: "1.2.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

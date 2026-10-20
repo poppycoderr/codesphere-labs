@@ -1,0 +1,9 @@
+env	mysql=8.4.11 innodb_autoinc_lock_mode=2 transaction_isolation=REPEATABLE-READ
+id.first_poll	A 拿到 id=1 未提交，B 拿到 id=2 已提交；消费者第一次拉取看到 ['B-晚分配早提交']，记下最大 id=2
+id.second_poll	A 提交之后，消费者按 id > 2 拉取看到 []；表里实际有 ['A-早分配晚提交', 'B-晚分配早提交']，id=1 永远不会被拉到
+id.gap	一个事务拿到 id=3 后回滚，下一条拿到 id=4：自增值不回收，id 有空洞，「连续」不能用来判断是否漏了
+ts.poll	按 created_at 拉取：第一次看到 ['B-晚插入早提交']，A 提交后按 created_at > 上次最大值 看到 []（created_at 在插入时取值，不是提交时）
+claim.skip_locked	两个消费者同时认领 2 条：w1 得到 [1, 2]，w2 跳过被锁的行得到 [3, 4]；另一个事务插入后未提交的 id=5，两者都没有认领到
+claim.late	晚提交的任务提交之后，下一次按状态认领得到 [5]：认领看的是状态，不是「上次读到哪」
+lease.reclaim	w1 认领后崩溃、租约过期：w4 重新认领到 [1, 2]；w2 的租约未过期，不会被抢走
+lease.stale	w1 恢复后想把 id=1 标记完成（带 locked_by 条件）：影响 0 行；w4 标记完成：影响 1 行
