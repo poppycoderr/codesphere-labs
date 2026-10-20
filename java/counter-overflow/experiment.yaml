@@ -1,0 +1,21 @@
+id: java/counter-overflow
+title: "计数器溢出：Math.abs(Integer.MIN_VALUE) 仍为负，-7 % 3 = -1；计数器越过 MAX_VALUE 时 Math.abs(n) % 3 得到下标 -2 越界；floorMod 与掩码不越界；hashCode 为 MIN_VALUE 的字符串取绝对值再取模仍为负；10 万个键里 940 个 hashCode % 16 为负"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/counter-overflow.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"

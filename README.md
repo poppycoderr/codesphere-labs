@@ -171,6 +171,7 @@
 | [java/java-failure-paths](java/java-failure-paths/) | 出了错，日志里却没有可用的信息 | 轻量：确定性输出 | regular-docker |
 | [java/jvm-warmup-first-requests](java/jvm-warmup-first-requests/) | 每次发版后的头几秒，接口都会超时 | 轻量：计时，只断言倍数关系 | regular-docker |
 | [java/string-duplication](java/string-duplication/) | 两百万条记录，一百种城市名，占了一百多兆 | 轻量：堆占用，只断言范围 | regular-docker |
+| [java/counter-overflow](java/counter-overflow/) | 计数器溢出：Math.abs(MIN_VALUE)、负数取余、轮询下标越界、floorMod 与掩码 | 已验证 | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |
