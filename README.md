@@ -224,6 +224,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [system-design/filesystem-raid-boundaries](system-design/filesystem-raid-boundaries) | 无特权离线 ext4 映射、删除和早先副本 |
 | [system-design/trace-context-propagation](system-design/trace-context-propagation/) | 追踪上下文传播：线程池、CompletableFuture、虚拟线程、HTTP 请求头、采样标志、未结束的 span | 已验证 | regular-docker |
 | [system-design/jwt-validation-checks](system-design/jwt-validation-checks/) | 访问令牌的校验项：默认解码器与签发者、受众、类型、exp 校验，算法混淆，scope 子串匹配 | 已验证 | regular-docker |
+| [system-design/oauth-code-flow-binding](system-design/oauth-code-flow-binding/) | 授权码流程的请求绑定：PKCE 默认要求、码重放、redirect_uri、客户端、verifier、刷新令牌复用与轮换、撤销与本地验签 | 已验证 | regular-docker |
 | [distributed/execution-plan-shuffle](distributed/execution-plan-shuffle) | Spark 执行计划、倾斜、加盐等价性与显式缓存 |
 | [distributed/checkpoint-state-recovery](distributed/checkpoint-state-recovery) | Flink 单机 checkpoint 和受控算子失败恢复 |
 

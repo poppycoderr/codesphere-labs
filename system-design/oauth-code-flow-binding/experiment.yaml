@@ -1,0 +1,23 @@
+id: system-design/oauth-code-flow-binding
+title: 授权码、PKCE 与 state：Spring Security 7.1 的授权服务器默认要求所有客户端（包括机密客户端）使用 PKCE；授权码重复使用返回 invalid_grant，并作废这次授权签发的访问令牌与刷新令牌；未登记或多一段路径的 redirect_uri 直接 400、不重定向；换令牌时 redirect_uri 或客户端不一致 invalid_grant；错误或缺失的 verifier 被拒，plain 方法被拒；公共客户端不签发刷新令牌；默认复用刷新令牌，关闭复用后轮换，但旧刷新令牌被重放时新令牌仍然有效；撤销后内省为 false，本地验签仍接受；ID Token 能通过只验签的解码器
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/oauth-code-flow-binding.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring-boot: "4.1.1"
+    spring-security: "7.1.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
