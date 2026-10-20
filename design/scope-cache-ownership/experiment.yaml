@@ -1,0 +1,21 @@
+id: design/scope-cache-ownership
+title: "单例作用域的缓存所有权：浅复制配置让两个容器共享一个单例；两个限定符绑定同一装饰器共享实例；不加锁时两个线程同时第一次取值创建两次；用 null 判断未初始化会让返回 null 的工厂被反复调用；创建失败不被缓存；装饰器不转发依赖元数据时图检查漏掉环"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/scope-cache-ownership.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"

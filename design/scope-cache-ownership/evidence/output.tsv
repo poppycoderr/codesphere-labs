@@ -1,0 +1,9 @@
+shallow	同一份配置浅复制出两个容器：容器一的 clock 是 #1，容器二的 clock 是 #1（两个容器共享一个缓存）
+owned	每个容器按配方重建 Provider：容器一 #2、再取一次 #2，容器二 #3
+alias	两个限定符绑定同一个装饰器：@utc #4、@default #4；另一个装饰器 @local #5
+race.naive	两个线程同时第一次取值，不加锁：创建了 2 次，两个线程拿到不同的对象
+race.safe	加锁：创建了 1 次，两个线程拿到同一个对象
+null	工厂合法地返回 null，取 3 次：用 instance==null 判断时工厂被调用 3 次；用独立的 created 标志时 1 次
+failure	第一次创建抛异常（失败：配置未就绪），第二次取值得到 ready，工厂共被调用 2 次（失败没有被缓存）
+deps.opaque	装饰器不转发依赖元数据，检查 a ↔ b 的环：通过
+deps.forward	装饰器转发依赖元数据：循环依赖：a → b → a
