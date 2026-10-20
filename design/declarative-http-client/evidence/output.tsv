@@ -1,0 +1,15 @@
+env	spring=7.0.9 java=25.0.4.1+1-LTS
+proxy	createClient 返回的对象是 JDK 动态代理：true
+param.name	@PathVariable 不写名字（单文件启动没有 -parameters）：java.lang.IllegalArgumentException：Name for argument of type [java.lang.String] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.
+path.encode	get("a/b c")：GET rawPath=/users/a%2Fb%20c path=/users/a/b c
+query.encode	search("x&y+z", ["a","b"])：GET rawPath=/search path=/search rawQuery=q=x%26y%2Bz&tag=a&tag=b
+post	create("{\"sku\":1}")：POST rawPath=/orders path=/orders body={"sku":1}
+default	调用接口默认方法 twice("7")：GET rawPath=/users/7 path=/users/7 | GET rawPath=/users/7 path=/users/7；服务端收到 2 个请求
+status.404	返回类型 String，服务端 404：HttpClientErrorException$NotFound：404 Not Found: "error 404"
+status.404.entity	返回类型 ResponseEntity<String>，服务端 404：HttpClientErrorException$NotFound：404 Not Found: "error 404"
+status.500	服务端 500：HttpServerErrorException$InternalServerError：500 Internal Server Error: "error 500"
+timeout.default	默认请求工厂，服务端 3 秒后才响应：等了约 3 秒，结果「GET rawPath=/slow path=/slow」
+timeout.read	读取超时设为 1 秒：约 1 秒后「ResourceAccessException：I/O error on GET request for "http://127.0.0.1:<port>/slow": Reques…」
+hand.raw	手写代理直接替换 {id}，get("a/b")：GET rawPath=/users/a/b path=/users/a/b
+hand.space	手写代理直接替换 {id}，get("a b")：java.lang.IllegalArgumentException：Illegal character in path at index 30: http://127.0.0.1:<port>/users/a b
+hand.urlencoder	手写代理用 URLEncoder 编码路径，get("a b")：GET rawPath=/users/a+b path=/users/a+b

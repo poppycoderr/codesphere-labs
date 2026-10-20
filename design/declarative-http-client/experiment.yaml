@@ -1,0 +1,22 @@
+id: design/declarative-http-client
+title: "声明式 HTTP 客户端：Spring HTTP Interface 的客户端是 JDK 动态代理；@PathVariable 不写名字且没有 -parameters 时报错；路径变量里的斜杠和空格被编码为 %2F、%20，查询参数的 & 与 + 被编码；默认方法里的两次调用各发一个请求；404 与 500 都抛异常，返回 ResponseEntity 也一样；默认没有读取超时；手写代理直接替换路径变量会改变路径层级或抛异常，用 URLEncoder 编码路径会把空格变成加号"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/declarative-http-client.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    spring-framework: "7.0.9"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"
