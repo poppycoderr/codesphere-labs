@@ -1,0 +1,22 @@
+id: engineering/uri-template-regex
+title: "URI 模板编译成正则：字面点号不转义时 /files/{name}.txt 匹配 reportXtxt；变量正则里的捕获组让按顺序取组的后一个变量错位；replaceAll 的替换串里 $5 被当成组引用、反斜杠被吃掉；按 Jersey 的比较器 /users/me 优先于 /users/{id}，按长度排序则相反；从不返回 0 的比较器违反反对称性"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/uri-template-regex.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jersey: "4.0.3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"

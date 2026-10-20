@@ -1,0 +1,17 @@
+aopalliance-repackaged-4.0.3.jar
+hk2-api-4.0.3.jar
+hk2-locator-4.0.3.jar
+hk2-utils-4.0.3.jar
+jakarta.activation-api-2.1.4.jar
+jakarta.annotation-api-3.0.0.jar
+jakarta.inject-api-2.0.1.jar
+jakarta.validation-api-3.1.1.jar
+jakarta.ws.rs-api-4.0.0.jar
+jakarta.xml.bind-api-4.0.5.jar
+javassist-3.33.0-GA.jar
+jersey-client-4.0.3.jar
+jersey-common-4.0.3.jar
+jersey-container-jdk-http-4.0.3.jar
+jersey-hk2-4.0.3.jar
+jersey-server-4.0.3.jar
+osgi-resource-locator-3.0.0.jar
