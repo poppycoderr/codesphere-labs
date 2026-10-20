@@ -1,0 +1,21 @@
+id: ai/clarification-agent-state
+title: "等待人工澄清的代理：自问自答时两条验收条件都基于模型编的答案；持久状态在重启后仍在等同一个问题且不重新提问；拒绝回答非当前问题、按回答 ID 忽略重复投递、完成或取消后拒绝回答、超时转为 expired、提问预算用完转人工"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/clarification-agent-state.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"
