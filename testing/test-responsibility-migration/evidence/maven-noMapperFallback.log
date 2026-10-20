@@ -1,0 +1,25 @@
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.093 s <<< FAILURE! -- in lab.DynamicLifecycleTest
+[ERROR] lab.DynamicLifecycleTest.eachExpectsFreshState()[2] -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[b]> but was: <[a, b]>
+	at lab.DynamicLifecycleTest.lambda$eachExpectsFreshState$1(DynamicLifecycleTest.java:30)
+
+[ERROR] lab.DynamicLifecycleTest.eachExpectsFreshState()[3] -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[c]> but was: <[a, b, c]>
+	at lab.DynamicLifecycleTest.lambda$eachExpectsFreshState$1(DynamicLifecycleTest.java:30)
+
+[ERROR] Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! -- in lab.ErrorResponderTest
+[ERROR] lab.ErrorResponderTest.mapperFailure -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalStateException: 映射器坏了
+	at lab.ErrorResponderTest.lambda$mapperFailure$1(ErrorResponderTest.java:27)
+	at lab.ErrorResponderTest.mapperFailure(ErrorResponderTest.java:28)
+
+[ERROR] Failures: 
+[ERROR]   DynamicLifecycleTest.lambda$eachExpectsFreshState$1:30 expected: <[b]> but was: <[a, b]>
+[ERROR]   DynamicLifecycleTest.lambda$eachExpectsFreshState$1:30 expected: <[c]> but was: <[a, b, c]>
+[ERROR] Errors: 
+[ERROR]   ErrorResponderTest.mapperFailure:28->lambda$mapperFailure$1:27 IllegalState 映射器坏了
+[ERROR] Tests run: 9, Failures: 2, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+See /w/target/surefire-reports for the individual test results.
+See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

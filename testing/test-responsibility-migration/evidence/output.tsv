@@ -1,0 +1,31 @@
+env	java.version=25.0.4.1 junit=6.1.3
+correct.ContainerTest.真实容器按限定符分别装配 raw 与 daily	通过
+correct.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 a	通过
+correct.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 b	失败：expected: <[b]> but was: <[a, b]>
+correct.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 c	失败：expected: <[c]> but was: <[a, b, c]>
+correct.DynamicLifecycleTest.普通测试：每次都有新的列表	通过
+correct.ErrorResponderTest.映射器执行失败时回落到 500（名不副实：实际让查找失败）	通过
+correct.ErrorResponderTest.映射器执行失败时回落到 500（真正让映射器抛异常）	通过
+correct.ErrorResponderTest.查找映射器失败时回落到 500	通过
+correct.InjectionRuleTest.注入规则向 Context 要 Source@raw 与 Source@daily	通过
+correct.note.before_each_runs	@BeforeEach 共执行 2 次（1 个普通测试 + 1 个测试工厂，工厂产生了 3 个动态子测试）
+ignoreQualifier.ContainerTest.真实容器按限定符分别装配 raw 与 daily	失败：expected: <raw> but was: <daily>
+ignoreQualifier.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 a	通过
+ignoreQualifier.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 b	失败：expected: <[b]> but was: <[a, b]>
+ignoreQualifier.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 c	失败：expected: <[c]> but was: <[a, b, c]>
+ignoreQualifier.DynamicLifecycleTest.普通测试：每次都有新的列表	通过
+ignoreQualifier.ErrorResponderTest.映射器执行失败时回落到 500（名不副实：实际让查找失败）	通过
+ignoreQualifier.ErrorResponderTest.映射器执行失败时回落到 500（真正让映射器抛异常）	通过
+ignoreQualifier.ErrorResponderTest.查找映射器失败时回落到 500	通过
+ignoreQualifier.InjectionRuleTest.注入规则向 Context 要 Source@raw 与 Source@daily	通过
+ignoreQualifier.note.before_each_runs	@BeforeEach 共执行 2 次（1 个普通测试 + 1 个测试工厂，工厂产生了 3 个动态子测试）
+noMapperFallback.ContainerTest.真实容器按限定符分别装配 raw 与 daily	通过
+noMapperFallback.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 a	通过
+noMapperFallback.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 b	失败：expected: <[b]> but was: <[a, b]>
+noMapperFallback.DynamicLifecycleTest.三个动态子测试，各自期望列表里只有自己的一项 子测试 c	失败：expected: <[c]> but was: <[a, b, c]>
+noMapperFallback.DynamicLifecycleTest.普通测试：每次都有新的列表	通过
+noMapperFallback.ErrorResponderTest.映射器执行失败时回落到 500（名不副实：实际让查找失败）	通过
+noMapperFallback.ErrorResponderTest.映射器执行失败时回落到 500（真正让映射器抛异常）	错误：映射器坏了
+noMapperFallback.ErrorResponderTest.查找映射器失败时回落到 500	通过
+noMapperFallback.InjectionRuleTest.注入规则向 Context 要 Source@raw 与 Source@daily	通过
+noMapperFallback.note.before_each_runs	@BeforeEach 共执行 2 次（1 个普通测试 + 1 个测试工厂，工厂产生了 3 个动态子测试）

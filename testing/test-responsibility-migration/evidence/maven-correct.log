@@ -1,0 +1,17 @@
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.088 s <<< FAILURE! -- in lab.DynamicLifecycleTest
+[ERROR] lab.DynamicLifecycleTest.eachExpectsFreshState()[2] -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[b]> but was: <[a, b]>
+	at lab.DynamicLifecycleTest.lambda$eachExpectsFreshState$1(DynamicLifecycleTest.java:30)
+
+[ERROR] lab.DynamicLifecycleTest.eachExpectsFreshState()[3] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[c]> but was: <[a, b, c]>
+	at lab.DynamicLifecycleTest.lambda$eachExpectsFreshState$1(DynamicLifecycleTest.java:30)
+
+[ERROR] Failures: 
+[ERROR]   DynamicLifecycleTest.lambda$eachExpectsFreshState$1:30 expected: <[b]> but was: <[a, b]>
+[ERROR]   DynamicLifecycleTest.lambda$eachExpectsFreshState$1:30 expected: <[c]> but was: <[a, b, c]>
+[ERROR] Tests run: 9, Failures: 2, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+See /w/target/surefire-reports for the individual test results.
+See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
