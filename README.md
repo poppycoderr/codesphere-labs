@@ -186,6 +186,7 @@
 | [cache/redis-atomicity-and-locks](cache/redis-atomicity-and-locks/) | Redis 原子性边界 | 轻量 | regular-docker |
 | [cache/cache-layer-latency](cache/cache-layer-latency/) | 缓存分层的访问延迟 | 轻量：Redis + MySQL + JDK 客户端 | performance |
 | [cache/cache-aside-window](cache/cache-aside-window/) | 缓存一致性的窗口 | 轻量：Redis + MySQL + JDK 客户端 | regular-docker |
+| [cache/zset-score-cursor](cache/zset-score-cursor/) | 有序集合按 score 分页：同分成员与复合游标 | 常规：Redis 8.10.1 容器，确定性输出 | regular-docker |
 | [ai/ml-and-nlp-basics](ai/ml-and-nlp-basics/) | 机器学习与 NLP 基础 | 轻量：Python 容器，锁定依赖版本 | regular-docker |
 | [ai/vector-search-pitfalls](ai/vector-search-pitfalls/) | 相似度 0.86，这两段文字其实毫不相干 | 轻量：numpy 合成向量，确定性输出 | regular-docker |
 | [ai/retrieval-evaluation-pitfalls](ai/retrieval-evaluation-pitfalls/) | 新检索系统的评估分数只有旧系统的四分之一 | 轻量：确定性输出（合成数据） | regular-docker |

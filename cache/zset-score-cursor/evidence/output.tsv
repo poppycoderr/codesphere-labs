@@ -1,0 +1,8 @@
+env	redis=8.10.1 redis-py=8.1.0
+ties.order	按 score 倒序（ZRANGE ... BYSCORE REV）：p01:90 p07:80 p06:80 p05:80 p04:80 p03:80 p02:80 p09:70 p08:70 p10:60 p13:50 p12:50 p11:50 p14:40；同分成员按成员名逆字典序排列
+cursor.exclusive	游标只记 score，下一页取 (score：得到 9 个，遗漏 ['p02', 'p03', 'p04', 'p11', 'p12']，重复 0 个
+cursor.inclusive	游标只记 score，下一页取 [score 并去掉第一个：得到 127 个，遗漏 ['p02', 'p03', 'p08', 'p09', 'p10', 'p11', 'p12', 'p13', 'p14']，重复 122 个；同分成员多于一页时原地打转
+cursor.composite	游标记 (score, member)，同分时按成员名继续：得到 14 个，遗漏 []，重复 0 个；与全量顺序一致：True
+cursor.lex	字典序二级索引（成员 = 定宽的 999-score + ':' + 原成员，ZRANGE BYLEX 的排他游标）：得到 14 个，顺序与按 score 倒序、同分按成员名正序一致：True
+insert.rank	按排名分页：第 1 页 ['p01', 'p07', 'p06', 'p05']；新增一个 95 分的成员后第 2 页 ['p05', 'p04', 'p03', 'p02']，与第 1 页重复 ['p05']
+insert.cursor	按 (score, member) 游标取第 2 页：['p04', 'p03', 'p02', 'p09']，与第 1 页重复 0 个

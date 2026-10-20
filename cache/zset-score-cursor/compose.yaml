@@ -1,0 +1,11 @@
+# 单节点 Redis 8.10.1，固定 digest，关闭持久化；不对宿主机暴露端口
+services:
+  redis:
+    image: redis:8.10.1@sha256:8a1efc5f479551822b47424ccae982026b633f28818eab0387348120a61e10e2
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    mem_limit: 256m
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30

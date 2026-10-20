@@ -1,0 +1,23 @@
+id: cache/zset-score-cursor
+title: 有序集合按 score 做游标分页：同分成员按成员名字典序排列；只记 score 的排他游标漏掉 5 个同分成员，包含游标在同分成员之间原地打转；按 (score, member) 续读或用 BYLEX 字典序二级索引不漏不重；按排名分页时新增成员导致第 2 页重复
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/cache/redis-command-execution-and-latency.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    redis: "8.10.1"
+    python: "3.14.8"
+    redis-py: "8.1.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
