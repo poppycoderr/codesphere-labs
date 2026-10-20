@@ -1,0 +1,24 @@
+id: engineering/context-output-encoding
+title: 同一份数据在不同浏览器上下文的输出边界
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/context-output-encoding.md
+runtime:
+  os: macOS
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    thymeleaf: "3.1.5.RELEASE"
+    jdk: "25.0.4.1"
+    playwright: "1.63.0"
+    chromium: "153.0.8010.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"

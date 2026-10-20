@@ -1,0 +1,56 @@
+--- narrow ---
+== Physical Plan ==
+* Project (3)
++- * Filter (2)
+   +- * Range (1)
+
+
+(1) Range [codegen id : 1]
+Output [1]: [id#0L]
+Arguments: Range (0, 10000, step=1, splits=Some(4))
+
+(2) Filter [codegen id : 1]
+Input [1]: [id#0L]
+Condition : ((id#0L % 2) = 0)
+
+(3) Project [codegen id : 1]
+Output [2]: [id#0L, CASE WHEN (id#0L < 8000) THEN 0 ELSE ((id#0L % 100) + 1) END AS key#1L]
+Input [1]: [id#0L]
+
+
+--- aggregate ---
+== Physical Plan ==
+* HashAggregate (5)
++- Exchange (4)
+   +- * HashAggregate (3)
+      +- * Project (2)
+         +- * Range (1)
+
+
+(1) Range [codegen id : 1]
+Output [1]: [id#0L]
+Arguments: Range (0, 10000, step=1, splits=Some(4))
+
+(2) Project [codegen id : 1]
+Output [1]: [CASE WHEN (id#0L < 8000) THEN 0 ELSE ((id#0L % 100) + 1) END AS key#1L]
+Input [1]: [id#0L]
+
+(3) HashAggregate [codegen id : 1]
+Input [1]: [key#1L]
+Keys [1]: [key#1L]
+Functions [1]: [partial_count(1)]
+Aggregate Attributes [1]: [count#6L]
+Results [2]: [key#1L, count#7L]
+
+(4) Exchange
+Input [2]: [key#1L, count#7L]
+Arguments: hashpartitioning(key#1L, 4), ENSURE_REQUIREMENTS, [plan_id=29]
+
+(5) HashAggregate [codegen id : 2]
+Input [2]: [key#1L, count#7L]
+Keys [1]: [key#1L]
+Functions [1]: [count(1)]
+Aggregate Attributes [1]: [count(1)#5L]
+Results [2]: [key#1L, count(1)#5L AS count#2L]
+
+

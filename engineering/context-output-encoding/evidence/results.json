@@ -1,0 +1,21 @@
+{
+  "text_equal": true,
+  "attribute_equal": true,
+  "javascript_equal": true,
+  "html_only_javascript_equal": false,
+  "unquoted_title": "alpha",
+  "unquoted_extra_attribute": true,
+  "url_protocol": "javascript:",
+  "control": {
+    "plain": true,
+    "authorized": true
+  },
+  "csp": {
+    "plain": false,
+    "authorized": true
+  },
+  "document_cookie": "visible=demo",
+  "same_site_cookie": "hidden=demo; visible=demo",
+  "cross_site_top_get": "visible=demo",
+  "chromium": "153.0.8010.12"
+}

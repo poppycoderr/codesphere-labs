@@ -1,0 +1,24 @@
+id: distributed/traffic-response-paths
+title: 分流位置、地址可见性与非幂等重试
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/traffic-response-paths.md
+runtime:
+  os: macOS
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    nginx: "1.30.0"
+    haproxy: "3.4.2"
+    coredns: "1.14.7"
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"

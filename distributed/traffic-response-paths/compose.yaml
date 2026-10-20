@@ -1,0 +1,41 @@
+name: csl-traffic-paths
+x-python: &python
+  image: python@sha256:0741d101873c12ab927e6f8653feb8862b9bd58771177acb1b885b95141f91b4
+  volumes: ["./src:/src:ro"]
+  command: ["python3", "/src/backend.py"]
+  cpus: 0.5
+  mem_limit: 256m
+services:
+  good:
+    <<: *python
+  bad:
+    <<: *python
+    environment: {ROLE: bad}
+  authdns:
+    <<: *python
+    environment: {ROLE: dns}
+  cache:
+    image: coredns/coredns@sha256:7efd3c635b03efd68c4e8398fc45f0d993d0e9ab016f72c1cefb0fd6d01aa286
+    volumes: ["./Corefile:/Corefile:ro"]
+    command: ["-conf", "/Corefile"]
+    cpus: 0.5
+    mem_limit: 128m
+  nginx:
+    image: nginx@sha256:55d1fb0944aafb8534b253e486c6cf57d3e0c785c4f6a7b3e9f02c5a080fb2ce
+    volumes: ["./nginx.conf:/etc/nginx/nginx.conf:ro"]
+    depends_on: [good, bad]
+    cpus: 0.5
+    mem_limit: 128m
+  tcp:
+    image: haproxy@sha256:728fec0da177a4010e53a0a1327d2aaef70dfd2151798507c8a0d503d01e4d7f
+    volumes: ["./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro"]
+    depends_on: [good]
+    cpus: 0.5
+    mem_limit: 128m
+  client:
+    <<: *python
+    command: ["python3", "/src/check.py"]
+    depends_on: [nginx, tcp, cache, authdns]
+networks:
+  default:
+    internal: true

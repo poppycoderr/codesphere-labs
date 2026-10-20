@@ -206,6 +206,16 @@ make check                                  # 目录约定、元数据、脚本�
 
 各实验的依赖写在自己的 README 中。常见要求：JDK 21+；Spring 实验需要 Maven 3.9+；带容器的实验需要 Docker（Compose v2）与 Python 3（PyYAML 仅用于 `make check`）。
 
+## 输出边界、存储与数据执行实验
+
+| 实验 | 验证范围 |
+|---|---|
+| [engineering/context-output-encoding](engineering/context-output-encoding) | 输出上下文、CSP 与 Cookie 的浏览器防御边界 |
+| [distributed/traffic-response-paths](distributed/traffic-response-paths) | 重定向、TTL、全代理地址和 POST 重试 |
+| [system-design/filesystem-raid-boundaries](system-design/filesystem-raid-boundaries) | 无特权离线 ext4 映射、删除和早先副本 |
+| [distributed/execution-plan-shuffle](distributed/execution-plan-shuffle) | Spark 执行计划、倾斜、加盐等价性与显式缓存 |
+| [distributed/checkpoint-state-recovery](distributed/checkpoint-state-recovery) | Flink 单机 checkpoint 和受控算子失败恢复 |
+
 ## 目录约定
 
 ```text

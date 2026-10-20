@@ -1,0 +1,44 @@
+debugfs 1.47.2 (1-Jan-2025)
+Allocated inode: 13
+
+--- inode and extent mapping ---
+debugfs 1.47.2 (1-Jan-2025)
+Inode: 13   Type: regular    Mode:  0644   Flags: 0x80000
+Generation: 0    Version: 0x00000000:00000000
+User:     0   Group:     0   Project:     0   Size: 51200
+File ACL: 0
+Links: 1   Blockcount: 104
+Fragment:  Address: 0    Number: 0    Size: 0
+ ctime: 0x6ad7104c:00000000 -- Tue Oct 20 06:55:08 2026
+ atime: 0x6ad7104c:00000000 -- Tue Oct 20 06:55:08 2026
+ mtime: 0x6ad7104c:00000000 -- Tue Oct 20 06:55:08 2026
+crtime: 0x6ad7104c:00000000 -- Tue Oct 20 06:55:08 2026
+Size of extra inode fields: 32
+Inode checksum: 0x542cae6f
+EXTENTS:
+(0-12):2097-2109
+
+--- metadata header ---
+Filesystem features:      has_journal ext_attr resize_inode dir_index orphan_file filetype extent 64bit flex_bg metadata_csum_seed sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+Block size:               4096
+Inode size:               256
+debugfs 1.47.2 (1-Jan-2025)
+debugfs 1.47.2 (1-Jan-2025)
+
+
+--- deletion in active image ---
+debugfs 1.47.2 (1-Jan-2025)
+/record: File not found by ext2_lookup 
+
+--- independent earlier image ---
+debugfs 1.47.2 (1-Jan-2025)
+
+roundtrip=true snapshot_roundtrip=true
+
+--- packages ---
+coreutils	9.7-3
+e2fsprogs	1.47.2-3+b12
+libcom-err2:arm64	1.47.2-3+b12
+libext2fs2t64:arm64	1.47.2-3+b12
+libss2:arm64	1.47.2-3+b12
+logsave	1.47.2-3+b12

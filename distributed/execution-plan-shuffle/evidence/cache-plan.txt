@@ -1,0 +1,28 @@
+== Physical Plan ==
+* Filter (5)
++- InMemoryTableScan (1) (columnarIn=false, columnarOut=true)
+      +- InMemoryRelation (2)
+            +- * Project (4)
+               +- * Range (3)
+
+
+(1) InMemoryTableScan
+Output [2]: [id#0L, key#1L]
+Arguments: [id#0L, key#1L], [isnotnull(key#1L), (key#1L = 0)]
+
+(2) InMemoryRelation
+Arguments: [id#0L, key#1L], StorageLevel(disk, memory, deserialized, 1 replicas), [id#0L ASC NULLS FIRST]
+
+(3) Range [codegen id : 1]
+Output [1]: [id#0L]
+Arguments: Range (0, 10000, step=1, splits=Some(4))
+
+(4) Project [codegen id : 1]
+Output [2]: [id#0L, CASE WHEN (id#0L < 8000) THEN 0 ELSE ((id#0L % 100) + 1) END AS key#1L]
+Input [1]: [id#0L]
+
+(5) Filter [codegen id : 1]
+Input [2]: [id#0L, key#1L]
+Condition : (isnotnull(key#1L) AND (key#1L = 0))
+
+

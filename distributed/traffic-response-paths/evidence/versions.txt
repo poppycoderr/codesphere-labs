@@ -1,0 +1,4 @@
+nginx version: nginx/1.30.0
+HAProxy version 3.4.2-9feeb3287 2026/07/03 - https://haproxy.org/
+CoreDNS-1.14.7
+Python 3.14.8

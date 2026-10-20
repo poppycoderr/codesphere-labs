@@ -1,0 +1,21 @@
+{
+  "spark": "4.2.0",
+  "rows": 10000,
+  "hot_key_rows": 8000,
+  "plain_partition_rows": [
+    480,
+    500,
+    560,
+    8460
+  ],
+  "salted_partition_rows": [
+    1950,
+    1955,
+    2005,
+    4090
+  ],
+  "salted_aggregation_equal": true,
+  "uncached_by_default": true,
+  "cache_after_materialization": true,
+  "shuffle_write_bytes": 160863
+}

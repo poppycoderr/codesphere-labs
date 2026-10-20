@@ -1,0 +1,2187 @@
+[
+  {
+    "id": 0,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 45,
+        "Name": "data size",
+        "Value": "2496",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 64,
+        "Name": "shuffle bytes written",
+        "Value": "1160",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 65,
+        "Name": "shuffle records written",
+        "Value": "104",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 66,
+        "Name": "shuffle write time",
+        "Value": "10835627",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 67,
+        "Name": "duration",
+        "Value": "335",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 68,
+        "Name": "number of output rows",
+        "Value": "104",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 69,
+        "Name": "peak memory",
+        "Value": "1048576",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 71,
+        "Name": "time in aggregation build",
+        "Value": "20",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 74,
+        "Name": "number of output rows",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 75,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 72,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 76,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 62528579,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 77,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 481,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 78,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 170925116,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 79,
+        "Name": "internal.metrics.resultSize",
+        "Value": 9344,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 80,
+        "Name": "internal.metrics.jvmGCTime",
+        "Value": 34,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 81,
+        "Name": "internal.metrics.resultSerializationTime",
+        "Value": 2,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 84,
+        "Name": "internal.metrics.peakExecutionMemory",
+        "Value": 1048576,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 85,
+        "Name": "internal.metrics.peakOnHeapExecutionMemory",
+        "Value": 34602944,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 105,
+        "Name": "internal.metrics.shuffle.write.bytesWritten",
+        "Value": 1160,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 106,
+        "Name": "internal.metrics.shuffle.write.recordsWritten",
+        "Value": 104,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 107,
+        "Name": "internal.metrics.shuffle.write.writeTime",
+        "Value": 10835627,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 109,
+        "Name": "internal.metrics.input.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 38,
+        "Name": "duration",
+        "Value": "15",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 39,
+        "Name": "number of output rows",
+        "Value": "101",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 40,
+        "Name": "peak memory",
+        "Value": "34602944",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 42,
+        "Name": "time in aggregation build",
+        "Value": "6",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 43,
+        "Name": "avg hash probes per key",
+        "Value": "40",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 48,
+        "Name": "local blocks read",
+        "Value": "7",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 51,
+        "Name": "local bytes read",
+        "Value": "1160",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 52,
+        "Name": "fetch wait time",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 53,
+        "Name": "records read",
+        "Value": "104",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 112,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 21,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 113,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 21987589,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 114,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 66,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 115,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 47695747,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 116,
+        "Name": "internal.metrics.resultSize",
+        "Value": 19778,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 118,
+        "Name": "internal.metrics.resultSerializationTime",
+        "Value": 37,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 121,
+        "Name": "internal.metrics.peakExecutionMemory",
+        "Value": 34602944,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 122,
+        "Name": "internal.metrics.peakOnHeapExecutionMemory",
+        "Value": 34602944,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 125,
+        "Name": "internal.metrics.shuffle.read.remoteBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 126,
+        "Name": "internal.metrics.shuffle.read.localBlocksFetched",
+        "Value": 7,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 127,
+        "Name": "internal.metrics.shuffle.read.remoteBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 128,
+        "Name": "internal.metrics.shuffle.read.remoteBytesReadToDisk",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 129,
+        "Name": "internal.metrics.shuffle.read.localBytesRead",
+        "Value": 1160,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 130,
+        "Name": "internal.metrics.shuffle.read.fetchWaitTime",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 131,
+        "Name": "internal.metrics.shuffle.read.recordsRead",
+        "Value": 104,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 132,
+        "Name": "internal.metrics.shuffle.push.read.corruptMergedBlockChunks",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 133,
+        "Name": "internal.metrics.shuffle.push.read.mergedFetchFallbackCount",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 134,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 135,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 136,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 137,
+        "Name": "internal.metrics.shuffle.push.read.localMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 138,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 139,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 140,
+        "Name": "internal.metrics.shuffle.read.remoteReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 141,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 149,
+        "Name": "number of output rows",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 150,
+        "Name": "duration",
+        "Value": "87",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 151,
+        "Name": "data size",
+        "Value": "240000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 170,
+        "Name": "shuffle bytes written",
+        "Value": "60012",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 171,
+        "Name": "shuffle records written",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 172,
+        "Name": "shuffle write time",
+        "Value": "2589546",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 173,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 10,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 174,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 11319919,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 175,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 109,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 176,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 57496958,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 177,
+        "Name": "internal.metrics.resultSize",
+        "Value": 7184,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 203,
+        "Name": "internal.metrics.shuffle.write.bytesWritten",
+        "Value": 60012,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 204,
+        "Name": "internal.metrics.shuffle.write.recordsWritten",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 205,
+        "Name": "internal.metrics.shuffle.write.writeTime",
+        "Value": 2589546,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 207,
+        "Name": "internal.metrics.input.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 154,
+        "Name": "local blocks read",
+        "Value": "7",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 157,
+        "Name": "local bytes read",
+        "Value": "60012",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 158,
+        "Name": "fetch wait time",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 159,
+        "Name": "records read",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 210,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 18,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 211,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 17291293,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 212,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 1300,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 213,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 121375379,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 214,
+        "Name": "internal.metrics.resultSize",
+        "Value": 16088,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 215,
+        "Name": "internal.metrics.jvmGCTime",
+        "Value": 32,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 216,
+        "Name": "internal.metrics.resultSerializationTime",
+        "Value": 9,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 217,
+        "Name": "internal.metrics.memoryBytesSpilled",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 218,
+        "Name": "internal.metrics.diskBytesSpilled",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 223,
+        "Name": "internal.metrics.shuffle.read.remoteBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 224,
+        "Name": "internal.metrics.shuffle.read.localBlocksFetched",
+        "Value": 7,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 225,
+        "Name": "internal.metrics.shuffle.read.remoteBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 226,
+        "Name": "internal.metrics.shuffle.read.remoteBytesReadToDisk",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 227,
+        "Name": "internal.metrics.shuffle.read.localBytesRead",
+        "Value": 60012,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 228,
+        "Name": "internal.metrics.shuffle.read.fetchWaitTime",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 229,
+        "Name": "internal.metrics.shuffle.read.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 230,
+        "Name": "internal.metrics.shuffle.push.read.corruptMergedBlockChunks",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 231,
+        "Name": "internal.metrics.shuffle.push.read.mergedFetchFallbackCount",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 232,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 233,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 234,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 235,
+        "Name": "internal.metrics.shuffle.push.read.localMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 236,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 237,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 238,
+        "Name": "internal.metrics.shuffle.read.remoteReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 239,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 247,
+        "Name": "number of output rows",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 248,
+        "Name": "duration",
+        "Value": "46",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 249,
+        "Name": "data size",
+        "Value": "320000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 268,
+        "Name": "shuffle bytes written",
+        "Value": "90262",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 269,
+        "Name": "shuffle records written",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 270,
+        "Name": "shuffle write time",
+        "Value": "2877456",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 271,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 7,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 272,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 6494836,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 273,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 67,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 274,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 55970743,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 275,
+        "Name": "internal.metrics.resultSize",
+        "Value": 7184,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 301,
+        "Name": "internal.metrics.shuffle.write.bytesWritten",
+        "Value": 90262,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 302,
+        "Name": "internal.metrics.shuffle.write.recordsWritten",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 303,
+        "Name": "internal.metrics.shuffle.write.writeTime",
+        "Value": 2877456,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 305,
+        "Name": "internal.metrics.input.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 252,
+        "Name": "local blocks read",
+        "Value": "16",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 255,
+        "Name": "local bytes read",
+        "Value": "90262",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 256,
+        "Name": "fetch wait time",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 257,
+        "Name": "records read",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 308,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 5,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 309,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 7274667,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 310,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 206,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 311,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 55977752,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 312,
+        "Name": "internal.metrics.resultSize",
+        "Value": 16002,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 313,
+        "Name": "internal.metrics.jvmGCTime",
+        "Value": 10,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 314,
+        "Name": "internal.metrics.resultSerializationTime",
+        "Value": 1,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 315,
+        "Name": "internal.metrics.memoryBytesSpilled",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 316,
+        "Name": "internal.metrics.diskBytesSpilled",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 321,
+        "Name": "internal.metrics.shuffle.read.remoteBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 322,
+        "Name": "internal.metrics.shuffle.read.localBlocksFetched",
+        "Value": 16,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 323,
+        "Name": "internal.metrics.shuffle.read.remoteBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 324,
+        "Name": "internal.metrics.shuffle.read.remoteBytesReadToDisk",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 325,
+        "Name": "internal.metrics.shuffle.read.localBytesRead",
+        "Value": 90262,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 326,
+        "Name": "internal.metrics.shuffle.read.fetchWaitTime",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 327,
+        "Name": "internal.metrics.shuffle.read.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 328,
+        "Name": "internal.metrics.shuffle.push.read.corruptMergedBlockChunks",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 329,
+        "Name": "internal.metrics.shuffle.push.read.mergedFetchFallbackCount",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 330,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 331,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 332,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 333,
+        "Name": "internal.metrics.shuffle.push.read.localMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 334,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 335,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 336,
+        "Name": "internal.metrics.shuffle.read.remoteReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 337,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 393,
+        "Name": "data size",
+        "Value": "240000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 412,
+        "Name": "shuffle bytes written",
+        "Value": "5953",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 413,
+        "Name": "shuffle records written",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 414,
+        "Name": "shuffle write time",
+        "Value": "2429368",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 415,
+        "Name": "duration",
+        "Value": "30",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 416,
+        "Name": "number of output rows",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 417,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 5,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 418,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 6098500,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 419,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 53,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 420,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 41136625,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 421,
+        "Name": "internal.metrics.resultSize",
+        "Value": 7141,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 447,
+        "Name": "internal.metrics.shuffle.write.bytesWritten",
+        "Value": 5953,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 448,
+        "Name": "internal.metrics.shuffle.write.recordsWritten",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 449,
+        "Name": "internal.metrics.shuffle.write.writeTime",
+        "Value": 2429368,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 451,
+        "Name": "internal.metrics.input.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 352,
+        "Name": "data size",
+        "Value": "6576",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 371,
+        "Name": "shuffle bytes written",
+        "Value": "3240",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 372,
+        "Name": "shuffle records written",
+        "Value": "274",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 373,
+        "Name": "shuffle write time",
+        "Value": "1913695",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 374,
+        "Name": "duration",
+        "Value": "122",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 375,
+        "Name": "number of output rows",
+        "Value": "274",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 376,
+        "Name": "peak memory",
+        "Value": "1048576",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 378,
+        "Name": "time in aggregation build",
+        "Value": "32",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 381,
+        "Name": "number of output rows",
+        "Value": "416",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 382,
+        "Name": "peak memory",
+        "Value": "34602944",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 384,
+        "Name": "time in aggregation build",
+        "Value": "18",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 385,
+        "Name": "avg hash probes per key",
+        "Value": "40",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 387,
+        "Name": "number of output rows",
+        "Value": "416",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 388,
+        "Name": "peak memory",
+        "Value": "1048576",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 390,
+        "Name": "time in aggregation build",
+        "Value": "8",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 396,
+        "Name": "local blocks read",
+        "Value": "16",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 399,
+        "Name": "local bytes read",
+        "Value": "5953",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 400,
+        "Name": "fetch wait time",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 401,
+        "Name": "records read",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 454,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 39,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 455,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 11258542,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 456,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 188,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 457,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 80413499,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 458,
+        "Name": "internal.metrics.resultSize",
+        "Value": 20610,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 459,
+        "Name": "internal.metrics.jvmGCTime",
+        "Value": 8,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 463,
+        "Name": "internal.metrics.peakExecutionMemory",
+        "Value": 36700096,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 464,
+        "Name": "internal.metrics.peakOnHeapExecutionMemory",
+        "Value": 102760256,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 467,
+        "Name": "internal.metrics.shuffle.read.remoteBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 468,
+        "Name": "internal.metrics.shuffle.read.localBlocksFetched",
+        "Value": 16,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 469,
+        "Name": "internal.metrics.shuffle.read.remoteBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 470,
+        "Name": "internal.metrics.shuffle.read.remoteBytesReadToDisk",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 471,
+        "Name": "internal.metrics.shuffle.read.localBytesRead",
+        "Value": 5953,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 472,
+        "Name": "internal.metrics.shuffle.read.fetchWaitTime",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 473,
+        "Name": "internal.metrics.shuffle.read.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 474,
+        "Name": "internal.metrics.shuffle.push.read.corruptMergedBlockChunks",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 475,
+        "Name": "internal.metrics.shuffle.push.read.mergedFetchFallbackCount",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 476,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 477,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 478,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 479,
+        "Name": "internal.metrics.shuffle.push.read.localMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 480,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 481,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 482,
+        "Name": "internal.metrics.shuffle.read.remoteReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 483,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 484,
+        "Name": "internal.metrics.shuffle.write.bytesWritten",
+        "Value": 3240,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 485,
+        "Name": "internal.metrics.shuffle.write.recordsWritten",
+        "Value": 274,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 486,
+        "Name": "internal.metrics.shuffle.write.writeTime",
+        "Value": 1913695,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 345,
+        "Name": "duration",
+        "Value": "57",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 346,
+        "Name": "number of output rows",
+        "Value": "101",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 347,
+        "Name": "peak memory",
+        "Value": "34602944",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 349,
+        "Name": "time in aggregation build",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 350,
+        "Name": "avg hash probes per key",
+        "Value": "40",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 355,
+        "Name": "local blocks read",
+        "Value": "16",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 358,
+        "Name": "local bytes read",
+        "Value": "3240",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 359,
+        "Name": "fetch wait time",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 360,
+        "Name": "records read",
+        "Value": "274",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 491,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 39,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 492,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 12692167,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 493,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 73,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 494,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 22613541,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 495,
+        "Name": "internal.metrics.resultSize",
+        "Value": 26498,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 496,
+        "Name": "internal.metrics.jvmGCTime",
+        "Value": 24,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 500,
+        "Name": "internal.metrics.peakExecutionMemory",
+        "Value": 34602944,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 501,
+        "Name": "internal.metrics.peakOnHeapExecutionMemory",
+        "Value": 34602944,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 504,
+        "Name": "internal.metrics.shuffle.read.remoteBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 505,
+        "Name": "internal.metrics.shuffle.read.localBlocksFetched",
+        "Value": 16,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 506,
+        "Name": "internal.metrics.shuffle.read.remoteBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 507,
+        "Name": "internal.metrics.shuffle.read.remoteBytesReadToDisk",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 508,
+        "Name": "internal.metrics.shuffle.read.localBytesRead",
+        "Value": 3240,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 509,
+        "Name": "internal.metrics.shuffle.read.fetchWaitTime",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 510,
+        "Name": "internal.metrics.shuffle.read.recordsRead",
+        "Value": 274,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 511,
+        "Name": "internal.metrics.shuffle.push.read.corruptMergedBlockChunks",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 512,
+        "Name": "internal.metrics.shuffle.push.read.mergedFetchFallbackCount",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 513,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 514,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 515,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 516,
+        "Name": "internal.metrics.shuffle.push.read.localMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 517,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 518,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 519,
+        "Name": "internal.metrics.shuffle.read.remoteReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 520,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "tasks": 4,
+    "accumulables": [
+      {
+        "ID": 536,
+        "Name": "data size",
+        "Value": "64",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 555,
+        "Name": "shuffle bytes written",
+        "Value": "236",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 556,
+        "Name": "shuffle records written",
+        "Value": "4",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 557,
+        "Name": "shuffle write time",
+        "Value": "1147836",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 558,
+        "Name": "duration",
+        "Value": "2",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 559,
+        "Name": "number of output rows",
+        "Value": "4",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 562,
+        "Name": "time in aggregation build",
+        "Value": "1",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 565,
+        "Name": "number of output rows",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 566,
+        "Name": "duration",
+        "Value": "330",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 567,
+        "Name": "number of output rows",
+        "Value": "10000",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 568,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 14,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 569,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 15023247,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 570,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 223,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 571,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 118107877,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 572,
+        "Name": "internal.metrics.resultSize",
+        "Value": 13460,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 598,
+        "Name": "internal.metrics.shuffle.write.bytesWritten",
+        "Value": 236,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 599,
+        "Name": "internal.metrics.shuffle.write.recordsWritten",
+        "Value": 4,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 600,
+        "Name": "internal.metrics.shuffle.write.writeTime",
+        "Value": 1147836,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 602,
+        "Name": "internal.metrics.input.recordsRead",
+        "Value": 10000,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "tasks": 1,
+    "accumulables": [
+      {
+        "ID": 529,
+        "Name": "duration",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 530,
+        "Name": "number of output rows",
+        "Value": "1",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 533,
+        "Name": "time in aggregation build",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 539,
+        "Name": "local blocks read",
+        "Value": "4",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 542,
+        "Name": "local bytes read",
+        "Value": "236",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 543,
+        "Name": "fetch wait time",
+        "Value": "0",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 544,
+        "Name": "records read",
+        "Value": "4",
+        "Internal": true,
+        "Count Failed Values": true,
+        "Metadata": "sql"
+      },
+      {
+        "ID": 605,
+        "Name": "internal.metrics.executorDeserializeTime",
+        "Value": 1,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 606,
+        "Name": "internal.metrics.executorDeserializeCpuTime",
+        "Value": 1122333,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 607,
+        "Name": "internal.metrics.executorRunTime",
+        "Value": 6,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 608,
+        "Name": "internal.metrics.executorCpuTime",
+        "Value": 6317542,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 609,
+        "Name": "internal.metrics.resultSize",
+        "Value": 3895,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 618,
+        "Name": "internal.metrics.shuffle.read.remoteBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 619,
+        "Name": "internal.metrics.shuffle.read.localBlocksFetched",
+        "Value": 4,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 620,
+        "Name": "internal.metrics.shuffle.read.remoteBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 621,
+        "Name": "internal.metrics.shuffle.read.remoteBytesReadToDisk",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 622,
+        "Name": "internal.metrics.shuffle.read.localBytesRead",
+        "Value": 236,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 623,
+        "Name": "internal.metrics.shuffle.read.fetchWaitTime",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 624,
+        "Name": "internal.metrics.shuffle.read.recordsRead",
+        "Value": 4,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 625,
+        "Name": "internal.metrics.shuffle.push.read.corruptMergedBlockChunks",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 626,
+        "Name": "internal.metrics.shuffle.push.read.mergedFetchFallbackCount",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 627,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 628,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBlocksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 629,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 630,
+        "Name": "internal.metrics.shuffle.push.read.localMergedChunksFetched",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 631,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 632,
+        "Name": "internal.metrics.shuffle.push.read.localMergedBytesRead",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 633,
+        "Name": "internal.metrics.shuffle.read.remoteReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      },
+      {
+        "ID": 634,
+        "Name": "internal.metrics.shuffle.push.read.remoteMergedReqsDuration",
+        "Value": 0,
+        "Internal": true,
+        "Count Failed Values": true
+      }
+    ]
+  }
+]

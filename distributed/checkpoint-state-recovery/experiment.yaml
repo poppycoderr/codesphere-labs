@@ -1,0 +1,22 @@
+id: distributed/checkpoint-state-recovery
+title: Flink checkpoint 后的单机算子状态恢复
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/checkpoint-and-result-time.md
+runtime:
+  os: macOS
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    flink: "2.3.0"
+    jdk: "21.0.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"

@@ -1,0 +1,7 @@
+.:1053 {
+  cache {
+    success 1024 5 0
+    denial 1024 5 0
+  }
+  forward . authdns:1053
+}

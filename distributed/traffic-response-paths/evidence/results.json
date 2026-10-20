@@ -1,0 +1,63 @@
+{
+  "python302": {
+    "method": "GET",
+    "body": ""
+  },
+  "python307": "not automatically followed",
+  "direct": {
+    "role": "good",
+    "method": "GET",
+    "body": "",
+    "peer": "172.20.0.8",
+    "xff": null,
+    "counts": {
+      "/echo": 4
+    }
+  },
+  "l7": {
+    "role": "good",
+    "method": "GET",
+    "body": "",
+    "peer": "172.20.0.6",
+    "xff": "172.20.0.8",
+    "counts": {
+      "/echo": 5
+    }
+  },
+  "tcp": {
+    "role": "good",
+    "method": "GET",
+    "body": "",
+    "peer": "172.20.0.5",
+    "xff": null,
+    "counts": {
+      "/echo": 6
+    }
+  },
+  "retry-off": {
+    "status": 503,
+    "role": "bad",
+    "body": "demo=1"
+  },
+  "retry-on": {
+    "status": 200,
+    "role": "good",
+    "body": "demo=1"
+  },
+  "backend_counts": {
+    "good": {
+      "/echo": 6,
+      "/retry-on": 1,
+      "/stats": 1
+    },
+    "bad": {
+      "/retry-off": 1,
+      "/retry-on": 1,
+      "/stats": 1
+    }
+  },
+  "dns_before": "203.0.113.10",
+  "dns_authority_after": "203.0.113.20",
+  "dns_cached_after": "203.0.113.10",
+  "dns_after_expiry": "203.0.113.20"
+}

@@ -1,0 +1,22 @@
+id: distributed/execution-plan-shuffle
+title: Spark 物理计划、倾斜分区与加盐结果等价性
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/execution-plan-shuffle.md
+runtime:
+  os: macOS
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    spark: "4.2.0"
+    python: "3.10.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"

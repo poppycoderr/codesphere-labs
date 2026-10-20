@@ -1,0 +1,22 @@
+id: system-design/filesystem-raid-boundaries
+title: 离线 ext4 镜像的数据映射与时间副本
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/filesystem-raid-boundaries.md
+runtime:
+  os: macOS
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    e2fsprogs: "1.47.2-3+b12"
+    coreutils: "9.7-3"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-19"
