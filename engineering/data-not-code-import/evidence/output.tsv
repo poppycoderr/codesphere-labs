@@ -1,0 +1,8 @@
+naive.summary	逗号切分 + 逐行提交 + 吞异常：报告成功 4 行、失败 4 行，脚本没有报错退出
+naive.rows	库里实际的行：1|Ada|active|"负责 A；2|Bo|active|"第一行；3|Cy|on_leave|；4|Di|P|把 P 写成了状态
+bom.utf8	按 utf-8 解码后用 DictReader：第一列的列名是 '\ufeffid'，取 row['id'] 得到 None
+bom.sig	按 utf-8-sig 解码：列名 ['id', 'name', 'dept', 'status', 'note']
+csv.quoted	标准 csv 解析：共 6 条记录；第 1 条 note='负责 A,B 两个模块'，第 2 条 note='第一行\n第二行'
+validate	Schema 校验：3 条合格，3 个问题：第 5 行 status='P' 不在 ['active', 'left', 'on_leave']；第 6 行 id=3 重复；第 7 行 dept='sales' 不存在
+atomic.all	不过滤、整批单事务导入：回滚（IntegrityError: UNIQUE constraint failed: emp.id），库里 0 行
+atomic.valid	只导入合格记录（导入前展示问题清单）：已提交，库里 3 行

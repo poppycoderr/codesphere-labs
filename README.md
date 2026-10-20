@@ -217,6 +217,7 @@ make check                                  # 目录约定、元数据、脚本�
 |---|---|
 | [engineering/context-output-encoding](engineering/context-output-encoding) | 输出上下文、CSP 与 Cookie 的浏览器防御边界 |
 | [engineering/uri-template-regex](engineering/uri-template-regex/) | URI 模板到正则：字面转义、捕获组错位、替换串转义、模板优先级与比较器契约 | 已验证 | regular-docker |
+| [engineering/data-not-code-import](engineering/data-not-code-import/) | 让模型产出数据而不是代码：CSV 解析、BOM、Schema 校验、单事务导入与吞异常的假成功 | 已验证 | regular-docker |
 | [distributed/traffic-response-paths](distributed/traffic-response-paths) | 重定向、TTL、全代理地址和 POST 重试 |
 | [system-design/filesystem-raid-boundaries](system-design/filesystem-raid-boundaries) | 无特权离线 ext4 映射、删除和早先副本 |
 | [distributed/execution-plan-shuffle](distributed/execution-plan-shuffle) | Spark 执行计划、倾斜、加盐等价性与显式缓存 |
