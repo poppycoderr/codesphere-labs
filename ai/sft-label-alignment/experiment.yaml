@@ -1,0 +1,23 @@
+id: ai/sft-label-alignment
+title: 微调样本的标签对齐：Transformers 因果语言模型在内部移位 labels，自己再移一位就变成预测下下个词；填充位置的标签不设 -100 会计入损失，attention_mask 不改变这一点；提示部分设 -100 后只学回答；损失按词平均，长样本权重更大；LoRA 的 A、B 都零初始化时梯度一直为零
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/sft-label-alignment.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    torch: "2.14.1+cpu"
+    transformers: "5.20.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
