@@ -1,0 +1,6 @@
+env	sqlite=3.46.1
+snapshot.added	过滤器由 10000 个已有邮箱构建：已加入的邮箱里被判为不存在的 0 个
+snapshot.later	构建之后又写入 100 个，写路径没有更新过滤器：这 100 个已存在的邮箱，被判为「一定不存在」的 100 个
+rebuild.partial	重建到一半就切换：已存在的 10100 个邮箱里，被判为不存在的 5100 个
+race.no_unique	没有唯一约束的表：两个请求都查到「一定不存在」，结果：插入成功 2 个；表里同一邮箱 2 行
+race.unique	有唯一约束的表：两个请求的结果：插入成功 1 个，被唯一约束拒绝（UNIQUE constraint failed: users.email） 1 个；表里同一邮箱 1 行

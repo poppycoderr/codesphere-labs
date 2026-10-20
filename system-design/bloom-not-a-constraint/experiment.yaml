@@ -1,0 +1,21 @@
+id: system-design/bloom-not-a-constraint
+title: 布隆过滤器的一定不存在只对已加入的元素成立：已加入的 10000 个漏判为 0；构建后写入、写路径未同步的 100 个全部被判为不存在；重建到一半切换时 5100 个已存在的邮箱被判为不存在；两个并发请求先查过滤器再插入，没有唯一约束时写入 2 行，有唯一约束时 1 行
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/dedup-and-filter.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
