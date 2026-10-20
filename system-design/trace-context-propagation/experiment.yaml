@@ -1,0 +1,22 @@
+id: system-design/trace-context-propagation
+title: "追踪上下文在哪一跳丢失：提交到普通线程池、CompletableFuture 公共池、虚拟线程时子 span 成了新 trace 的根，用 Context.taskWrapping 或 Context.wrap 包装后恢复；手写 HttpClient 不注入 traceparent 时服务端开始另一条 trace；不采样的根 span 仍然传播上下文，标志位告诉下游也不记录；没有 end() 的 span 不会导出"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/trace-context-propagation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    opentelemetry-java: "1.67.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"

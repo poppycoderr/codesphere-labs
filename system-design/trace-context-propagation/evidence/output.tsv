@@ -1,0 +1,12 @@
+env	opentelemetry-sdk=1.67.0 java=25.0.4.1+1-LTS
+same_thread	同一线程里创建子 span：同一条 trace，parent 正确
+pool.plain	提交到普通线程池：新的 trace（子 span 成了根）
+pool.wrapped	提交到 Context.taskWrapping 包装的线程池：同一条 trace，parent 正确
+cf.async	CompletableFuture.runAsync（公共池）：新的 trace（子 span 成了根）
+cf.wrapped	CompletableFuture.runAsync 传入包装后的线程池：同一条 trace，parent 正确
+virtual	Thread.ofVirtual().start：新的 trace（子 span 成了根）
+context.wrap	普通线程池，但提交前用 Context.current().wrap(task)：同一条 trace，parent 正确
+http.plain	手写 HttpClient 调用，不注入请求头：服务端收到 traceparent=null；服务端 span 是另一条 trace 的根
+http.inject	注入 traceparent 后：服务端收到 traceparent=00-<traceId>-<spanId>-03；服务端 span 与客户端同一条 trace
+sampling	根 span 采样器为 parentBased(alwaysOff)：服务端收到 traceparent 末尾标志=02（采样位为 0，随机 trace-id 位为 1），客户端导出 0 个 span；服务端用默认的 parentBased(alwaysOn) 采样器，跟随父级不采样，导出 0 个
+export.unended	开始但没有调用 end() 的 span，导出数=0
