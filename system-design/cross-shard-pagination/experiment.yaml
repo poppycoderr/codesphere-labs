@@ -1,0 +1,21 @@
+id: system-design/cross-shard-pagination
+title: 跨分片分页：offset 分页每个分片都要取 offset+limit 行，第 50 页读 4000 行只用 20 行；把 offset 平均分给各分片只对 5/20 行；只按秒级时间做游标，严格小于遗漏 4022 行，小于等于在同值之间反复翻页；复合游标 (created_at, id) 不漏不重；翻页期间插入新数据时 offset 第 2 页重复上一页最后一行
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/cross-shard-pagination.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
