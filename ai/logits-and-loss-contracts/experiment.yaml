@@ -1,0 +1,22 @@
+id: ai/logits-and-loss-contracts
+title: logits、概率与损失函数的约定：先 sigmoid 再传 BCEWithLogitsLoss 时确信但错误的样本梯度接近零；BCELoss 把 log 截断在 -100；先 softmax 再传 CrossEntropyLoss 时完全正确的预测损失仍有 1.46、错误预测梯度消失，训练后测试集交叉熵更高且过度自信；argmax 不变所以准确率掩盖问题；类别编号越界报错，整体错位却静默训练
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/logits-and-loss-contracts.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    torch: "2.14.1+cpu"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

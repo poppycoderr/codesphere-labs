@@ -1,0 +1,14 @@
+env	torch=2.14.1+cpu
+bce.-10	logit=-10、标签 1：传 logits 损失 10.0000、梯度 -1.0000；先 sigmoid 再传 损失 0.6931、梯度 -0.000023
+bce.0	logit=0、标签 1：传 logits 损失 0.6931、梯度 -0.5000；先 sigmoid 再传 损失 0.4741、梯度 -0.094385
+bce.10	logit=10、标签 1：传 logits 损失 0.0000、梯度 -0.0000；先 sigmoid 再传 损失 0.3133、梯度 -0.000012
+bce_clamp.-20	logit=-20、标签 1：sigmoid 后 2.06e-09，BCELoss 20.00；BCEWithLogitsLoss 20.00
+bce_clamp.-200	logit=-200、标签 1：sigmoid 后 0，BCELoss 100.00；BCEWithLogitsLoss 200.00
+ce.floor	10 类、模型完全确信且正确：传 logits 损失 0.0000；先 softmax 再传 损失 1.4612（概率在 [0,1]，再做一次 softmax 后最多 e/(e+9)）
+ce.grad	模型确信但错了：传 logits 时正确类的梯度 -1.0000；先 softmax 再传 -4.87e-18
+ce.train.ok	训练 1000 步，在独立测试集上（模型输出按 logits 解释）：传 logits 准确率 0.403、交叉熵 1.749、平均最高概率 0.410
+ce.train.bad	训练 1000 步，在独立测试集上（模型输出按 logits 解释）：先 softmax 再传 准确率 0.386、交叉熵 2.382、平均最高概率 0.690
+ce.argmax	softmax 不改变 argmax：同一组 logits 的预测类别相同：True（只看准确率不容易发现这个错误）
+off.index	标签取 1..10、类别只有 0..9：遇到 10 时 IndexError: Target 10 is out of bounds.
+off.silent	训练标签整体错一位但都在 0..9 内：不报错；测试集上预测与错位标签一致的比例 0.403，与真实标签 0.062
+off.ignore	CrossEntropyLoss 默认 ignore_index=-100：标签 -100 的位置不计入损失
