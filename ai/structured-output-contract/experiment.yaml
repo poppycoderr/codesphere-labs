@@ -1,0 +1,22 @@
+id: ai/structured-output-contract
+title: 模型输出的结构契约：Pydantic 默认宽松模式把字符串 "3"、3.0 和 true 转成整数、静默丢弃额外字段、放过负数；strict + extra=forbid + 范围全部拒绝；代码块、前置说明、截断、数组都过不了语法层；取第一对括号的启发式取错对象；Schema 通过的价格与商品仍要领域校验；修复后的输出全部合法却换了商品；重试预算用完返回明确失败
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/structured-output-contract.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    pydantic: "2.14.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
