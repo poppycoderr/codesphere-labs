@@ -1,0 +1,9 @@
+env	elasticsearch=9.5.5
+partial.http	一次 bulk 5 条：HTTP 状态 200，响应顶层 errors=True
+partial.items	逐项结果：['o1:201', 'o2:400(document_parsing_exception)', 'o3:201', 'o4:400(strict_dynamic_mapping_exception)', 'o5:201']
+partial.count	只看 HTTP 状态的客户端认为 5 条都写入了，索引里实际 3 条
+retry.failed_only	修正数据后只重试失败的 2 条（带原来的 _id）：['o2:201', 'o4:201']；索引里 5 条
+retry.whole_auto_id	不指定 _id、整批重试：B1 2 条，B3 2 条，B2 1 条
+create.conflict	用 create 重放：HTTP 200，['c1:409(version_conflict_engine_exception)', 'c2:201']；c1 的 qty 仍是 1
+order.lww	不带版本号：先写 shipped，延迟的 paid 后到，最终状态 paid
+order.external	用源系统的版本号（version_type=external）：版本 2 的旧消息后到，HTTP 409（version_conflict_engine_exception），最终状态 shipped，_version=3

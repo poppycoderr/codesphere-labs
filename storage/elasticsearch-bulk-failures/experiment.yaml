@@ -1,0 +1,22 @@
+id: storage/elasticsearch-bulk-failures
+title: bulk 返回 200 也可能有失败：5 条里 2 条因类型错误与 strict 映射失败，顶层 errors=true，只看状态码的客户端以为全写入了；带 _id 只重试失败项后得到 5 条；不指定 _id 整批重试，成功过的文档各多一份；create 遇到已存在的 _id 逐项 409；不带版本号时延迟的旧消息覆盖新状态，用外部版本号时被拒绝
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/elasticsearch-bulk-failures.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    elasticsearch: "9.5.5"
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
