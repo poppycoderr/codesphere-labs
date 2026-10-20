@@ -1,0 +1,22 @@
+id: ai/attention-mask-semantics
+title: 注意力掩码的布尔约定：nn.MultiheadAttention 的 True 表示遮住，scaled_dot_product_attention 的 True 表示参与，同一个下三角矩阵传错就只看未来；全遮住的行在 need_weights=True 时是 NaN、在快速路径上是 0；不传 key_padding_mask 时真实词的输出随填充向量变化；TransformerDecoder 以输入本身为 memory 时只给 tgt_mask 仍泄漏未来
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/attention-mask-semantics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    torch: "2.14.1+cpu"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

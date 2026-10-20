@@ -1,0 +1,16 @@
+env	torch=2.14.1+cpu
+sdpa.keep	scaled_dot_product_attention 传下三角 True（True=参与）：与 is_causal=True 一致：True
+sdpa.block	scaled_dot_product_attention 传严格上三角 True：与 is_causal=True 一致：False；最后一行全被遮住，这一行输出 [0.0, 0.0, 0.0, 0.0]
+mha.block	nn.MultiheadAttention 传严格上三角 True（True=遮住）：位置 0 对位置 1..4 的权重和 0.0；位置 2 之后的输入会影响位置 0..2：不会
+mha.keep	nn.MultiheadAttention 误传下三角 True：位置 0 对自己的权重 0.0，只看未来；位置 2 之后的输入会影响位置 0..2：会
+mha.allmasked	最后一行全被遮住：need_weights=True 时这一行输出全是 NaN：True；need_weights=False 时含 NaN：False（走了另一条计算路径，全遮住的行得到 0）
+mha.float	nn.MultiheadAttention 传浮点掩码（遮住处 -inf，其余 0，按加法作用）：与布尔上三角结果一致：True
+mha.is_causal	nn.MultiheadAttention 只传 is_causal=True、不传 attn_mask：RuntimeError（is_causal 只是提示，掩码仍要自己给）
+pad.none	不传 key_padding_mask：真实词的输出与不填充时一致：False；随填充向量变化：True
+pad.kpm	传 key_padding_mask（True=填充）：真实词的输出与不填充时一致：True；随填充向量变化：False
+pad.all	一整条序列全是填充：need_weights=True 时输出含 NaN：True；need_weights=False 时：False
+dec.mask	generate_square_subsequent_mask 生成浮点掩码，位置 0 行：['0', '-inf', '-inf', '-inf', '-inf']
+dec.leak	TransformerDecoder(tgt=x, memory=x)，只给 tgt_mask：位置 2 之后的输入会影响位置 0..2：会（交叉注意力看得到整段 memory）
+dec.memmask	同时给 memory_mask：不会
+dec.encoder	只用自注意力的「仅解码器」结构（TransformerEncoder + 因果掩码）：不会
+dec.nomask	TransformerEncoder 不给因果掩码：会

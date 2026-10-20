@@ -191,6 +191,7 @@
 | [ai/tool-runner-bounds](ai/tool-runner-bounds/) | 工具调用运行器：允许列表、参数校验、并行调用、步数上限、幂等重放、完成证据、工具结果中的指令、故障默认值 | 已验证 | regular-docker |
 | [ai/rag-index-lifecycle](ai/rag-index-lifecycle/) | 知识库的增量更新：内容哈希键的旧块、删除传播、嵌入模型混用、权限过滤、答案缓存的键 | 已验证 | regular-docker |
 | [ai/streaming-response-lifecycle](ai/streaming-response-lifecycle/) | 流式响应的生命周期：SSE 分帧、断开后异步与同步生成器、中途失败与显式错误事件 | 已验证 | regular-docker |
+| [ai/attention-mask-semantics](ai/attention-mask-semantics/) | 注意力掩码的布尔约定与未来泄漏检验 | 轻量：确定性输出（PyTorch 2.14.1 CPU） | regular-docker |
 | [testing/open-vs-closed-load-model](testing/open-vs-closed-load-model/) | 固定 10 个并发压测，服务卡了 2 秒，报告里只有 10 个慢请求 | 轻量：计时，只断言范围 | regular-docker |
 | [testing/coverage-is-not-verification](testing/coverage-is-not-verification/) | 覆盖率 100%，一个断言都没有 | 轻量：JaCoCo 与 PIT | regular-docker |
 | [testing/retry-hides-failures](testing/retry-hides-failures/) | 重跑一次就过了，这个缺陷去哪了 | 轻量：Surefire 重跑 | regular-docker |
