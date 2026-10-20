@@ -1,0 +1,17 @@
+class.bindings	注册 Source@raw 与 Source@daily 后，容器里有 1 个绑定：[DailySource]
+class.check	检查 Source@daily：循环依赖：Source → Source
+class.resolve	解析 Source@raw：构造过程中重入：Source
+key.bindings	注册 Source@raw 与 Source@daily 后，容器里有 2 个绑定：[RawSource, DailySource]
+key.check	检查 Source@daily：通过
+key.resolve	解析 Source@raw：得到 raw
+mixed.check	绑定按完整键、检查路径只记 Class，检查 Source@daily：循环依赖：Source → Source
+key.real_cycle	Source@a 依赖 Source@b、Source@b 又依赖 Source@a：循环依赖：Source@a → Source@b → Source@a
+diamond.path	菱形依赖，按当前路径判断：通过
+diamond.visited	菱形依赖，只看是否访问过：报告循环依赖（在 Base 处）
+lazy.check	Clock 只持有 Provider<Ticker>，Ticker 依赖 Clock，配置期检查：通过
+lazy.get	解析 Clock：通过；之后调用 clock.ticker.get()：通过
+eager.check	同样结构但构造器里立刻 get()，配置期检查：通过
+eager.get	解析 EagerClock：构造过程中重入：EagerClock
+missing	缺少依赖：NeedsMissing → Source@absent
+ref.class_equals	两处写的 new TypeRef<List<String>>(){}：按 getClass() 比较相等=false，按捕获的 Type 比较相等=true
+named.equals	两个独立创建的 @Named("raw") 注解实例 equals=true

@@ -1,0 +1,22 @@
+id: design/di-container-identity
+title: "依赖注入容器的绑定身份与依赖图：只按 Class 注册时同类型的两个绑定互相覆盖、自己依赖自己的装饰被当成环；绑定按完整键而检查路径只记 Class 仍报假环；菱形依赖只看已访问集合会误报；延迟边通过配置检查，构造器里立刻 get() 仍在运行期重入；匿名子类捕获的类型引用按 getClass() 比较不相等"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/di-container-identity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    jdk: "25.0.4.1"
+    jakarta-inject-api: "2.0.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-20"

@@ -32,6 +32,7 @@
 | [design/progressive-delivery-rules](design/progressive-delivery-rules/) | 可复用的服务端组件：渐进发布 | 组件：本地规则引擎 | regular |
 | [design/shared-flow-extension-points](design/shared-flow-extension-points/) | 多个产品共用一套流程：骨架、扩展点与契约测试 | 轻量：确定性输出 | regular-docker |
 | [design/component-dependencies](design/component-dependencies/) | 包之间的依赖：环、端口与 common 包 | 轻量：确定性输出 | regular-docker |
+| [design/di-container-identity](design/di-container-identity/) | 依赖注入容器的绑定身份：Class 与类型加限定符、路径栈与已访问集合、延迟边、类型引用相等性 | 已验证 | regular-docker |
 | [refactoring/rename-boundaries](refactoring/rename-boundaries/) | 名字说的是什么：动作、角色与改名的边界 | 轻量：确定性输出（Jackson 3.2.3） | regular-docker |
 | [refactoring/duplication-and-extraction](refactoring/duplication-and-extraction/) | 抽一个公共方法之前：同一条知识，还是只是长得像 | 轻量：确定性输出 | regular-docker |
 | [refactoring/behavior-preserving-extraction](refactoring/behavior-preserving-extraction/) | 把长方法拆开，哪些行为最容易被改掉 | 轻量：确定性输出 | regular-docker |
