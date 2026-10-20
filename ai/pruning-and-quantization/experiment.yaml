@@ -1,0 +1,22 @@
+id: ai/pruning-and-quantization
+title: 剪枝之后文件为什么没变小：l1_unstructured 把 weight 变成 weight_orig × weight_mask，保存体积反而变大；remove 之后仍是同尺寸稠密张量；50% 稀疏时 COO 与 CSR 比稠密大，90% 时才变小；结构化剪枝后重建为更小的层要把被剪神经元的偏置折进下一层；half 与 quantize_dynamic 改变存储，torch.ao.quantization 已标记弃用
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/pruning-and-quantization.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    torch: "2.14.1+cpu"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

@@ -1,0 +1,15 @@
+env	torch=2.14.1+cpu
+base	原模型 state_dict：['weight', 'bias']，保存 323 KiB
+prune.keys	l1_unstructured(amount=0.5) 后第一层 state_dict：['bias', 'weight_orig', 'weight_mask']；weight 不再是参数，是前向前由 weight_orig × weight_mask 算出来的属性：True
+prune.size	保存 580 KiB；weight 形状 (256, 256)，零元素占比 0.50
+remove	prune.remove 后：state_dict ['bias', 'weight']，保存 323 KiB；仍是 torch.strided 稠密张量，形状 (256, 256)
+sparse.0.5	零元素占比 0.5：稠密 258 KiB，COO 642 KiB（索引 torch.int64），CSR 644 KiB
+sparse.0.9	零元素占比 0.9：稠密 258 KiB，COO 130 KiB（索引 torch.int64），CSR 132 KiB
+struct.zero	ln_structured(dim=0, amount=0.5)：weight 形状 (256, 256)，全零的行 128 个
+struct.rebuild_naive	只保留非零行、去掉下一层对应列，重建为 256→128→64：与剪枝后模型输出一致：False（被剪掉的行偏置仍在，ReLU 后非零的有 58 个）
+struct.rebuild	把这些常数输出折进下一层偏置后：一致：True；保存 163 KiB（原 323 KiB）
+struct.acc	剪枝改变了模型：与原模型输出的最大差 0.59，需要重新评估或微调
+half	half()：保存 163 KiB；与原模型输出的最大差 0.0004
+quant.deprecated	调用 quantize_dynamic 时的弃用警告：torch.ao.quantization is deprecated and will be removed in 2.10. 
+quant.size	quantize_dynamic(qint8)：第一层变成 torch.ao.nn.quantized.dynamic.modules.linear.Linear，保存 85 KiB
+quant.diff	与原模型输出的最大差 0.0090；输入输出仍是 torch.float32，只有权重以 int8 存储，激活在运行时按批量化
