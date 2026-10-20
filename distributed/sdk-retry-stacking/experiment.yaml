@@ -1,0 +1,22 @@
+id: distributed/sdk-retry-stacking
+title: SDK 自带重试与应用层重试叠加：openai Python SDK 默认 max_retries=2，503 时一次调用发出 3 个请求；外面再包 3 次重试变成 9 个；409 会重试，400 与 x-should-retry 为 false 时不重试；遵守 retry-after；超时也重试，客户端放弃后服务端仍把 3 个请求都处理完
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/timeout-budgets-and-retries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    openai: "3.35.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

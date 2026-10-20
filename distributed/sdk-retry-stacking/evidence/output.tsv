@@ -1,0 +1,10 @@
+env	openai=3.35.1
+defaults	DEFAULT_MAX_RETRIES=2；DEFAULT_TIMEOUT=Timeout(connect=5.0, read=600, write=600, pool=600)
+sdk.default	返回 503，只用 SDK 默认设置：一次调用发出 3 个请求，最后抛出 InternalServerError；请求头 x-stainless-retry-count 依次为 ['0', '1', '2']
+stack	应用层再包一层「最多 3 次」的重试：一次业务调用发出 9 个请求
+sdk.zero	SDK max_retries=0，只保留应用层 3 次：3 个请求
+status.409	返回 409：3 个请求，抛出 ConflictError
+status.400	返回 400：1 个请求，抛出 BadRequestError
+should_retry	返回 503 但带 x-should-retry: false：1 个请求
+retry_after	返回 429 且 retry-after: 1：3 个请求，总耗时不少于 2 秒：True
+timeout	服务端 1 秒才响应，SDK timeout=0.3：3 个请求都到达了服务端，最后抛出 APITimeoutError；客户端放弃之后，服务端处理完的有 3 个
