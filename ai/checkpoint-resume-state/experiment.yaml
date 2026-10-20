@@ -1,0 +1,22 @@
+id: ai/checkpoint-resume-state
+title: 模型产物与训练续跑状态：中断后只恢复权重时学习率回到初始值、衰减点后移；加上优化器后学习率对了衰减点仍后移；再加调度器后衰减点正确但抽样与 dropout 不同；再加随机数状态后与不间断训练逐位一致；torch.load 默认 weights_only=True 拒绝自定义对象
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/model-serving.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+    torch: "2.14.1+cpu"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
