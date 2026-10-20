@@ -1,0 +1,21 @@
+id: ai/rag-index-lifecycle
+title: 知识库的增量更新：只按内容哈希做键时，文档从 7 天改成 15 天后旧块仍在、检索同时返回两个版本；按来源记录块并在重建时删除旧块才只剩新版本；删除的文档要靠全量同步才能清掉；查询换了嵌入模型时按模型标记拒绝混用，维度不同直接报错；权限先过滤再排序；答案缓存只用问题做键时，员工拿到了人事才能看的内容
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/rag-index-lifecycle.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

@@ -1,0 +1,10 @@
+edit.naive	policy.md 从 7 天改成 15 天后重新导入，只按内容哈希做键：索引里 3 块；查「退货期限是多少天」得到 policy.md:退货期限为签收后 15 天 / policy.md:退货期限为签收后 7 天
+edit.managed	按来源记录块，重建时删掉不再产生的块：索引里 2 块；查「退货期限是多少天」得到 policy.md:退货期限为签收后 15 天 / policy.md:运费由买家承担
+delete.naive	old-faq.md 从仓库删除之后，朴素索引只做增量导入：查「退货期限是多少天」仍得到 old-faq.md:旧版：退货期限为签收后 3 天 / policy.md:退货期限为签收后 15 天 / policy.md:退货期限为签收后 7 天
+delete.managed	全量同步：删除前 old-faq.md:旧版：退货期限为签收后 3 天 / policy.md:退货期限为签收后 15 天 / policy.md:运费由买家承担；删除后 policy.md:退货期限为签收后 15 天 / policy.md:运费由买家承担
+model.mixed_score	同一模型下问题与答案的相似度 0.33；问题换成新模型嵌入、文档还是旧模型的向量 0.11
+model.guard	每条向量记录嵌入模型，查询时检查：索引里有 ['emb-v1'] 生成的向量，查询用的是 emb-v2：拒绝混用
+model.dim	维度不同的模型直接混用：维度不一致：64 与 48
+acl.filter	员工（只属于 all）查「退货专员的待遇」：policy.md:退货期限为签收后 15 天 / policy.md:运费由买家承担；人事（all、hr）查：salary.md:退货专员的薪资档位为 B3
+cache.query_only	答案缓存只用问题文本做键，人事先问过一次，员工再问：salary.md:退货专员的薪资档位为 B3
+cache.scoped	缓存键加上权限范围：员工再问：policy.md:退货期限为签收后 15 天
