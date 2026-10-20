@@ -1,0 +1,14 @@
+# PSA 副本集：两个数据节点 m1、m2 与一个仲裁节点 arb，MongoDB 8.2.12，不暴露宿主机端口
+x-mongo: &mongo
+  image: mongo:8.2.12@sha256:e0ce8c35124d4a9f9785532d1f268f39e9728ffa1cb38f46fa482436424c4bd3
+  command: ["mongod", "--replSet", "rs0", "--bind_ip_all", "--wiredTigerCacheSizeGB", "0.25"]
+  mem_limit: 768m
+  healthcheck:
+    test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+    interval: 2s
+    timeout: 5s
+    retries: 60
+services:
+  m1: *mongo
+  m2: *mongo
+  arb: *mongo
