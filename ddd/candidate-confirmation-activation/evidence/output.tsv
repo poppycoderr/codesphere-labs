@@ -1,0 +1,14 @@
+env	sqlite=3.46.1
+extract.pending	抽取出候选 c1（金额 100）之后，正式记录：金额 0、版本 0
+extract.confirm	请求 r1 按版本 0 确认 c1：已确认；正式记录：金额 100、版本 1
+extract.duplicate	r1 原样重发：重复请求，返回原结果；正式记录：金额 100、版本 1
+extract.reused_key	r1 换了参数（版本 1）再发：拒绝：同一个请求 ID 换了参数
+extract.stale_version	另一位审核人基于版本 0 确认候选 c2（金额 999）：拒绝：业务版本已变化
+extract.stale_source	文档更新为第 2 版后，按最新版本 1 确认 c2：拒绝：候选引用的来源已经变了；正式记录：金额 100、版本 1
+extract.reextract	对第 2 版重新抽取出 c3（金额 200），按版本 1 确认：已确认；正式记录：金额 200、版本 2
+extract.callback	抽取任务已是第 2 次尝试：第 1 次尝试的迟到回调更新 0 行，第 2 次的回调更新 1 行，同一回调重复到达更新 0 行
+release.candidate	训练出 m2（状态 candidate），切换到 m2：拒绝：m2 未通过验证；指向 m1、版本 0
+release.activate	m2 通过验证后按版本 0 切换：已切换；指向 m2、版本 1
+release.stale	另一个发布请求仍基于版本 0 要切回 m1：拒绝：部署版本已变化；指向 m2、版本 1
+release.rollback	按版本 1 回退到 m1：已切换；指向 m1、版本 2（回退也是一次新版本，不是把版本减回去）
+release.reopen	关闭连接后重新打开：指向 m1、版本 2；金额 200、版本 2

@@ -1,0 +1,21 @@
+id: ddd/candidate-confirmation-activation
+title: 候选、确认与生效：抽取出的金额在确认前不改正式记录，确认按来源哈希、业务版本与幂等回执检查，来源变化后旧候选被拒绝、重新抽取的候选可以确认；抽取回调匹配尝试号；未验证的模型不能被部署指针引用，切换与回退都按部署版本条件更新，回退产生新版本
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/candidate-confirmation-activation.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

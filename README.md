@@ -62,6 +62,7 @@
 | [ddd/data-provenance-snapshots](ddd/data-provenance-snapshots/) | 金额的来历：快照、价格版本与凭证链 | 常规：PostgreSQL 容器 | regular-docker |
 | [ddd/model-to-http-api](ddd/model-to-http-api/) | 从模型到 HTTP 接口：条件更新、命令与受理 | 轻量：确定性输出 | regular-docker |
 | [ddd/script-or-domain-model](ddd/script-or-domain-model/) | 事务脚本还是领域模型：三次需求变化的代码演进 | 轻量：确定性输出 | regular-docker |
+| [ddd/candidate-confirmation-activation](ddd/candidate-confirmation-activation/) | 候选、确认与生效：抽取结果与模型发布 | 轻量：确定性输出（SQLite） | regular-docker |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
 | [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
 | [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |
