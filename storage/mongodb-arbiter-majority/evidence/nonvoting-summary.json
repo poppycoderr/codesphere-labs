@@ -1,0 +1,23 @@
+{
+  "mongodb": "9.0.4",
+  "force_reconfig": false,
+  "secondary": "m1",
+  "secondary_running_during_writes": false,
+  "votes": 0,
+  "priority": 0.0,
+  "before_write_majority_count": 2,
+  "after_write_majority_count": 1,
+  "before_election_majority_count": 2,
+  "after_election_majority_count": 2,
+  "after_voting_members_count": 2,
+  "after_writable_voting_members_count": 1,
+  "successful_majority_writes": 3,
+  "majority_read": [
+    "a",
+    "d",
+    "e",
+    "f1",
+    "f2",
+    "f3"
+  ]
+}

@@ -1,5 +1,5 @@
 id: storage/mongodb-arbiter-majority
-title: 仲裁节点不存数据：PSA 副本集停掉一个数据节点后主节点仍在，w:majority 写入超时但文档已写进主节点，majority 读看不到；默认写关注立即确认；旧主节点停机、另一个数据节点与仲裁节点选出新主节点后，只写到旧主节点的文档被回滚到 rollback 目录
+title: 仲裁节点不存数据：PSA 副本集停掉一个数据节点后主节点仍在，w:majority 写入超时但文档已写进主节点，majority 读看不到；默认写关注立即确认；旧主节点停机、另一个数据节点与仲裁节点选出新主节点后，只写到旧主节点的文档被回滚到 rollback 目录；停机从节点 votes=0/priority=0 后 writeMajorityCount 从2变1且3次majority写入确认
 status: verified
 tier: regular-docker
 article:
@@ -8,11 +8,16 @@ article:
 runtime:
   os: macOS 27.0
   architecture: arm64
-  docker: "29.8.0"
+  docker: "29.9.1"
   components:
-    mongodb: "8.2.12"
+    mongodb: "9.0.4"
     python: "3.14.8"
     pymongo: "4.19.0"
+    dnspython: "2.9.0"
+    docker_kernel: "7.0.14-linuxkit"
+resources:
+  cpu_limit: "1 per mongodb container"
+  memory_limit: "768m per mongodb container"
 commands:
   verify: make verify
   evidence: make evidence

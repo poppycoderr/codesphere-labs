@@ -1,0 +1,306 @@
+{
+  "set": "rs0",
+  "date": {
+    "$date": "2026-10-21T02:44:30.455Z"
+  },
+  "myState": 1,
+  "term": 2,
+  "syncSourceHost": "",
+  "syncSourceId": -1,
+  "heartbeatIntervalMillis": 2000,
+  "majorityVoteCount": 2,
+  "writeMajorityCount": 1,
+  "votingMembersCount": 2,
+  "writableVotingMembersCount": 1,
+  "optimes": {
+    "lastCommittedOpTime": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550670,
+          "i": 1
+        }
+      },
+      "t": 2
+    },
+    "lastCommittedWallTime": {
+      "$date": "2026-10-21T02:44:30.446Z"
+    },
+    "readConcernMajorityOpTime": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550670,
+          "i": 1
+        }
+      },
+      "t": 2
+    },
+    "appliedOpTime": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550670,
+          "i": 1
+        }
+      },
+      "t": 2
+    },
+    "durableOpTime": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550670,
+          "i": 1
+        }
+      },
+      "t": 2
+    },
+    "writtenOpTime": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550670,
+          "i": 1
+        }
+      },
+      "t": 2
+    },
+    "lastAppliedWallTime": {
+      "$date": "2026-10-21T02:44:30.446Z"
+    },
+    "lastDurableWallTime": {
+      "$date": "2026-10-21T02:44:30.446Z"
+    },
+    "lastWrittenWallTime": {
+      "$date": "2026-10-21T02:44:30.446Z"
+    }
+  },
+  "lastStableRecoveryTimestamp": {
+    "$timestamp": {
+      "t": 1792550627,
+      "i": 1
+    }
+  },
+  "electionCandidateMetrics": {
+    "lastElectionReason": "electionTimeout",
+    "lastElectionDate": {
+      "$date": "2026-10-21T02:44:14.273Z"
+    },
+    "electionTerm": 2,
+    "lastCommittedOpTimeAtElection": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550632,
+          "i": 19
+        }
+      },
+      "t": 1
+    },
+    "lastSeenWrittenOpTimeAtElection": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550632,
+          "i": 19
+        }
+      },
+      "t": 1
+    },
+    "lastSeenOpTimeAtElection": {
+      "ts": {
+        "$timestamp": {
+          "t": 1792550632,
+          "i": 19
+        }
+      },
+      "t": 1
+    },
+    "numVotesNeeded": 2,
+    "priorityAtElection": 1.0,
+    "electionTimeoutMillis": 4000,
+    "numCatchUpOps": 0,
+    "newTermStartDate": {
+      "$date": "2026-10-21T02:44:17.652Z"
+    },
+    "wMajorityWriteAvailabilityDate": {
+      "$date": "2026-10-21T02:44:18.977Z"
+    }
+  },
+  "members": [
+    {
+      "_id": 0,
+      "name": "m1:27017",
+      "health": 0.0,
+      "state": 8,
+      "stateStr": "(not reachable/healthy)",
+      "uptime": 0,
+      "optime": {
+        "ts": {
+          "$timestamp": {
+            "t": 0,
+            "i": 0
+          }
+        },
+        "t": -1
+      },
+      "optimeDurable": {
+        "ts": {
+          "$timestamp": {
+            "t": 0,
+            "i": 0
+          }
+        },
+        "t": -1
+      },
+      "optimeWritten": {
+        "ts": {
+          "$timestamp": {
+            "t": 0,
+            "i": 0
+          }
+        },
+        "t": -1
+      },
+      "optimeDate": {
+        "$date": "1970-01-01T00:00:00Z"
+      },
+      "optimeDurableDate": {
+        "$date": "1970-01-01T00:00:00Z"
+      },
+      "optimeWrittenDate": {
+        "$date": "1970-01-01T00:00:00Z"
+      },
+      "lastAppliedWallTime": {
+        "$date": "2026-10-21T02:44:17.835Z"
+      },
+      "lastDurableWallTime": {
+        "$date": "2026-10-21T02:44:17.835Z"
+      },
+      "lastWrittenWallTime": {
+        "$date": "2026-10-21T02:44:17.835Z"
+      },
+      "lastStableRecoveryTimestamp": {
+        "$timestamp": {
+          "t": 1792550632,
+          "i": 19
+        }
+      },
+      "lastHeartbeat": {
+        "$date": "2026-10-21T02:44:30.446Z"
+      },
+      "lastHeartbeatRecv": {
+        "$date": "2026-10-21T02:44:23.333Z"
+      },
+      "pingMs": 0,
+      "lastHeartbeatMessage": "onInvoke :: caused by :: Connection closed by peer",
+      "syncSourceHost": "",
+      "syncSourceId": -1,
+      "infoMessage": "",
+      "configVersion": 1,
+      "configTerm": 2
+    },
+    {
+      "_id": 1,
+      "name": "m2:27017",
+      "health": 1.0,
+      "state": 1,
+      "stateStr": "PRIMARY",
+      "uptime": 25,
+      "optime": {
+        "ts": {
+          "$timestamp": {
+            "t": 1792550670,
+            "i": 1
+          }
+        },
+        "t": 2
+      },
+      "optimeDate": {
+        "$date": "2026-10-21T02:44:30Z"
+      },
+      "optimeWritten": {
+        "ts": {
+          "$timestamp": {
+            "t": 1792550670,
+            "i": 1
+          }
+        },
+        "t": 2
+      },
+      "optimeWrittenDate": {
+        "$date": "2026-10-21T02:44:30Z"
+      },
+      "lastAppliedWallTime": {
+        "$date": "2026-10-21T02:44:30.446Z"
+      },
+      "lastDurableWallTime": {
+        "$date": "2026-10-21T02:44:30.446Z"
+      },
+      "lastWrittenWallTime": {
+        "$date": "2026-10-21T02:44:30.446Z"
+      },
+      "lastStableRecoveryTimestamp": {
+        "$timestamp": {
+          "t": 1792550627,
+          "i": 1
+        }
+      },
+      "syncSourceHost": "",
+      "syncSourceId": -1,
+      "infoMessage": "Could not find member to sync from",
+      "electionTime": {
+        "$timestamp": {
+          "t": 1792550654,
+          "i": 1
+        }
+      },
+      "electionDate": {
+        "$date": "2026-10-21T02:44:14Z"
+      },
+      "configVersion": 2,
+      "configTerm": 2,
+      "self": true,
+      "lastHeartbeatMessage": ""
+    },
+    {
+      "_id": 2,
+      "name": "arb:27017",
+      "health": 1.0,
+      "state": 7,
+      "stateStr": "ARBITER",
+      "uptime": 24,
+      "lastHeartbeat": {
+        "$date": "2026-10-21T02:44:30.453Z"
+      },
+      "lastHeartbeatRecv": {
+        "$date": "2026-10-21T02:44:30.453Z"
+      },
+      "pingMs": 0,
+      "lastHeartbeatMessage": "",
+      "syncSourceHost": "",
+      "syncSourceId": -1,
+      "infoMessage": "",
+      "configVersion": 2,
+      "configTerm": 2
+    }
+  ],
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": {
+      "$timestamp": {
+        "t": 1792550670,
+        "i": 1
+      }
+    },
+    "signature": {
+      "hash": {
+        "$binary": {
+          "base64": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+          "subType": "00"
+        }
+      },
+      "keyId": 0
+    }
+  },
+  "operationTime": {
+    "$timestamp": {
+      "t": 1792550670,
+      "i": 1
+    }
+  }
+}

@@ -1,4 +1,4 @@
-env	mongodb=8.2.12
+env	mongodb=9.0.4
 config	投票成员 3 个，存数据的成员 2 个，多数为 2
 default_wc	getDefaultRWConcern：defaultWriteConcern 字段不存在，来源 implicit（隐式默认值由拓扑决定，下面用行为验证）
 both_up	两个数据节点都在：w:majority 写入 a 成功
@@ -12,3 +12,6 @@ failover.write	在新主节点上写入 d
 rejoin.state	m1 重新加入后的状态：从节点；主节点 m2
 rejoin.data	m1 上的数据：['a', 'd']；m2 上的数据：['a', 'd']；b、c 都不在了
 rejoin.rollback	m1 的 /data/db/rollback 下按集合 UUID 存放的被回滚文档文件：1 个
+nonvoting.before	m1 停机仍有投票权：writeMajorityCount=2，majorityVoteCount=2，写入 e 超时（错误码64），local 已读到 e
+nonvoting.after	m1 votes=0/priority=0 且仍停机：writeMajorityCount=1，majorityVoteCount=2；3次 w:majority（wtimeout=3000）写入均确认
+nonvoting.read	调整后的 majority 读到 ['a', 'd', 'e', 'f1', 'f2', 'f3']；此前超时的 e 也已进入提交视图

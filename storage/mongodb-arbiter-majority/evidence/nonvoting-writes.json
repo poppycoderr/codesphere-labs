@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "f1",
+    "acknowledged": true
+  },
+  {
+    "_id": "f2",
+    "acknowledged": true
+  },
+  {
+    "_id": "f3",
+    "acknowledged": true
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "code": 64,
+  "codeName": "WriteConcernTimeout",
+  "errmsg": "waiting for replication timed out",
+  "errInfo": {
+    "wtimeout": true,
+    "writeConcern": {
+      "w": "majority",
+      "wtimeout": 3000,
+      "provenance": "clientSupplied"
+    }
+  }
+}

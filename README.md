@@ -152,7 +152,7 @@
 | [storage/elasticsearch-behaviors](storage/elasticsearch-behaviors/) | Elasticsearch 的几个行为 | 轻量：单节点 ES 9.5.3 + JDK 客户端 | regular-docker |
 | [storage/lsm-write-amplification](storage/lsm-write-amplification/) | 写了 180 MB，磁盘实际写了 700 MB | 轻量：RocksDB，只断言范围 | regular-docker |
 | [storage/db-table-queue](storage/db-table-queue/) | 用数据库表当队列：提交顺序、SKIP LOCKED 与租约 | 常规：MySQL 8.4.11 容器，确定性输出 | regular-docker |
-| [storage/mongodb-arbiter-majority](storage/mongodb-arbiter-majority/) | 仲裁节点、w:majority 与回滚 | 常规：MongoDB 8.2.12 三容器，确定性输出 | regular-docker |
+| [storage/mongodb-arbiter-majority](storage/mongodb-arbiter-majority/) | 仲裁节点、w:majority 与回滚 | 常规：MongoDB 9.0.4 三容器，PSA回滚与非投票从节点对照 | regular-docker |
 | [storage/elasticsearch-bulk-failures](storage/elasticsearch-bulk-failures/) | bulk 的部分失败、重试与版本号 | 常规：Elasticsearch 9.5.5 单节点容器，确定性输出 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [java/gc-baseline](java/gc-baseline/) | GC 基线与排查工具输出 | 轻量：JDK 21 容器 | regular-docker |

@@ -1,0 +1,6 @@
+{
+  "src/lab.py": "29dcdc3dc70781a426ff46fc43d8b07be9ae2e4e97b84f28a7641ca0de400c91",
+  "scripts/verify.sh": "813c73ae2654fbe906cd79eafab05b521a3dca835dadcba5657e61907d78c3b9",
+  "compose.yaml": "30b04a76e7ca4334e770bf54ca47f97ce8700d156777ebeb4d65b07dd3292814",
+  "requirements.txt": "a0ac50fe079cc3033041c457785ee80aee9821936e8e7faf645de4e7bf3b3b6b"
+}

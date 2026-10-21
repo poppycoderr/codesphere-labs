@@ -1,0 +1,6 @@
+{
+  "ok": 0.0,
+  "errmsg": "electionTimeoutMillis (2000) must be greater than heartbeatIntervalMillis (2000) to allow at least one heartbeat before the election timeout expires",
+  "code": 93,
+  "codeName": "InvalidReplicaSetConfig"
+}
