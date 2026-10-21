@@ -4,7 +4,7 @@ status: verified
 tier: regular-docker
 article:
   repository: codesphere
-  path: docs/engineering/vim-editing-language.md
+  path: docs/tools/vim-editing-language.md
 runtime:
   os: macOS 27.0
   architecture: arm64

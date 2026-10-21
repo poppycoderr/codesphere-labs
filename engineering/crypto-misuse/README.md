@@ -1,6 +1,6 @@
 # 加密与口令存储的误用
 
-对应文章：[crypto-misuse.md](https://github.com/poppycoderr/codesphere/blob/master/docs/engineering/crypto-misuse.md)。
+对应文章：[crypto-misuse.md](https://github.com/poppycoderr/codesphere/blob/master/docs/web/crypto-misuse.md)。
 
 `src/CryptoLab.java` 在固定 digest 的 temurin 25 容器里以源码方式运行。加密部分只用 JDK 自带的 JCE；BCrypt 部分用 jBCrypt 0.4 与 Spring Security 7.1.1 的 `spring-security-crypto`。密钥、随机数、盐都是写在源码里的固定演示值，所以输出确定。
 

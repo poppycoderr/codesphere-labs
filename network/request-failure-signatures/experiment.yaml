@@ -4,7 +4,7 @@ status: verified
 tier: regular-docker
 article:
   repository: codesphere
-  path: docs/engineering/request-failure-signatures.md
+  path: docs/web/request-failure-signatures.md
 runtime:
   os: macOS 27.0
   architecture: arm64

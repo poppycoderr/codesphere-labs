@@ -1,6 +1,6 @@
 # SQL 注入的边界
 
-对应文章：[sql-injection-boundaries.md](https://github.com/poppycoderr/codesphere/blob/master/docs/engineering/sql-injection-boundaries.md)。
+对应文章：[sql-injection-boundaries.md](https://github.com/poppycoderr/codesphere/blob/master/docs/web/sql-injection-boundaries.md)。
 
 `src/InjectionLab.java` 通过 JDBC（Connector/J 9.7.0，默认连接参数）连接共享的 MySQL 8.4.11 容器，库里只有实验自己建的两张表：`products` 与 `accounts`，数据都是演示值。实验只针对这个本地容器。
 

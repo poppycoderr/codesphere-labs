@@ -1,6 +1,6 @@
 # Postman 集合的 token 脚本（Newman）
 
-对应文章：[postman-auth-automation.md](https://github.com/poppycoderr/codesphere/blob/master/docs/engineering/postman-auth-automation.md)。
+对应文章：[postman-auth-automation.md](https://github.com/poppycoderr/codesphere/blob/master/docs/tools/postman-auth-automation.md)。
 
 `src/run.js` 在固定 digest 的 `node:24-slim` 容器里运行（依赖由 `package-lock.json` 锁定，Newman 6.2.2）：
 

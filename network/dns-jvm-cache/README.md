@@ -1,6 +1,6 @@
 # DNS 切换与 Java 客户端
 
-对应文章：[dns-change-and-java-clients.md](https://github.com/poppycoderr/codesphere/blob/master/docs/engineering/dns-change-and-java-clients.md)。
+对应文章：[dns-change-and-java-clients.md](https://github.com/poppycoderr/codesphere/blob/master/docs/web/dns-change-and-java-clients.md)。
 
 自建 Docker 网络 `172.29.53.0/24`，不涉及任何真实域名：
 

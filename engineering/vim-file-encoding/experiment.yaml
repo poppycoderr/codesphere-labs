@@ -4,7 +4,7 @@ status: verified
 tier: regular-docker
 article:
   repository: codesphere
-  path: docs/engineering/vim-file-encoding.md
+  path: docs/tools/vim-file-encoding.md
 runtime:
   os: macOS 27.0
   architecture: arm64

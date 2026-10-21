@@ -4,7 +4,7 @@ status: verified
 tier: regular-docker
 article:
   repository: codesphere
-  path: docs/engineering/vim-runtime-loading.md
+  path: docs/tools/vim-runtime-loading.md
 runtime:
   os: macOS 27.0
   architecture: arm64

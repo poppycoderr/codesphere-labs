@@ -4,7 +4,7 @@ status: verified
 tier: regular-docker
 article:
   repository: codesphere
-  path: docs/engineering/context-output-encoding.md
+  path: docs/web/context-output-encoding.md
 runtime:
   os: macOS
   architecture: arm64

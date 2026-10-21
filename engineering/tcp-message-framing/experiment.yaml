@@ -4,7 +4,7 @@ status: verified
 tier: regular-docker
 article:
   repository: codesphere
-  path: docs/engineering/tcp-message-framing.md
+  path: docs/web/tcp-message-framing.md
 runtime:
   os: macOS 27.0
   architecture: arm64

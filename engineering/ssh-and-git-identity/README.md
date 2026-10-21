@@ -1,6 +1,6 @@
 # GitHub SSH 与多账号（离线验证）
 
-对应文章：[github-ssh-key-on-mac.md](https://github.com/poppycoderr/codesphere/blob/master/docs/engineering/github-ssh-key-on-mac.md)。
+对应文章：[github-ssh-key-on-mac.md](https://github.com/poppycoderr/codesphere/blob/master/docs/tools/github-ssh-key-on-mac.md)。
 
 只有一个脚本 `scripts/verify.sh`，全部离线完成，不连接 GitHub，不读写真实的 `~/.ssh` 与 `~/.gitconfig`：
 

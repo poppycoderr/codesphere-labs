@@ -4,7 +4,7 @@ status: verified
 tier: regular
 article:
   repository: codesphere
-  path: docs/engineering/github-ssh-key-on-mac.md
+  path: docs/tools/github-ssh-key-on-mac.md
 runtime:
   os: macOS 27.0
   architecture: arm64

@@ -1,6 +1,6 @@
 # TCP 字节流上的消息边界
 
-对应文章：[tcp-message-framing.md](https://github.com/poppycoderr/codesphere/blob/master/docs/engineering/tcp-message-framing.md)。
+对应文章：[tcp-message-framing.md](https://github.com/poppycoderr/codesphere/blob/master/docs/web/tcp-message-framing.md)。
 
 `src/FramingLab.java` 在固定 digest 的 temurin 25 容器里以源码方式运行，客户端与服务端都在同一个进程里，通过回环地址上的真实 TCP 连接通信。各场景用固定的先后顺序（必要处加几百毫秒的等待）构造，使结果确定，`scripts/verify.sh` 把输出与预期逐行比较。
 

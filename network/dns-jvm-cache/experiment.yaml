@@ -4,7 +4,7 @@ status: verified
 tier: regular-docker
 article:
   repository: codesphere
-  path: docs/engineering/dns-change-and-java-clients.md
+  path: docs/web/dns-change-and-java-clients.md
 runtime:
   os: macOS 27.0（实验在 Docker 网络内运行）
   architecture: arm64
