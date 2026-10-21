@@ -1,0 +1,311 @@
+{
+  "_nodes": {
+    "total": 1,
+    "successful": 1,
+    "failed": 0
+  },
+  "cluster_name": "docker-cluster",
+  "nodes": {
+    "<node>": {
+      "name": "es-lab",
+      "transport_address": "<container-address>",
+      "host": "<container-address>",
+      "ip": "<container-address>",
+      "version": "9.5.5",
+      "transport_version": 9458013,
+      "index_version": 9111000,
+      "component_versions": {
+        "api_key_version": 8150099,
+        "transform_config_version": 10000099,
+        "ml_config_version": 12000099
+      },
+      "build_flavor": "default",
+      "build_type": "docker",
+      "build_hash": "48acba663b09e70b115dd879329141506c377890",
+      "roles": [
+        "data",
+        "data_cold",
+        "data_content",
+        "data_frozen",
+        "data_hot",
+        "data_warm",
+        "ingest",
+        "master",
+        "ml",
+        "remote_cluster_client",
+        "transform"
+      ],
+      "attributes": {
+        "transform.config_version": "10.0.0",
+        "xpack.installed": "true",
+        "ml.config_version": "12.0.0",
+        "ml.max_jvm_size": "536870912",
+        "ml.allocated_processors_double": "2.0",
+        "ml.allocated_processors": "2",
+        "ml.machine_memory": "1610612736"
+      },
+      "thread_pool": {
+        "force_merge": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": -1
+        },
+        "search_coordination": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 1000
+        },
+        "ml_datafeed": {
+          "type": "scaling",
+          "core": 1,
+          "max": 512,
+          "keep_alive": "1m",
+          "queue_size": -1
+        },
+        "searchable_snapshots_cache_fetch_async": {
+          "type": "scaling",
+          "core": 0,
+          "max": 6,
+          "keep_alive": "30s",
+          "queue_size": -1
+        },
+        "snapshot_meta": {
+          "type": "scaling",
+          "core": 1,
+          "max": 6,
+          "keep_alive": "30s",
+          "queue_size": -1
+        },
+        "fetch_shard_started": {
+          "type": "scaling",
+          "core": 1,
+          "max": 4,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "model_download": {
+          "type": "fixed",
+          "size": 5,
+          "queue_size": -1
+        },
+        "esql_worker": {
+          "type": "fixed",
+          "size": 4,
+          "queue_size": 1000
+        },
+        "rollup_indexing": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": -1
+        },
+        "write_coordination": {
+          "type": "fixed",
+          "size": 2,
+          "queue_size": 1000
+        },
+        "search": {
+          "type": "fixed",
+          "size": 4,
+          "queue_size": 4000
+        },
+        "cluster_coordination": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": -1
+        },
+        "ccr": {
+          "type": "fixed",
+          "size": 32,
+          "queue_size": 100
+        },
+        "inference_utility": {
+          "type": "scaling",
+          "core": 0,
+          "max": 10,
+          "keep_alive": "10m",
+          "queue_size": -1
+        },
+        "flush": {
+          "type": "scaling",
+          "core": 1,
+          "max": 1,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "fetch_shard_store": {
+          "type": "scaling",
+          "core": 1,
+          "max": 4,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "ml_utility": {
+          "type": "scaling",
+          "core": 1,
+          "max": 2048,
+          "keep_alive": "10m",
+          "queue_size": -1
+        },
+        "get": {
+          "type": "fixed",
+          "size": 4,
+          "queue_size": 1000
+        },
+        "merge": {
+          "type": "scaling",
+          "core": 1,
+          "max": 2,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "system_read": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 2000
+        },
+        "system_critical_read": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 2000
+        },
+        "ml_native_inference_comms": {
+          "type": "scaling",
+          "core": 3,
+          "max": 306,
+          "keep_alive": "1m",
+          "queue_size": -1
+        },
+        "write": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 1
+        },
+        "esql_external_io": {
+          "type": "scaling",
+          "core": 0,
+          "max": 16,
+          "keep_alive": "30s",
+          "queue_size": -1
+        },
+        "watcher": {
+          "type": "fixed",
+          "size": 10,
+          "queue_size": 1000
+        },
+        "system_critical_write": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 1500
+        },
+        "refresh": {
+          "type": "scaling",
+          "core": 1,
+          "max": 1,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "repository_azure": {
+          "type": "scaling",
+          "core": 0,
+          "max": 5,
+          "keep_alive": "30s",
+          "queue_size": -1
+        },
+        "system_write": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 1000
+        },
+        "generic": {
+          "type": "scaling",
+          "core": 4,
+          "max": 128,
+          "keep_alive": "30s",
+          "queue_size": -1
+        },
+        "warmer": {
+          "type": "scaling",
+          "core": 1,
+          "max": 1,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "auto_complete": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 100
+        },
+        "azure_event_loop": {
+          "type": "scaling",
+          "core": 0,
+          "max": 1,
+          "keep_alive": "30s",
+          "queue_size": -1
+        },
+        "inference_response": {
+          "type": "scaling",
+          "core": 0,
+          "max": 10,
+          "keep_alive": "10m",
+          "queue_size": -1
+        },
+        "profiling": {
+          "type": "scaling",
+          "core": 0,
+          "max": 1,
+          "keep_alive": "30m",
+          "queue_size": -1
+        },
+        "management": {
+          "type": "scaling",
+          "core": 1,
+          "max": 2,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "analyze": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 16
+        },
+        "dlm_frozen_transition": {
+          "type": "fixed",
+          "size": 4,
+          "keep_alive": "10m",
+          "queue_size": 40
+        },
+        "searchable_snapshots_cache_prewarming": {
+          "type": "scaling",
+          "core": 0,
+          "max": 16,
+          "keep_alive": "30s",
+          "queue_size": -1
+        },
+        "ml_job_comms": {
+          "type": "scaling",
+          "core": 4,
+          "max": 2048,
+          "keep_alive": "1m",
+          "queue_size": -1
+        },
+        "downsample_indexing": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 256
+        },
+        "snapshot": {
+          "type": "scaling",
+          "core": 1,
+          "max": 1,
+          "keep_alive": "5m",
+          "queue_size": -1
+        },
+        "system_write_coordination": {
+          "type": "fixed",
+          "size": 1,
+          "queue_size": 1000
+        }
+      }
+    }
+  }
+}

@@ -8,13 +8,14 @@ source ../../shared/scripts/lib.sh
 require docker
 OUT="${1:-build/run}"; mkdir -p "$OUT" "$LABS_CACHE/pip"; find "$OUT" -mindepth 1 ! -name README.md -delete
 PY="python:3.14.8-slim@sha256:0741d101873c12ab927e6f8653feb8862b9bd58771177acb1b885b95141f91b4"
-PROJECT=cs-esbulk
+PROJECT=csl-esbulk
 C=(docker compose -p "$PROJECT" -f compose.yaml)
 "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true
 "${C[@]}" up -d --wait >/dev/null 2>&1 || fail "容器启动失败"
 f="$OUT/output.tsv"
 docker run --rm --network "${PROJECT}_default" -v "$PWD:/w:ro" -v "$LABS_CACHE/pip:/root/.cache/pip" -w /w "$PY" sh -c 'pip install -q --root-user-action=ignore --disable-pip-version-check -r requirements.txt >/dev/null 2>&1 && python src/lab.py' 2>/dev/null >"$f"
 { "${C[@]}" config --images | sed "s/^/image: /"; echo "client_image: $PY"; } >"$OUT/container.txt"
+docker run --rm --network "${PROJECT}_default" -v "$PWD:/w" -w /w "$PY" python src/queue_rejections.py "$OUT" >"$OUT/queue-output.jsonl"
 write_environment "$OUT/environment.txt" "python_image: $PY" 
 cat "$f" >&2
 # 会话之间的交错由代码顺序固定，输出是确定的：与预期逐行比较
@@ -29,4 +30,10 @@ create.conflict	用 create 重放：HTTP 200，['c1:409(version_conflict_engine_
 order.lww	不带版本号：先写 shipped，延迟的 paid 后到，最终状态 paid
 order.external	用源系统的版本号（version_type=external）：版本 2 的旧消息后到，HTTP 409（version_conflict_engine_exception），最终状态 shipped，_version=3
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+python3 - "$OUT" <<'MANIFEST'
+from pathlib import Path
+import hashlib,json,sys
+files=[*Path('src').glob('*.py'),Path('compose.yaml'),Path('requirements.txt'),Path('scripts/verify.sh')]
+(Path(sys.argv[1])/'source-manifest.json').write_text(json.dumps({str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},indent=2)+'\n')
+MANIFEST
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

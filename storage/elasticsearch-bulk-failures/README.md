@@ -13,3 +13,5 @@ make clean
 ```
 
 结果与限制见 [VERIFICATION.md](VERIFICATION.md)。
+
+新增：write=1/queue_size=1、24 并发 bulk 触发真实逐项 429，保存原始响应、队列计数与失败项重试轨迹。另有禁用周期刷新的 GET 可见性对照，不据此判断引擎内部分支。

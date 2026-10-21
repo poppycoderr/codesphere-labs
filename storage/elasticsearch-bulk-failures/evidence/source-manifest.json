@@ -1,0 +1,7 @@
+{
+  "src/queue_rejections.py": "0e317c3f7e7395df1b7c814d4fdb3027129c1c5c40a3d8a3c0a4faa3edcd28d1",
+  "src/lab.py": "1fd84b8de388a11a0f93ff4b25e64dc5606962be0c961e5a6df0eb6e49fc8567",
+  "compose.yaml": "75b530f6d1a0f653b74cf871a31f4e8bf95231457e75c727ec7faa922f4a1776",
+  "requirements.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scripts/verify.sh": "491e09175ee090bf328cfb4ca62857ebf44e26a0f6fb7b7146116aac1deb8e08"
+}

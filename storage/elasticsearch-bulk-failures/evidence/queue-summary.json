@@ -1,0 +1,12 @@
+{
+  "mixed_http_200_bulk": 2,
+  "submitted": 2400,
+  "initial_429": 2345,
+  "initial_success": 55,
+  "write_rejected_delta": 94,
+  "coordination_rejected_delta": 0,
+  "retry_requests": 41,
+  "final_count": 2400,
+  "all_versions_one": true,
+  "retry_successful_items": 0
+}

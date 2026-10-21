@@ -1,0 +1,2 @@
+{"all_versions_one": true, "coordination_rejected_delta": 0, "final_count": 2400, "initial_429": 2345, "initial_success": 55, "mixed_http_200_bulk": 2, "retry_requests": 41, "retry_successful_items": 0, "submitted": 2400, "write_rejected_delta": 94}
+{"get_before": true, "nonrealtime_before": 404, "search_after": 1, "search_before": 0}
