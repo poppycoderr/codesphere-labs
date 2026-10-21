@@ -1,0 +1,22 @@
+id: testing/low-complexity-defects
+title: 低复杂度不等于不需要测试：三个计价方法的圈复杂度与 NPath 都是 1，常见输入 3/3 通过且每个方法都被执行到，边界输入 0/3 通过：整数除法让 10% 折扣变成 0、int 相乘溢出成负数、先整除再换算丢掉小数
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/coverage-is-not-verification.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    java: "25.0.4.1"
+    pmd: "7.28.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

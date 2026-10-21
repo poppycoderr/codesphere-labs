@@ -1,0 +1,16 @@
+src/Pricing.java:5:	CyclomaticComplexity:	The method 'discounted(long, int, int)' has a cyclomatic complexity of 1.
+src/Pricing.java:5:	NPathComplexity:	The method 'discounted(long, int, int)' has an NPath complexity of 1, current threshold is 1
+src/Pricing.java:10:	CyclomaticComplexity:	The method 'total(int, int)' has a cyclomatic complexity of 1.
+src/Pricing.java:10:	NPathComplexity:	The method 'total(int, int)' has an NPath complexity of 1, current threshold is 1
+src/Pricing.java:15:	CyclomaticComplexity:	The method 'averageYuan(long, int)' has a cyclomatic complexity of 1.
+src/Pricing.java:15:	NPathComplexity:	The method 'averageYuan(long, int)' has an NPath complexity of 1, current threshold is 1
+src/Pricing.java:20:	CyclomaticComplexity:	The method 'ok()' has a cyclomatic complexity of 1.
+src/Pricing.java:20:	NPathComplexity:	The method 'ok()' has an NPath complexity of 1, current threshold is 1
+src/Pricing.java:25:	CognitiveComplexity:	The method 'run(Case[])' has a cognitive complexity of 3, current threshold is 1
+src/Pricing.java:25:	CyclomaticComplexity:	The method 'run(Case[])' has a cyclomatic complexity of 3.
+src/Pricing.java:25:	NPathComplexity:	The method 'run(Case[])' has an NPath complexity of 3, current threshold is 1
+src/Pricing.java:37:	CyclomaticComplexity:	The method 'main(String[])' has a cyclomatic complexity of 1.
+src/Pricing.java:37:	NPathComplexity:	The method 'main(String[])' has an NPath complexity of 1, current threshold is 1
+env	java.version=25.0.4.1
+typical	常见输入（不打折、小额、能整除）：3/3 通过
+boundary	边界输入：0/3 通过；discounted(1999, 2, 10) 期望 3598 实际 0；total(2000000, 1500) 期望 3000000000 实际 -1294967296；averageYuan(1000, 6) 期望 1.67 实际 1.66
