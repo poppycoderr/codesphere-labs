@@ -1,0 +1,21 @@
+id: testing/judge-workflow
+title: 判题结果绑定候选与判据：8 个可信夹具在 CPU、地址空间、文件大小与墙钟限制下分别落在编译拒绝、非零退出、墙钟超时、SIGXCPU、内存申请失败与输出超限；CPU 软硬限制相同时被 SIGKILL，退出码与墙钟超时相同；写成减法的程序正常退出却只通过 1/3 组；结果按确认时的候选与判据摘要接受，任一变化即失效
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/testing/judge-workflow.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

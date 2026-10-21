@@ -212,6 +212,7 @@
 | [testing/requests-api-testing](testing/requests-api-testing/) | 用 requests 写接口测试 | 轻量：确定性输出 | regular-docker |
 | [testing/websocket-testing](testing/websocket-testing/) | WebSocket 接口测试：推送、乱序响应与关联 ID，超时、握手鉴权、关闭码与连接清理 | 已验证 | regular-docker |
 | [testing/test-responsibility-migration](testing/test-responsibility-migration/) | 拆分测试的责任迁移：变异检验装配测试与注入规则测试、名不副实的测试、动态测试与 @BeforeEach | 已验证 | regular-docker |
+| [testing/judge-workflow](testing/judge-workflow/) | 判题结果的绑定与有界执行 | 轻量：确定性输出（标准库，加固的容器） | regular-docker |
 
 **黄金样板**按 [验证标准](docs/verification-standard.md) 的完整要求建设，用来确定同类实验的格式；**轻量实验**只保留核心代码、一条验证入口、原始输出和简要验证记录。
 
