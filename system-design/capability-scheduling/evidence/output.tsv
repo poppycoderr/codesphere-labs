@@ -1,0 +1,10 @@
+load	40 个任务：android 8 个（每个 6 刻）、chrome 32 个（每个 2 刻）
+head.5	只看队头，chrome 5 台、android 1 台：全部完成 48 刻，chrome 任务全部完成 44 刻、平均等待 21.0 刻，利用率 chrome 27%、android 100%
+match.5	按能力匹配，chrome 5 台、android 1 台：全部完成 48 刻，chrome 任务全部完成 14 刻、平均等待 5.4 刻，利用率 chrome 27%、android 100%
+match.10	按能力匹配，chrome 加到 10 台：全部完成 48 刻，chrome 任务全部完成 8 刻、平均等待 2.2 刻，利用率 chrome 13%、android 100%（android 才是瓶颈）
+match.android2	按能力匹配，chrome 5 台、android 加到 2 台：全部完成 24 刻，chrome 任务全部完成 14 刻、平均等待 5.4 刻，利用率 chrome 53%、android 100%
+head.10	只看队头，chrome 加到 10 台：全部完成 48 刻，chrome 任务全部完成 44 刻、平均等待 21.0 刻，利用率 chrome 13%、android 100%（被排在前面的 android 任务挡住）
+dispatch.1	按能力匹配，chrome 10 台、android 4 台，调度器每刻只能派发 1 个：全部完成 41 刻，chrome 任务全部完成 41 刻、平均等待 20.0 刻，利用率 chrome 16%、android 29%
+dispatch.unlimited	同样的执行器，调度器不限速：全部完成 12 刻，chrome 任务全部完成 8 刻、平均等待 2.2 刻，利用率 chrome 53%、android 100%
+crash.nolease2	android 2 台、其中一台第 3 刻崩溃、没有租约：完成 39 个，丢失 1 个
+crash.lease	同样崩溃、租约 10 刻：完成 40 个，丢失 0 个，全部完成 48 刻（只剩 1 台 android，比不崩溃时的 24 刻慢一倍）

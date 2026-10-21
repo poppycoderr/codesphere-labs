@@ -1,0 +1,21 @@
+id: system-design/capability-scheduling
+title: 异构执行器的调度：只看队头时 chrome 任务被 android 任务挡住，全部完成要 44 刻，按能力匹配只要 14 刻；android 是瓶颈时 chrome 从 5 台加到 10 台总用时不变，android 加 1 台总用时减半；调度器每刻只派发 1 个时执行器再多也要 41 刻；执行器崩溃后没有租约的任务丢失，有租约的重新入队
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/capability-scheduling.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
