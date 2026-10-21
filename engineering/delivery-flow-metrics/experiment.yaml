@@ -1,0 +1,21 @@
+id: engineering/delivery-flow-metrics
+title: 交付周期的口径：同样 4 个已完成项，从 ready 算中位数 36.5h、从 doing 算 13h；重开后按第一次或最后一次完成相差 8h；每日快照看不到日内重开；等待占端到端的 50% 到 93%；只统计已完成项漏掉已等待 95h 与 86h 的未完成项；按到达顺序处理晚到事件会把已完成项拉回评审；重复事件要按 ID 去重
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/engineering/delivery-flow-metrics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"

@@ -1,0 +1,12 @@
+start.created	从进入 ready 算起：A 70h、B 18h、C 55h、F 4h；中位数 36.5h
+start.doing	从第一次进入 doing 算起：A 40h、B 16h、C 10h、F 3h；中位数 13h
+reopen	B 第一次完成在 12h、重开后最后完成在 20h：按第一次完成算周期 10h，按最后一次算 18h；重开次数 1
+snapshot	B 在每天结束时的快照：['done', 'done']；事件历史里同一天经历了 ['ready', 'doing', 'review', 'done', 'doing', 'done']，快照看不到重开
+flow.A	A：处理 10h、等待 60h（排队与等评审），处理时间占端到端 14%
+flow.C	C：处理 4h、等待 51h（排队与等评审），处理时间占端到端 7%
+flow.F	F：处理 2h、等待 2h（排队与等评审），处理时间占端到端 50%
+survivor	只统计已完成的 4 项，中位周期 36.5h；在第 96h 时仍未完成的 2 项已等待 G 95h、E 86h，其中 G 从未开始；取消 1 项（D）不计入周期
+order.arrival	按到达顺序处理 C 的事件：['ready', 'doing', 'done', 'review']，最后状态 review（晚到的评审事件把已完成的工作项拉回 review）
+order.occurred	按发生时刻排序：['ready', 'doing', 'review', 'done']，最后状态 done
+dedupe	D 的事件不去重：['ready', 'doing', 'doing', 'cancelled']；按事件 ID 去重：['ready', 'doing', 'cancelled']
+wip	各时刻处在 ready、doing、review 的工作项数：{12: 6, 14: 7, 24: 5, 48: 4, 72: 2, 96: 2}（B 在 12h 完成、14h 重开，又回到在制）
