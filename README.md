@@ -203,6 +203,7 @@
 | [ai/logits-and-loss-contracts](ai/logits-and-loss-contracts/) | logits、概率与损失函数的约定 | 轻量：确定性输出（PyTorch 2.14.1 CPU） | regular-docker |
 | [ai/checkpoint-resume-state](ai/checkpoint-resume-state/) | 模型产物与训练续跑状态 | 轻量：确定性输出（PyTorch 2.14.1 CPU） | regular-docker |
 | [ai/recall-ranking-contract](ai/recall-ranking-contract/) | 召回给排序设定的上限 | 轻量：确定性输出（标准库） | regular-docker |
+| [ai/preference-score-contract](ai/preference-score-contract/) | 偏好分数的契约与长度混杂 | 轻量：确定性输出（标准库） | regular-docker |
 | [testing/open-vs-closed-load-model](testing/open-vs-closed-load-model/) | 固定 10 个并发压测，服务卡了 2 秒，报告里只有 10 个慢请求 | 轻量：计时，只断言范围 | regular-docker |
 | [testing/coverage-is-not-verification](testing/coverage-is-not-verification/) | 覆盖率 100%，一个断言都没有 | 轻量：JaCoCo 与 PIT | regular-docker |
 | [testing/retry-hides-failures](testing/retry-hides-failures/) | 重跑一次就过了，这个缺陷去哪了 | 轻量：Surefire 重跑 | regular-docker |

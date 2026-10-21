@@ -1,0 +1,21 @@
+id: ai/preference-score-contract
+title: 偏好分数的契约：成对损失对分数平移不变、对缩放敏感；单个分数的 sigmoid 从 0.88 变成 1.0 而损失不变；同一个分数的 softmax 随比较集合从 0.731 变成 0.422；被选中的回答总是更长时，线性评分器的长度权重超过约定检查权重，在保留样本上偏好长而不满足约定的回答
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/logits-and-loss-contracts.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
