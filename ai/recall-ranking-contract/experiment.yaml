@@ -1,0 +1,21 @@
+id: ai/recall-ranking-contract
+title: 召回给排序设定的上限：召回 3 个时只覆盖 1/3 的相关文档，排序器与候选内最好的排序 nDCG@3 都只有 0.106；召回 5 个后排序器 0.736、上限 1.000；分母只取候选内标签时，召回 3 个的结果被报告成 1.000
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/retrieval-evaluation-pitfalls.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
