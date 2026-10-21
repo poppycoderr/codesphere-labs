@@ -36,6 +36,7 @@
 | [design/scope-cache-ownership](design/scope-cache-ownership/) | 单例作用域的缓存所有权：浅复制共享缓存、别名、并发双重创建、null 歧义、失败重试、依赖元数据转发 | 已验证 | regular-docker |
 | [design/jakarta-rest-behavior](design/jakarta-rest-behavior/) | Jakarta REST 的默认行为：返回值与状态码、HEAD/OPTIONS、异常与映射器、参数缺省与转换失败 | 已验证 | regular-docker |
 | [design/declarative-http-client](design/declarative-http-client/) | 声明式 HTTP 客户端：代理、参数名、路径与查询编码、错误状态、超时、默认方法，对照手写代理 | 已验证 | regular-docker |
+| [design/polyline-edit-session](design/polyline-edit-session/) | 折线编辑会话：预览、提交、撤销与外部更新 | 标准：真实 Chromium，确定性输出 | regular-docker |
 | [refactoring/rename-boundaries](refactoring/rename-boundaries/) | 名字说的是什么：动作、角色与改名的边界 | 轻量：确定性输出（Jackson 3.2.3） | regular-docker |
 | [refactoring/duplication-and-extraction](refactoring/duplication-and-extraction/) | 抽一个公共方法之前：同一条知识，还是只是长得像 | 轻量：确定性输出 | regular-docker |
 | [refactoring/behavior-preserving-extraction](refactoring/behavior-preserving-extraction/) | 把长方法拆开，哪些行为最容易被改掉 | 轻量：确定性输出 | regular-docker |

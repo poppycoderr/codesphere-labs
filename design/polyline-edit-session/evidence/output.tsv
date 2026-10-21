@@ -1,0 +1,29 @@
+env	chromium=153.0.8010.12
+900px.dpr1.canvas	画布显示宽度 600px，像素缓冲宽度 600；初始 p1(80,80) p2(240,160) p3(430,100)，版本 0
+900px.dpr1.preview	拖动中：预览 p1(120,110)，正式模型 p1(80,80)，版本 0
+900px.dpr1.commit	松开：committed，正式模型 p1(120,110)，版本 1，撤销栈 1
+900px.dpr1.undo	撤销：p1(80,80)，版本 2，重做栈 1
+900px.dpr1.redo	重做：p1(120,110)，版本 3
+900px.dpr1.escape	拖动中按 Esc：cancelled，正式模型 p1(120,110)，版本 3
+900px.dpr1.pointercancel	拖动中派发 pointercancel：cancelled，正式模型 p1(120,110)
+900px.dpr1.outside	拖到画布左侧之外再松开：committed，p1(0,140)（x 限制在 0）
+900px.dpr1.stale	拖动 p2 期间别处把 p3 改到 y=40：松开时 stale，结果 p1(0,140) p2(240,160) p3(430,40)
+900px.dpr1.undo_external	随后撤销一次：p1(120,110) p2(240,160) p3(430,100)（快照式撤销把别处对 p3 的修改也撤掉了）
+900px.dpr1.branch	撤销后重做栈 1 条，再提交一次新拖动：committed，重做栈 0 条；顶点 ID ['p1', 'p2', 'p3']
+900px.dpr1.command_undo	命令式撤销：提交 p1 的拖动、别处改 p3 之后撤销：applied，p1(80,80) p2(240,160) p3(430,40)
+900px.dpr1.command_conflict	命令式撤销：提交 p1 的拖动、别处又改了 p1 之后撤销：conflict，p1(300,100)（不覆盖别人的修改）
+900px.dpr1.errors	页面错误 0 个
+390px.dpr2.canvas	画布显示宽度 358px，像素缓冲宽度 1200；初始 p1(80,80) p2(240,160) p3(430,100)，版本 0
+390px.dpr2.preview	拖动中：预览 p1(120,110)，正式模型 p1(80,80)，版本 0
+390px.dpr2.commit	松开：committed，正式模型 p1(120,110)，版本 1，撤销栈 1
+390px.dpr2.undo	撤销：p1(80,80)，版本 2，重做栈 1
+390px.dpr2.redo	重做：p1(120,110)，版本 3
+390px.dpr2.escape	拖动中按 Esc：cancelled，正式模型 p1(120,110)，版本 3
+390px.dpr2.pointercancel	拖动中派发 pointercancel：cancelled，正式模型 p1(120,110)
+390px.dpr2.outside	拖到画布左侧之外再松开：committed，p1(0,140)（x 限制在 0）
+390px.dpr2.stale	拖动 p2 期间别处把 p3 改到 y=40：松开时 stale，结果 p1(0,140) p2(240,160) p3(430,40)
+390px.dpr2.undo_external	随后撤销一次：p1(120,110) p2(240,160) p3(430,100)（快照式撤销把别处对 p3 的修改也撤掉了）
+390px.dpr2.branch	撤销后重做栈 1 条，再提交一次新拖动：committed，重做栈 0 条；顶点 ID ['p1', 'p2', 'p3']
+390px.dpr2.command_undo	命令式撤销：提交 p1 的拖动、别处改 p3 之后撤销：applied，p1(80,80) p2(240,160) p3(430,40)
+390px.dpr2.command_conflict	命令式撤销：提交 p1 的拖动、别处又改了 p1 之后撤销：conflict，p1(300,100)（不覆盖别人的修改）
+390px.dpr2.errors	页面错误 0 个

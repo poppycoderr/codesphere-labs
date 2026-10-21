@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>折线编辑会话</title>
+<style>
+  body { font: 16px sans-serif; margin: 16px; background: #f5f7fa; color: #16283b; }
+  canvas { display: block; width: 100%; max-width: 600px; aspect-ratio: 2 / 1; touch-action: none; background: white; }
+  button { margin: 12px 12px 12px 0; padding: 8px; }
+</style>
+<h1>拖动顶点：松开提交，Esc 取消</h1>
+<canvas aria-label="折线画布"></canvas>
+<button id="undo">撤销</button><button id="redo">重做</button>
+<script type="module" src="editor.js"></script>
+</html>

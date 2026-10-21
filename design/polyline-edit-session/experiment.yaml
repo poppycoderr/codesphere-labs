@@ -1,0 +1,22 @@
+id: design/polyline-edit-session
+title: 折线编辑会话：真实 Chromium 中拖动期间只改预览、松开提交一个版本；Esc 与 pointercancel 丢弃预览；拖出画布后坐标限制在边界；拖动期间外部更新使基准版本失效、松开时不提交；快照式撤销会把外部对其他顶点的修改一起撤掉，命令式撤销只还原改动过的顶点并在冲突时拒绝
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/polyline-edit-session.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.8.0"
+  components:
+    playwright: "1.63.0"
+    chromium: "153.0.8010.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-21"
