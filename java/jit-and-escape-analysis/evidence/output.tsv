@@ -1,8 +1,16 @@
-local	local（默认参数）：第 1 批每次调用分配 4.2 字节，最后 10 批中位数 0.00 字节（校验和 240）
-escape	escape（默认参数）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
-call	call（默认参数）：第 1 批每次调用分配 18.1 字节，最后 10 批中位数 0.00 字节（校验和 240）
-bimorphic	bimorphic（默认参数）：第 1 批每次调用分配 2.6 字节，最后 10 批中位数 0.00 字节（校验和 640）
-megamorphic	megamorphic（默认参数）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 400）
-local -XX:-DoEscapeAnalysis	local（-XX:-DoEscapeAnalysis）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
-call -XX:CompileCommand=quiet -XX:CompileCommand=dontinline,Escape::consume	call（-XX:CompileCommand=quiet -XX:CompileCommand=dontinline,Escape::consume）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
-local -Xint	local（-Xint）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk21.local	local（默认参数）：第 1 批每次调用分配 4.0 字节，最后 10 批中位数 0.00 字节（校验和 240）
+jdk21.escape	escape（默认参数）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk21.call	call（默认参数）：第 1 批每次调用分配 18.5 字节，最后 10 批中位数 0.00 字节（校验和 240）
+jdk21.bimorphic	bimorphic（默认参数）：第 1 批每次调用分配 2.6 字节，最后 10 批中位数 0.00 字节（校验和 640）
+jdk21.megamorphic	megamorphic（默认参数）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 400）
+jdk21.local -XX:-DoEscapeAnalysis	local（-XX:-DoEscapeAnalysis）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk21.call -XX:CompileCommand=quiet -XX:CompileCommand=dontinline,Escape::consume	call（-XX:CompileCommand=quiet -XX:CompileCommand=dontinline,Escape::consume）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk21.local -Xint	local（-Xint）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk25.local	local（默认参数）：第 1 批每次调用分配 4.2 字节，最后 10 批中位数 0.00 字节（校验和 240）
+jdk25.escape	escape（默认参数）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk25.call	call（默认参数）：第 1 批每次调用分配 18.9 字节，最后 10 批中位数 0.00 字节（校验和 240）
+jdk25.bimorphic	bimorphic（默认参数）：第 1 批每次调用分配 3.9 字节，最后 10 批中位数 0.00 字节（校验和 640）
+jdk25.megamorphic	megamorphic（默认参数）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 400）
+jdk25.local -XX:-DoEscapeAnalysis	local（-XX:-DoEscapeAnalysis）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk25.call -XX:CompileCommand=quiet -XX:CompileCommand=dontinline,Escape::consume	call（-XX:CompileCommand=quiet -XX:CompileCommand=dontinline,Escape::consume）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）
+jdk25.local -Xint	local（-Xint）：第 1 批每次调用分配 24.0 字节，最后 10 批中位数 24.00 字节（校验和 240）

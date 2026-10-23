@@ -79,7 +79,7 @@
 | [storage/mysql-backup-pitr](storage/mysql-backup-pitr/) | MySQL 误删恢复 | 多实例：隔离恢复与对照校验 | regular-docker |
 | [java/atomics-and-longadder](java/atomics-and-longadder/) | volatile、CAS 与 LongAdder | 轻量：并发与吞吐 | performance |
 | [java/class-loading-and-spi](java/class-loading-and-spi/) | 类加载与双亲委派 | 轻量：运行时编译与多个类加载器 | regular |
-| [java/jit-and-escape-analysis](java/jit-and-escape-analysis/) | JIT 与逃逸分析 | 轻量：分配字节数 | regular |
+| [java/jit-and-escape-analysis](java/jit-and-escape-analysis/) | JIT 与逃逸分析 | 轻量：JDK 21 与 25 容器 | regular-docker |
 | [java/jmm-visibility](java/jmm-visibility/) | JMM 与 happens-before | 轻量：默认、-Xint、volatile 三种运行方式 | regular |
 | [java/thread-pool-order](java/thread-pool-order/) | 线程池参数怎么定 | 轻量：确定性输出 | regular |
 | [java/virtual-threads](java/virtual-threads/) | 虚拟线程迁移 | 轻量：本机与 Docker JDK 21、25 对照 | performance |

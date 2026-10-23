@@ -16,7 +16,7 @@
 ## 快速运行
 
 ```bash
-make verify     # 需要 JDK 21；约 30 秒
+make verify     # 需要 Docker；在固定 digest 的 temurin 21、25 容器里各跑一遍，约 1 分钟
 make evidence
 make clean
 ```
