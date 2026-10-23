@@ -1,5 +1,8 @@
-gc.xmx512m	3 次中位数，每次 8 秒、分配约 2,571 MB/s：Young GC 517 次，平均 2.07 ms，最长 4.07 ms，合计 1071 ms；并发标记周期 86 次；Full GC 0 次（3 次的平均暂停分别为 2.05、2.07、2.14 ms）
-gc.xmx2g	3 次中位数，每次 8 秒、分配约 2,556 MB/s：Young GC 39 次，平均 6.99 ms，最长 13.82 ms，合计 265 ms；并发标记周期 4 次；Full GC 0 次（3 次的平均暂停分别为 6.99、7.40、6.62 ms）
-gc.xmx512m-pause50	3 次中位数，每次 8 秒、分配约 2,501 MB/s：Young GC 504 次，平均 2.19 ms，最长 4.89 ms，合计 1090 ms；并发标记周期 86 次；Full GC 0 次（3 次的平均暂停分别为 2.19、2.21、2.13 ms）
+gc.jdk21-xmx512m	3 次中位数，每次 8 秒、分配约 2,389 MB/s：Young GC 491 次，平均 2.32 ms，最长 7.64 ms，合计 1141 ms；并发标记周期 80 次；Full GC 1 次（3 次分别为 0、1、0 次，合计最多 29 ms）；3 次的 Young GC 平均暂停分别为 2.28、2.38、2.32 ms
+gc.jdk21-xmx2g	3 次中位数，每次 8 秒、分配约 2,679 MB/s：Young GC 40 次，平均 8.63 ms，最长 19.18 ms，合计 345 ms；并发标记周期 4 次；Full GC 0 次（3 次分别为 0、0、0 次，合计最多 0 ms）；3 次的 Young GC 平均暂停分别为 8.63、9.40、8.30 ms
+gc.jdk21-xmx512m-pause50	3 次中位数，每次 8 秒、分配约 2,420 MB/s：Young GC 503 次，平均 2.23 ms，最长 6.04 ms，合计 1110 ms；并发标记周期 81 次；Full GC 0 次（3 次分别为 0、0、0 次，合计最多 0 ms）；3 次的 Young GC 平均暂停分别为 2.23、2.24、2.21 ms
+gc.jdk25-xmx512m	3 次中位数，每次 8 秒、分配约 2,513 MB/s：Young GC 510 次，平均 2.14 ms，最长 13.14 ms，合计 1120 ms；并发标记周期 84 次；Full GC 1 次（3 次分别为 1、0、0 次，合计最多 48 ms）；3 次的 Young GC 平均暂停分别为 2.35、2.14、2.14 ms
+gc.jdk25-xmx2g	3 次中位数，每次 8 秒、分配约 2,603 MB/s：Young GC 24 次，平均 9.08 ms，最长 36.18 ms，合计 236 ms；并发标记周期 1 次；Full GC 0 次（3 次分别为 0、0、0 次，合计最多 0 ms）；3 次的 Young GC 平均暂停分别为 9.08、9.08、9.85 ms
+gc.jdk25-xmx512m-pause50	3 次中位数，每次 8 秒、分配约 2,425 MB/s：Young GC 502 次，平均 2.25 ms，最长 30.41 ms，合计 1092 ms；并发标记周期 82 次；Full GC 37 次（3 次分别为 37、0、0 次，合计最多 1084 ms）；3 次的 Young GC 平均暂停分别为 2.25、2.36、2.10 ms
 oom.dump.64k	-Xmx256m、每次保留 64 KB 的数组，OutOfMemoryError 后生成的 hprof：244 MB
-oom.dump.1024k	-Xmx256m、每次保留 1024 KB 的数组，OutOfMemoryError 后生成的 hprof：133 MB
+oom.dump.1024k	-Xmx256m、每次保留 1024 KB 的数组，OutOfMemoryError 后生成的 hprof：134 MB

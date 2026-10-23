@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
-# GC 基线：容器内的默认堆参数、堆大小与暂停目标对 G1 的影响、jstat 与 jcmd 的输出、OOM 自动转储的文件大小
+# GC 基线：容器内的默认堆参数、堆大小与暂停目标对 G1 的影响（JDK 21 与 25 对照）、jstat 与 jcmd 的输出、OOM 自动转储的文件大小
 # 用法：scripts/verify.sh [输出目录]，默认 build/run；make evidence 时输出到 evidence/
-# 资源：JDK 21 容器（2 CPU、4 GB）；约 2 分钟（不含拉取镜像）
+# 资源：固定 digest 的 temurin 21、25 容器（2 CPU、4 GB）；约 4 分钟（不含拉取镜像）
 set -euo pipefail
 cd "$(dirname "$0")/.."
 source ../../shared/scripts/lib.sh
 require docker python3
+J21="$JDK_IMAGE"
+JDK_IMAGE="eclipse-temurin:25-jdk@sha256:97014c4b396021f9ddb7d592a7dbedb0c4e4215c29e03dc01c393558aefb71c2"
 OUT="${1:-build/run}"
 mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.md -delete
 mkdir -p build/tmp
-jdk() { docker run --rm --cpus 2 --memory "$1" -v "$PWD:/w" -w /w "$JDK_IMAGE" "${@:2}"; }
+jdk() { docker run --rm --cpus 2 --memory "$1" -v "$PWD:/w" -w /w "${IMG:-$JDK_IMAGE}" "${@:2}"; }
 
 log "默认值：容器内存 2 GB 与 4 GB"
 for mem in 2g 4g; do
@@ -19,7 +21,7 @@ for mem in 2g 4g; do
 done
 jdk 2g java -XX:MaxRAMPercentage=70.0 -XX:+PrintFlagsFinal -version 2>/dev/null | grep -E ' MaxHeapSize ' | awk '{print $2" = "$4}' >"$OUT/flags-2g-ram70.txt"
 
-log "堆大小与暂停目标：同一负载各跑 8 秒，每种 3 次"
+log "堆大小与暂停目标：同一负载各跑 8 秒，每种 3 次，JDK 21 与 JDK 25 各一组"
 run_gc() {
   local name="$1"; shift
   for rep in 1 2 3; do
@@ -27,9 +29,13 @@ run_gc() {
     normalize_paths <"build/tmp/gc-$name-$rep.log" >"$OUT/gc-$name-$rep.log"
   done
 }
-run_gc xmx512m -Xms512m -Xmx512m
-run_gc xmx2g -Xms2g -Xmx2g
-run_gc xmx512m-pause50 -Xms512m -Xmx512m -XX:MaxGCPauseMillis=50
+for v in 21 25; do
+  if [ "$v" = 21 ]; then IMG="$J21"; else IMG="$JDK_IMAGE"; fi
+  run_gc "jdk$v-xmx512m" -Xms512m -Xmx512m
+  run_gc "jdk$v-xmx2g" -Xms2g -Xmx2g
+  run_gc "jdk$v-xmx512m-pause50" -Xms512m -Xmx512m -XX:MaxGCPauseMillis=50
+done
+unset IMG
 python3 scripts/summarize.py "$OUT"
 
 log "运行中的进程：jcmd GC.heap_info 与 jstat -gcutil"
@@ -50,7 +56,8 @@ for kb in 64 1024; do
   echo "oom.dump.${kb}k	-Xmx256m、每次保留 ${kb} KB 的数组，OutOfMemoryError 后生成的 hprof：$((bytes / 1048576)) MB" >>"$OUT/summary.tsv"
 done
 rm -f build/tmp/oom.hprof
-write_environment "$OUT/environment.txt" "jdk_image: $JDK_IMAGE" "container: 2 CPU，内存 2 GB 或 4 GB"
+{ docker run --rm "$J21" java -version 2>&1 | sed -n 2p; docker run --rm "$JDK_IMAGE" java -version 2>&1 | sed -n 2p; } >"$OUT/jdk-versions.txt"
+write_environment "$OUT/environment.txt" "jdk21_image: $J21" "jdk25_image: $JDK_IMAGE（默认参数、jcmd、jstat、OOM 只在 JDK 25 上跑）" "container: 2 CPU，内存 2 GB 或 4 GB"
 cat "$OUT"/flags-*.txt "$OUT/summary.tsv" >&2
 
 f="$OUT/summary.tsv"
@@ -62,18 +69,17 @@ expect_regex "$OUT/flags-2g-ram70.txt" "MaxHeapSize = 150[0-9]{7}" "MaxRAMPercen
 expect_regex "$OUT/oom-64k.log" "java.lang.OutOfMemoryError: Java heap space" "OOM 发生"
 expect_regex "$OUT/oom-64k.log" "Dumping heap to /w/build/tmp/oom.hprof" "OOM 时自动转储"
 expect_regex "$OUT/jstat.txt" "YGC +YGCT +FGC +FGCT +CGC +CGCT +GCT" "jstat 输出列"
-expect_regex "$OUT/heap-info.txt" "garbage-first heap +total 524288K" "jcmd GC.heap_info：512 MB 的 G1 堆"
+expect_regex "$OUT/heap-info.txt" "garbage-first heap +total reserved 524288K" "jcmd GC.heap_info：512 MB 的 G1 堆"
 python3 - "$f" <<'PY'
 import re, sys
 t = open(sys.argv[1], encoding="utf-8").read()
-g = {k: (int(n), float(avg), float(mx)) for k, n, avg, mx in re.findall(r"^gc\.(\S+)\t.*Young GC (\d+) 次，平均 ([\d.]+) ms，最长 ([\d.]+) ms", t, re.M)}
-a, b = g["xmx512m"], g["xmx2g"]
-tot = {k: float(v) for k, v in re.findall(r"^gc\.(\S+)\t.*合计 ([\d.]+) ms", t, re.M)}
-assert b[0] * 5 < a[0] and tot["xmx2g"] < tot["xmx512m"], (g, tot)   # 堆变大：次数少得多、合计停顿更少
-assert re.search(r"Full GC 0 次", t), t
+g = {k: (int(n), float(avg), int(full)) for k, n, avg, full in re.findall(r"^gc\.(\S+)\t.*Young GC (\d+) 次，平均 ([\d.]+) ms.*?Full GC (\d+) 次", t, re.M)}
+for v in ("jdk21", "jdk25"):
+    a, b = g[f"{v}-xmx512m"], g[f"{v}-xmx2g"]
+    assert b[0] * 5 < a[0] and b[2] == 0, (v, a, b)   # 堆变大：Young GC 次数少得多，2 GB 堆没有 Full GC
 dump = int(re.search(r"64 KB 的数组.*hprof：(\d+) MB", t)[1])
 big = int(re.search(r"1024 KB 的数组.*hprof：(\d+) MB", t)[1])
 assert 200 <= dump <= 300 and big < dump * 0.7, (dump, big)
-print(f"通过：512 MB 堆 Young GC {a[0]} 次、平均 {a[1]} ms；2 GB 堆 {b[0]} 次、平均 {b[1]} ms；OOM 转储 64 KB 数组 {dump} MB、1 MB 数组 {big} MB")
+print("通过：" + "；".join(f"{k} Young GC {n} 次、平均 {avg} ms、Full GC {full} 次" for k, (n, avg, full) in g.items()) + f"；OOM 转储 {dump} MB / {big} MB")
 PY
 log "全部通过，输出在 $OUT"

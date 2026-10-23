@@ -1,3 +1,0 @@
-allocated_mb	19973
-rate_mb_per_s	2496
-sink	3

@@ -1,0 +1,2 @@
+OpenJDK Runtime Environment Temurin-21.0.12+8 (build 21.0.12+8-LTS)
+OpenJDK Runtime Environment Temurin-25.0.4+7 (build 25.0.4+7-LTS)

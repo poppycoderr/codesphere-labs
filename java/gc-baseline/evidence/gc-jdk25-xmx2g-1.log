@@ -1,0 +1,28 @@
+[0.003s] Using G1
+[0.327s] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 104M->8M(2048M) 3.812ms
+[0.346s] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 306M->25M(2048M) 4.807ms
+[0.388s] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 646M->59M(2048M) 7.974ms
+[0.447s] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 1085M->115M(2048M) 12.432ms
+[0.851s] GC(4) Pause Young (Normal) (G1 Evacuation Pause) 1229M->203M(2048M) 13.047ms
+[1.228s] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 1277M->248M(2048M) 7.354ms
+[1.646s] GC(6) Pause Young (Normal) (G1 Evacuation Pause) 1322M->293M(2048M) 8.020ms
+[2.050s] GC(7) Pause Young (Normal) (G1 Evacuation Pause) 1367M->338M(2048M) 9.189ms
+[2.599s] GC(8) Pause Young (Normal) (G1 Evacuation Pause) 1412M->383M(2048M) 9.975ms
+[3.036s] GC(9) Pause Young (Normal) (G1 Evacuation Pause) 1457M->428M(2048M) 9.695ms
+[3.537s] GC(10) Pause Young (Normal) (G1 Evacuation Pause) 1502M->473M(2048M) 12.173ms
+[3.992s] GC(11) Pause Young (Normal) (G1 Evacuation Pause) 1547M->518M(2048M) 7.628ms
+[4.514s] GC(12) Pause Young (Normal) (G1 Evacuation Pause) 1587M->563M(2048M) 10.694ms
+[5.008s] GC(13) Pause Young (Normal) (G1 Evacuation Pause) 1593M->609M(2048M) 9.872ms
+[5.408s] GC(14) Pause Young (Normal) (G1 Evacuation Pause) 1597M->660M(2048M) 9.882ms
+[5.761s] GC(15) Pause Young (Normal) (G1 Evacuation Pause) 1600M->717M(2048M) 10.898ms
+[6.171s] GC(16) Pause Young (Normal) (G1 Evacuation Pause) 1602M->780M(2048M) 10.570ms
+[6.508s] GC(17) Pause Young (Normal) (G1 Evacuation Pause) 1604M->851M(2048M) 10.502ms
+[6.796s] GC(18) Pause Young (Normal) (G1 Evacuation Pause) 1605M->931M(2048M) 7.423ms
+[7.078s] GC(19) Pause Young (Normal) (G1 Evacuation Pause) 1606M->1020M(2048M) 9.004ms
+[7.307s] GC(20) Pause Young (Concurrent Start) (G1 Evacuation Pause) 1607M->1120M(2048M) 8.878ms
+[7.307s] GC(21) Concurrent Mark Cycle
+[7.329s] GC(21) Pause Remark 1179M->266M(2048M) 1.536ms
+[7.345s] GC(21) Pause Cleanup 313M->313M(2048M) 0.031ms
+[7.346s] GC(21) Concurrent Mark Cycle 38.338ms
+[7.485s] GC(22) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 695M->320M(2048M) 7.306ms
+[8.040s] GC(23) Pause Young (Mixed) (G1 Evacuation Pause) 1476M->446M(2048M) 7.597ms
