@@ -1,0 +1,12 @@
+node.order.esm	ES 模块顶层：同步代码 → Promise.then → queueMicrotask → nextTick → setTimeout
+node.adopt	B：resolve(值) → C：第 1 拍 → C：第 2 拍 → A：resolve(另一个 Promise) → C：第 3 拍
+node.adopt-then	对照 1 → then 回调返回值 → 对照 2 → 对照 3 → then 回调返回 Promise → 对照 4
+node.locked	外层先 resolve(一个还在等待的 Promise)，随后 reject(超时)：reject 之后外层仍是「待定」，内层完成后外层「兑现：库存 3」
+node.await	开始等待 → await 之后的同步代码先跑 → 别的定时器 → 等待结束
+node.starve	setTimeout 执行时，微任务已经跑了 10000 个
+node.order.cjs	CommonJS 主模块：同步代码 → nextTick → Promise.then → queueMicrotask → setTimeout
+node	v24.21.0
+browser.version	chromium=153.0.8010.12
+browser.user-click	用户点击（真实输入事件）：监听器 1 → 监听器 1 的微任务 → 监听器 2
+browser.script-click	脚本里调用 btn.click()：监听器 1 → 监听器 2 → 监听器 1 的微任务
+browser.order	同步代码 → Promise.then → queueMicrotask → setTimeout

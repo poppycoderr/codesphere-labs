@@ -1,0 +1,23 @@
+id: engineering/microtask-checkpoints
+title: "微任务什么时候执行：ES 模块顶层调度时 nextTick 排在已入队的 Promise 微任务之后、CommonJS 主模块里排在之前；resolve(另一个 Promise) 比 resolve(值) 多等两拍，then 回调返回 Promise 同样多两拍；先 resolve 待定的 Promise 后 reject 无效；await 期间别的定时器照常执行；一万个链式微任务全部跑完 setTimeout 才执行；Chromium 中用户点击时两个监听器之间清空微任务，脚本调用 click() 时不清空"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/microtask-checkpoints.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+    playwright: "1.63.0"
+    chromium: "153.0.8010.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"

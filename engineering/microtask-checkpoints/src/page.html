@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<button id="btn">按钮</button>
+<script>
+  window.log = [];
+  const btn = document.getElementById('btn');
+  btn.addEventListener('click', () => { log.push('监听器 1'); Promise.resolve().then(() => log.push('监听器 1 的微任务')); });
+  btn.addEventListener('click', () => { log.push('监听器 2'); });
+  window.order = async () => {
+    const l = [];
+    setTimeout(() => l.push('setTimeout'), 0);
+    Promise.resolve().then(() => l.push('Promise.then'));
+    queueMicrotask(() => l.push('queueMicrotask'));
+    l.push('同步代码');
+    await new Promise(r => setTimeout(r, 100));
+    return l.join(' → ');
+  };
+</script>
