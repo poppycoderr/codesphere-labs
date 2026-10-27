@@ -1,0 +1,21 @@
+id: engineering/iterator-early-exit
+title: "提前结束也是迭代协议的一部分：for...of 中 break 与循环体抛错都会调用迭代器的 return()，正常读完不调用；解构只取一个也会调用 return；手写游标没有 return 时 break 后连接不关闭；生成器的 finally 在 break 与 return() 时执行、手动 next 后丢弃则永远不执行；for await 中 break 执行异步生成器的 finally 并销毁可读流；类数组不能 for...of；遍历数组时 push 的元素也会被访问"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/iterator-early-exit.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"

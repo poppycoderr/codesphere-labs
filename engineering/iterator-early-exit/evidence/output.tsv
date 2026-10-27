@@ -1,0 +1,10 @@
+exit.break	for...of 中 break：打开连接 → return：关闭连接
+exit.throw	循环体抛错：打开连接 → return：关闭连接
+exit.done	正常读完：打开连接 → 读完，关闭连接（不调用 return）
+destructure	const [first] = cursor 只取一个：打开连接 → return：关闭连接；展开 [...cursor] 读了 3 页：打开连接 → 读完，关闭连接
+no-return	手写游标没有 return，break 之后：打开连接（连接没有关闭）
+generator	生成器里用 try/finally 释放：break 时 打开连接 → finally：关闭连接；手动调用两次 next 后丢弃 打开连接（finally 永远不会执行）；手动调用 return() 打开连接 → finally：关闭连接
+async	for await 中 break：打开游标 → finally：关闭游标；可读流在 for await 中 break 后 destroyed=true
+array-like	{ length: 2, 0: 'a', 1: 'b' } 用 for...of：TypeError：arrayLike is not iterable；Array.from 得到 [a,b]
+mutate	for...of 遍历数组时往里 push：访问了 [任务1,任务2,追加1,追加2,追加3]（数组迭代器每一步都重新读 length，新加的元素也会被访问）
+node	v24.21.0
