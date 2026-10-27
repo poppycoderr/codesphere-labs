@@ -41,6 +41,8 @@
 | [design/interceptor-chain-contracts](design/interceptor-chain-contracts/) | 拦截链契约：失败即停止、只释放自己的许可、请求间不共享状态、规则遮蔽 | 轻量：确定性输出（标准库） | regular-docker |
 | [design/remote-result-states](design/remote-result-states/) | 远程结果四态：不存在、降级码、超时与结果未知，批量查询的对应关系 | 轻量：确定性输出（内置 HttpServer） | regular-docker |
 | [design/component-lifecycle-rollback](design/component-lifecycle-rollback/) | 组合根：依赖顺序启动、部分失败逆序回滚、关闭失败汇总 | 轻量：确定性输出（标准库） | regular-docker |
+| [design/observer-contracts](design/observer-contracts/) | 观察者契约：退订、once 重入、异常隔离、同步重入与事件表 | 轻量：确定性输出（Node 24） | regular-docker |
+| [design/wrapper-transparency](design/wrapper-transparency/) | 包装与代理的透传：this、返回值、异常、Promise、Proxy 与两套装饰器 | 轻量：Node 24 + TypeScript 7 | regular-docker |
 | [refactoring/rename-boundaries](refactoring/rename-boundaries/) | 名字说的是什么：动作、角色与改名的边界 | 轻量：确定性输出（Jackson 3.2.3） | regular-docker |
 | [refactoring/duplication-and-extraction](refactoring/duplication-and-extraction/) | 抽一个公共方法之前：同一条知识，还是只是长得像 | 轻量：确定性输出 | regular-docker |
 | [refactoring/behavior-preserving-extraction](refactoring/behavior-preserving-extraction/) | 把长方法拆开，哪些行为最容易被改掉 | 轻量：确定性输出 | regular-docker |
@@ -126,6 +128,7 @@
 | [distributed/xa-and-tcc](distributed/xa-and-tcc/) | 两阶段提交与 TCC：准备之后由谁保存决定 | 常规：MySQL 容器 | regular-docker |
 | [network/dns-jvm-cache](network/dns-jvm-cache/) | DNS 切换与 Java 客户端 | 自建网络：CoreDNS + 两个后端 | regular-docker |
 | [network/request-failure-signatures](network/request-failure-signatures/) | 请求失败在客户端的样子 | 轻量：自建网络 + netshoot + JDK 客户端 | regular-docker |
+| [network/request-result-ownership](network/request-result-ownership/) | 请求结果归谁：fetch 错误语义、迟到响应、取消与超时 | 轻量：Node 24 内置 fetch | regular-docker |
 | [kubernetes/container-boundaries](kubernetes/container-boundaries/) | 容器的边界 | 轻量：Docker | regular-docker |
 | [kubernetes/container-memory-accounting](kubernetes/container-memory-accounting/) | 进程只用了 10 MB，容器却因为内存被杀 | 轻量：cgroup v2 计数与 OOM | regular-docker |
 | [kubernetes/deleted-open-files](kubernetes/deleted-open-files/) | 日志删掉了，磁盘空间没有回来 | 轻量：确定性输出 | regular-docker |
@@ -252,6 +255,10 @@ make check                                  # 目录约定、元数据、脚本�
 | [engineering/uri-template-regex](engineering/uri-template-regex/) | URI 模板到正则：字面转义、捕获组错位、替换串转义、模板优先级与比较器契约 | 已验证 | regular-docker |
 | [engineering/data-not-code-import](engineering/data-not-code-import/) | 让模型产出数据而不是代码：CSV 解析、BOM、Schema 校验、单事务导入与吞异常的假成功 | 已验证 | regular-docker |
 | [engineering/delivery-flow-metrics](engineering/delivery-flow-metrics/) | 交付周期的口径：事件历史、等待与未完成项 | 轻量：确定性输出（合成事件，标准库） | regular-docker |
+| [engineering/iterator-early-exit](engineering/iterator-early-exit/) | 迭代器提前结束：return()、生成器 finally、异步迭代与流 | 轻量：确定性输出（Node 24） | regular-docker |
+| [engineering/js-deep-copy](engineering/js-deep-copy/) | 深拷贝：structuredClone、JSON 往返与手写递归 | 轻量：确定性输出（Node 24） | regular-docker |
+| [engineering/react-state-ownership](engineering/react-state-ownership/) | React 状态：快照、函数式更新、memo 与 key | 轻量：React 19 + jsdom | regular-docker |
+| [engineering/reactive-dependency-tracking](engineering/reactive-dependency-tracking/) | 响应式依赖：清理、嵌套、调度与外部快照 | 轻量：@vue/reactivity + React 19 | regular-docker |
 | [distributed/traffic-response-paths](distributed/traffic-response-paths) | 重定向、TTL、全代理地址和 POST 重试 |
 | [system-design/filesystem-raid-boundaries](system-design/filesystem-raid-boundaries) | 无特权离线 ext4 映射、删除和早先副本 |
 | [system-design/trace-context-propagation](system-design/trace-context-propagation/) | 追踪上下文传播：线程池、CompletableFuture、虚拟线程、HTTP 请求头、采样标志、未结束的 span | 已验证 | regular-docker |
