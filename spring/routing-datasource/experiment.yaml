@@ -1,0 +1,23 @@
+id: spring/routing-datasource
+title: "路由数据源在哪一刻选库：事务方法内部设置路由键无效（连接在事务开始时已取到），进入事务前设置有效；LazyConnectionDataSourceProxy 把取连接推迟到第一条语句；按只读事务路由时直接用路由数据源落到主库、包一层延迟代理后落到副本；嵌套调用 remove 路由键让外层落回主库；hash & (桶数 − 1) 在 6 个桶时只用到 4 个"
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/routing-datasource.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.2"
+    spring-jdbc: "7.0.10"
+    h2: "2.4.240"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"

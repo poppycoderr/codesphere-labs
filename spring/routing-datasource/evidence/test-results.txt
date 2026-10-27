@@ -1,0 +1,8 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  RoutingTest  readOnlyRouting
+PASS  RoutingTest  keyInsideTransaction
+PASS  RoutingTest  lazyConnection
+PASS  RoutingTest  bucketMask
+PASS  RoutingTest  nestedScopeClears
+
+tests=5 failures=0
