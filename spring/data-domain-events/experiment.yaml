@@ -1,0 +1,24 @@
+id: spring/data-domain-events
+title: "Spring Data 领域事件什么时候发出：save 时在事务内同步发布并清空、依赖脏检查不调用 save 时状态已改而事件不发、只有 @DomainEvents 没有清空方法时 save 三次发布三次、PO 构造器登记事件让关闭工单被当成又申请一次；AFTER_COMMIT 监听器里不开新事务的写入在连接池 autoCommit=true 时被清理动作顺带提交、autoCommit=false 时丢失，REQUIRES_NEW 两种情况下都提交"
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/data-domain-events.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.2"
+    spring-data-commons: "4.1.2"
+    hibernate: "7.4.13.Final"
+    h2: "2.4.240"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"

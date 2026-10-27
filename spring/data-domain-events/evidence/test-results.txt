@@ -1,0 +1,9 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  AutoCommitOffTest  writesInAfterCommitListenerWithPoolAutoCommitOff
+PASS  DomainEventsTest  saveRegisteredEventsPublishesAndClears
+PASS  DomainEventsTest  dirtyCheckingDoesNotPublish
+PASS  DomainEventsTest  domainEventsWithoutClearRepublish
+PASS  DomainEventsTest  constructorRegisteredEventsDuplicateOnUpdate
+PASS  DomainEventsTest  writesInAfterCommitListener
+
+tests=6 failures=0
