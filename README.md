@@ -37,6 +37,10 @@
 | [design/jakarta-rest-behavior](design/jakarta-rest-behavior/) | Jakarta REST 的默认行为：返回值与状态码、HEAD/OPTIONS、异常与映射器、参数缺省与转换失败 | 已验证 | regular-docker |
 | [design/declarative-http-client](design/declarative-http-client/) | 声明式 HTTP 客户端：代理、参数名、路径与查询编码、错误状态、超时、默认方法，对照手写代理 | 已验证 | regular-docker |
 | [design/polyline-edit-session](design/polyline-edit-session/) | 折线编辑会话：预览、提交、撤销与外部更新 | 标准：真实 Chromium，确定性输出 | regular-docker |
+| [design/flow-skeleton-context](design/flow-skeleton-context/) | 流程骨架的上下文与失败语义：嵌套与线程复用的 ThreadLocal、原子幂等、收尾钩子 | 轻量：确定性输出（标准库） | regular-docker |
+| [design/interceptor-chain-contracts](design/interceptor-chain-contracts/) | 拦截链契约：失败即停止、只释放自己的许可、请求间不共享状态、规则遮蔽 | 轻量：确定性输出（标准库） | regular-docker |
+| [design/remote-result-states](design/remote-result-states/) | 远程结果四态：不存在、降级码、超时与结果未知，批量查询的对应关系 | 轻量：确定性输出（内置 HttpServer） | regular-docker |
+| [design/component-lifecycle-rollback](design/component-lifecycle-rollback/) | 组合根：依赖顺序启动、部分失败逆序回滚、关闭失败汇总 | 轻量：确定性输出（标准库） | regular-docker |
 | [refactoring/rename-boundaries](refactoring/rename-boundaries/) | 名字说的是什么：动作、角色与改名的边界 | 轻量：确定性输出（Jackson 3.2.3） | regular-docker |
 | [refactoring/duplication-and-extraction](refactoring/duplication-and-extraction/) | 抽一个公共方法之前：同一条知识，还是只是长得像 | 轻量：确定性输出 | regular-docker |
 | [refactoring/behavior-preserving-extraction](refactoring/behavior-preserving-extraction/) | 把长方法拆开，哪些行为最容易被改掉 | 轻量：确定性输出 | regular-docker |
@@ -64,6 +68,7 @@
 | [ddd/model-to-http-api](ddd/model-to-http-api/) | 从模型到 HTTP 接口：条件更新、命令与受理 | 轻量：确定性输出 | regular-docker |
 | [ddd/script-or-domain-model](ddd/script-or-domain-model/) | 事务脚本还是领域模型：三次需求变化的代码演进 | 轻量：确定性输出 | regular-docker |
 | [ddd/candidate-confirmation-activation](ddd/candidate-confirmation-activation/) | 候选、确认与生效：抽取结果与模型发布 | 轻量：确定性输出（SQLite） | regular-docker |
+| [ddd/event-sourcing-replay](ddd/event-sourcing-replay/) | 事件溯源：决定与演算分离、重放确定性、期望版本、投影检查点与快照 | 轻量：确定性输出（标准库） | regular-docker |
 | [storage/innodb-locking-ranges](storage/innodb-locking-ranges/) | InnoDB 行锁锁的是什么 | 轻量 | regular-docker |
 | [storage/mysql-explain-plans](storage/mysql-explain-plans/) | 读懂 Explain；SQL 调优实战（第三、四节） | 轻量 | regular-docker |
 | [storage/mysql-mvcc-isolation](storage/mysql-mvcc-isolation/) | InnoDB MVCC 与隔离级别 | 轻量 | regular-docker |
@@ -189,6 +194,7 @@
 | [cache/cache-layer-latency](cache/cache-layer-latency/) | 缓存分层的访问延迟 | 轻量：Redis + MySQL + JDK 客户端 | performance |
 | [cache/cache-aside-window](cache/cache-aside-window/) | 缓存一致性的窗口 | 轻量：Redis + MySQL + JDK 客户端 | regular-docker |
 | [cache/zset-score-cursor](cache/zset-score-cursor/) | 有序集合按 score 分页：同分成员与复合游标 | 常规：Redis 8.10.1 容器，确定性输出 | regular-docker |
+| [cache/local-cache-entry-identity](cache/local-cache-entry-identity/) | 进程内缓存的条目身份：条件删除、淘汰方向、并发加载、监听器与可变值，Caffeine 对照 | 轻量：确定性输出（Caffeine 3.3.1） | regular-docker |
 | [ai/ml-and-nlp-basics](ai/ml-and-nlp-basics/) | 机器学习与 NLP 基础 | 轻量：Python 容器，锁定依赖版本 | regular-docker |
 | [ai/vector-search-pitfalls](ai/vector-search-pitfalls/) | 相似度 0.86，这两段文字其实毫不相干 | 轻量：numpy 合成向量，确定性输出 | regular-docker |
 | [ai/retrieval-evaluation-pitfalls](ai/retrieval-evaluation-pitfalls/) | 新检索系统的评估分数只有旧系统的四分之一 | 轻量：确定性输出（合成数据） | regular-docker |
@@ -251,6 +257,8 @@ make check                                  # 目录约定、元数据、脚本�
 | [distributed/execution-plan-shuffle](distributed/execution-plan-shuffle) | Spark 执行计划、倾斜、加盐等价性与显式缓存 |
 | [distributed/checkpoint-state-recovery](distributed/checkpoint-state-recovery) | Flink 单机 checkpoint 和受控算子失败恢复 |
 | [distributed/sdk-retry-stacking](distributed/sdk-retry-stacking/) | SDK 自带重试与应用层重试叠加 | 轻量：确定性输出（openai 3.35.1，本地假服务） | regular-docker |
+| [distributed/request-correlation](distributed/request-correlation/) | 请求关联：待完成表、先登记后发送、编号复用、断连与写出完成 | 轻量：确定性输出（标准库） | regular-docker |
+| [distributed/composite-lock-acquisition](distributed/composite-lock-acquisition/) | 组合获取多把锁：部分成功回退、加锁顺序、租期预算、多数派前提 | 轻量：确定性输出（标准库） | regular-docker |
 
 ## 目录约定
 
