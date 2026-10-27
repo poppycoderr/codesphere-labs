@@ -1,0 +1,21 @@
+id: engineering/js-module-identity
+title: "模块是谁：CommonJS 循环依赖时对方的 exports 还是空对象、加载时读到的值是 NaN；ESM 循环里函数声明可以调用、const 撞上暂时性死区抛 ReferenceError；ESM 导入是实时绑定、CommonJS 解构得到的是拷贝；同一个包装了两份时插件注册到了另一个实例；同一个包用 import 和 require 各拿一次得到两个对象；URL 查询参数不同也是不同的模块实例"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/js-module-identity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
