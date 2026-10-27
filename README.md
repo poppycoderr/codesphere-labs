@@ -95,6 +95,11 @@
 | [spring/async-executor-defaults](spring/async-executor-defaults/) | 线程池参数怎么定（Spring 默认执行器） | 轻量：Spring Boot 4.1.1 | regular |
 | [spring/aop-boot-proxies](spring/aop-boot-proxies/) | Spring AOP 为什么会失效（Spring Boot 部分） | 轻量：Spring Boot 4.1.1 + H2 | regular |
 | [spring/kafka-listener-group-protocol](spring/kafka-listener-group-protocol/) | Kafka 消费组重平衡（Spring Kafka 部分） | Spring Boot 4.1.1 + Kafka（Testcontainers） | regular-docker |
+| [spring/data-domain-events](spring/data-domain-events/) | Spring Data 领域事件：save 时发布与清空、脏检查不发布、提交后监听器里的写入 | 标准：Spring Boot 4.1.2 + H2 | regular |
+| [spring/transaction-readonly-timeout](spring/transaction-readonly-timeout/) | readOnly 与 timeout：驱动与 JPA 下的只读、超时只在语句时检查 | 标准：Spring Boot 4.1.2 + MySQL 8.4.11（Testcontainers） | regular-docker |
+| [spring/mvc-request-layers](spring/mvc-request-layers/) | MVC 请求各层：Filter、拦截器、Advice 的顺序与响应提交时机 | 标准：Spring Boot 4.1.2 + 内嵌 Tomcat | regular |
+| [spring/bean-identity](spring/bean-identity/) | 同一个 Bean：@Bean 方法调用的 full/lite、FactoryBean、registerSingleton、同名覆盖 | 标准：Spring Boot 4.1.2 | regular |
+| [spring/routing-datasource](spring/routing-datasource/) | 路由数据源：选库时机、延迟取连接、只读路由、路由键作用域与取桶 | 标准：Spring Boot 4.1.2 + 两个 H2 库 | regular |
 | [system-design/dependency-graph-execution](system-design/dependency-graph-execution/) | 依赖任务图的执行 | 轻量：单文件调度器 | regular |
 | [system-design/sorting-selection-topk](system-design/sorting-selection-topk/) | 排序、选择与 Top K | 轻量：100 万条对象排序与选择 | performance |
 | [system-design/amortized-cost-tail](system-design/amortized-cost-tail/) | 均摊代价与尾延迟 | 轻量：扩容尖峰与小 N 查找 | performance |
@@ -183,6 +188,7 @@
 | [java/jvm-warmup-first-requests](java/jvm-warmup-first-requests/) | 每次发版后的头几秒，接口都会超时 | 轻量：计时，只断言倍数关系 | regular-docker |
 | [java/string-duplication](java/string-duplication/) | 两百万条记录，一百种城市名，占了一百多兆 | 轻量：堆占用，只断言范围 | regular-docker |
 | [java/counter-overflow](java/counter-overflow/) | 计数器溢出：Math.abs(MIN_VALUE)、负数取余、轮询下标越界、floorMod 与掩码 | 已验证 | regular-docker |
+| [java/thread-pool-runtime-resize](java/thread-pool-runtime-resize/) | 运行时调整线程池：core/max 顺序、缩容与在途任务、钩子的盲区 | 轻量：确定性输出（标准库） | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |
