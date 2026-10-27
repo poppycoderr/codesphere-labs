@@ -1,0 +1,21 @@
+id: engineering/js-deep-copy
+title: "深拷贝不是一个函数：structuredClone 保留 Date、Map、NaN、undefined、环与共享引用，但把访问器变成数据属性、丢掉 Symbol 键、遇到函数抛 DataCloneError、类实例复制成普通对象；JSON 往返丢 undefined、Date 变字符串、Map 变 {}、NaN 变 null、共享引用变两份、遇到环与 BigInt 抛错；手写递归遇环栈溢出、数据里有 hasOwnProperty 字段时报错、复制 __proto__ 键会改掉副本的原型；领域对象应通过构造器重建"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/js-deep-copy.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
