@@ -1,0 +1,10 @@
+open.missing-header	没有 Authorization 头，认证检查抛 NullPointerException：朴素链 → 执行业务；失败即停止 → 拒绝：检查无法完成（NullPointerException）
+open.dependency	审核服务超时：朴素链 → 执行业务；失败即停止 → 拒绝：检查无法完成（IllegalStateException）
+open.null-key	黑名单按 X-User 判断，请求里没有这个头：取到 null，「不在黑名单里」→ 执行业务；缺少身份时直接拒绝 → 拒绝：缺少用户身份
+permit.naive	上限 2，两个请求占用期间又来 3 个，finally 无条件 release：本该全部被拒的 3 个里放进了 2 个，全部结束后可用许可 3（上限从 2 变成了 3）
+permit.owned	只在拿到许可后进入 try、在 finally 里释放：放进 0 个，全部结束后可用许可 2
+candidates.foreach	node-b、node-c 都不健康，在 for-each 里删除：没有报错，结果 [node-a, node-c]（删掉倒数第二个元素后迭代提前结束，node-c 没被检查）
+candidates.shared	请求一的过滤器直接改注册表里的列表，请求二看到的候选：[node-a, node-c]
+candidates.copy	每个请求复制一份再过滤：请求一 [node-a, node-c]，请求二 [node-a, node-b, node-c]
+rules.wide-first	规则按书写顺序首个匹配，宽规则在前：/api/admin/users → 放行（命中 /api/**）
+rules.specific-first	按前缀长度从具体到宽泛排序：/api/admin/users → 拒绝（命中 /api/admin/**），/api/orders → 放行（命中 /api/**），/health → 拒绝（没有规则命中）

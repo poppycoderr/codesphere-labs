@@ -1,0 +1,21 @@
+id: design/interceptor-chain-contracts
+title: "拦截链的三条契约：检查器抛出非预期异常或依赖超时时朴素链继续执行业务，失败即停止的链拒绝；取不到身份当成不在黑名单；tryAcquire 失败也在 finally 里 release 让本该被拒的请求进入、上限从 2 变成 3；for-each 里删除倒数第二个元素后迭代提前结束；过滤器修改共享候选列表影响下一个请求；首个匹配时宽规则遮蔽具体规则"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/interceptor-chain-contracts.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
