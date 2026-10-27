@@ -1,0 +1,8 @@
+{
+  "name": "wrapper-transparency",
+  "private": true,
+  "description": "包装函数与代理要透传什么；TypeScript 两套装饰器语义",
+  "dependencies": {
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,22 @@
+id: design/wrapper-transparency
+title: "包一层要透传什么：箭头函数包装丢了 this、不 return 让调用方拿到 undefined、吞异常让失败变成成功、同步 try/finally 记不到 Promise 的失败；多层包装写在前面的在最外层；Proxy 用 indexOf 当布尔值暴露了下标 1 的字段、忘了 return 全部读到 undefined、访问器里 this 绕过隐藏、set 不返回 true 在严格模式抛 TypeError、违反不可配置属性的不变量抛 TypeError；缓存键用 join(',') 碰撞；TypeScript 7.0.2 的标准装饰器与 experimentalDecorators 签名不同，混用时编译报 TS1241/TS1270、产出的 JS 运行时抛 TypeError"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/wrapper-transparency.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+    typescript: "7.0.2"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
