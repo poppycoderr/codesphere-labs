@@ -1,0 +1,21 @@
+id: java/thread-pool-runtime-resize
+title: "运行时调整 ThreadPoolExecutor：扩容时先改 core 抛 IllegalArgumentException、缩容时先改 max 同样抛出；缩到 1/1 时正在执行的 4 个线程不会被打断、排队任务不丢；afterExecute 对 submit 的任务拿到 null；afterExecute 抛错让工作线程被替换；CallerRunsPolicy 在调用线程执行且不经过 beforeExecute；期望配置与实际生效分开记录"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/thread-pool-runtime-resize.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
