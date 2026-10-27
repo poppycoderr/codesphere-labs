@@ -1,0 +1,3 @@
+User sleep	SELECT SLEEP(30)
+Waiting for table metadata lock	ALTER TABLE orders ADD COLUMN note1 INT, ALGORITHM=INSTANT
+Waiting for table metadata lock	SELECT amount FROM orders WHERE id = 2

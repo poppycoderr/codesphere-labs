@@ -1,0 +1,21 @@
+id: storage/metadata-locks
+title: "元数据锁：读了一行但未提交的事务持有 SHARED_READ，ALTER（即使是 ALGORITHM=INSTANT）拿到 SHARED_UPGRADABLE 后等待 EXCLUSIVE，之后的普通查询排在 ALTER 后面一起等；sys.schema_table_lock_waits 把等待中的 ALTER 也列为阻塞者，排除自己也在等的会话后才是真正的源头；KILL 它之后 ALTER 与查询都完成；元数据锁的等待上限是 lock_wait_timeout，不是 innodb_lock_wait_timeout"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/metadata-locks.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

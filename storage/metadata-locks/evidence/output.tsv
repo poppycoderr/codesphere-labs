@@ -1,0 +1,11 @@
+mdl.reader	会话 1（读完一行、事务未提交）持有 SHARED_READ，状态 GRANTED
+mdl.alter	ALTER 已获得或在等待的锁：EXCLUSIVE PENDING、SHARED_UPGRADABLE GRANTED
+mdl.select	会话 3（普通查询）：SHARED_READ PENDING
+state.ALTER	ALTER 的线程状态：Waiting for table metadata lock
+state.会话 3	会话 3 的线程状态：Waiting for table metadata lock
+blocker.rows	sys.schema_table_lock_waits 列出 4 行，阻塞者候选 2 个，其中包含正在等待的 ALTER 自己=True
+blocker	排除自己也在等待的会话后，剩下的阻塞者就是会话 1=True
+after-kill.alter	ALTER 一直等到 KILL 会话 1 之后才完成（等待超过 1.5 秒）=True
+after-kill.select	会话 3 也等到 KILL 之后才返回（等待超过 1.5 秒），尽管它要的共享锁与会话 1 并不冲突=True
+timeout.error	innodb_lock_wait_timeout=1、lock_wait_timeout=3：ALTER 报错 1205
+timeout.seconds	等待 2.5 到 5 秒之间放弃，即由 lock_wait_timeout=3 决定，而不是 innodb_lock_wait_timeout=1=True
