@@ -1,0 +1,21 @@
+id: storage/count-semantics
+title: "count(*)、count(1)、count(主键) 与 count(列)：前三者结果相同、都选最小的二级索引 idx_status、耗时相差在 1.5 倍以内；count(可为 NULL 的列) 只数非 NULL，有索引时走该列的索引，没有索引时扫全表且明显更慢；TABLE_ROWS 是统计估算，50 万行时与真实值相差在 10% 以内但不相等"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/count-semantics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"

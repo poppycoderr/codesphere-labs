@@ -1,0 +1,9 @@
+count.COUNT(*)	COUNT(*)：结果 500000，执行计划使用的索引 idx_status
+count.COUNT(1)	COUNT(1)：结果 500000，执行计划使用的索引 idx_status
+count.COUNT(id)	COUNT(id)：结果 500000，执行计划使用的索引 idx_status
+count.COUNT(coupon_id)	COUNT(coupon_id)：结果 166666，执行计划使用的索引 idx_coupon
+count.COUNT(remark)	COUNT(remark)：结果 100000，执行计划使用的索引 全表
+timing.same	COUNT(*)、COUNT(1)、COUNT(id) 的耗时（5 次中位数）相差在 1.5 倍以内=True
+timing.remark	COUNT(remark)（没有索引、要读整行）比 COUNT(*) 慢=True
+table_rows.estimate	50 万行时 TABLE_ROWS 估算与真实行数相差在 10% 以内=True（具体值见 table-rows.txt）
+table_rows.after-delete	删掉 10 万行、ANALYZE 之后，TABLE_ROWS 与真实的 400000 行相差在 10% 以内=True
