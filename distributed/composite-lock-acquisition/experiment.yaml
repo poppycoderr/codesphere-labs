@@ -1,0 +1,21 @@
+id: distributed/composite-lock-acquisition
+title: "组合获取多把锁：第二把失败时朴素实现留着第一把直到租期到期，逆序回退立即释放；回退的释放本身也会失败，只能靠租期兜底；相反顺序加锁的两个线程 500ms 后仍在互相等待，按名字排序后都完成；逐个获取三把锁每次 3 秒、租期 10 秒，全部拿到时第一把只剩 1 秒；三个节点里拿到两个算获得锁，节点丢失状态立即重启后两个客户端都拿到多数派"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/composite-lock-acquisition.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
