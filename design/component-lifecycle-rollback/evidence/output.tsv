@@ -1,0 +1,8 @@
+order	启动顺序：config → db → cache → orders → http
+check.missing	删掉 db 后启动：缺少依赖：orders → db；已启动的组件 无
+check.cycle	config 反过来依赖 http：依赖成环：http → orders → db → config → http；已启动的组件 无
+start.naive	orders 启动失败，朴素启动直接抛出：orders 启动失败：端口被占用；仍在运行 cache、db、config（进程退出前没人关闭它们）
+start.rollback	同样失败，按相反顺序关闭已启动的组件：启动 config，启动 db，启动 cache，关闭 cache，关闭 db，关闭 config；仍在运行 无；抛出的是原始异常「orders 启动失败：端口被占用」
+stop.naive	关闭时 cache 抛错，朴素循环在第一个异常处停下：关闭 http，关闭 orders，关闭 cache；仍在运行 db、config
+stop.all	继续关闭其余组件并汇总：关闭 http，关闭 orders，关闭 cache，关闭 db，关闭 config；仍在运行 无；汇总异常里有 1 个失败（cache 关闭失败：刷盘超时）
+ready	http 的路由都已注册=true，但缓存预热还没完成：按「已注册」判断就绪会接流量，按「依赖都就绪」判断返回 未就绪

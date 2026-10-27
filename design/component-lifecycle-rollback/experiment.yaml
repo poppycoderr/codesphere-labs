@@ -1,0 +1,21 @@
+id: design/component-lifecycle-rollback
+title: "组合根的启动与关闭：拓扑顺序启动；缺失依赖与环在启动任何组件之前报错；部分启动失败时朴素实现留下三个仍在运行的组件，按相反顺序只关闭已启动的组件后为零并保留原始异常；关闭时一个组件抛错，朴素循环停下留下两个未关闭，继续关闭并汇总后为零；路由已注册不等于就绪"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/component-lifecycle-rollback.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
