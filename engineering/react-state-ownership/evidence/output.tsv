@@ -1,0 +1,8 @@
+snapshot	同一次点击里连续三次 setCount(count + 1)：显示 1，handler 里 set 之后读到的 count 是 0；再用三次 setCount(c => c + 1)：显示 4
+nested	push 进原数组再 setCart({...cart})：外层组件显示 2 件，memo 子组件仍显示 1 件；连同数组一起复制后子组件显示 3 件
+object-is	修改对象的字段后 setP(同一个对象)：重新渲染 0 次，界面仍显示 alice
+key.index	用下标做 key：给张三写了备注后删掉张三，李四那一行的输入框里是「张三的备注」
+key.id	用 id 做 key：给张三写了备注后删掉张三，李四那一行的输入框里是「」
+key.reset	切换到用户 u2：同一位置、同一组件类型时草稿保留为「写给 u1 的草稿」；以 userId 作为 key 时草稿是「」
+falsy	数量为 0：value={qty || ''} 显示「」，value={qty ?? ''} 显示「0」
+react	19.3.1
