@@ -1,0 +1,21 @@
+id: network/request-result-ownership
+title: "请求结果归谁：fetch 只在网络失败时 reject，404/500 由调用方检查 r.ok，404 的 JSON 错误体会被当成成功数据，204 上调用 r.json() 抛 SyntaxError；then(onOk).catch(onFail) 在成功回调抛错时又调用失败回调；先搜 a（慢）再搜 ab（快）时按到达顺序显示停在 a，代际标记与 AbortController 都停在 ab，但服务端仍完成了两个搜索；超时是 TimeoutError、主动取消是 AbortError"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/request-result-ownership.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
