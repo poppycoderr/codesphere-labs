@@ -1,0 +1,9 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  IdentityTest  overridingDefaults
+PASS  IdentityTest  beansInComponent
+PASS  IdentityTest  liteConfiguration
+PASS  IdentityTest  factoryBean
+PASS  IdentityTest  fullConfiguration
+PASS  IdentityTest  registeredSingletonSkipsCallbacks
+
+tests=6 failures=0

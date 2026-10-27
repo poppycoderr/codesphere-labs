@@ -1,0 +1,22 @@
+id: spring/bean-identity
+title: "同一个 Bean 由什么决定：full 模式的 @Configuration 里 @Bean 方法互相调用得到容器里的同一个实例、proxyBeanMethods=false 与写在 @Component 里时每次调用都 new 一个；FactoryBean 的产品与 &名字取到的工厂是两个对象，启动时只调用 getObjectType 做类型预测；registerSingleton 交进去的对象不初始化也不销毁；同名 Bean 在 Spring Framework 里后者静默覆盖、在 Spring Boot 里启动失败"
+status: verified
+tier: regular
+article:
+  repository: codesphere
+  path: docs/spring/bean-identity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.2"
+    spring-framework: "7.0.10"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
