@@ -1,0 +1,8 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  LayersTest  filterThrows
+PASS  LayersTest  preHandleFalse
+PASS  LayersTest  handlerThrows
+PASS  LayersTest  responseEntity
+PASS  LayersTest  responseBody
+
+tests=5 failures=0

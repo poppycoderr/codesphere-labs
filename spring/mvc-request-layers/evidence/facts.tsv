@@ -1,0 +1,5 @@
+body.entity	ResponseEntity 返回字符串：状态 200；响应头 X-Filter-Before 有，X-Pre 有，X-Post 无，X-Filter-After 无；经过 filter-before → preHandle → handler → postHandle(committed=true) → afterCompletion(ex=null) → filter-after(committed=true)
+body.json	@ResponseBody 返回对象：状态 200；响应头 X-Filter-Before 有，X-Pre 有，X-Post 有，X-Filter-After 有；经过 filter-before → preHandle → handler → postHandle(committed=false) → afterCompletion(ex=null) → filter-after(committed=false)
+filter.throws	Filter 里抛异常：状态 500，响应体是否来自 @RestControllerAdvice=false；经过 filter-before → preHandle → postHandle(committed=true) → afterCompletion(ex=null)
+handler.throws	处理器抛异常、@RestControllerAdvice 处理：状态 409，响应体 {"error":"库存不足"}；经过 filter-before → preHandle → handler → advice → afterCompletion(ex=null) → filter-after(committed=true)
+prehandle.false	preHandle 返回 false：状态 200，响应体长度 0；经过 filter-before → preHandle → filter-after(committed=false)
