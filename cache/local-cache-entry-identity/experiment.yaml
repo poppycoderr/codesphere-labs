@@ -1,0 +1,22 @@
+id: cache/local-cache-entry-identity
+title: "进程内缓存与登记表的条目身份：过期任务按 key 删除删掉了刚写入的新值、remove(key, entry) 不会；旧连接的关闭回调按用户删除把重连后的新会话标成离线；命中次数降序排序后删掉最热的条目；四个线程各自 get 后回源 4 次、computeIfAbsent 1 次；同步监听器抛错让已写入的值报失败；返回内部可变对象被调用方改掉；Caffeine 3.3.1 按条目计算过期、并发加载 1 次、监听器异常不影响调用方，但同样不复制可变值"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/cache/local-cache-entry-identity.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+    caffeine: "3.3.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
