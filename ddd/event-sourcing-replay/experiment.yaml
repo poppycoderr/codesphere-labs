@@ -1,0 +1,21 @@
+id: ddd/event-sourcing-replay
+title: "事件溯源的决定与重放：在演算里生成编号和时间让同一条事件流重建出两个状态；拒绝的命令不产生事件；期望版本拒绝并发追加，重试后按新状态拒绝；摘要与回访写在一个处理器里时重建读模型会重复发回访；按全局位置的检查点跳过重复投递；快照加后续事件与完整重放相等"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ddd/event-sourcing-decide-and-replay.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
