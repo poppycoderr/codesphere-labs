@@ -1,0 +1,21 @@
+id: design/flow-skeleton-context
+title: "流程骨架里的上下文与失败语义：嵌套调用时内层 remove 清掉外层的 ThreadLocal 上下文、保存并恢复或显式传参可以避免；清理不在 finally 时线程池下一个任务读到上一个租户；supplyAsync 的任务读不到调用方的 ThreadLocal；先查后执行的幂等判断让两个线程都执行；每次尝试生成随机事件 ID 让重试扣款两次；收尾只写在正常返回之后时状态停在处理中；字符串键拼错读到 null"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/flow-skeleton-context.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
