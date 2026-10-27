@@ -1,0 +1,21 @@
+id: design/observer-contracts
+title: "观察者的契约：同一函数订阅两次被调用两次；通知中退订自己让朴素发布器跳过下一个监听器；先调用后摘除的 once 在重入时执行 5 次；一个监听器抛错让朴素发布器与 Node EventEmitter 停止通知其余监听器，EventTarget 继续并以未捕获异常报告；同步通知重入时后面的监听器先收到新值、最后停在旧值；普通对象做事件表或策略表时命中继承键；EventEmitter 没有 error 监听器时 emit('error') 抛出"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/observer-contracts.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
