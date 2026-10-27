@@ -1,0 +1,9 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  H2ReadOnlyTest  readOnlyJdbcInsertOnH2
+PASS  MySqlTxAttrTest  timeoutBeforeStatement
+PASS  MySqlTxAttrTest  readOnlyJdbcInsert
+PASS  MySqlTxAttrTest  timeoutAfterLastStatement
+PASS  MySqlTxAttrTest  readOnlyDirtyChecking
+PASS  MySqlTxAttrTest  timeoutLongStatement
+
+tests=6 failures=0

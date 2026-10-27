@@ -1,0 +1,25 @@
+id: spring/transaction-readonly-timeout
+title: "@Transactional 的 readOnly 与 timeout：MySQL Connector/J 在只读连接上拒绝写语句、H2 照常写入；JPA 只读事务里修改实体与显式 save 都不写回且不报错；timeout 不打断 Java 代码，最后一条语句之后的耗时不算、超时后执行下一条语句时抛 TransactionTimedOutException、单条慢语句被设成剩余时间的查询超时"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/spring/transaction-readonly-timeout.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  components:
+    jdk: "21.0.5"
+    spring-boot: "4.1.2"
+    hibernate: "7.4.13.Final"
+    mysql: "8.4.11"
+    mysql-connector-j: "9.7.0"
+    h2: "2.4.240"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
