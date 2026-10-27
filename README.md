@@ -171,6 +171,7 @@
 | [storage/elasticsearch-bulk-failures](storage/elasticsearch-bulk-failures/) | bulk 的部分失败、重试与版本号 | 常规：Elasticsearch 9.5.5 单节点容器，确定性输出 | regular-docker |
 | [storage/count-semantics](storage/count-semantics/) | COUNT(*)、COUNT(1) 与 COUNT(列) | 轻量 | regular-docker |
 | [storage/order-by-sorting](storage/order-by-sorting/) | ORDER BY：索引方向、排序溢出与同值分页 | 轻量 | regular-docker |
+| [storage/join-algorithms](storage/join-algorithms/) | JOIN 的执行方式 | 轻量 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [java/gc-baseline](java/gc-baseline/) | GC 基线与排查工具输出 | 轻量：JDK 25 容器，GC 对照加 JDK 21 | regular-docker |
 | [java/gc-collectors](java/gc-collectors/) | G1、分代 ZGC、Parallel 对比 | 性能：JDK 21 容器，4 CPU | performance |

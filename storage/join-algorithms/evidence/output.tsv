@@ -1,0 +1,12 @@
+plan.selective.index	城市过滤 + orders.customer_id 有索引：结果 1608000，Nested loop inner join，先读 c，内层执行 200 次
+plan.selective.other-side	城市过滤 + 只有 customers.id 有索引：结果 1608000，Nested loop inner join，先读 o，内层执行 300000 次
+plan.selective.hash	城市过滤 + 两侧都没有索引：结果 1608000，Inner hash join，用 c 建哈希表、扫描另一张表探测
+plan.selective.no-hash	同上，用 NO_BNL 关闭哈希连接：结果 1608000，Nested loop inner join，先读 c，内层执行 200 次
+plan.full.index	全量连接 + orders.customer_id 有索引：结果 149850000，Nested loop inner join，先读 c，内层执行 20000 次
+plan.full.hash	全量连接 + 两侧都没有索引：结果 149850000，Inner hash join，用 c 建哈希表、扫描另一张表探测
+time.other-side	只有另一侧有索引时比索引嵌套循环慢 10 倍以上=True
+time.hash-vs-index	有过滤条件时，哈希连接比索引嵌套循环慢=True
+time.no-hash	关闭哈希连接后的嵌套循环比哈希连接慢 20 倍以上=True
+time.full	全量连接时，哈希连接比索引嵌套循环快=True
+buffer.small	join_buffer_size=128KB 与 256KB 时写了临时文件=True
+buffer.large	join_buffer_size=64MB 时临时文件 0 个

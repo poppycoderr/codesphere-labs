@@ -1,0 +1,37 @@
+== selective.index: SELECT SUM(o.amount) FROM customers c JOIN orders o ON o.customer_id = c.id WHERE c.city = 3
+-> Aggregate: sum(o.amount)  (cost=15207 rows=1) (actual time=5.76..5.76 rows=1 loops=1)
+    -> Nested loop inner join  (cost=12271 rows=29357) (actual time=0.127..5.65 rows=3000 loops=1)
+        -> Filter: (c.city = 3)  (cost=1996 rows=1972) (actual time=0.0917..2.47 rows=200 loops=1)
+            -> Table scan on c  (cost=1996 rows=19720) (actual time=0.0898..1.84 rows=20000 loops=1)
+        -> Index lookup on o using idx_customer (customer_id=c.id)  (cost=3.72 rows=14.9) (actual time=0.0143..0.0151 rows=15 loops=200)
+== selective.other-side: SELECT SUM(o.amount) FROM customers c JOIN orders o ON o.customer_ref = c.id WHERE c.city = 3
+-> Aggregate: sum(o.amount)  (cost=138019 rows=1) (actual time=237..237 rows=1 loops=1)
+    -> Nested loop inner join  (cost=135022 rows=29964) (actual time=0.447..236 rows=3000 loops=1)
+        -> Table scan on o  (cost=30148 rows=299640) (actual time=0.364..28.2 rows=300000 loops=1)
+        -> Filter: (c.city = 3)  (cost=0.25 rows=0.1) (actual time=626e-6..626e-6 rows=0.01 loops=300000)
+            -> Single-row index lookup on c using PRIMARY (id=o.customer_ref)  (cost=0.25 rows=1) (actual time=492e-6..513e-6 rows=1 loops=300000)
+== selective.hash: SELECT SUM(o.amount) FROM customers c JOIN orders o ON o.customer_ref = c.code WHERE c.city = 3
+-> Aggregate: sum(o.amount)  (cost=65e+6 rows=1) (actual time=44.6..44.6 rows=1 loops=1)
+    -> Inner hash join (o.customer_ref = c.`code`)  (cost=59.1e+6 rows=59.1e+6) (actual time=3.03..44.5 rows=3000 loops=1)
+        -> Table scan on o  (cost=1.62 rows=299640) (actual time=0.349..26.6 rows=300000 loops=1)
+        -> Hash
+            -> Filter: (c.city = 3)  (cost=1996 rows=1972) (actual time=0.105..2.65 rows=200 loops=1)
+                -> Table scan on c  (cost=1996 rows=19720) (actual time=0.103..1.93 rows=20000 loops=1)
+== selective.no-hash: SELECT /*+ NO_BNL(c, o) */ SUM(o.amount) FROM customers c JOIN orders o ON o.customer_ref = c.code WHERE c.city = 3
+-> Aggregate: sum(o.amount)  (cost=65.4e+6 rows=1) (actual time=7878..7878 rows=1 loops=1)
+    -> Nested loop inner join  (cost=59.5e+6 rows=59.1e+6) (actual time=2.24..7878 rows=3000 loops=1)
+        -> Filter: (c.city = 3)  (cost=1996 rows=1972) (actual time=0.103..2.87 rows=200 loops=1)
+            -> Table scan on c  (cost=1996 rows=19720) (actual time=0.101..2.09 rows=20000 loops=1)
+        -> Filter: (o.customer_ref = c.`code`)  (cost=186 rows=29964) (actual time=1.49..39.4 rows=15 loops=200)
+            -> Table scan on o  (cost=186 rows=299640) (actual time=0.319..25.8 rows=300000 loops=200)
+== full.index: SELECT SUM(o.amount) FROM customers c JOIN orders o ON o.customer_id = c.id
+-> Aggregate: sum(o.amount)  (cost=134101 rows=1) (actual time=209..209 rows=1 loops=1)
+    -> Nested loop inner join  (cost=104744 rows=293566) (actual time=0.13..197 rows=300000 loops=1)
+        -> Covering index scan on c using PRIMARY  (cost=1996 rows=19720) (actual time=0.0928..1.84 rows=20000 loops=1)
+        -> Index lookup on o using idx_customer (customer_id=c.id)  (cost=3.72 rows=14.9) (actual time=0.00822..0.00904 rows=15 loops=20000)
+== full.hash: SELECT SUM(o.amount) FROM customers c JOIN orders o ON o.customer_ref = c.code
+-> Aggregate: sum(o.amount)  (cost=650e+6 rows=1) (actual time=88.4..88.4 rows=1 loops=1)
+    -> Inner hash join (o.customer_ref = c.`code`)  (cost=591e+6 rows=591e+6) (actual time=3.55..76.7 rows=300000 loops=1)
+        -> Table scan on o  (cost=0.164 rows=299640) (actual time=0.35..26.6 rows=300000 loops=1)
+        -> Hash
+            -> Table scan on c  (cost=1996 rows=19720) (actual time=0.0851..1.78 rows=20000 loops=1)

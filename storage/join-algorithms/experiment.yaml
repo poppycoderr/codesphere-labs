@@ -1,0 +1,21 @@
+id: storage/join-algorithms
+title: "JOIN 的执行方式：有过滤条件且被驱动表的连接列有索引时，索引嵌套循环只做 200 次查找；索引只在另一侧时优化器改由 orders 驱动、查找 30 万次，慢 10 倍以上；两侧都没有索引时用哈希连接，关闭后的嵌套循环慢 20 倍以上；全量连接时哈希连接比索引嵌套循环快；join_buffer_size 为 128KB、256KB 时哈希连接写临时文件，64MB 时不写"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/join-algorithms.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

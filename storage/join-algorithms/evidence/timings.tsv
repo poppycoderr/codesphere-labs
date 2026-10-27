@@ -1,0 +1,6 @@
+selective.index	1608000	Nested loop inner join	c	200	6.18
+selective.other-side	1608000	Nested loop inner join	o	300000	236.0
+selective.hash	1608000	Inner hash join	c	1	44.3
+selective.no-hash	1608000	Nested loop inner join	c	200	7878.0
+full.index	149850000	Nested loop inner join	c	20000	208.0
+full.hash	149850000	Inner hash join	c	1	88.5
