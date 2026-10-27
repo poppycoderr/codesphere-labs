@@ -1,0 +1,21 @@
+id: design/remote-result-states
+title: "远程调用的四种结果：商品不存在、业务码降级与超时在朴素客户端里都是 Optional.empty；清理下架商品时超时让朴素客户端删除了全部 3 项；IN 批量查询按下标对应时名字错位；下单超时当失败重试创建 2 个订单，当结果未知并按幂等键查询只创建 1 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/design/remote-result-states.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
