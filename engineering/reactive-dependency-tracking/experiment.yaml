@@ -1,0 +1,23 @@
+id: engineering/reactive-dependency-tracking
+title: "响应式依赖追踪：不清理旧依赖时分支切换后无关字段的变化让 effect 额外重跑 2 次，清理后与 @vue/reactivity 都是 0 次；不用栈恢复当前观察者时外层在嵌套 effect 之后读取的依赖丢失；不排除自身时 effect 修改自己的依赖导致 RangeError、Vue 不自我触发；同步 effect 改三个字段重跑 3 次、去重的微任务队列 1 次；队列刷新不在 finally 复位时一个任务抛错后再也不刷新；useSyncExternalStore 的 getSnapshot 每次返回新对象导致 Maximum update depth exceeded"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/reactive-dependency-tracking.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    node: "24.21.0"
+    vue-reactivity: "3.5.44"
+    react: "19.3.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-27"
