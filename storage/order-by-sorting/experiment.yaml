@@ -1,0 +1,21 @@
+id: storage/order-by-sorting
+title: "ORDER BY：升序索引上 (category, score DESC) 需要 filesort 并读完 20 万条索引记录，(category, score DESC) 降序索引只读 11 条且结果相同；按无索引列排序，LIMIT 10 走优先队列不落盘，取最后 10 行时 32KB 缓冲区溢出 736 块、合并 121 趟，64MB 缓冲区不落盘；按大量同值的 price 翻 10 页只得到 54 个不同的 id，加上 id 后为 100 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/order-by-sorting.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

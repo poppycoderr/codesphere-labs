@@ -1,0 +1,12 @@
+direction.1	索引 idx_cat_score、ORDER BY category, score：Extra=Using index，读取索引记录 11 条
+direction.2	索引 idx_cat_score、ORDER BY category DESC, score DESC：Extra=Backward index scan; Using index，读取索引记录 11 条
+direction.3	索引 idx_cat_score、ORDER BY category, score DESC：Extra=Using index; Using filesort，读取索引记录 200002 条
+direction.4	索引 idx_cat_score_desc、ORDER BY category, score DESC：Extra=Using index，读取索引记录 11 条
+direction.same	两种方式得到的前 10 行相同=True
+sort.32KB.head	缓冲区 32KB、取前 10 行：优先队列=true，溢出到磁盘的块 0 个，合并 0 趟
+sort.32KB.tail	缓冲区 32KB、取最后 10 行：优先队列=false，溢出到磁盘的块 736 个，合并 121 趟
+sort.64MB.head	缓冲区 64MB、取前 10 行：优先队列=true，溢出到磁盘的块 0 个，合并 0 趟
+sort.64MB.tail	缓冲区 64MB、取最后 10 行：优先队列=false，溢出到磁盘的块 0 个，合并 0 趟
+ties.price	ORDER BY price 翻 10 页共 100 行，不同的 id 只有 54 个
+ties.limit	ORDER BY price 的 LIMIT 10 与 LIMIT 100 的前 10 行相同=False
+ties.fixed	ORDER BY price, id 翻 10 页，不同的 id 有 100 个

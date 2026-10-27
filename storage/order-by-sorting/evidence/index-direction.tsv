@@ -1,0 +1,4 @@
+idx_cat_score	category, score	Using index	11	183905,131220,78535,25850,157070,104385,51700,182920,130235,77550
+idx_cat_score	category DESC, score DESC	Backward index scan; Using index	11	10734,63419,116104,168789,37569,90254,142939,195624,11719,64404
+idx_cat_score	category, score DESC	Using index; Using filesort	200002	52685,105370,158055,26835,79520,132205,184890,985,53670,106355
+idx_cat_score_desc	category, score DESC	Using index	11	52685,105370,158055,26835,79520,132205,184890,985,53670,106355
