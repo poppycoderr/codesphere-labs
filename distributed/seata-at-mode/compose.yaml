@@ -1,0 +1,25 @@
+# MySQL 8.4.11 与 Seata Server 2.6.0（file 存储模式），固定 digest，同一个网络，不对宿主机暴露端口（Seata AT 模式实验）
+name: csl-seata-at
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:85b9bf2e29cf836ecb8c2a15a935d4ba0c606631dff1dd79531a11983c638f2a
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_DATABASE: labs
+    command: ["--skip-log-bin"]
+    volumes:
+      - ./schema/setup.sql:/docker-entrypoint-initdb.d/setup.sql:ro
+    cpus: 2
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pexample_password", "--silent"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
+  seata:
+    image: apache/seata-server:2.6.0@sha256:cfd2e903e768ede846feb20553e4c97ddcc76f7ffd7c1f4b580104446cd4e38f
+    environment:
+      SEATA_PORT: "8091"
+      STORE_MODE: file
+    cpus: 1
+    mem_limit: 1g

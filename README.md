@@ -287,6 +287,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [distributed/scheduled-job-once](distributed/scheduled-job-once/) | 多实例定时任务只跑一次 | 轻量 | regular-docker |
 | [distributed/zookeeper-session](distributed/zookeeper-session/) | ZooKeeper 会话不是 TCP 连接 | 轻量 | regular-docker |
 | [distributed/registry-deregistration-visibility](distributed/registry-deregistration-visibility/) | 实例下线后，调用方多久才不再访问它 | 中等 | regular |
+| [distributed/seata-at-mode](distributed/seata-at-mode/) | Seata AT 模式：分支已经提交的全局事务 | 中等 | regular-docker |
 
 ## 目录约定
 

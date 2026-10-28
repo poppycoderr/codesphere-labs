@@ -1,0 +1,8 @@
+commit.visible	全局事务提交前，不经 Seata 的连接读到账户 1 的余额 70（初始 100，分支扣了 30），undo_log 1 行
+commit.done	全局提交后：状态 Finished，余额 70，undo_log 0 行
+rollback	两个分支提交后余额 70/130；全局回滚：状态 Finished，余额恢复为 100/100
+dirty.rollback	分支提交后另一个连接把余额 +5，再全局回滚：状态 RollbackFailed，异常 无，余额 75（不是初始的 100），undo_log 仍有 1 行
+dirty.lock	回滚失败之后，新的全局事务经 Seata 改账户 1：失败（LockWaitTimeoutException）（失败的全局事务仍持有这一行的全局锁）
+global.lock	全局事务 1 改了账户 2 尚未结束时，全局事务 2 改同一行：失败（LockConflictException）；事务 1 提交后余额 90
+global.lock.raw	同样的情况下，不经 Seata 的连接直接改同一行：成功（全局锁只约束经过 Seata 的写入）
+timeout	超时 2 秒的全局事务，分支提交后（余额 70）睡 5 秒：提交前协调器上的状态 Finished；调用 commit() 的异常 无，之后状态 Finished，余额 100

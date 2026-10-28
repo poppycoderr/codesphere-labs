@@ -1,0 +1,23 @@
+id: distributed/seata-at-mode
+title: "Seata AT 模式：分支本地提交后、全局提交前，不经 Seata 的连接已读到扣款后的余额；全局回滚按前镜像恢复；分支提交后有连接绕过 Seata 改了同一行，全局回滚状态为 RollbackFailed、数据停在被改后的值、undo_log 保留，并且这一行的全局锁不释放，之后经 Seata 的写入拿锁超时；全局锁挡住第二个全局事务但挡不住绕过 Seata 的写入；超时 2 秒的全局事务在 5 秒后调用 commit() 不抛异常，数据却已被回滚"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/seata-at-mode.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    seata: "2.6.0"
+    mysql: "8.4.11"
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
