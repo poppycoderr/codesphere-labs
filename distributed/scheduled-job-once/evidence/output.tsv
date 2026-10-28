@@ -1,0 +1,6 @@
+naive.both	两个实例都执行：结算表 1 行（主键挡住了重复），通知发了 2 次
+lease.compete	同时抢 1 秒的租约：A 得到令牌 1，B 没抢到
+takeover.plain	不设防：A 令牌 1 停顿后过期，B 接管得到令牌 2；B 写入，A 恢复后 写入；最终 total=150，由 A（令牌 1）写入
+takeover.fenced	带令牌与运行键：A 令牌 1 停顿后过期，B 接管得到令牌 2；B 写入，A 恢复后 拒绝（令牌 1 已过期，当前 2）；最终 total=200，由 B（令牌 2）写入
+runkey	租约过期后 A 自己重新抢到（令牌 3），对已完成的 d1 再写一次：拒绝（运行键 d1 已存在）；最终 total=200，由 B（令牌 2）写入
+cancel	cancel(true) 返回 true/true，isCancelled=true；之后忙循环任务写入 1 行，阻塞在 SQL 里的任务写入 1 行

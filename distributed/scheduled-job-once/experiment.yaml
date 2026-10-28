@@ -1,0 +1,22 @@
+id: distributed/scheduled-job-once
+title: "多实例定时任务只跑一次：两个实例都执行时主键挡住了结算表的重复，但通知发了 2 次；条件更新抢租约只有一个实例拿到；执行者停顿后租约过期被接管，不设防时旧执行者的写入覆盖了新结果，带令牌校验与运行键时被拒绝；同一周期已完成后重新抢到租约，运行键拒绝第二次完成；cancel(true) 之后，忙循环与阻塞在 SQL 里的任务都照样写入"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/scheduled-job-once.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    mysql: "8.4.11"
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
