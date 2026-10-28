@@ -9,7 +9,7 @@ require docker
 OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.md -delete
 IMG="eclipse-temurin@sha256:8c0a84ea11c8f6ed52600fc19f1040121f2a162998e9f50a5faebbbad9172dcc"
 C=(docker compose -f compose.yaml)
-trap '"${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true; exit $rc' EXIT
 "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true
 "${C[@]}" up -d --wait >/dev/null 2>&1
 f="$OUT/output.tsv"

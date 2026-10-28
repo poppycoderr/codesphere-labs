@@ -23,7 +23,7 @@ grep '^timing' "$OUT/stderr.log" >"$t" || true
 rm -f "$OUT/stderr.log"
 write_environment "$OUT/environment.txt" "jdk8_image: $J8" "jdk21_image: $J21" "jdk25_image: $J25"
 cat "$f" "$v" >&2
-diff - "$f" <<'EXPECTED' || fail "主实验的结论行与预期不一致（原始耗时见 $t）"
+diff - "$f" <<'EXPECTED' || fail "主实验的结论行与预期不一致（原始耗时见 ${t}）"
 env	java.version=25.0.4.1
 pool	availableProcessors = 4，公共池并行度 = 3
 single	8 次 200 ms 的阻塞调用放进并行流：参与执行的有 [公共池线程, 调用线程]；耗时在 380–650 ms 之间 = true

@@ -48,4 +48,4 @@ assert qps["page500k"] > qps["top10"] / 2, qps                  # 按名次翻�
 assert qps["byscore500k"] > qps["top10"] / 2, qps              # 按分数带 LIMIT 偏移：这个版本同样没有明显变慢
 print(f"通过：各位置平均 {min(avg)}—{max(avg)} 元；取前 10 名 {qps['top10']:,.0f} 次/秒，按名次翻到 50 万名 {qps['page500k']:,.0f} 次/秒，按分数 LIMIT 500000 {qps['byscore500k']:,.0f} 次/秒")
 PY
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

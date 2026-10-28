@@ -11,7 +11,7 @@ PROJECT=csl-kafka-key-ordering
 IMAGE="apache/kafka:4.3.1@sha256:77e3df9054047a88b520d0cc46e16696d3b22022e1d580aeccd2632df6532837"
 J25="eclipse-temurin@sha256:8c0a84ea11c8f6ed52600fc19f1040121f2a162998e9f50a5faebbbad9172dcc"
 cleanup() { docker compose -p "$PROJECT" down -v --remove-orphans >/dev/null 2>&1 || true; }
-trap cleanup EXIT
+trap 'rc=$?; cleanup; exit $rc' EXIT
 cleanup
 docker compose -p "$PROJECT" up -d --wait >&2
 rm -rf build/classes && mkdir -p build/classes

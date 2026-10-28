@@ -8,7 +8,7 @@ source ../../shared/scripts/lib.sh
 require docker
 OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.md -delete
 P=csl-upsert-semantics
-trap 'mysql_down "$P" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; mysql_down "$P" >/dev/null 2>&1 || true; exit $rc' EXIT
 mysql_up "$P" >/dev/null 2>&1
 # --force：严格模式下超长值那一条预期报错，脚本继续执行
 mysql_exec "$P" labs -N --force <schema/upsert.sql >"$OUT/raw.tsv" 2>"$OUT/errors.txt" || true

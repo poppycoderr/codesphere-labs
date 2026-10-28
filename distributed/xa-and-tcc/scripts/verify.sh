@@ -47,4 +47,4 @@ tcc.3_guarded.empty_cancel	Try 请求丢失、协调者超时后发来 Cancel：
 tcc.3_guarded.hanging	Cancel 之后迟到的 Try 才到达：balance=1000 frozen=0（之后不会再有 Confirm 或 Cancel）
 tcc.3_guarded.double_confirm	Try 后 Confirm 被重试两次：balance=900 frozen=0
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

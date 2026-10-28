@@ -49,4 +49,4 @@ PY
 expect_line "$f" "ISR [1, 2, 3]：isr-strict acks=all 成功" "ISR 完整时 acks=all 成功"
 expect_line "$f" "ISR [1]：isr-strict acks=all 默认重试 TimeoutException（等满 delivery.timeout.ms=5000 才失败），retries=0 NotEnoughReplicasException；acks=1 成功" "ISR 低于 min.insync.replicas：acks=all 被拒绝，acks=1 仍然成功"
 expect_line "$f" "ISR [1]：isr-default（min.insync.replicas=1）acks=all 成功" "min.insync.replicas=1 时 acks=all 退化为只写 leader"
-log "全部通过，输出在 $OUT（集群仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（集群仍在运行，make clean 删除）"

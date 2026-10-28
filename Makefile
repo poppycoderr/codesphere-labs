@@ -6,7 +6,7 @@ TIER ?= regular
 .PHONY: help check list verify verify-tier evidence clean
 
 help:
-	@echo "make check                         目录约定、元数据、脚本语法、敏感信息扫描"
+	@echo "make check                         目录约定、元数据、脚本语法与 bash 3.2 兼容性、敏感信息扫描"
 	@echo "make list [TIER=regular]           列出实验"
 	@echo "make verify EXP=<专题/实验>         运行单个实验的核心验证"
 	@echo "make verify-tier TIER=<层级>        依次运行某一层级的全部实验（regular、regular-docker、performance）"
@@ -15,6 +15,7 @@ help:
 
 check:
 	python3 shared/scripts/check-structure.py
+	python3 shared/scripts/check-shell-portability.py
 	@for f in $$(git ls-files '*.sh'); do bash -n "$$f" || exit 1; done; echo "Shell 语法检查通过"
 	shared/scripts/scan-secrets.sh
 

@@ -14,7 +14,7 @@ now() { python3 -c 'import time; print(f"{time.time():.1f}")'; }
 since() { python3 -c "print(f'{$(now) - $1:.1f}')"; }
 k() { kctl "$C" "$@"; }
 m() { python3 scripts/manifest.py "$@"; }
-trap 'kind_down "$C" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; kind_down "$C" >/dev/null 2>&1 || true; exit $rc' EXIT
 
 kind_up "$C"
 k wait --for=condition=Ready node --all --timeout=180s >/dev/null

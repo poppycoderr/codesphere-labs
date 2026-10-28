@@ -10,7 +10,7 @@ OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.m
 PY="python:3.14.8-slim@sha256:0741d101873c12ab927e6f8653feb8862b9bd58771177acb1b885b95141f91b4"
 PROJECT=csl-esalias
 C=(docker compose -p "$PROJECT" -f compose.yaml)
-trap '"${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true; exit $rc' EXIT
 "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true
 "${C[@]}" up -d --wait >/dev/null 2>&1 || fail "容器启动失败"
 f="$OUT/output.tsv"

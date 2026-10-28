@@ -32,4 +32,4 @@ assert m["rtt1ms.n_plus_one"] > 3 * m["direct.n_plus_one"], m
 assert m["rtt1ms.n_plus_one"] >= 1000, m                          # 1000 次往返，每次约 1 ms
 print(f"通过：直连 N+1 {m['direct.n_plus_one']} ms、批量 {m['direct.batch_in']} ms；约 1 ms 往返时 N+1 {m['rtt1ms.n_plus_one']} ms、批量 {m['rtt1ms.batch_in']} ms")
 PY
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

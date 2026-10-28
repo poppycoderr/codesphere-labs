@@ -18,4 +18,4 @@ expect_line "$f" "ConcurrentHashMap 递归 computeIfAbsent -> Recursive update" 
 # 并行流写 ArrayList 的结果与调度有关，只断言 20 轮中出错轮数大于 0
 bad=$(sed -nE 's/^20 轮 forEach\(ArrayList::add\)：丢元素 ([0-9]+) 轮，抛异常 ([0-9]+) 轮$/\1 \2/p' "$f")
 [ -n "$bad" ] && [ $(( ${bad% *} + ${bad#* } )) -gt 0 ] || fail "并行流写 ArrayList 没有出错：$bad"
-log "通过：并行流写 ArrayList 出错（丢元素、抛异常轮数：$bad）"
+log "通过：并行流写 ArrayList 出错（丢元素、抛异常轮数：${bad}）"

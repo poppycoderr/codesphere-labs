@@ -12,7 +12,7 @@ TOKEN=example_token_0123456789
 CTX=build/ctx; rm -rf "$CTX"; mkdir -p "$CTX"; cp src/Dockerfile.* "$CTX/"; printf '%s' "$TOKEN" >"$CTX/token.txt"
 VARIANTS="leaky same-run multi-stage secret-mount arg"
 cleanup() { for v in $VARIANTS; do docker image rm -f "labs-ild:$v" >/dev/null 2>&1 || true; done; rm -rf build/ctx build/tar; }
-trap cleanup EXIT
+trap 'rc=$?; cleanup; exit $rc' EXIT
 mkdir -p build/tar
 f="$OUT/output.tsv"; : >"$f"
 for v in $VARIANTS; do

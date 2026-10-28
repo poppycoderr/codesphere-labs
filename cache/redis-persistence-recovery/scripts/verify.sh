@@ -208,4 +208,4 @@ stop_all
 { "${C[@]}" config --images | sed 's/^/image: /'; echo "base: redis:8.10.1（docker/Dockerfile 固定 digest）+ LazyFS（固定 commit，见 lazyfs.txt）"; echo "cpus: 2"; echo "mem_limit: 3g"; } >"$OUT/container.txt"
 write_environment "$OUT/environment.txt" "redis: 8.10.1" "jdk_image: $JDK_IMAGE"
 python3 scripts/summarize.py "$OUT" | tee "$OUT/assertions.txt"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

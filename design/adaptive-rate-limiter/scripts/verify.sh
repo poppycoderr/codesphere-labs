@@ -39,4 +39,4 @@ expect_line "$OUT/output.tsv" "reload.effect	同一窗口 1500 个请求：放�
 expect_line "$OUT/output.tsv" "outage.fail-open	Redis 暂停期间 2000 个请求：放行 2000" "放行策略：全部放行"
 expect_line "$OUT/output.tsv" "outage.fail-closed	Redis 暂停期间 2000 个请求：放行 0" "拒绝策略：全部拒绝"
 expect_line "$OUT/output.tsv" "outage.local-fallback	Redis 暂停期间 2000 个请求：放行 1000" "本地兜底：每个实例 250"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

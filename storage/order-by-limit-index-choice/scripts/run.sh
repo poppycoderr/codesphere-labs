@@ -19,7 +19,7 @@ for f in queries/*.sql; do
   name=$(basename "$f" .sql)
   d=$(dir_for "$name"); mkdir -p "$d"
   q=$(cat "$f")
-  log "$name：预热 $WARMUP 次"
+  log "${name}：预热 $WARMUP 次"
   for _ in $(seq "$WARMUP"); do echo "$q;" | sql -N >/dev/null; done
 
   echo "$q;" | sql -N | cut -f1 >"$d/result-ids.txt"
@@ -34,7 +34,7 @@ for f in queries/*.sql; do
 
   echo "EXPLAIN FORMAT=JSON $q;" | sql -N -r >"$d/explain.json"
 
-  log "$name：EXPLAIN ANALYZE 采样 $SAMPLES 次"
+  log "${name}：EXPLAIN ANALYZE 采样 $SAMPLES 次"
   : >"$d/explain-analyze.txt"
   for i in $(seq "$SAMPLES"); do
     { echo "-- sample $i"; echo "EXPLAIN ANALYZE $q;" | sql -N -r; } >>"$d/explain-analyze.txt"

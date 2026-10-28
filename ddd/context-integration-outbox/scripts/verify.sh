@@ -33,4 +33,4 @@ expect_line "$OUT/output.tsv" "order.versioned	20 笔报名先确认后取消，
 expect_line "$OUT/output.tsv" "应收 30 条，死信 1 条（字段 feeCents 不是整数：\"19.9 元\"），outbox FAILED 1 条、仍待发送 0 条" "毒消息 3 次后进入死信，不阻塞其他事件"
 expect_line "$OUT/output.tsv" "生产者新增字段 channel：计费侧翻译通过" "新增字段：宽容读取"
 expect_line "$OUT/output.tsv" "生产者把 feeCents 改名为 amountCents：契约测试失败：缺少字段 feeCents" "改名字段：契约测试在发布前失败"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

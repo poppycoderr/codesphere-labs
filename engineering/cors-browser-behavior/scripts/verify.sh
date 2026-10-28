@@ -12,7 +12,7 @@ f="$OUT/output.tsv"
 docker run --rm -v "$PWD:/w:ro" -v "$LABS_CACHE/pip:/root/.cache/pip" -w /w "$PW" sh -c '
   pip install -q --root-user-action=ignore --disable-pip-version-check --break-system-packages -r requirements.txt >/dev/null 2>&1
   cd src && python3 cors.py' 2>/dev/null >"$f"
-write_environment "$OUT/environment.txt" "playwright_image: $PW（v1.63.0-noble）" "playwright: 1.63.0"
+write_environment "$OUT/environment.txt" "playwright_image: ${PW}（v1.63.0-noble）" "playwright: 1.63.0"
 cat "$f" >&2
 # 请求由脚本按固定顺序发出，输出是确定的：与预期逐行比较
 diff - "$f" <<'EXPECTED' || fail "输出与预期不一致"

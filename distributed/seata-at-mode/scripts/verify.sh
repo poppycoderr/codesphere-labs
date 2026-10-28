@@ -10,7 +10,7 @@ OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.m
 IMG="eclipse-temurin@sha256:8c0a84ea11c8f6ed52600fc19f1040121f2a162998e9f50a5faebbbad9172dcc"
 [ -d target/lib ] || mvn -B -q dependency:copy-dependencies -DoutputDirectory=target/lib >/dev/null
 C=(docker compose -f compose.yaml)
-trap '"${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true; exit $rc' EXIT
 "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true
 "${C[@]}" up -d --wait >/dev/null 2>&1 || fail "容器启动失败"
 sleep 20                                                    # Seata Server 没有健康检查端点，固定等待它启动

@@ -60,7 +60,7 @@ out "skew.invoice_branch" "分支 invoice（新增一个调用 total 的文件�
 g switch -q main; g merge -q --no-ff -m "merge rename" rename
 tree=$(g merge-tree --write-tree main invoice) && conflict="无文本冲突" || conflict="有文本冲突"
 mkdir -p "$W/speculative"; g archive "$tree" | tar -x -C "$W/speculative"
-out "skew.merge_tree" "main 已合入 rename；预先计算 main 与 invoice 的合并结果：$conflict；在这个结果上运行检查：$(check "$W/speculative")"
+out "skew.merge_tree" "main 已合入 rename；预先计算 main 与 invoice 的合并结果：${conflict}；在这个结果上运行检查：$(check "$W/speculative")"
 # 「分支必须先跟上目标分支」：把 main 合进 invoice，再在分支上检查
 g switch -q invoice; g merge -q --no-ff -m "update branch" main
 out "skew.up_to_date_branch" "要求分支先合入最新的 main：invoice 分支更新后的检查：$(check "$R")"

@@ -10,7 +10,7 @@ OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.m
 GIT="alpine/git@sha256:03228d7ded483b0b3e55e1de7fa660d70d3e1bb432fa7021d29e192640de11aa"
 f="$OUT/output.tsv"
 docker run --rm -v "$PWD/src:/src:ro" --entrypoint sh "$GIT" /src/run.sh >"$f" 2>/dev/null
-write_environment "$OUT/environment.txt" "git_image: $GIT（v2.54.0）" "git: 2.54.0"
+write_environment "$OUT/environment.txt" "git_image: ${GIT}（v2.54.0）" "git: 2.54.0"
 cat "$f" >&2
 # 输入固定，输出是确定的：与预期逐行比较
 diff - "$f" <<'EXPECTED' || fail "输出与预期不一致"

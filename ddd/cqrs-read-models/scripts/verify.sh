@@ -34,4 +34,4 @@ expect_regex "$OUT/output.tsv" "^async\\.build\t.*与 GROUP BY 一致=true" "异
 expect_line "$OUT/output.tsv" "投影器暂停期间执行 500 次报名：积压 500 个事件，异步读模型 200/200 个场次与写侧不一致；同步读模型一致=true" "暂停投影器：异步读模型陈旧，同步读模型不受影响"
 expect_regex "$OUT/output.tsv" "^async\\.resumed\t恢复后追上 500 个事件：[0-9]+ms；与 GROUP BY 一致=true" "恢复后追上"
 expect_regex "$OUT/output.tsv" "^async\\.replay\t人为改坏 10 个场次后清空重放 [0-9]+ 个事件：[0-9]+ms；与 GROUP BY 一致=true" "读模型可以从事件重放修复"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

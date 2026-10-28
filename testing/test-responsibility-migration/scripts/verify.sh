@@ -14,7 +14,7 @@ mkdir -p build/runs
 for run in correct ignoreQualifier noMapperFallback; do
   rm -rf target build/runs/$run
   # 有的测试按设计会失败，测试失败不中断构建，结果由报告逐条比较
-  docker run --rm -e TZ=UTC -v "$PWD:/w" -v "$LABS_CACHE/m2repo:/root/.m2" -w /w "$MVN" mvn -q -B test -Dmaven.test.failure.ignore=true -Dlab.mutant=$run >"$OUT/maven-$run.log" 2>&1 || fail "Maven 执行失败（$run），见 $OUT/maven-$run.log"
+  docker run --rm -e TZ=UTC -v "$PWD:/w" -v "$LABS_CACHE/m2repo:/root/.m2" -w /w "$MVN" mvn -q -B test -Dmaven.test.failure.ignore=true -Dlab.mutant=$run >"$OUT/maven-$run.log" 2>&1 || fail "Maven 执行失败（${run}），见 $OUT/maven-$run.log"
   mkdir -p build/runs/$run; cp -r target/surefire-reports build/runs/$run/reports; [ -d target/lab-notes ] && cp -r target/lab-notes build/runs/$run/lab-notes
   docker run --rm -v "$PWD:/w" -w /w "$J25" java src/Report.java 1 build/runs/$run/reports $run >>"$f"
 done

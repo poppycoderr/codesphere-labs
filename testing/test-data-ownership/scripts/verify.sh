@@ -33,4 +33,4 @@ rollback.blocking	这个事务还没结束时，另一个测试插入同一个�
 rollback.auto_increment	回滚之后再插入一行，它的自增 ID = 3（表里只有这 1 行）
 per_worker_db	两个并行的测试进程各用一个库，都用固定的 test@example.com：插入 成功 / 成功；进程 1 数整张表的断言得到 1；进程 2 按模式清理删了 1 行，进程 1 的用户还在 = true
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

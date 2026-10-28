@@ -29,4 +29,4 @@ claim.late	晚提交的任务提交之后，下一次按状态认领得到 [5]�
 lease.reclaim	w1 认领后崩溃、租约过期：w4 重新认领到 [1, 2]；w2 的租约未过期，不会被抢走
 lease.stale	w1 恢复后想把 id=1 标记完成（带 locked_by 条件）：影响 0 行；w4 标记完成：影响 1 行
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

@@ -23,4 +23,4 @@ run after-restart
 { "${C[@]}" config --images | sed 's/^/image: /'; echo "cpus: 2"; echo "mem_limit: 1g"; echo "appendonly: yes（everysec）"; echo "jdk_image: $JDK_IMAGE"; } >"$OUT/container.txt"
 write_environment "$OUT/environment.txt" "redis: 8.10.1（compose.yaml 固定 digest）" "jdk_image: $JDK_IMAGE"
 python3 scripts/summarize.py "$OUT" | tee "$OUT/assertions.txt"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

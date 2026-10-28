@@ -13,7 +13,7 @@ f="$OUT/output.tsv"; : >"$f"
 out() { printf '%s\t%s\n' "$1" "$2" >>"$f"; }
 k() { kctl "$C" "$@"; }
 cli() { local p=$1; shift; k exec "$p" -- python /code/client.py "$@"; }
-trap 'kind_down "$C" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; kind_down "$C" >/dev/null 2>&1 || true; exit $rc' EXIT
 
 kind_up "$C" config/kind.yaml
 k wait --for=condition=Ready node --all --timeout=180s >/dev/null
@@ -82,7 +82,7 @@ k wait --for=condition=Ready pod/cli pod/fe --timeout=120s >/dev/null
 
 # 1. Service → EndpointSlice → kube-proxy 规则
 CIP=$(k get svc web -o jsonpath='{.spec.clusterIP}')
-out svc.basic "ClusterIP $CIP；kube-proxy 模式：$(k get cm -n kube-system kube-proxy -o jsonpath='{.data.config\.conf}' | sed -n 's/^mode: //p')"
+out svc.basic "ClusterIP ${CIP}；kube-proxy 模式：$(k get cm -n kube-system kube-proxy -o jsonpath='{.data.config\.conf}' | sed -n 's/^mode: //p')"
 out svc.endpointslice "EndpointSlice 中的端点（地址 就绪 节点）：$(k get endpointslice -l kubernetes.io/service-name=web -o jsonpath='{range .items[*].endpoints[*]}{.addresses[0]} {.conditions.ready} {.nodeName}；{end}')"
 docker exec "$W1" iptables-save -t nat >"$OUT/iptables-nat-worker.txt"
 out svc.iptables "$W1 上 default/web 的规则：$(python3 - "$OUT/iptables-nat-worker.txt" <<'PY'
@@ -112,7 +112,7 @@ count_queries() {  # count_queries <名字> <文件名>：解析一次，按 Cor
   sleep 2
   : >"$OUT/dns-$2.log"
   for i in "${!pods[@]}"; do k logs -n kube-system "${pods[$i]}" | tail -n +"$((before[$i] + 1))" >>"$OUT/dns-$2.log"; done
-  echo "$r；$(python3 - "$OUT/dns-$2.log" <<'PY'
+  echo "${r}；$(python3 - "$OUT/dns-$2.log" <<'PY'
 import re, sys
 q = sorted(set(re.findall(r'"(A|AAAA) IN (\S+) [^"]*" (\w+)', open(sys.argv[1]).read())), key=lambda x: (x[1], x[0]))
 print(f"CoreDNS 收到 {len(q)} 个不同的查询：" + "；".join(f"{t} {n} {rc}" for t, n, rc in q))

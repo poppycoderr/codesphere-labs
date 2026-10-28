@@ -48,4 +48,4 @@ ok(u.get("backend-1", 0) > 20 and u.get("backend-2", 0) == 0, f"HttpURLConnectio
 v = bucket("pool-urlconnection.drained")
 ok(v.get("backend-2", 0) > 20 and v.get("backend-1", 0) <= 2, f"旧后端返回 Connection: close 之后，HttpURLConnection 才切到 backend-2（{v}）")
 PY
-log "全部通过，输出在 $OUT（环境仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（环境仍在运行，make clean 删除）"

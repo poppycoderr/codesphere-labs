@@ -43,4 +43,4 @@ r = {int(n): int(c) for n, c in re.findall(r"^gen\.random7\.(\d+)\t.*重复 (\d+
 assert r[10_000_000] < 100, r                                             # 7 位随机码：千万规模只有十几次，靠唯一索引重试即可
 print(f"通过：32 位截断碰撞 {h}；7 位随机码重复 {r}")
 PY
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

@@ -29,8 +29,8 @@ expect_line "$f" "ft_gil_on.build	Python 3.14.8，Py_GIL_DISABLED=1，运行时 
 expect_line "$f" "gil.counter.unsafe	4 个线程各做 20 万次 counter += 1（不加锁）：结果 正好 800000" "默认构建上这次没有丢失更新"
 expect_line "$f" "ft.counter.unsafe	4 个线程各做 20 万次 counter += 1（不加锁）：结果 少于 800000" "free-threaded 构建上不加锁的计数丢失更新"
 for l in gil ft ft_gil_on; do
-  expect_line "$f" "$l.counter.locked	同样的计数加锁之后：结果 800000" "$l：加锁后计数正确"
-  expect_line "$f" "$l.list.append	4 个线程各向同一个 list append 10 万次（不加锁）：长度 400000" "$l：list.append 不丢元素"
+  expect_line "$f" "$l.counter.locked	同样的计数加锁之后：结果 800000" "${l}：加锁后计数正确"
+  expect_line "$f" "$l.list.append	4 个线程各向同一个 list append 10 万次（不加锁）：长度 400000" "${l}：list.append 不丢元素"
 done
 python3 - "$f" <<'PY'
 import re, sys

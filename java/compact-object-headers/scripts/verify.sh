@@ -20,7 +20,7 @@ done
 write_environment "$OUT/environment.txt" "jdk25_image: $J25" "jdk26_image: $J26"
 cat "$OUT"/jdk*-flags.txt "$OUT"/jdk25-*.tsv >&2
 for jdk in 25 26; do
-  expect_regex "$OUT/jdk$jdk-flags.txt" "bool UseCompactObjectHeaders += false .*\{product" "JDK $jdk：UseCompactObjectHeaders 是正式参数，默认关闭"
+  expect_regex "$OUT/jdk$jdk-flags.txt" "bool UseCompactObjectHeaders += false .*\{product" "JDK ${jdk}：UseCompactObjectHeaders 是正式参数，默认关闭"
 done
 python3 - "$OUT" <<'PY'
 import re, sys

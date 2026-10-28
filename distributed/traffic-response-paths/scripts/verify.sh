@@ -7,7 +7,7 @@ cd "$(dirname "$0")/.."
 source ../../shared/scripts/lib.sh
 require docker
 OUT="${1:-build/run}"; mkdir -p "$OUT" build; find "$OUT" -mindepth 1 ! -name README.md -delete
-trap 'docker compose logs --no-color >build/services.log 2>&1; docker compose down --volumes --remove-orphans >build/cleanup.log 2>&1' EXIT
+trap 'rc=$?; docker compose logs --no-color >build/services.log 2>&1 || true; docker compose down --volumes --remove-orphans >build/cleanup.log 2>&1 || true; exit $rc' EXIT
 docker compose up -d good bad authdns cache nginx tcp >build/start.log 2>&1
 docker compose run --rm -T client >"$OUT/results.json" 2>build/client.log
 docker compose logs --no-color >build/services.log

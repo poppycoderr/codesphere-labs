@@ -29,4 +29,4 @@ assert mysql > redis, (mysql, redis)                              # MySQL 主键
 assert mysql / redis < redis * 1e6 / local, (mysql, redis, local)  # Redis 与 MySQL 的差距，小于本地缓存与 Redis 的差距
 print(f"通过：本地 {local} ns，Redis p50 {redis} ms，MySQL p50 {mysql} ms；Redis/本地 {redis * 1e6 / local:,.0f} 倍，MySQL/Redis {mysql / redis:.1f} 倍")
 PY
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

@@ -15,7 +15,7 @@ since() { python3 -c "print(f'{$(now) - $1:.1f}')"; }
 k() { kctl "$C" "$@"; }
 pod() { python3 scripts/pod.py "$@" | k apply -f - >/dev/null; }
 events_of() { k get events --field-selector "involvedObject.name=$1" -o jsonpath='{range .items[*]}{.reason}: {.message}{"\n"}{end}'; }
-trap 'kind_down "$C" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; kind_down "$C" >/dev/null 2>&1 || true; exit $rc' EXIT
 
 kind_up "$C" config/kind.yaml
 k wait --for=condition=Ready node --all --timeout=180s >/dev/null
@@ -57,7 +57,7 @@ pod urgent busybox '["sleep","3600"]' --req cpu=2 --priority urgent
 k wait --for=condition=Ready pod/urgent --timeout=90s >/dev/null
 victim=$(k get events --field-selector reason=Preempted -o jsonpath='{.items[0].involvedObject.name}')
 k wait --for=delete "pod/$victim" --timeout=60s >/dev/null
-out preempt.result "urgent：$(k get pod urgent -o jsonpath='{.status.phase}')；被抢占的 Pod：$victim（$(k get events --field-selector reason=Preempted -o jsonpath='{.items[0].message}')）；剩余 idle Pod：$(k get pods -l app=idle --no-headers 2>/dev/null | awk '{print $1"="$3}' | tr '\n' ' ')"
+out preempt.result "urgent：$(k get pod urgent -o jsonpath='{.status.phase}')；被抢占的 Pod：${victim}（$(k get events --field-selector reason=Preempted -o jsonpath='{.items[0].message}')）；剩余 idle Pod：$(k get pods -l app=idle --no-headers 2>/dev/null | awk '{print $1"="$3}' | tr '\n' ' ')"
 k delete pod -l app=idle --wait=false >/dev/null; k delete pod urgent --wait=false >/dev/null
 
 # 4. QoS 等级与内核 OOM 时的优先顺序
@@ -73,7 +73,7 @@ k delete pod guaranteed burstable besteffort --wait=false >/dev/null
 pod calib python '["python","/code/burn.py","0","0"]' --restart Never
 k wait --for=jsonpath='{.status.phase}'=Succeeded pod/calib --timeout=90s >/dev/null
 K=$(k logs calib | python3 -c 'import sys; print(int(40 / float(sys.stdin.read().split("=")[1]) * 100000))')
-out cpu.task "每个任务的循环次数 $K，任务之间空闲 200ms，每种 limit 跑 100 个任务"
+out cpu.task "每个任务的循环次数 ${K}，任务之间空闲 200ms，每种 limit 跑 100 个任务"
 for lim in none 1 500m 250m; do
   args=(--restart Never); [ "$lim" = none ] || args+=(--lim "cpu=$lim")
   pod "burn-$lim" python "[\"python\",\"/code/burn.py\",\"$K\",\"100\",\"200\"]" "${args[@]}"

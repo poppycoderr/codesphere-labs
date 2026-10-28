@@ -41,4 +41,4 @@ PY
 expect_line "$OUT/output.tsv" "rollback.direct	保存失败（Duplicate entry '1-alice'）并回滚：确认数仍为 1，已发布事件 1 个" "领域方法里直接发布：回滚后事件已经流出"
 expect_line "$OUT/output.tsv" "rollback.after-commit	保存失败（Duplicate entry '1-alice'）并回滚：确认数仍为 1，已发布事件 0 个" "提交后发布：回滚时没有事件"
 expect_line "$OUT/output.tsv" "向只读视图添加：UnsupportedOperationException；根修改后视图可见 [alice, bob]，副本仍为 [alice]" "只读视图挡住外部修改，但会反映根的修改"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

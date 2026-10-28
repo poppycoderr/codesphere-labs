@@ -14,7 +14,7 @@ d "$J21" javac -d build/classes src/Escape.java
 f="$OUT/output.tsv"; : >"$f"
 for v in 21 25; do
   img="J$v"; img="${!img}"
-  run() { log "JDK $v：java $*"; d "$img" java "$@" | sed "s/^/jdk$v./" >>"$f"; }
+  run() { log "JDK ${v}：java $*"; d "$img" java "$@" | sed "s/^/jdk$v./" >>"$f"; }
   for s in local escape call bimorphic megamorphic; do run -cp build/classes Escape "$s"; done
   run -XX:-DoEscapeAnalysis -cp build/classes Escape local
   run -XX:CompileCommand=quiet -XX:CompileCommand=dontinline,Escape::consume -cp build/classes Escape call

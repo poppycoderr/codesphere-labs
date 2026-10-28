@@ -257,7 +257,7 @@
 ```bash
 make list                                   # 列出实验
 make verify EXP=design/notification-routing # 运行单个实验并断言关键结论
-make check                                  # 目录约定、元数据、脚本语法、敏感信息扫描
+make check                                  # 目录约定、元数据、脚本语法与 bash 3.2 兼容性、敏感信息扫描
 ```
 
 各实验的依赖写在自己的 README 中。常见要求：JDK 21+；Spring 实验需要 Maven 3.9+；带容器的实验需要 Docker（Compose v2）与 Python 3（PyYAML 仅用于 `make check`）。

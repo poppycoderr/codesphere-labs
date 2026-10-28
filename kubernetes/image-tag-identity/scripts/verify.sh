@@ -11,7 +11,7 @@ KIND_NODE_IMAGE="kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a2
 REG_IMAGE="registry@sha256:ddf754342cfc8acc51a56d5d0ab6af06826461864460636d8bd5c546dab2a7b8"
 C=labs-iti; REG=labs-iti-registry; R=localhost:5055
 cleanup() { docker rm -f "$REG" >/dev/null 2>&1 || true; kind_down "$C" >/dev/null 2>&1 || true; docker image rm -f "$R/app:1.0" "$R/app:latest" labs-iti-rebuild:1 labs-iti-rebuild:2 >/dev/null 2>&1 || true; }
-trap cleanup EXIT
+trap 'rc=$?; cleanup; exit $rc' EXIT
 cleanup
 kind_up "$C" src/kind.yaml
 docker run -d --name "$REG" -p 127.0.0.1:5055:5000 --network kind "$REG_IMAGE" >/dev/null

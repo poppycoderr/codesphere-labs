@@ -8,7 +8,7 @@ source ../../shared/scripts/lib.sh
 require docker
 OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.md -delete
 P=csl-import-contract
-trap 'mysql_down "$P" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; mysql_down "$P" >/dev/null 2>&1 || true; exit $rc' EXIT
 mysql_up "$P" >/dev/null 2>&1
 mysql_exec "$P" labs -N <schema/run.sql >"$OUT/output.tsv" 2>"$OUT/stderr.txt"
 [ -s "$OUT/stderr.txt" ] || rm -f "$OUT/stderr.txt"

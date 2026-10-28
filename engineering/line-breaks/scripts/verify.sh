@@ -16,7 +16,7 @@ docker run --rm -v "$PWD:/w:ro" -v "$LABS_CACHE/pip:/root/.cache/pip" -w /w "$PW
   pip install -q --root-user-action=ignore --disable-pip-version-check --break-system-packages -r requirements.txt >/dev/null 2>&1
   python3 src/render.py' 2>/dev/null >>"$f"
 { echo "base_image: $(sed -n 's/^FROM //p' Dockerfile)"; echo "vim_package: vim-nox=2:9.1.1230-2"; } >"$OUT/container.txt"
-write_environment "$OUT/environment.txt" "vim: 9.1（Debian trixie vim-nox 2:9.1.1230-2）" "playwright_image: $PW（v1.63.0-noble）" "markdown-it-py: 4.2.0"
+write_environment "$OUT/environment.txt" "vim: 9.1（Debian trixie vim-nox 2:9.1.1230-2）" "playwright_image: ${PW}（v1.63.0-noble）" "markdown-it-py: 4.2.0"
 cat "$f" >&2
 # 输入固定，输出是确定的：与预期逐行比较
 diff - "$f" <<'EXPECTED' || fail "输出与预期不一致"

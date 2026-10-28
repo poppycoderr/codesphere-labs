@@ -36,4 +36,4 @@ clear_orphans	orphanRemoval 的集合 clear()（1005 项）：SQL 1007 条，加
 after_clear	清空后报名表里这个场次剩下 0 条
 bulk_delete	50 个小场次的报名用一条批量删除：SQL 1 条，加载实体 0 个
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

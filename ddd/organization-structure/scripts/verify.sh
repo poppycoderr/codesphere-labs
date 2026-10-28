@@ -35,4 +35,4 @@ cycle.read_committed	两个事务并发加 D1 → D2 与 D2 → D1，各自先�
 cycle.serializable	同样的两个事务用 SERIALIZABLE：提交成功 1 个，另一个失败（PSQLException：could not serialize access due to read/write dependencies among transactions）；处在环里的组织 0 个
 cycle.lock_structure	检查前先 SELECT … FOR UPDATE 锁住结构线 LINE（READ COMMITTED）：提交成功 1 个，另一个失败（IllegalStateException：会形成环）；处在环里的组织 0 个
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

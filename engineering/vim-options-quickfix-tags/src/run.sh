@@ -22,7 +22,7 @@ for cfg in 'expandtab shiftwidth=4 softtabstop=4' 'noexpandtab tabstop=8 softtab
     keys=$(printf 'i%*s' 0 ''; i=0; while [ $i -lt $n ]; do printf '\t'; i=$((i+1)); done; printf 'x')
     : > t.txt
     vimx t.txt -c "set $cfg" -c "call feedkeys(\"$keys\\<Esc>\", 'xt')" -c 'w'
-    out "tab.$(echo $cfg | cut -d' ' -f1).$n" "set $cfg，按 $n 次 Tab 再输入 x：文件内容 $(show t.txt)（· 为空格，→ 为制表符）"
+    out "tab.$(echo $cfg | cut -d' ' -f1).$n" "set ${cfg}，按 $n 次 Tab 再输入 x：文件内容 $(show t.txt)（· 为空格，→ 为制表符）"
   done
 done
 

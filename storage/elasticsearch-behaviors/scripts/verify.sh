@@ -55,4 +55,4 @@ rej = int(re.search(r"rejected 增加 (\d+)", p)[1])
 assert st.get(429, 0) > 0 and rej > st[429], (st, rej)           # 被拒绝的分片任务多于被拒绝的请求
 print(f"通过：默认 shard_size 排名出错（误差上界 {d[1]}），shard_size=1000 与单分片一致；默认线程池 size={size}、queue_size={queue}；线程池打满时 {st}，rejected +{rej}")
 PY
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

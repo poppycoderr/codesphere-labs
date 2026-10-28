@@ -30,4 +30,4 @@ expect_line "$OUT/output.tsv" "lease.SEPARATE	A（慢）→ EXECUTED，B（接�
 expect_line "$OUT/output.tsv" "lease.SAME_TRANSACTION	A（慢）→ FENCED，B（接管）→ EXECUTED；报名 1 条" "同一事务并校验 token：旧执行者被拒绝"
 expect_line "$OUT/output.tsv" "crash.SEPARATE	第一次 崩溃；租约过期后重试 EXECUTED；报名 2 条" "分开提交：崩溃窗口导致重复执行"
 expect_line "$OUT/output.tsv" "crash.SAME_TRANSACTION	第一次 崩溃；租约过期后重试 EXECUTED；报名 1 条" "同一事务：崩溃时一起回滚，重试只执行一次"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

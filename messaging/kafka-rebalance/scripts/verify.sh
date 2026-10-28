@@ -37,4 +37,4 @@ done
 { echo "image: $IMAGE"; echo "brokers: 3（KRaft，broker+controller），每个 1.5 CPU、1.5 GB、堆 512 MB；消费组相关的服务端配置均为默认值"; echo "client: 同一镜像，2 CPU"; } >"$OUT/container.txt"
 write_environment "$OUT/environment.txt" "kafka: 4.3.1"
 python3 scripts/check.py "$OUT/facts.tsv" | tee "$OUT/assertions.txt"
-log "全部通过，输出在 $OUT（集群仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（集群仍在运行，make clean 删除）"

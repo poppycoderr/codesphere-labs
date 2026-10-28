@@ -23,7 +23,7 @@ for q in q1-status-aggregate q2-monthly-range q3-point-lookup; do
   mq=queries/$q.sql; [ -f "$mq" ] || mq=queries/$q.mysql.sql
   cq=queries/$q.sql; [ -f "$cq" ] || cq=queries/$q.clickhouse.sql
   cp "$mq" "$d/mysql.sql"; cp "$cq" "$d/clickhouse.sql"
-  log "$q：MySQL 与 ClickHouse 各预热 $WARMUP 次、采样 $SAMPLES 次"
+  log "${q}：MySQL 与 ClickHouse 各预热 $WARMUP 次、采样 $SAMPLES 次"
   my -N -B <"$mq" >"$d/mysql-result.tsv"
   ch --format TSV --output_format_decimal_trailing_zeros=1 <"$cq" >"$d/clickhouse-result.tsv"
   for _ in $(seq $WARMUP); do my -N <"$mq" >/dev/null; ch --format Null <"$cq"; done
@@ -51,4 +51,4 @@ log "存储占用"
   "${COMPOSE[@]}" config --images | sed 's/^/image: /'; echo "cpus: 2（每个容器）"; echo "mem_limit: 3g（每个容器）"; } >"$OUT/container.txt"
 write_environment "$OUT/environment.txt" "mysql: 8.4.11" "clickhouse: $(ch -q 'SELECT version()')"
 python3 scripts/summarize.py "$OUT" | tee "$OUT/assertions.txt"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

@@ -51,4 +51,4 @@ expect_regex "$f" "^syn_dropped\.socket	.*→ SocketTimeoutException\(Connect ti
 expect_regex "$d" "172\.31\.7\.99 dev eth0 +(FAILED|INCOMPLETE)" "邻居表里 172.31.7.99 为 FAILED 或 INCOMPLETE"
 expect_regex "$d" "2 packets transmitted, 2 received" "ping 服务端是通的"
 expect_regex "$d" "^000 .*(Connection refused|Failed to connect)" "同时 9090 端口连接被拒绝"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

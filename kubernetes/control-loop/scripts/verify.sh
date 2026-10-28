@@ -14,7 +14,7 @@ out() { printf '%s\t%s\n' "$1" "$2" >>"$f"; }
 k() { kctl "$C" "$@"; }
 node() { docker exec "$C-control-plane" "$@"; }
 pods() { k get pods -l app=web --no-headers 2>/dev/null | grep -vc Terminating || true; }
-trap 'kind_down "$C" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; kind_down "$C" >/dev/null 2>&1 || true; exit $rc' EXIT
 
 kind_up "$C"
 k wait --for=condition=Ready node --all --timeout=180s >/dev/null

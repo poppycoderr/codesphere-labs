@@ -16,7 +16,7 @@ since() { python3 -c "print(f'{$(now) - $1:.1f}')"; }
 k() { kctl "$C" "$@"; }
 ready_of() { k get node "$1" -o jsonpath='{range .status.conditions[?(@.type=="Ready")]}{.status} {.reason}: {.message}{end}'; }
 events_of() { k get events --field-selector "involvedObject.name=$1" -o jsonpath='{range .items[*]}{.reason}: {.message}{"\n"}{end}'; }
-trap 'docker exec "$W1" systemctl start kubelet >/dev/null 2>&1 || true; kind_down "$C" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; docker exec "$W1" systemctl start kubelet >/dev/null 2>&1 || true; kind_down "$C" >/dev/null 2>&1 || true; exit $rc' EXIT
 
 kind_up "$C" config/kind.yaml
 until [ "$(k get nodes --no-headers 2>/dev/null | wc -l | tr -d ' ')" = 3 ]; do sleep 1; done

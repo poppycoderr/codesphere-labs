@@ -22,7 +22,7 @@ timeline() {
   sleep 2
   echo "UPDATE account SET balance = 80 WHERE id = 1;" | sq
   wait
-  { echo "# 隔离级别：$iso；T3 时会话 B 执行 UPDATE account SET balance = 80 并自动提交"; cat "$file.a"; } >"$file"; rm "$file.a"
+  { echo "# 隔离级别：${iso}；T3 时会话 B 执行 UPDATE account SET balance = 80 并自动提交"; cat "$file.a"; } >"$file"; rm "$file.a"
 }
 log "场景一：RR 与 RC 下同一事务两次快照读"
 timeline REPEATABLE-READ rr
@@ -39,7 +39,7 @@ snapshot_start() {
   sleep 2
   echo "UPDATE account SET balance = 80 WHERE id = 1;" | sq
   wait
-  { echo "# RR；事务开始语句：$begin；2 秒后会话 B 把余额改成 80 并提交，4 秒后会话 A 第一次读"; cat "$file.a"; } >"$file"; rm "$file.a"
+  { echo "# RR；事务开始语句：${begin}；2 秒后会话 B 把余额改成 80 并提交，4 秒后会话 A 第一次读"; cat "$file.a"; } >"$file"; rm "$file.a"
 }
 log "场景二：BEGIN 与 START TRANSACTION WITH CONSISTENT SNAPSHOT"
 snapshot_start "BEGIN" snapshot-begin
@@ -75,7 +75,7 @@ phantom() {
   local r
   r=$(echo "SET SESSION innodb_lock_wait_timeout = 1; INSERT INTO coupon (id, status) VALUES (10, 'NEW');" | sq 2>&1 | grep -o "ERROR [0-9]*" || true)
   wait
-  { echo "# 隔离级别：$iso；读法：id >= 2 ${read:-（快照读）}；2 秒后会话 B 插入 id = 10（锁等待超时 1 秒）"
+  { echo "# 隔离级别：${iso}；读法：id >= 2 ${read:-（快照读）}；2 秒后会话 B 插入 id = 10（锁等待超时 1 秒）"
     cat "$file.a"; echo "会话 B 插入：${r:-成功}"; } >"$file"; rm "$file.a"
 }
 phantom REPEATABLE-READ "" rr-snapshot
@@ -92,7 +92,7 @@ semi() {
   local r
   r=$(echo "SET SESSION transaction_isolation = '$iso'; SET SESSION innodb_lock_wait_timeout = 1; BEGIN; UPDATE t_noindex SET b = 4 WHERE b = 2; SELECT ROW_COUNT(); ROLLBACK;" | sq -N 2>&1 | grep -o "ERROR [0-9]*\|^[0-9]*$" | head -1 || true)
   wait
-  { echo "# 隔离级别：$iso；会话 A：UPDATE t_noindex SET b = 5 WHERE b = 3（未提交）"
+  { echo "# 隔离级别：${iso}；会话 A：UPDATE t_noindex SET b = 5 WHERE b = 3（未提交）"
     echo "# 会话 B：UPDATE t_noindex SET b = 4 WHERE b = 2（锁等待超时 1 秒）"
     echo "会话 B 结果：$r"; } >"$file"
 }

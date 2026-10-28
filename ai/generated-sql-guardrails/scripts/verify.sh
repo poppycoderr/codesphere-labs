@@ -11,7 +11,7 @@ P=csl-sql-guard
 J25="eclipse-temurin:25-jdk@sha256:97014c4b396021f9ddb7d592a7dbedb0c4e4215c29e03dc01c393558aefb71c2"
 CONNECTOR="com.mysql:mysql-connector-j:9.7.0"
 CONNECTOR_SHA256=0353648eaa1c91e0f4020c959abf756bc866ffd583df22ae6b6f6e0cbd43eb44
-trap 'mysql_down "$P" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; mysql_down "$P" >/dev/null 2>&1 || true; exit $rc' EXIT
 cid=$(mysql_up "$P" 2>/dev/null)
 mysql_exec "$P" labs <schema/setup.sql >/dev/null
 f="$OUT/output.tsv"; : >"$f"
@@ -35,7 +35,7 @@ out priv.view_invoker "INVOKER 视图 SELECT COUNT(*) → $(run report_ro 'SELEC
 out priv.view_update "UPDATE 视图 → $(run report_ro "UPDATE v_users SET city = 'Z'")"
 # 权限挡不住资源消耗
 t=$(now); r=$(run report_ro 'SELECT SLEEP(2)')
-out priv.sleep "SELECT SLEEP(2) → 返回 $r，用时 $(python3 -c "print('不少于 2 秒' if $(now) - $t >= 2 else '少于 2 秒')")"
+out priv.sleep "SELECT SLEEP(2) → 返回 ${r}，用时 $(python3 -c "print('不少于 2 秒' if $(now) - $t >= 2 else '少于 2 秒')")"
 
 # 2. 只读事务：账号有写权限也写不进去
 out readonly.trx "读写账号在 START TRANSACTION READ ONLY 里 DELETE → $(run app_rw 'START TRANSACTION READ ONLY; DELETE FROM orders WHERE id = 5')；orders 仍有 $(run app_rw 'SELECT COUNT(*) FROM orders') 行"
@@ -45,10 +45,10 @@ out single.prepare "PREPARE 两条语句 → $(run app_rw "PREPARE s FROM 'SELEC
 
 # 4. 超时：会话变量会被语句里的提示覆盖
 t=$(now); r=$(run report_ro 'SET SESSION MAX_EXECUTION_TIME = 500; SELECT SLEEP(2)')
-out timeout.session "会话 MAX_EXECUTION_TIME=500，SELECT SLEEP(2) → 返回 $r（1 表示被打断），$(python3 -c "print('1 秒内返回' if $(now) - $t < 1.5 else '超过 1.5 秒')")"
+out timeout.session "会话 MAX_EXECUTION_TIME=500，SELECT SLEEP(2) → 返回 ${r}（1 表示被打断），$(python3 -c "print('1 秒内返回' if $(now) - $t < 1.5 else '超过 1.5 秒')")"
 out timeout.session_join "会话 MAX_EXECUTION_TIME=500，10 万行自连接 → $(run report_ro 'SET SESSION MAX_EXECUTION_TIME = 500; SELECT COUNT(*) FROM events a JOIN events b ON a.kind = b.kind')"
 t=$(now); r=$(run report_ro 'SET SESSION MAX_EXECUTION_TIME = 500; SELECT /*+ MAX_EXECUTION_TIME(20000) */ SLEEP(2)')
-out timeout.hint_override "同一会话，语句带 /*+ MAX_EXECUTION_TIME(20000) */ → 返回 $r（0 表示睡满），$(python3 -c "print('用时不少于 2 秒' if $(now) - $t >= 2 else '少于 2 秒')")"
+out timeout.hint_override "同一会话，语句带 /*+ MAX_EXECUTION_TIME(20000) */ → 返回 ${r}（0 表示睡满），$(python3 -c "print('用时不少于 2 秒' if $(now) - $t >= 2 else '少于 2 秒')")"
 
 # 5. 输出上限
 out limit.select_limit "会话 sql_select_limit=3，SELECT id FROM events → $(printf 'SET SESSION sql_select_limit = 3; SELECT id FROM events;\n' | docker compose -p "$P" -f ../../shared/docker/mysql84/compose.yaml exec -T -e MYSQL_PWD=example_password mysql mysql -ureport_ro labs -N | wc -l | tr -d ' ') 行；语句自带 LIMIT 10 → $(printf 'SET SESSION sql_select_limit = 3; SELECT id FROM events LIMIT 10;\n' | docker compose -p "$P" -f ../../shared/docker/mysql84/compose.yaml exec -T -e MYSQL_PWD=example_password mysql mysql -ureport_ro labs -N | wc -l | tr -d ' ') 行"

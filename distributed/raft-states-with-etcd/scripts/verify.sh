@@ -58,7 +58,7 @@ MAJ=$(others "$LEADER" | sed 's/$/:2379/' | paste -sd, -)
 wait_for 30 '[ -n "$(leader_of $MAJ)" ]' && r=是 || r=否
 NEWL=$(leader_of $MAJ)
 T1=$(status "$NEWL:2379" | awk '{print $3}')
-out leader_cut.reelect "原 leader 被隔离后，另外两个节点选出新 leader：$r；term 增大：$([ "$T1" -gt "$T0" ] && echo 是 || echo 否)"
+out leader_cut.reelect "原 leader 被隔离后，另外两个节点选出新 leader：${r}；term 增大：$([ "$T1" -gt "$T0" ] && echo 是 || echo 否)"
 out leader_cut.write_majority "经由新 leader 写入 v3：$(put $NEWL v3)"
 sleep 5
 out leader_cut.old_role "隔离 5 秒后，原 leader 是否仍认为自己是 leader：$(status "$LEADER:2379" | awk '{print ($2=="True")?"是":"否"}')；它报告的错误：$(status "$LEADER:2379" | cut -d' ' -f5-)"
@@ -67,7 +67,7 @@ out leader_cut.old_read_linearizable "原 leader 上线性一致读：$(get $LEA
 out leader_cut.old_read_serializable "原 leader 上可串行读：$(get $LEADER --consistency=s)"
 rejoin "$LEADER"
 wait_for 20 '[ "$(get $LEADER --consistency=s)" = v3 ]' && r=是 || r=否
-out leader_cut.rejoin "恢复连接后原 leader 读到 v3：$r；当前 leader 仍是新 leader：$([ "$(leader_of $ALL)" = "$NEWL" ] && echo 是 || echo 否)"
+out leader_cut.rejoin "恢复连接后原 leader 读到 v3：${r}；当前 leader 仍是新 leader：$([ "$(leader_of $ALL)" = "$NEWL" ] && echo 是 || echo 否)"
 
 "${C[@]}" config --images | sed 's/^/image: /' >"$OUT/container.txt"
 write_environment "$OUT/environment.txt" "etcd: 3.7.2"
@@ -91,4 +91,4 @@ leader_cut.old_read_linearizable	原 leader 上线性一致读：失败
 leader_cut.old_read_serializable	原 leader 上可串行读：v2
 leader_cut.rejoin	恢复连接后原 leader 读到 v3：是；当前 leader 仍是新 leader：是
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

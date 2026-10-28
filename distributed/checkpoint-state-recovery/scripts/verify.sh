@@ -17,6 +17,6 @@ expect_regex "$OUT/results.txt" '^flink=2\.3\.0 java=21\.0\.12.* final_count=200
 line=$(grep '^attempt=1 ' "$OUT/attempts.txt") || fail "没有重启记录"
 first=$(sed 's/.*first_input=\([0-9]*\).*/\1/' <<<"$line"); restored=$(sed 's/.*restored_count=\([0-9]*\).*/\1/' <<<"$line")
 [ "$restored" -gt 0 ] && [ "$restored" -eq $((first - 1)) ] || fail "恢复状态与数据源位置不一致：$line"
-log "通过：恢复后 restored_count = first_input - 1（$line）"
+log "通过：恢复后 restored_count = first_input - 1（${line}）"
 write_environment "$OUT/environment.txt" "maven_image: $MAVEN" "jdk_image: $JDK" 'flink: 2.3.0'
 cat "$OUT/results.txt"

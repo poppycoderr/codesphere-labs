@@ -35,4 +35,4 @@ assert b[1] < o[1] < r[1], pk
 assert r[0] > b[0], pk
 print(f"通过：条件更新两条路径成功数之和为 1000；空间 BIGINT {b[1]} < 有序 UUID {o[1]} < 随机 UUID {r[1]} MB；随机 UUID 插入 {r[0]} ms，慢于 BIGINT {b[0]} ms")
 PY
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

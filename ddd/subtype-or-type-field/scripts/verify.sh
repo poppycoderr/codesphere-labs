@@ -35,4 +35,4 @@ super_table.delete	删除仍被工时引用的目标 1：被拒绝（update or d
 super_table.kind_mismatch	把 LEAVE 目标 2 同时登记成客户项目：被拒绝（insert or update on table "t2_client" violates foreign key constraint "t2_client_id_kind_fkey"）
 super_table.missing_child	只插入父表一行 (3, CLIENT)、不插子表：成功；父表里没有子类行的目标 1 个：「恰好有一个子类行」外键表达不了
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

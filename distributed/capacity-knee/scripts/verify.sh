@@ -43,4 +43,4 @@ get = float(re.search(r"GET: ([\d.]+) requests per second", r)[1])
 assert get > peak[0], (get, peak)
 print(f"通过：点查峰值 {peak[0]:,.0f} QPS（并发 {peak_c}，p99 {peak[2]} ms）；并发 {top[0]} 时 {top[1][0]:,.0f} QPS、p99 {top[1][2]} ms；更新最高 {w:,.0f} QPS；Redis GET {get:,.0f} 次/秒")
 PY
-log "全部通过，输出在 $OUT（MySQL 容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（MySQL 容器仍在运行，make clean 删除）"

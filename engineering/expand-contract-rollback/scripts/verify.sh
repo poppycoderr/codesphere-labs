@@ -45,4 +45,4 @@ for k, v in expect.items():
     assert ok[k] == v, (k, ok[k], v)
 print("通过：版本 × 表结构矩阵与预期一致")
 PY2
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

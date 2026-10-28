@@ -24,7 +24,7 @@ CPID=$(docker inspect -f '{{.State.Pid}}' csl-cb-ns)
 docker run --rm --privileged --pid=host "$ALPINE" sh -c "
   for ns in pid net mnt uts ipc cgroup user; do
     h=\$(readlink /proc/1/ns/\$ns); c=\$(readlink /proc/$CPID/ns/\$ns)
-    if [ \"\$h\" = \"\$c\" ]; then echo \"ns.\$ns	与宿主机相同（\$c）\"; else echo \"ns.\$ns	与宿主机不同\"; fi
+    if [ \"\$h\" = \"\$c\" ]; then echo \"ns.\$ns	与宿主机相同（\${c}）\"; else echo \"ns.\$ns	与宿主机不同\"; fi
   done
   echo \"ns.uid	容器进程在宿主机上的 uid：\$(awk '/^Uid:/ {print \$2}' /proc/$CPID/status)\"
 " >>"$f"

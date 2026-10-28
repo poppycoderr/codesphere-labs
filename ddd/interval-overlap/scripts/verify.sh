@@ -29,4 +29,4 @@ pg_exclude	PostgreSQL 排他约束 EXCLUDE (member_id WITH =, period WITH &&)，
 pg_boundaries	另一天：半开区间 [09:00, 12:00) 之后接 [12:00, 15:00)：插入成功；闭区间 [15:00, 18:00] 之后接 [18:00, 20:00)：被拒绝（18:00 同时属于两段）
 pg_other_member	另一个成员同一时段：插入成功
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

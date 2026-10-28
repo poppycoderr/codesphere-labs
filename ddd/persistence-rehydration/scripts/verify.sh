@@ -24,11 +24,11 @@ expect_line "$OUT/output.tsv" "A 写入 2 行并提交；B ConcurrentModificatio
 expect_line "$OUT/output.tsv" "children.diff	已有 1000 个参会人的场次新增 1 人：写入 2 行" "按差异保存只写 2 行"
 expect_line "$OUT/output.tsv" "children.replace-all	已有 1000 个参会人的场次新增 1 人：写入 2004 行" "整体替换写 2004 行"
 for m in single-table concrete-tables joined; do
-  expect_regex "$OUT/output.tsv" "^inherit\.$m	场次 42 的全部票种 300 行，平均 [0-9.]+ms；价格高于 450 元的付费票 3018 行" "$m：两个查询的结果行数一致"
+  expect_regex "$OUT/output.tsv" "^inherit\.$m	场次 42 的全部票种 300 行，平均 [0-9.]+ms；价格高于 450 元的付费票 3018 行" "${m}：两个查询的结果行数一致"
 done
 expect_line "$OUT/inheritance-plans.txt" "-> Append" "每个具体类一张表：多态查询是 UNION ALL"
 expect_line "$OUT/inheritance-plans.txt" "-> Nested loop left join" "父表 + 子表：多态查询需要左连接每个子表"
 expect_line "$OUT/output.tsv" "插入没有价格的付费票：失败（Check constraint 'chk_subtype' is violated.）" "单表：CHECK 约束拒绝缺列的子类型"
 expect_line "$OUT/output.tsv" "在免费票表和付费票表各插入 id=900002：成功 / 成功" "每个具体类一张表：跨表的 id 唯一性没有约束"
 expect_line "$OUT/output.tsv" "只插入父表 type='PAID' 而不插入价格子表：成功" "父表 + 子表：数据库不保证子表行存在"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

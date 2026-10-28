@@ -15,7 +15,7 @@ jdk() { docker run --rm --cpus 4 --memory 3g -v "$PWD:/w" -w /w "$JDK25_IMAGE" j
 LOGOPT="gc,gc+phases=info:file=/w/build/tmp/gc.log:uptime,level,tags"
 run() {
   local name="$1" live="$2" mode="$3"; shift 3
-  log "负载 $name：长期存活 ${live} MB、${mode} 替换，测量 ${SECONDS_RUN} 秒"
+  log "负载 ${name}：长期存活 ${live} MB、${mode} 替换，测量 ${SECONDS_RUN} 秒"
   jdk -Xms2g -Xmx2g "$@" -Xlog:"$LOGOPT" src/Workload.java "$live" "$SECONDS_RUN" "$mode" >"$OUT/run-$name.txt"
   normalize_paths <build/tmp/gc.log >"$OUT/gc-$name.log"
 }

@@ -36,4 +36,4 @@ w = {int(k): num(v) for k, v in re.findall(r"^write\.(\d)\t.*3 轮中位数 ([\d
 assert w[0] < w[2] < w[5], w
 print(f"通过：写入 20 万行，0/2/5 个二级索引中位数 {w[0]}/{w[2]}/{w[5]} ms")
 PY
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

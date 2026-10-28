@@ -39,4 +39,4 @@ stacked.default	id 传入 1; UPDATE accounts SET role='admin' …，默认连接
 stacked.multi	连接串加了 allowMultiQueries=true 之后同样的输入：alice 的角色 [admin]
 second_order	用绑定参数存入 owner = x' OR '1'='1；另一处代码把它从库里读出来拼进 SQL：返回 6 行（这个 owner 名下只有 1 行）
 EXPECTED
-log "全部通过：输出与预期逐行一致，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过：输出与预期逐行一致，输出在 ${OUT}（容器仍在运行，make clean 删除）"

@@ -12,7 +12,7 @@ PY="python:3.14.8-slim@sha256:0741d101873c12ab927e6f8653feb8862b9bd58771177acb1b
 J25="eclipse-temurin:25-jdk@sha256:97014c4b396021f9ddb7d592a7dbedb0c4e4215c29e03dc01c393558aefb71c2"
 VOL=labs-cma-data
 cleanup() { docker rm -f labs-cma-run >/dev/null 2>&1 || true; docker volume rm "$VOL" >/dev/null 2>&1 || true; }
-trap cleanup EXIT
+trap 'rc=$?; cleanup; exit $rc' EXIT
 cleanup
 docker volume create "$VOL" >/dev/null
 

@@ -200,4 +200,4 @@ rm -f "$OUT/.names"
 write_environment "$OUT/environment.txt" "redis: 8.10.1（compose.yaml 固定 digest，3 primary + 3 replica）" "jdk_image: $JDK_IMAGE" "jedis: 5.2.0"
 rm -f "$OUT"/*.stop  # 客户端的停止标记，没有内容
 python3 scripts/summarize.py "$OUT" | tee "$OUT/assertions.txt"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

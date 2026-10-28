@@ -57,7 +57,7 @@ for kb in 64 1024; do
 done
 rm -f build/tmp/oom.hprof
 { docker run --rm "$J21" java -version 2>&1 | sed -n 2p; docker run --rm "$JDK_IMAGE" java -version 2>&1 | sed -n 2p; } >"$OUT/jdk-versions.txt"
-write_environment "$OUT/environment.txt" "jdk21_image: $J21" "jdk25_image: $JDK_IMAGE（默认参数、jcmd、jstat、OOM 只在 JDK 25 上跑）" "container: 2 CPU，内存 2 GB 或 4 GB"
+write_environment "$OUT/environment.txt" "jdk21_image: $J21" "jdk25_image: ${JDK_IMAGE}（默认参数、jcmd、jstat、OOM 只在 JDK 25 上跑）" "container: 2 CPU，内存 2 GB 或 4 GB"
 cat "$OUT"/flags-*.txt "$OUT/summary.tsv" >&2
 
 f="$OUT/summary.tsv"

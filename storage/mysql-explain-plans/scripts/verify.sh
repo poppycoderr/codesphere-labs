@@ -86,4 +86,4 @@ echo "SELECT VERSION(), @@innodb_buffer_pool_size DIV 1048576 AS buffer_pool_mb,
 { echo "image: $("${COMPOSE[@]}" config --images)"; echo "cpus: 2"; echo "mem_limit: 2g"; echo "config: config/mysql.cnf"; } >"$OUT/container.txt"
 write_environment "$OUT/environment.txt" "mysql: 8.4.11（compose.yaml 固定 digest）"
 python3 scripts/summarize.py "$OUT" | tee "$OUT/assertions.txt"
-log "全部通过，输出在 $OUT（容器仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（容器仍在运行，make clean 删除）"

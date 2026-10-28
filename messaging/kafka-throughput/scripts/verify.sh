@@ -122,4 +122,4 @@ lines += p.strip().splitlines()
 open(out, "w", encoding="utf-8").write("\n".join(lines) + "\n")
 print("\n".join(lines))
 PY
-log "全部通过，输出在 $OUT（集群仍在运行，make clean 删除）"
+log "全部通过，输出在 ${OUT}（集群仍在运行，make clean 删除）"
