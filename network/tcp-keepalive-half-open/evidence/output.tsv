@@ -1,0 +1,9 @@
+sysctl	默认 keepalive：空闲 7200 秒后开始探测，间隔 75 秒，9 次无应答判定断开；tcp_retries2 = 15
+idle	网络断开（客户端命名空间丢弃双向报文）后，不开 keepalive 的空闲连接：10 秒内结果 等满无结果；第 6 秒时 5 个连接中仍处于 ESTABLISHED 的有 3 个
+keepalive.default	只打开 SO_KEEPALIVE、用默认参数：10 秒内结果 等满无结果
+keepalive.tuned	TCP_KEEPIDLE=2、TCP_KEEPINTVL=1、TCP_KEEPCNT=3：结果 ETIMEDOUT，用时在 4 到 7 秒之间=true
+write	断开后写入一个 PING 再等回应：10 秒内结果 等满无结果（数据在重传，还没有放弃）
+write.user-timeout	同样写入，设 TCP_USER_TIMEOUT=3000ms：结果 ETIMEDOUT，用时在 2.5 到 5 秒之间=true
+frozen.keepalive	服务端进程被 SIGSTOP 冻结，客户端用同样的短 keepalive 参数空等 8 秒：结果 等满无结果（内核仍在回应探测）
+frozen.heartbeat	接着发应用层心跳 PING，1 秒内等 PONG：结果 等满无结果
+unauth	客户端连上后什么也不发：服务端没有首包超时时，5 秒内客户端看到 等满无结果；服务端设 2 秒首包超时时看到 EOF，用时在 1.5 到 3 秒之间=true

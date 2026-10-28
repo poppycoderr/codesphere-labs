@@ -1,0 +1,23 @@
+id: network/tcp-keepalive-half-open
+title: "对端还活着吗：网络断开后，空闲连接、只开 SO_KEEPALIVE 的连接、写入后在重传的连接，10 秒内都没有任何错误；keepalive 调成空闲 2 秒、间隔 1 秒、3 次后约 5 秒得到 ETIMEDOUT，TCP_USER_TIMEOUT=3000ms 的写入约 3 秒得到 ETIMEDOUT；对端进程被冻结时，同样的短 keepalive 8 秒内毫无察觉，应用层心跳 1 秒超时；服务端设 2 秒首包超时后，什么也不发的连接 2 秒被关闭"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/tcp-keepalive-half-open.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    netshoot: "v0.16"
+    python: "3.14.5"
+    linux-kernel: "7.0.14-linuxkit"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

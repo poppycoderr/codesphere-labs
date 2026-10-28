@@ -1,0 +1,23 @@
+# 两个网络命名空间：srv 跑服务端，cli 跑客户端（NET_ADMIN 只用于在它自己的命名空间里用 iptables 丢包，制造半开连接）；不暴露端口。
+name: csl-tcp-keepalive
+services:
+  srv:
+    image: nicolaka/netshoot:v0.16@sha256:b09d9b21381f47a79b3cbcb30da25266dc17186ea00ae65e99fdc51396f48e70
+    command: ["sleep", "infinity"]
+    volumes: ["./src:/w/src:ro"]
+    networks:
+      lab:
+        ipv4_address: 172.31.12.10
+  cli:
+    image: nicolaka/netshoot:v0.16@sha256:b09d9b21381f47a79b3cbcb30da25266dc17186ea00ae65e99fdc51396f48e70
+    command: ["sleep", "infinity"]
+    cap_add: ["NET_ADMIN", "NET_RAW"]
+    volumes: ["./src:/w/src:ro"]
+    networks:
+      lab:
+        ipv4_address: 172.31.12.20
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 172.31.12.0/24

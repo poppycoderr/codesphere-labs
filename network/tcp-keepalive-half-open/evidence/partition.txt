@@ -1,0 +1,6 @@
+write-user-timeout ETIMEDOUT 3.2
+keepalive-tuned ETIMEDOUT 5.1
+keepalive-default 等满无结果 10.0
+write 等满无结果 10.0
+idle 等满无结果 10.0
+established-at-6s 3
