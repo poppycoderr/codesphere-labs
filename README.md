@@ -203,6 +203,7 @@
 | [java/thread-pool-runtime-resize](java/thread-pool-runtime-resize/) | 运行时调整线程池：core/max 顺序、缩容与在途任务、钩子的盲区 | 轻量：确定性输出（标准库） | regular-docker |
 | [java/bit-interpretations](java/bit-interpretations/) | 同一串位的几种解释：符号扩展、进位与溢出、无符号运算、相减比较 | 已验证 | regular-docker |
 | [java/netty-bytebuf-refcount](java/netty-bytebuf-refcount/) | ByteBuf 引用计数：泄漏检测、尾部释放、转交前 retain、派生视图、拒绝分支与写失败 | 已验证 | regular-docker |
+| [java/reactor-signal-contracts](java/reactor-signal-contracts/) | 响应式流信号契约：终态、取消、request 额度、预取、flatMap 顺序与并发、组装期与订阅期 | 已验证 | regular-docker |
 | [cache/redis-data-structures-memory](cache/redis-data-structures-memory/) | Redis 数据结构与编码 | 轻量 | regular-docker |
 | [cache/redis-memory-eviction](cache/redis-memory-eviction/) | Redis 内存满了会怎样 | 轻量 | regular-docker |
 | [cache/redis-distributed-semaphore](cache/redis-distributed-semaphore/) | 基于 Redis 的分布式信号量 | 轻量 | regular-docker |

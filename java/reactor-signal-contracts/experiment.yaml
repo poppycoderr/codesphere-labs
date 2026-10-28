@@ -1,0 +1,23 @@
+id: java/reactor-signal-contracts
+title: "响应式流的信号契约：发布者完成后再发的元素与错误被丢弃给钩子；take(3) 取消上游，无限生成只生成 3 个；map 抛异常后上游被取消、剩下 7 个不再处理；request(2)、request(3) 累计为 5；publishOn 之后下游只要 1 个，上游已经发出 256 个；limitRate(10) 按 10、8、8 补充；flatMap 按完成顺序输出 [3, 2, 1]，concatMap 保持 [1, 2, 3]；flatMap(f, 2) 同时活跃 2 个内层、用 doFinally 计数会多算 1；Mono.just(f()) 在组装时就执行 f，defer 每次订阅执行一次"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/reactor-signal-contracts.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+    reactor-core: "3.8.8"
+    reactor-test: "3.8.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

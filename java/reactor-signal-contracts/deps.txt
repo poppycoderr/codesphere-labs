@@ -1,0 +1,4 @@
+io.projectreactor:reactor-core:3.8.8
+io.projectreactor:reactor-test:3.8.8
+org.reactivestreams:reactive-streams:1.0.4
+org.jspecify:jspecify:1.0.1
