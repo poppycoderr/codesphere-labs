@@ -1,0 +1,5 @@
+nagle	写 10 字节头、再写 10 字节体、再读响应（Nagle 默认开启）：往返时间中位数不小于 30ms=true，小于 60ms=true；50 个请求发出数据包 100 个
+nodelay	同样的写法，客户端设 TCP_NODELAY：中位数小于 5ms=true；数据包 100 个（每次写一个包）
+joined	不设 TCP_NODELAY，把头和体拼成一次 sendall：中位数小于 5ms=true；数据包 50 个
+sendmsg	不设 TCP_NODELAY，用 sendmsg([头, 体]) 一次提交两段：中位数小于 5ms=true；数据包 50 个
+sysctl	客户端 tcp_autocorking = 1；内核 7.0.14-linuxkit

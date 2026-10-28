@@ -131,6 +131,7 @@
 | [network/request-result-ownership](network/request-result-ownership/) | 请求结果归谁：fetch 错误语义、迟到响应、取消与超时 | 轻量：Node 24 内置 fetch | regular-docker |
 | [network/tcp-time-wait](network/tcp-time-wait/) | TIME_WAIT 与端口复用：谁进入 TIME_WAIT、SO_REUSEADDR 与 SO_REUSEPORT、临时端口按目的地址耗尽 | 已验证 | regular-docker |
 | [network/tcp-reset-sources](network/tcp-reset-sources/) | RST 的来源：未读数据时关闭、SO_LINGER 0、对端关闭后写、连接池复用旧连接、tcpdump 标志位过滤 | 已验证 | regular-docker |
+| [network/tcp-nagle-delayed-ack](network/tcp-nagle-delayed-ack/) | Nagle 与延迟确认：写写读的 40ms、TCP_NODELAY 的包数、合并写与 sendmsg | 已验证 | regular-docker |
 | [kubernetes/container-boundaries](kubernetes/container-boundaries/) | 容器的边界 | 轻量：Docker | regular-docker |
 | [kubernetes/container-memory-accounting](kubernetes/container-memory-accounting/) | 进程只用了 10 MB，容器却因为内存被杀 | 轻量：cgroup v2 计数与 OOM | regular-docker |
 | [kubernetes/deleted-open-files](kubernetes/deleted-open-files/) | 日志删掉了，磁盘空间没有回来 | 轻量：确定性输出 | regular-docker |

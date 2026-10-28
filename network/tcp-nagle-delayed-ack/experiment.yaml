@@ -1,0 +1,23 @@
+id: network/tcp-nagle-delayed-ack
+title: "小包为什么等了 40 毫秒：同一连接上先写 10 字节头、再写 10 字节体、再读响应，Nagle 遇上服务端的延迟确认，往返中位数约 44ms；客户端设 TCP_NODELAY 后降到 0.1ms 以下，但每个请求发出 2 个包；不设 NODELAY、把两段合成一次写或用 sendmsg 一次提交，同样快且每个请求只发 1 个包"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/tcp-nagle-delayed-ack.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    netshoot: "v0.16"
+    python: "3.14.5"
+    linux-kernel: "7.0.14-linuxkit"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
