@@ -8,3 +8,5 @@ listen.reuseaddr	端口 9200 正在被监听（SO_REUSEADDR=1），另一个 SO_
 listen.reuseport	两个套接字都设 SO_REUSEPORT 绑定同一端口：都成功；40 个连接被内核分给两者，两边都收到连接=true，合计 40
 sysctl	tcp_tw_recycle 存在=false；tcp_tw_reuse = 2；客户端临时端口范围 40000-40009
 ports.listen	客户端命名空间里有 1 个监听套接字的端口落在临时端口范围内（Docker 内置 DNS 绑定端口 0 时也从这个范围里取）
+ports.exhaust	客户端只有 10 个临时端口，连续连 9400、每次客户端先关：成功 9 次，第 10 次失败 EADDRNOTAVAIL，成功的连接用了 9 个不同的本地端口
+ports.other-dest	同一时刻连另一个目的端口 9401：成功，本地端口在 40000-40009 内=true（与连 9400 的 TIME_WAIT 共用同一批端口）

@@ -8,7 +8,7 @@ source ../../shared/scripts/lib.sh
 require docker
 OUT="${1:-build/run}"; mkdir -p "$OUT"; find "$OUT" -mindepth 1 ! -name README.md -delete
 C=(docker compose -f compose.yaml)
-trap '"${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true; exit $rc' EXIT
 "${C[@]}" down -v --remove-orphans >/dev/null 2>&1 || true
 "${C[@]}" up -d >/dev/null 2>&1 || fail "容器启动失败"
 SRV=$("${C[@]}" ps -q srv); CLI=$("${C[@]}" ps -q cli)
@@ -54,7 +54,7 @@ bg "$T serve 9400 passive 0 20"; bg "$T serve 9401 passive 0 20"
 lis=$(c "ss -Htln | awk '{split(\$4,a,\":\"); p=a[length(a)]; if (p>=40000 && p<=40009) n++} END{print n+0}'")
 o "ports.listen" "客户端命名空间里有 $lis 个监听套接字的端口落在临时端口范围内（Docker 内置 DNS 绑定端口 0 时也从这个范围里取）"
 read -r ok e ports < <(c "$T burst 172.31.9.10 9400 12")
-o "ports.exhaust" "客户端只有 10 个临时端口，连续连 9400、每次客户端先关：成功 $ok 次，第 $((ok + 1)) 次失败 $e，成功的连接用了 $ports 个不同的本地端口"
+o "ports.exhaust" "客户端只有 10 个临时端口，连续连 9400、每次客户端先关：成功 $ok 次，第 $((ok + 1)) 次失败 ${e}，成功的连接用了 $ports 个不同的本地端口"
 read -r r1 r2 < <(c "$T once 172.31.9.10 9401")
 if [ "$r1" = OK ]; then o "ports.other-dest" "同一时刻连另一个目的端口 9401：成功，本地端口在 40000-40009 内=$([ "$r2" -ge 40000 ] && [ "$r2" -le 40009 ] && echo true || echo false)（与连 9400 的 TIME_WAIT 共用同一批端口）"; else o "ports.other-dest" "同一时刻连另一个目的端口 9401：失败 $r1"; fi
 c "ss -Htan state time-wait" >"$OUT/ss-client-time-wait.txt"
