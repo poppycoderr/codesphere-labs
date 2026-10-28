@@ -1,0 +1,22 @@
+id: storage/es-deep-paging
+title: "翻到很深的页：from+size 超过 10000 返回 400；按 _id 排序被拒（fielddata 默认禁用）；search_after 只按有大量同值的 score 排序会遗漏 2000 条，加上唯一的 pid 决胜后完整；不用 PIT 时翻页之间改 4 个文档的 score 造成 2 条重复、2 条遗漏，用 PIT 则看到固定快照；PIT 只按 score 排序也完整（自动以 _shard_doc 决胜）；关闭 PIT 释放 3 个分片上下文，之后再用返回 404"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/es-deep-paging.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    elasticsearch: "9.5.5"
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
