@@ -1,0 +1,22 @@
+id: java/netty-bytebuf-refcount
+title: "ByteBuf 的引用计数：入站处理器吞掉消息后 refCnt 停在 1，PARANOID 级别报告泄漏并指出最后接手的处理器；只往下传时真实通道的管道尾部把它释放，EmbeddedChannel 却放进自己的队列；SimpleChannelInboundHandler 自动释放，转交前不 retain 时消费者读到 IllegalReferenceCountException；slice 与 duplicate 共享计数；拒绝分支直接 close 留下 refCnt=1；写入已关闭的通道由 Netty 释放、调用方再释放抛异常；ctx.write 跳过当前处理器之后的出站处理器"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/netty-bytebuf-refcount.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+    netty: "4.2.19.Final"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

@@ -1,0 +1,13 @@
+leak.refcnt	吞掉之后 refCnt=1
+leak.swallow	对象被回收后 PARANOID 级别报告泄漏 1 条；最近一条访问记录是管道写入的提示「SwallowHandler 从这里开始处理这条消息」=true；还记录了创建位置=true
+tail.release	真实通道（Local 传输）里处理器只调用 fireChannelRead、后面没有人处理：返回后 refCnt=0
+tail.embedded	同样的处理器放进 EmbeddedChannel：refCnt=1，消息进了 readInbound() 的队列=true（测试里读出来之后要自己释放）
+simple.handoff	SimpleChannelInboundHandler 把消息放进队列、没有 retain：channelRead0 返回后 refCnt=0，队列消费者读取时 IllegalReferenceCountException
+simple.retain	转交前 retain：channelRead0 返回后 refCnt=1，消费者读到 job-2，用完 release 后 refCnt=0
+derived.shared	slice 与 duplicate 和原缓冲区共享计数（slice.refCnt=1，duplicate.refCnt=1）：释放 slice 之后原缓冲区 refCnt=0
+derived.retained	retainedSlice 让原缓冲区 refCnt 变为 2；原持有者释放后切片仍可读（0123），切片释放后原缓冲区 refCnt=0
+reject.close	消息不合法时直接 ctx.close() 返回：连接已关闭=true，消息 refCnt=1（没有人会再释放它）
+reject.fixed	关闭前先 ReferenceCountUtil.release：消息 refCnt=0
+write.closed	向已关闭的通道写：future 成功=false（StacklessClosedChannelException），消息 refCnt=0；调用方再 release 一次：IllegalReferenceCountException
+pipeline.order	管道 [OutA, 入站处理器, OutB]：入站处理器里 ctx.write 经过 [OutA]，ctx.channel().write 经过 [OutB, OutA]
+leak.after	其余场景都按约定释放后，再次触发检测：泄漏报告 0 条
