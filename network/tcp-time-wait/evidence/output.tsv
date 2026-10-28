@@ -1,0 +1,10 @@
+tw.server-closes	服务端先关闭：服务端 TIME_WAIT 1 个，客户端 0 个
+tw.client-closes	客户端先关闭：服务端 TIME_WAIT 0 个，客户端 1 个
+tw.timer	TIME_WAIT 的剩余时间在 50 到 60 秒之间：true；tcp_fin_timeout = 60（它管的是 FIN_WAIT_2，不是 TIME_WAIT）
+restart.00	原监听 SO_REUSEADDR=0、有 TIME_WAIT 时重新绑定（SO_REUSEADDR=0）：EADDRINUSE
+restart.01	原监听 SO_REUSEADDR=0、有 TIME_WAIT 时重新绑定（SO_REUSEADDR=1）：EADDRINUSE
+restart.11	原监听 SO_REUSEADDR=1、有 TIME_WAIT 时重新绑定（SO_REUSEADDR=1）：OK
+listen.reuseaddr	端口 9200 正在被监听（SO_REUSEADDR=1），另一个 SO_REUSEADDR=1 的套接字绑定：EADDRINUSE
+listen.reuseport	两个套接字都设 SO_REUSEPORT 绑定同一端口：都成功；40 个连接被内核分给两者，两边都收到连接=true，合计 40
+sysctl	tcp_tw_recycle 存在=false；tcp_tw_reuse = 2；客户端临时端口范围 40000-40009
+ports.listen	客户端命名空间里有 1 个监听套接字的端口落在临时端口范围内（Docker 内置 DNS 绑定端口 0 时也从这个范围里取）

@@ -1,0 +1,25 @@
+# 两个网络命名空间：srv 跑服务端，cli 跑客户端；只改各自命名空间里的设置，不动宿主机，不暴露端口。
+# cli 的临时端口范围缩小到 10 个，用来复现临时端口耗尽。
+name: csl-tcp-time-wait
+services:
+  srv:
+    image: nicolaka/netshoot:v0.16@sha256:b09d9b21381f47a79b3cbcb30da25266dc17186ea00ae65e99fdc51396f48e70
+    command: ["sleep", "infinity"]
+    volumes: ["./src:/w/src:ro"]
+    networks:
+      lab:
+        ipv4_address: 172.31.9.10
+  cli:
+    image: nicolaka/netshoot:v0.16@sha256:b09d9b21381f47a79b3cbcb30da25266dc17186ea00ae65e99fdc51396f48e70
+    command: ["sleep", "infinity"]
+    volumes: ["./src:/w/src:ro"]
+    sysctls:
+      net.ipv4.ip_local_port_range: "40000 40009"
+    networks:
+      lab:
+        ipv4_address: 172.31.9.20
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 172.31.9.0/24

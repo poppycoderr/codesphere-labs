@@ -1,0 +1,23 @@
+id: network/tcp-time-wait
+title: "TIME_WAIT 与端口复用：TIME_WAIT 只出现在先关闭的一方，剩余时间约 60 秒，与 tcp_fin_timeout 无关；服务端主动关闭过连接后重启，原监听没设 SO_REUSEADDR 时新套接字设了也绑定失败，两次都设才成功；端口真正被监听时 SO_REUSEADDR 仍然 EADDRINUSE，SO_REUSEPORT 让两个套接字共享并分摊连接；tcp_tw_recycle 已不存在，tcp_tw_reuse 默认 2；临时端口只有 10 个时 Docker 内置 DNS 占了一个，连同一目的地 9 次后 EADDRNOTAVAIL，换一个目的端口立即成功"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/network/tcp-time-wait.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    netshoot: "v0.16"
+    python: "3.14.5"
+    linux-kernel: "7.0.14-linuxkit"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
