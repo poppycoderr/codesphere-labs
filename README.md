@@ -175,6 +175,7 @@
 | [storage/metadata-locks](storage/metadata-locks/) | 元数据锁：一条 ALTER 卡住所有查询 | 轻量 | regular-docker |
 | [storage/upsert-semantics](storage/upsert-semantics/) | 冲突时到底做了什么：upsert 的语义 | 轻量 | regular-docker |
 | [storage/es-deep-paging](storage/es-deep-paging/) | Elasticsearch 翻到很深的页 | 轻量 | regular-docker |
+| [storage/es-alias-migration](storage/es-alias-migration/) | Elasticsearch 别名切换与在线迁移 | 轻量 | regular-docker |
 | [java/aqs-and-locks](java/aqs-and-locks/) | 从 AQS 看 ReentrantLock | 轻量 | regular |
 | [java/gc-baseline](java/gc-baseline/) | GC 基线与排查工具输出 | 轻量：JDK 25 容器，GC 对照加 JDK 21 | regular-docker |
 | [java/gc-collectors](java/gc-collectors/) | G1、分代 ZGC、Parallel 对比 | 性能：JDK 21 容器，4 CPU | performance |

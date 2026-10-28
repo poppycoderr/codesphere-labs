@@ -1,0 +1,9 @@
+env	elasticsearch=9.5.5，2000 条订单，v2 把 status 从 text 改为 keyword
+naive.switch	reindex 复制 2000 条后，v1 上新增 50、更新 30、删除 20，直接切别名：v2 比 v1 少 50 条、多 20 条、内容不同 30 条
+naive.read	切换后经别名查已退款订单：0 条（v1 里是 30 条）
+catchup.external	按源版本号把变更重放到 v2 两次，最后再来一条 o0 的旧版本：第二遍冲突 101 条（被忽略）；v2 比 v1 少 0 条、多 0 条、内容不同 0 条
+catchup.plain	同样的重放不带版本号：v2 比 v1 少 0 条、多 0 条、内容不同 1 条
+multi.no-write-index	别名指向 v1、v2 且都不是写索引：写入 HTTP 400（illegal_argument_exception）
+multi.write-index	把 v2 设为写索引：写入落在 orders_v2；经别名按 id 查 o5 得到 2 条（两个索引各一份）
+switch.atomic	一个 _aliases 请求里 remove + add：HTTP 200，别名现在指向 ['orders_v2']
+switch.rollback	回切：HTTP 200，别名指向 ['orders_v1']；v1 没有删除，回切只是改别名

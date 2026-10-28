@@ -1,0 +1,22 @@
+id: storage/es-alias-migration
+title: "别名切换不等于在线迁移：reindex 之后旧索引上的新增 50、更新 30、删除 20 在直接切别名后表现为 v2 少 50 条、多 20 条、30 条内容过期；按源系统版本号（external）把变更重放两遍并追加一条迟到的旧版本，第二遍 101 条冲突被忽略，两边完全一致，不带版本号则旧版本覆盖新值；别名指向两个索引而没有写索引时写入 400，设了写索引后写入落在 v2、按 id 查询得到两份；一个 _aliases 请求完成切换与回切"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/es-alias-migration.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    elasticsearch: "9.5.5"
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
