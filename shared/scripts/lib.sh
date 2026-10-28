@@ -133,7 +133,7 @@ kind_bin() {
   bin="$LABS_CACHE/bin/kind-$KIND_VERSION"
   if [ ! -x "$bin" ]; then
     mkdir -p "$LABS_CACHE/bin"
-    log "下载 kind $KIND_VERSION（$os-$arch）"
+    log "下载 kind ${KIND_VERSION}（$os-${arch}）"
     curl -fsSL -o "$bin.tmp" "https://github.com/kubernetes-sigs/kind/releases/download/$KIND_VERSION/kind-$os-$arch"
     local got
     got=$(shasum -a 256 "$bin.tmp" 2>/dev/null | cut -d' ' -f1 || sha256sum "$bin.tmp" | cut -d' ' -f1)
