@@ -16,7 +16,7 @@ node() { docker exec "$C-control-plane" "$@"; }
 API=https://127.0.0.1:6443
 # code <curl 参数...>：只取 HTTP 状态码
 code() { node curl -s -o /dev/null -w '%{http_code}' "$@" || true; }
-trap 'kind_down "$C" >/dev/null 2>&1 || true' EXIT
+trap 'rc=$?; kind_down "$C" >/dev/null 2>&1 || true; exit $rc' EXIT
 
 kind_up "$C"
 k wait --for=condition=Ready node --all --timeout=180s >/dev/null
@@ -27,7 +27,7 @@ k wait --for=condition=Ready pod/app -n lab --timeout=120s >/dev/null
 out anon.version "不带任何凭据（curl -k）：GET /version 返回 $(code -k $API/version)，GET /api/v1/namespaces 返回 $(code -k $API/api/v1/namespaces)"
 out anon.user "$(node curl -sk $API/api/v1/namespaces | python3 -c 'import sys,json; m=json.load(sys.stdin)["message"]; print("拒绝信息里的用户：" + m.split("\"")[1])')"
 rc=$(node sh -c "curl -s -o /dev/null $API/version; echo \$?")
-out tls "去掉 -k：curl 退出码 $rc（服务端证书由集群自己的 CA 签发，客户端不信任）；加上 --cacert 指定集群 CA：$(code --cacert /etc/kubernetes/pki/ca.crt $API/version)"
+out tls "去掉 -k：curl 退出码 ${rc}（服务端证书由集群自己的 CA 签发，客户端不信任）；加上 --cacert 指定集群 CA：$(code --cacert /etc/kubernetes/pki/ca.crt $API/version)"
 
 # 二、ServiceAccount 令牌：受众与有效期
 TOKEN=$(k create token reader -n lab --duration 10m)
@@ -57,7 +57,7 @@ out can-i "kubectl auth can-i --as reader：list pods=$(can list pods)，delete 
 
 # 五、Secret：base64 不是加密；etcd 里默认也是明文
 B64=$(k get secret demo -n lab -o jsonpath='{.data.password}')
-out secret.base64 "Secret 的 data.password 是 $B64，base64 解码得到 $(echo "$B64" | base64 -d)"
+out secret.base64 "Secret 的 data.password 是 ${B64}，base64 解码得到 $(echo "$B64" | base64 -d)"
 ETCD=$(node crictl ps --name etcd -q | head -1)
 n=$(node crictl exec "$ETCD" etcdctl --endpoints https://127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt \
   --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key get /registry/secrets/lab/demo | grep -ac example_password || true)

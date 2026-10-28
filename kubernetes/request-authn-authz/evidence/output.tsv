@@ -1,2 +1,12 @@
 anon.version	不带任何凭据（curl -k）：GET /version 返回 200，GET /api/v1/namespaces 返回 403
 anon.user	拒绝信息里的用户：system:anonymous
+tls	去掉 -k：curl 退出码 60（服务端证书由集群自己的 CA 签发，客户端不信任）；加上 --cacert 指定集群 CA：200
+token.ok	reader 的令牌：列出 lab 的 Pod 200，列出 lab 的 Secret 403，列出 default 的 Pod 403
+token.audience	受众是别的服务的令牌：401（认证失败）
+token.created	kubectl create token --duration 10m：{"aud": ["https://kubernetes.default.svc.cluster.local"], "ttl": 600}
+token.projected	Pod 里自动挂载的投射令牌：{"aud": ["https://kubernetes.default.svc.cluster.local"], "ttl": 31536000, "warnafter": 3607}（秒）
+proxy	经 kubectl proxy 列出 lab 的 Secret：管理员凭据启动的 proxy 返回 200，reader 凭据启动的 proxy 返回 403
+can-i	kubectl auth can-i --as reader：list pods=yes，delete pods=no，get secrets=no，list pods -n default=no
+secret.base64	Secret 的 data.password 是 ZXhhbXBsZV9wYXNzd29yZA==，base64 解码得到 example_password
+secret.etcd	直接读 etcd 里这个 Secret 的存储值，包含明文 example_password=True（没有配置静态加密）
+admission	命名空间设为 restricted 后，管理员创建特权 Pod：被拒绝=True（PodSecurity 准入）；管理员对 pods 的 create 权限=yes
