@@ -1,0 +1,21 @@
+id: system-design/minimal-cpu
+title: "一台最小的累加器 CPU：循环加法算 6 × 7 输出 42；交换指令逐句赋值得到 ACC=9、M=9，由旧状态算新状态得到 9 和 5；同一段程序在「LDA 不更新 Z」的约定下输出 0、跑了 1029 步；写回延后一拍时 HLT 立即停机丢掉最后一次 STA；漏写 HLT 时，空白内存为 0（操作码 0 是 HLT）就停机，为 0xFF 时非法操作码按 fault 处理停在 0x04，按 nop 处理绕着内存跑满 1000 步"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/minimal-cpu.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

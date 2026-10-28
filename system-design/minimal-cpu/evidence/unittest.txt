@@ -1,0 +1,11 @@
+test_add_sets_carry_and_wraps (tests.test_cpu.StepTest.test_add_sets_carry_and_wraps) ... ok
+test_fault_is_exception_from_step (tests.test_cpu.StepTest.test_fault_is_exception_from_step) ... ok
+test_illegal_opcode_faults_at_its_address (tests.test_cpu.StepTest.test_illegal_opcode_faults_at_its_address) ... ok
+test_step_does_not_mutate_old_state (tests.test_cpu.StepTest.test_step_does_not_mutate_old_state) ... ok
+test_sub_borrow (tests.test_cpu.StepTest.test_sub_borrow) ... ok
+test_zero_memory_halts (tests.test_cpu.StepTest.test_zero_memory_halts) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

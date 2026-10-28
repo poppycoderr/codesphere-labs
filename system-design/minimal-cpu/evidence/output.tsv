@@ -1,0 +1,11 @@
+mul	循环加法算 6 × 7：输出 [42]，61 步后停机
+mul.zero	算 6 × 0：输出 [0]，5 步后停机
+xch	ACC=5、M[0x80]=9 执行 XCH：逐句赋值得到 ACC=9、M=9；由旧状态算新状态得到 ACC=9、M=5
+flags.lda	同一段乘法程序，约定改为 LDA 不更新 Z：输出 [0]，1029 步后停机（JZ 读到的是上一次 ADD 留下的 Z，结果累加到 256 回绕为 0 时才退出）
+flags.fixed	在 JZ 前补一条 ADD 0（显式设置标志）：LDA 更新 Z 时输出 [42]（69 步），不更新时输出 [42]（69 步）
+flags.carry	200 + 100：ACC=44，C=1，跳到了进位分支（8 位累加器只保留低 8 位）
+halt	STA 之后紧跟 HLT，写回延后一拍：HLT 立即停机时 M[0x82]=0，先提交挂起的写再停机时 M[0x82]=42
+illegal.00.fault	漏写 HLT，空白内存为 0，非法操作码按 fault 处理：3 步后停机，OUT 1 次
+illegal.00.nop	漏写 HLT，空白内存为 0，非法操作码按 nop 处理：3 步后停机，OUT 1 次
+illegal.ff.fault	漏写 HLT，空白内存为 0xFF，非法操作码按 fault 处理：2 步后非法操作码 0xFF，地址 0x04，OUT 1 次
+illegal.ff.nop	漏写 HLT，空白内存为 0xFF，非法操作码按 nop 处理：1000 步后达到步数上限，OUT 8 次

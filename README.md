@@ -280,6 +280,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [system-design/bloom-not-a-constraint](system-design/bloom-not-a-constraint/) | 布隆过滤器的不存在与唯一约束 | 轻量：确定性输出（SQLite 与标准库） | regular-docker |
 | [system-design/capability-scheduling](system-design/capability-scheduling/) | 异构执行器的调度：队头阻塞、瓶颈迁移与租约 | 轻量：确定性输出（离散时间模拟） | regular-docker |
 | [system-design/alert-rule-semantics](system-design/alert-rule-semantics/) | 告警规则在数什么 | 中等 | regular-docker |
+| [system-design/minimal-cpu](system-design/minimal-cpu/) | 最小累加器 CPU：同一时钟沿的状态更新、标志位契约、停机前提交、非法操作码 | 已验证 | regular-docker |
 | [distributed/execution-plan-shuffle](distributed/execution-plan-shuffle) | Spark 执行计划、倾斜、加盐等价性与显式缓存 |
 | [distributed/checkpoint-state-recovery](distributed/checkpoint-state-recovery) | Flink 单机 checkpoint 和受控算子失败恢复 |
 | [distributed/sdk-retry-stacking](distributed/sdk-retry-stacking/) | SDK 自带重试与应用层重试叠加 | 轻量：确定性输出（openai 3.35.1，本地假服务） | regular-docker |
