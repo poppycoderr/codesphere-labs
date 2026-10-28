@@ -1,7 +1,7 @@
 id: distributed/registry-deregistration-visibility
 title: "实例下线后各层何时不再可见：正常停机时注册中心立即变化、调用方本地副本约 2.7 秒、负载均衡器约 4.7 秒后才停止选择它，期间约 41 个请求失败；崩溃时要等租约（3 秒）两倍左右才被剔除，失败持续 10 到 15 秒（几次运行 86 到 132 个）；先注销、等待缓存刷新、再停服务，失败 0 个"
 status: verified
-tier: regular-docker
+tier: regular
 article:
   repository: codesphere
   path: docs/distributed/registry-deregistration-visibility.md
