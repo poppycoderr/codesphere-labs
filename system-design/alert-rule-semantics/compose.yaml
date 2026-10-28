@@ -1,0 +1,18 @@
+# Prometheus 3.15.1 与 Alertmanager 0.34.1，固定 digest，同一个网络，不对宿主机暴露端口；实验客户端以 lab 为网络别名接入（告警规则语义实验）
+name: csl-alert-rules
+services:
+  prometheus:
+    image: prom/prometheus:v3.15.1@sha256:fa3302279710be2f21a8301ec17a8b4f2301fd829bd113839b3b6b02b6f191a2
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus"]
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./config/rules.yml:/etc/prometheus/rules.yml:ro
+    cpus: 1
+    mem_limit: 512m
+  alertmanager:
+    image: prom/alertmanager:v0.34.1@sha256:e9733bafb1bdef9b00e25a21f8f99dc26a22224bf16641ad754d1649f4c3357a
+    command: ["--config.file=/etc/alertmanager/alertmanager.yml", "--storage.path=/alertmanager"]
+    volumes:
+      - ./config/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+    cpus: 1
+    mem_limit: 256m

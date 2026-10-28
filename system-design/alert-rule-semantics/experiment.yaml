@@ -1,0 +1,23 @@
+id: system-design/alert-rule-semantics
+title: "告警规则在数什么：计数器只加 8，increase(...[3s]) 外推到 11 到 12；同一个尖峰，没有 for 的规则 firing、for: 5s 的规则只到 pending；持续错误时 pending 约 5 秒后 firing；keep_firing_for: 8s 让告警在错误停止后多保持约 8 秒；序列消失后依赖它的告警恢复为 inactive、absent 规则 firing；Alertmanager 把同组两条告警合成一条通知，被静默的告警为 suppressed，接收端返回 500 时重试并计入 notifications_failed_total，而告警在 Prometheus 里仍是 firing"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/system-design/alert-rule-semantics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    prometheus: "3.15.1"
+    alertmanager: "0.34.1"
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

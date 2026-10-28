@@ -1,0 +1,30 @@
+groups:
+  - name: lab
+    interval: 1s
+    rules:
+      # 短暂的尖峰：同一个表达式，有无 for
+      - alert: SpikeNoFor
+        expr: increase(app_errors_total{scenario="spike"}[3s]) > 5
+        labels: {team: a}
+      - alert: SpikeFor5s
+        expr: increase(app_errors_total{scenario="spike"}[3s]) > 5
+        for: 5s
+        labels: {team: a}
+      # 持续的错误：pending 到 firing，以及恢复后 keep_firing_for
+      - alert: SustainedFor5s
+        expr: increase(app_errors_total{scenario="sustained"}[3s]) > 5
+        for: 5s
+        labels: {team: a}
+      - alert: SustainedKeep
+        expr: increase(app_errors_total{scenario="sustained"}[3s]) > 5
+        for: 5s
+        keep_firing_for: 8s
+        labels: {team: a}
+      # 数据断档：表达式没有结果，告警就恢复了；absent 才能发现
+      - alert: GapErrors
+        expr: increase(app_errors_total{scenario="gap"}[3s]) > 5
+        labels: {team: b}
+      - alert: GapAbsent
+        expr: absent(app_errors_total{scenario="gap"})
+        for: 2s
+        labels: {team: b}

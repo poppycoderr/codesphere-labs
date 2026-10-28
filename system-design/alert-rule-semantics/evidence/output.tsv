@@ -1,0 +1,11 @@
+env	prometheus=3.15.1，alertmanager=0.34.1，抓取与评估间隔 1 秒
+spike.increase	计数器只增加了 8，increase(...[3s]) 的最大值大于 8（外推到窗口边界）=True
+spike.nofor	没有 for 的规则进入 firing=True
+spike.for	for: 5s 的规则：进入过 pending=True，进入过 firing=False
+silence	被静默的 SpikeNoFor 在 Alertmanager 里的状态是 suppressed=True
+sustained.for	for: 5s 从 pending 到 firing 用了 4 到 7 秒=True
+sustained.keep	错误停止后，keep_firing_for: 8s 的规则比普通规则多 firing 6 到 10 秒=True
+gap.before	断档前 GapErrors 的状态：firing
+gap.after	序列消失后 GapErrors 回到 inactive=True，absent 规则进入 firing=True
+notify.group	team=a 的 webhook 收到的通知：[['SustainedFor5s', 'SustainedKeep']]
+notify.broken	team=b 的 webhook 一直返回 500：收到过请求=True，alertmanager_notifications_failed_total 大于 0=True，GapAbsent 在 Prometheus 里仍是 firing=True

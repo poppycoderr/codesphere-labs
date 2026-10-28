@@ -1,0 +1,15 @@
+# team=a 发到正常的 webhook，team=b 发到总是返回 500 的 webhook
+route:
+  receiver: ok
+  group_by: [team]
+  group_wait: 3s
+  group_interval: 5s
+  repeat_interval: 1h
+  routes:
+    - matchers: ['team="b"']
+      receiver: broken
+receivers:
+  - name: ok
+    webhook_configs: [{url: "http://lab:9000/ok", send_resolved: false}]
+  - name: broken
+    webhook_configs: [{url: "http://lab:9000/broken", send_resolved: false}]
