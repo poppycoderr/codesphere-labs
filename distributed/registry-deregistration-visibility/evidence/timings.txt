@@ -1,0 +1,3 @@
+graceful=Run[registry=0.1, serverApi=0.0, client=2.7, lastHit=4.7, hits=1, errors=41]
+abrupt=Run[registry=7.1, serverApi=9.6, client=11.9, lastHit=14.7, hits=0, errors=132]
+ordered=Run[registry=0.1, serverApi=0.6, client=2.7, lastHit=4.8, hits=43, errors=0]

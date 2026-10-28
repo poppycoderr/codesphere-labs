@@ -1,0 +1,23 @@
+id: distributed/registry-deregistration-visibility
+title: "实例下线后各层何时不再可见：正常停机时注册中心立即变化、调用方本地副本约 2.7 秒、负载均衡器约 4.7 秒后才停止选择它，期间约 41 个请求失败；崩溃时要等租约（3 秒）两倍左右才被剔除，失败持续 10 到 15 秒（几次运行 86 到 132 个）；先注销、等待缓存刷新、再停服务，失败 0 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/registry-deregistration-visibility.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    spring-boot: "4.0.9"
+    spring-cloud: "2025.1.4"
+    jdk: "21"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

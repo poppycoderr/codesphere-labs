@@ -1,0 +1,7 @@
+abrupt.errors	崩溃：失败的请求比正常停机多=true
+abrupt.later	崩溃（不注销、靠心跳过期）：B 从注册表消失比正常停机晚 2 秒以上=true
+abrupt.order	崩溃：同样按注册中心、本地副本、负载均衡器的顺序传播=true
+graceful.errors	正常停机直接关闭：B 的端口已关闭、调用方仍在选择它，期间出现失败的请求=true
+graceful.order	正常停机：注册中心（注册表与接口）先变，调用方本地副本其次，负载均衡器最后才停止选择 B=true
+ordered.errors	先注销、等待 16 秒、再停服务：失败的请求 0 个
+ordered.hits	先注销之后，B 仍然收到过请求（还在服务，所以没有失败）=true

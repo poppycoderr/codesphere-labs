@@ -1,0 +1,4 @@
+# 由 shared/scripts/surefire-summary.py 从 surefire-reports/TEST-*.xml 生成
+PASS  DeregistrationTest  layersOfVisibility
+
+tests=1 failures=0
