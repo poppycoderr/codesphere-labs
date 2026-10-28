@@ -135,6 +135,7 @@
 | [kubernetes/image-tag-identity](kubernetes/image-tag-identity/) | 同一个镜像 tag，两个节点上跑的不是同一个镜像 | 多节点：kind 与本地镜像仓库 | regular-docker |
 | [kubernetes/image-layers-and-deleted-files](kubernetes/image-layers-and-deleted-files/) | Dockerfile 里删掉的文件，还在镜像里 | 轻量：Docker 构建与镜像包解析 | regular-docker |
 | [kubernetes/control-loop](kubernetes/control-loop/) | 声明式 API 背后是控制循环 | 中等：kind 单节点 | regular-docker |
+| [kubernetes/request-authn-authz](kubernetes/request-authn-authz/) | 集群里的一次请求：认证、授权、准入 | 中等：kind 单节点 | regular-docker |
 | [engineering/ssh-and-git-identity](engineering/ssh-and-git-identity/) | GitHub SSH 与多账号 | 轻量：离线，OpenSSH 与 Git | regular |
 | [engineering/postman-token-refresh](engineering/postman-token-refresh/) | Postman 集合的 token 脚本 | 轻量：Node 容器 + Newman | regular-docker |
 | [engineering/expand-contract-rollback](engineering/expand-contract-rollback/) | 发布的可回退性 | 轻量：MySQL 8.4 + JDBC + Jackson | regular-docker |

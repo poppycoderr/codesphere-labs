@@ -1,0 +1,38 @@
+# 实验命名空间、只读 ServiceAccount、只允许 get/list pods 的 Role 与绑定、一个合成的 Secret、一个使用该 ServiceAccount 的 Pod
+apiVersion: v1
+kind: Namespace
+metadata: {name: lab}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: reader, namespace: lab}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata: {name: pod-reader, namespace: lab}
+rules:
+  - apiGroups: [""]
+    resources: [pods]
+    verbs: [get, list]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: {name: reader-pods, namespace: lab}
+subjects: [{kind: ServiceAccount, name: reader, namespace: lab}]
+roleRef: {apiGroup: rbac.authorization.k8s.io, kind: Role, name: pod-reader}
+---
+apiVersion: v1
+kind: Secret
+metadata: {name: demo, namespace: lab}
+stringData: {password: example_password}
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: app, namespace: lab}
+spec:
+  serviceAccountName: reader
+  terminationGracePeriodSeconds: 0
+  containers:
+    - name: pause
+      image: registry.k8s.io/pause:3.10
+      imagePullPolicy: Never

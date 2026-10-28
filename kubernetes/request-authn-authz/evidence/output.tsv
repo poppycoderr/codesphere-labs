@@ -1,0 +1,2 @@
+anon.version	不带任何凭据（curl -k）：GET /version 返回 200，GET /api/v1/namespaces 返回 403
+anon.user	拒绝信息里的用户：system:anonymous

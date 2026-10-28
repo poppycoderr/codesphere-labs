@@ -1,0 +1,22 @@
+id: kubernetes/request-authn-authz
+title: "集群里的一次请求经过认证、授权、准入：不带凭据时是 system:anonymous，/version 返回 200、列命名空间 403；curl -k 只跳过服务端证书校验；只读 ServiceAccount 的令牌能列本命名空间的 Pod、列 Secret 与别的命名空间 403，受众不对的令牌 401；kubectl create token 的有效期是请求的 600 秒，Pod 自动挂载的投射令牌有效期一年、约一小时后提示刷新；kubectl proxy 用启动它的凭据；Secret 的 base64 解码即明文，etcd 里也是明文；restricted 命名空间里管理员的特权 Pod 被 PodSecurity 准入拒绝"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/request-authn-authz.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    kind: "0.33.0"
+    kubernetes: "1.36.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
