@@ -1,0 +1,22 @@
+id: kubernetes/control-loop
+title: "声明式 API 背后的控制循环：手工把 ReplicaSet 改成 1 个副本，5 秒内被 Deployment 控制器改回 3；删掉的 Pod 被补上；停掉 kube-controller-manager 后修改 Deployment 模板，generation 变为 2 而 observedGeneration 停在 1，删掉的 Pod 不再补、也不建新 ReplicaSet，conditions 仍显示 Available；恢复控制器后一次补齐到 3 个就绪 Pod、observedGeneration=2"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/control-loop.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    kind: "0.33.0"
+    kubernetes: "1.36.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

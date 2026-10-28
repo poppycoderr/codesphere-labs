@@ -1,0 +1,7 @@
+rs.revert	把 ReplicaSet 副本数改成 1：5 秒内被改回 3=True，之后就绪 Pod 3 个
+pod.recreate	删掉 Pod 1 个：随后又是 3 个，被删的名字不在其中=True
+gen.normal	正常时 generation=1，observedGeneration=1
+stopped.gen	控制器停止 10 秒：改了模板后 generation=2，observedGeneration=1
+stopped.pods	控制器停止期间删掉 1 个 Pod：剩 2 个，没有被补上；ReplicaSet 仍是 1 个（新模板没有新建 ReplicaSet）
+stopped.conditions	此时 conditions 仍是：Progressing=True（NewReplicaSetAvailable） Available=True（MinimumReplicasAvailable）
+resumed	恢复后：observedGeneration=2，就绪 Pod 3 个，ReplicaSet 2 个（旧的副本数 0）
