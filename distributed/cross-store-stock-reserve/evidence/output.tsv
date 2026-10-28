@@ -1,0 +1,10 @@
+naive.db-false	数据库扣减 0 行、方法返回 false：Redis 9，数据库可用 10、已售 0，遗留预占 0，两边一致=False
+naive.commit-fail	方法返回 true，提交失败：Redis 9，数据库可用 10、已售 0，遗留预占 0，两边一致=False
+naive.cancel-retry	取消时数据库第一次提交失败、重试成功：Redis 11，数据库可用 10、已售 0，遗留预占 0，两边一致=False
+fixed.db-false	数据库拒绝：数据库拒绝，已释放预占；Redis 10，数据库可用 10、已售 0，遗留预占 0，两边一致=True
+fixed.commit-fail	提交时连接断开：提交结果未知，保留预占；对账前 Redis 9，数据库可用 10、已售 0，遗留预占 1，两边一致=False；对账处理 1 项后 Redis 10，数据库可用 10、已售 0，遗留预占 0，两边一致=True
+fixed.cancel-twice	同一订单取消两次：Redis 10，数据库可用 10、已售 0，遗留预占 0，两边一致=True
+crash.after-reserve	崩溃点 AFTER_RESERVE：崩溃后 Redis 9，数据库可用 10、已售 0，遗留预占 1，两边一致=False；对账处理 1 项后 Redis 10，数据库可用 10、已售 0，遗留预占 0，两边一致=True；再对账一次处理 0 项
+crash.after-commit	崩溃点 AFTER_COMMIT：崩溃后 Redis 9，数据库可用 9、已售 1，遗留预占 1，两边一致=False；对账处理 1 项后 Redis 9，数据库可用 9、已售 1，遗留预占 0，两边一致=True；再对账一次处理 0 项
+crash.cancel-after-db	崩溃点 CANCEL_AFTER_DB：崩溃后 Redis 9，数据库可用 10、已售 0，遗留预占 0，两边一致=False；对账处理 1 项后 Redis 10，数据库可用 10、已售 0，遗留预占 0，两边一致=True；再对账一次处理 0 项
+fixed.concurrent	50 个订单并发抢 10 件：成功 10 个；Redis 0，数据库可用 0、已售 10，遗留预占 0，两边一致=True

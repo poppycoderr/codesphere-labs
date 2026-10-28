@@ -1,0 +1,23 @@
+id: distributed/cross-store-stock-reserve
+title: "库存先在 Redis 预扣、再到 MySQL 扣减：朴素写法在数据库拒绝、提交时连接断开、取消重试三种情况下两边不一致（Redis 9/9/11 对数据库 10）；改为按订单号幂等的预占、数据库明确拒绝才立即释放、提交结果未知时交给按数据库流水判定的对账、取消先改数据库流水再按订单号加回一次之后，三个崩溃点各对账一次即恢复一致、第二次对账处理 0 项；50 个订单并发抢 10 件恰好成功 10 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/cross-store-stock-reserve.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    redis: "8.10.1"
+    mysql: "8.4.11"
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

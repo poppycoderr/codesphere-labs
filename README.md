@@ -279,6 +279,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [distributed/sdk-retry-stacking](distributed/sdk-retry-stacking/) | SDK 自带重试与应用层重试叠加 | 轻量：确定性输出（openai 3.35.1，本地假服务） | regular-docker |
 | [distributed/request-correlation](distributed/request-correlation/) | 请求关联：待完成表、先登记后发送、编号复用、断连与写出完成 | 轻量：确定性输出（标准库） | regular-docker |
 | [distributed/composite-lock-acquisition](distributed/composite-lock-acquisition/) | 组合获取多把锁：部分成功回退、加锁顺序、租期预算、多数派前提 | 轻量：确定性输出（标准库） | regular-docker |
+| [distributed/cross-store-stock-reserve](distributed/cross-store-stock-reserve/) | 跨存储库存预扣：Redis 预扣、MySQL 扣减与对账 | 中等 | regular-docker |
 
 ## 目录约定
 
