@@ -25,6 +25,13 @@ avg.per_all_users	90.000000	450/5 个用户
 notin.with_null	0	子查询含 NULL，NOT IN 对每一行都不为真
 notin.filtered_null	2	用户 4、5
 notin.not_exists	2	用户 4、5
+nulleq.ne	2	user_id 为 2、3 的两笔；游客订单（NULL）不在其中
+nulleq.not_eq	2	NOT (NULL = 1) 仍是未知，游客订单同样被漏掉
+nulleq.not_nullsafe	3	NULL <=> 1 为假，取反为真：2、3 与游客订单
+nulleq.eq_null	0	= NULL 永远是未知
+nulleq.nullsafe_null	1	游客订单
+scalar.no_row	NULL	用户 4 没有订单，子查询没有行
+scalar.compare	0	用户 5 没有订单，MAX 是 NULL，比较对每一行都是未知
 empty.sum	NULL	没有行时 SUM 是 NULL
 empty.count	0	没有行时 COUNT 是 0
 empty.ratio_null_safe	NULL	分母用 NULLIF 变成 NULL，结果是 NULL 而不是报错

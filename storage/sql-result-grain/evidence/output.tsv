@@ -25,6 +25,13 @@ avg.per_all_users	90.000000
 notin.with_null	0
 notin.filtered_null	2
 notin.not_exists	2
+nulleq.ne	2
+nulleq.not_eq	2
+nulleq.not_nullsafe	3
+nulleq.eq_null	0
+nulleq.nullsafe_null	1
+scalar.no_row	NULL
+scalar.compare	0
 empty.sum	NULL
 empty.count	0
 empty.ratio_null_safe	NULL

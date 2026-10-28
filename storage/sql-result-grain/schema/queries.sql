@@ -54,6 +54,16 @@ SELECT 'notin.with_null', COUNT(*) FROM users WHERE id NOT IN (SELECT user_id FR
 SELECT 'notin.filtered_null', COUNT(*) FROM users WHERE id NOT IN (SELECT user_id FROM orders WHERE user_id IS NOT NULL);
 SELECT 'notin.not_exists', COUNT(*) FROM users u WHERE NOT EXISTS (SELECT 1 FROM orders o WHERE o.user_id = u.id);
 
+-- 8b. 比较遇到 NULL：<> 与 NOT (=) 都会漏掉 NULL 行，<=> 是 NULL 安全的等于
+SELECT 'nulleq.ne', COUNT(*) FROM orders WHERE user_id <> 1;
+SELECT 'nulleq.not_eq', COUNT(*) FROM orders WHERE NOT (user_id = 1);
+SELECT 'nulleq.not_nullsafe', COUNT(*) FROM orders WHERE NOT (user_id <=> 1);
+SELECT 'nulleq.eq_null', COUNT(*) FROM orders WHERE user_id = NULL;
+SELECT 'nulleq.nullsafe_null', COUNT(*) FROM orders WHERE user_id <=> NULL;
+-- 8c. 标量子查询没有行时是 NULL，拿它比较，结果为「未知」
+SELECT 'scalar.no_row', IFNULL((SELECT amount FROM orders WHERE user_id = 4 ORDER BY id DESC LIMIT 1), 'NULL');
+SELECT 'scalar.compare', COUNT(*) FROM orders WHERE amount > (SELECT MAX(amount) FROM orders WHERE user_id = 5);
+
 -- 9. 空集与 NULL：SUM 在没有行时是 NULL，COUNT 是 0；AVG 忽略 NULL
 SELECT 'empty.sum', IFNULL(SUM(amount), 'NULL') FROM orders WHERE status = 'REFUNDED';
 SELECT 'empty.count', COUNT(*) FROM orders WHERE status = 'REFUNDED';
