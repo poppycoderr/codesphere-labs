@@ -1,0 +1,14 @@
+# 单节点 ZooKeeper 3.9.5，固定 digest，不对宿主机暴露端口；客户端 JDK 容器接入同一网络（ZooKeeper 会话实验）
+name: csl-zk-session
+services:
+  zk:
+    image: zookeeper:3.9.5@sha256:e6b279d0135070507e867a3220c941fe90b791937b6d469b6929b79a5dfb01ba
+    environment:
+      ZOO_4LW_COMMANDS_WHITELIST: "ruok"
+    cpus: 1
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "echo ruok | nc -w 2 127.0.0.1 2181 | grep -q imok"]
+      interval: 2s
+      timeout: 3s
+      retries: 30

@@ -1,0 +1,8 @@
+env	zookeeper 客户端 3.9.5，会话超时 6000ms
+short.states	冻结 3 秒（会话超时 6 秒）：连接状态 [CONNECTED, SUSPENDED, RECONNECTED]
+short.session	断连期间临时节点还在=true，重连后仍在=true，会话 ID 不变=true
+long.gone	冻结后临时节点消失的时刻在会话超时附近（5 到 9 秒）=true；不是断连的瞬间=true
+long.states	冻结 12 秒：连接状态 [CONNECTED, SUSPENDED, LOST, RECONNECTED]，恢复后是新的会话=true，/b 不会自动重建=true
+close.vs.crash	close() 后临时节点 1 秒内消失=true；进程消失后要等到会话超时（大于 5 秒）=true
+lock.lost	持有者失联：另一个客户端拿到了锁=true；此时原持有者 isAcquiredInThisProcess()=true，它收到的连接状态 [CONNECTED, SUSPENDED]
+watch	连续改两次：一次性 watch 收到 1 个事件 [NodeDataChanged]（事件里没有新值），持久递归 watch 收到 2 个；之后读到的值是 v2

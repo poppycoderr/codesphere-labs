@@ -1,0 +1,2 @@
+long_gone_after=6.2 states=[CONNECTED@0.0, SUSPENDED@4.2, LOST@10.2, RECONNECTED@13.2]
+close_gone_after=0.1 crash_gone_after=7.8

@@ -1,0 +1,23 @@
+id: distributed/zookeeper-session
+title: "ZooKeeper 会话不是 TCP 连接：断连 3 秒（会话超时 6 秒）时 Curator 经历 SUSPENDED、RECONNECTED，临时节点一直在、会话 ID 不变；断连 12 秒时临时节点在约 7 秒后才消失，客户端依次收到 SUSPENDED、LOST，恢复后是新会话且节点不会自动重建；close() 后临时节点 1 秒内消失，进程消失则要等到会话超时；锁持有者失联后另一个客户端拿到锁，此时原持有者只收到 SUSPENDED，isAcquiredInThisProcess() 仍为 true；连续修改两次，一次性 watch 收到 1 个不带新值的事件，持久递归 watch 收到 2 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/zookeeper-session.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    zookeeper: "3.9.5"
+    curator: "5.9.0"
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

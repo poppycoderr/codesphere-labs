@@ -285,6 +285,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [distributed/cross-store-stock-reserve](distributed/cross-store-stock-reserve/) | 跨存储库存预扣：Redis 预扣、MySQL 扣减与对账 | 中等 | regular-docker |
 | [distributed/bucket-layout-migration](distributed/bucket-layout-migration/) | 分桶库存：调整桶数是一次迁移 | 轻量 | regular-docker |
 | [distributed/scheduled-job-once](distributed/scheduled-job-once/) | 多实例定时任务只跑一次 | 轻量 | regular-docker |
+| [distributed/zookeeper-session](distributed/zookeeper-session/) | ZooKeeper 会话不是 TCP 连接 | 轻量 | regular-docker |
 
 ## 目录约定
 
