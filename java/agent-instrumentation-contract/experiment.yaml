@@ -1,0 +1,22 @@
+id: java/agent-instrumentation-contract
+title: "插桩不能改变业务结果：进入通知抛异常时业务方法跟着抛，加 suppress 后返回 300；默认出口通知在方法抛异常时不执行（进入 2 次、出口 1 次），onThrowable 后成对；构造器进入通知读 @This 时转换失败、类照常以原样加载，错误只交给监听器；removeTransformer 之后已转换的类仍在计数，要再 retransformClasses 或用 ByteBuddy 的 reset；retransform 加字段被 JVM 拒绝；两个转换器各装一次时调用 1 次计数 2；按模式遮挡挡住了卡号、没挡住密码；上报用 put 时队列满后业务调用卡住，改用 offer 后 20 次全部完成、丢弃 15 条"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/agent-instrumentation-contract.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+    byte-buddy: "1.18.16"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
