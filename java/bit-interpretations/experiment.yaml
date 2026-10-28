@@ -1,0 +1,21 @@
+id: java/bit-interpretations
+title: "同一串位的几种解释：(byte) 0xFF 是 -1；有符号与无符号累加的低 8 位相同，但有符号和 % 256 得 -112；字节 01 F0 不屏蔽直接拼得 -16 而不是 496；(byte) (b >>> 4) 取 0xF0 的高 4 位得 -1；0x7F + 1 溢出不进位、0xFF + 1 进位不溢出；无符号进位 Math.addExact 发现不了；-MIN_VALUE 和 MIN_VALUE / -1 都是它自己；相减比较器把 MIN_VALUE 排在 MAX_VALUE 之后，而计时器越过最大值时只有相减判断是对的"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/java/bit-interpretations.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
