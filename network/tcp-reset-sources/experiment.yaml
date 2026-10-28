@@ -1,0 +1,23 @@
+id: network/tcp-reset-sources
+title: "RST 从哪来：端口无人监听得到 ECONNREFUSED；接收缓冲区还有未读数据时 close 发出 RST 而不是 FIN，对端读到 ECONNRESET，读完再关则是 EOF；SO_LINGER 为 0 时直接复位、本端不留 TIME_WAIT；对端正常关闭后第一次写成功、对端回 RST，之后的写得到 EPIPE；服务端空闲 1 秒关闭、客户端空闲 1.5 秒后复用连接，发送成功、读到 EOF，复用前用 MSG_PEEK 检查可以提前发现；tcpdump 的 tcp[13] & 18 != 0 匹配 4 个报文，== 18 只匹配 1 个"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/tcp-reset-sources.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    netshoot: "v0.16"
+    python: "3.14.5"
+    linux-kernel: "7.0.14-linuxkit"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"

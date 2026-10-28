@@ -1,0 +1,10 @@
+refused	连接没有进程监听的端口 9000：ECONNREFUSED
+unread	客户端发了 100 字节、服务端不读就 close：客户端随后读到 ECONNRESET
+read-then-close	对照：服务端读完再 close：客户端读到 EOF
+linger0	服务端设 SO_LINGER(on, 0) 后 close：客户端读到 ECONNRESET；服务端 TIME_WAIT 0 个
+writes	服务端正常 close 之后，客户端连续写 3 次：ok EPIPE EPIPE
+pool.reuse	连接空闲 1.5 秒（服务端空闲 1 秒就关闭）后直接复用：第一次 PONG，复用时发送成功，然后读到 EOF
+pool.check	同样的空闲连接，复用前用 MSG_PEEK 非阻塞读一个字节检查：复用前检查到对端已关闭，丢弃并新建连接；新连接得到 PONG
+pcap.rst	服务端发出的 RST：9001（未读就关）1 个，9002（读完再关）0 个，9003（linger 0）1 个，9004（关闭后被写）1 个，9005（池复用）1 个
+pcap.fin	服务端发出的 FIN：9001 0 个，9002 1 个，9003 0 个
+pcap.filter	端口 9002 上服务端发出的报文：tcp[13] & 18 != 0（SYN 或 ACK 任一置位）匹配 4 个，tcp[13] & 18 == 18（SYN 与 ACK 都置位）匹配 1 个，tcp[tcpflags] == tcp-syn|tcp-ack 匹配 1 个
