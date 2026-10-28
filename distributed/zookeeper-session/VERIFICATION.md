@@ -7,7 +7,7 @@
 | 场景 | 结果 |
 |---|---|
 | 断连 3 秒 | SUSPENDED → RECONNECTED，临时节点一直在，会话不变 |
-| 断连 12 秒 | 临时节点约 7 秒后消失；SUSPENDED → LOST → 新会话，节点不会重建 |
+| 断连 12 秒 | 临时节点 6 到 7 秒后消失；SUSPENDED → LOST → 新会话，节点不会重建 |
 | close() 与进程消失 | 1 秒内消失 / 等到会话超时 |
 | 锁持有者失联 | 另一客户端拿到锁时，原持有者只收到 SUSPENDED，isAcquiredInThisProcess() 仍为 true |
 | 连续修改两次 | 一次性 watch 1 个事件，持久递归 watch 2 个 |
