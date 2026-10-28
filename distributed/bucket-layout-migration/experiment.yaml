@@ -1,0 +1,22 @@
+id: distributed/bucket-layout-migration
+title: "分桶库存：整除拆分丢掉余数（10 拆 3 合计 9），余数分给前面的桶；只扣自己的桶时 10 个请求只成功 7 个、误判售罄时其他桶还有 6 件，空桶时依次试其他桶则 10 个全部成功；客户端先读总数再写新桶，期间的 3 笔扣减被抹掉、总共能卖 13 件；缩容后不校验版本的旧路由请求扣到已删除的桶；带布局版本号的单脚本原子迁移下，旧版本请求被拒后重读布局，8 个线程扣减 1000 件期间调整桶数 5 次，恰好卖出 1000、没有负数桶"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/distributed/bucket-layout-migration.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    redis: "8.10.1"
+    jdk: "25.0.4.1"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
