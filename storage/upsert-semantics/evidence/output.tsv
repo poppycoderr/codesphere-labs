@@ -1,0 +1,11 @@
+ignore.dup	INSERT IGNORE 遇到重复：影响 0 行，警告 1062
+ignore.long	INSERT IGNORE 写入 20 个字符到 VARCHAR(10)：影响 1 行，警告 1265，存进去的是 a-very-lon
+ignore.null	INSERT IGNORE 给 NOT NULL 列写 NULL：影响 1 行，警告 1048，存进去的是 []
+strict.long	不带 IGNORE 的同一条插入：报错 1406=True
+odku.rows	ON DUPLICATE KEY UPDATE 影响行数：新插入 1，更新且值变了 2，更新但值没变 0
+autoinc	5 次走了更新分支的 upsert 之后，新插入一行得到 id 12，而表中最大 id 是 6
+multi	email 与 alice 冲突、phone 与 bob 冲突：影响 2 行，结果 1:mix,2:bob（只改了一行）
+values	ON DUPLICATE KEY UPDATE 里用 VALUES(col)：警告 1287（已弃用）
+replace.before	REPLACE 之前：order_items 3 行，删除审计 0 条
+replace.one	REPLACE 与 bob 冲突：影响 2 行，bob 的 id 从 2 变成 15，之后 order_items 与审计：2|delete:2
+replace.two	REPLACE 同时与 alice（email）和 grace（phone）冲突：影响 3 行，剩下 a@example.com/700/merged，order_items 剩 0 行，删除审计共 3 条

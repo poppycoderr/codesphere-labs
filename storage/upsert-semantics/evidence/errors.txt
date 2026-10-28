@@ -1,0 +1,1 @@
+ERROR 1406 (22001) at line 26: Data too long for column 'nickname' at row 1

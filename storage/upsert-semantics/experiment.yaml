@@ -1,0 +1,21 @@
+id: storage/upsert-semantics
+title: "冲突写入：INSERT IGNORE 除了跳过重复（1062），还把超长值截断（1265）、把 NULL 写成空串（1048）；ON DUPLICATE KEY UPDATE 影响行数为 1/2/0；走更新分支也消耗自增值；两个唯一键分别与两行冲突时只更新一行；VALUES(col) 报弃用警告 1287；REPLACE 是先删后插：id 改变、触发 DELETE 触发器与外键级联，同时与两行冲突时两行都删"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/upsert-semantics.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-28"
