@@ -1,5 +1,5 @@
 # 由 shared/scripts/lib.sh write_environment 生成
-date_utc: 2026-10-28T13:25:36Z
+date_utc: 2026-10-28T13:34:16Z
 os: Darwin 27.0.0
 arch: arm64
 os_version: macOS 27.0.1

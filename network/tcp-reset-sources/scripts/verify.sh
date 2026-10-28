@@ -18,7 +18,7 @@ T="python3 /w/src/rst.py"
 for pm in "9001 unread" "9002 read-then-close" "9003 linger0" "9004 close" "9005 keepalive" "9006 keepalive"; do
   docker exec -d "$SRV" sh -c "$T serve $pm"
 done
-docker exec -d "$CLI" sh -c "tcpdump -i eth0 -U -n -w /tmp/all.pcap tcp >/dev/null 2>&1"
+docker exec -d "$CLI" sh -c "tcpdump -i eth0 --immediate-mode -U -n -w /tmp/all.pcap tcp >/dev/null 2>&1"
 sleep 1.5
 f="$OUT/output.tsv"; : >"$f"
 o() { printf '%s\t%s\n' "$1" "$2" >>"$f"; }
@@ -38,7 +38,7 @@ o "pool.reuse" "连接空闲 1.5 秒（服务端空闲 1 秒就关闭）后直�
 IFS='|' read -r q1 q2 q3 < <(c "$T pool 9006 1.5 1")
 o "pool.check" "同样的空闲连接，复用前用 MSG_PEEK 非阻塞读一个字节检查：${q2}；$q3"
 sleep 0.5
-c "pkill -INT tcpdump"; sleep 0.5
+sleep 1; c "pkill -INT tcpdump; while pgrep -x tcpdump >/dev/null; do sleep 0.1; done"
 o "pcap.rst" "服务端发出的 RST：9001（未读就关）$(cnt 9001 'tcp[13] & 4 != 0') 个，9002（读完再关）$(cnt 9002 'tcp[13] & 4 != 0') 个，9003（linger 0）$(cnt 9003 'tcp[13] & 4 != 0') 个，9004（关闭后被写）$(cnt 9004 'tcp[13] & 4 != 0') 个，9005（池复用）$(cnt 9005 'tcp[13] & 4 != 0') 个"
 o "pcap.fin" "服务端发出的 FIN：9001 $(cnt 9001 'tcp[13] & 1 != 0') 个，9002 $(cnt 9002 'tcp[13] & 1 != 0') 个，9003 $(cnt 9003 'tcp[13] & 1 != 0') 个"
 o "pcap.filter" "端口 9002 上服务端发出的报文：tcp[13] & 18 != 0（SYN 或 ACK 任一置位）匹配 $(cnt 9002 'tcp[13] & 18 != 0') 个，tcp[13] & 18 == 18（SYN 与 ACK 都置位）匹配 $(cnt 9002 'tcp[13] & 18 == 18') 个，tcp[tcpflags] == tcp-syn|tcp-ack 匹配 $(cnt 9002 'tcp[tcpflags] == tcp-syn|tcp-ack') 个"
