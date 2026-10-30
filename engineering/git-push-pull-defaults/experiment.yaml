@@ -1,0 +1,21 @@
+id: engineering/git-push-pull-defaults
+title: "推送与拉取的默认行为：push.default 未设置时按 simple，新分支没有上游时 git push 报错，push.autoSetupRemote 自动建立上游，上游名字不同时拒绝推送；两边分歧时 git pull 直接报错要求选择，--ff-only 失败，--rebase 让本地提交换了身份，--no-rebase 新增合并提交；amend 与 cherry-pick 产生新提交（cherry-pick 的 patch-id 相同）；--force-with-lease 在没有 fetch 时拒绝覆盖，后台 fetch 之后却放行并抹掉别人的提交，加 --force-if-includes 才拒绝"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/tools/git-push-pull-defaults.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    git: "2.54.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"
