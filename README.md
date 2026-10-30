@@ -238,6 +238,7 @@
 | [ai/preference-score-contract](ai/preference-score-contract/) | 偏好分数的契约与长度混杂 | 轻量：确定性输出（标准库） | regular-docker |
 | [ai/context-token-budget](ai/context-token-budget/) | 上下文预算：三种词表的 token 数、按 token 截断、对话模板开销、按字符或空格估算的偏差 | 已验证 | regular-docker |
 | [ai/generation-dedupe](ai/generation-dedupe/) | 生成结果去重：先查后写的重复生成、EXISTS/GET 窗口、TTL 与 KEEPTTL、空答案、三态与租约令牌 | 已验证 | regular-docker |
+| [ai/usage-accounting](ai/usage-accounting/) | 用量记账：片段不是 token、断开与重试、回退的价格、重复投递与按响应 ID 幂等入账 | 已验证 | regular-docker |
 | [testing/open-vs-closed-load-model](testing/open-vs-closed-load-model/) | 固定 10 个并发压测，服务卡了 2 秒，报告里只有 10 个慢请求 | 轻量：计时，只断言范围 | regular-docker |
 | [testing/coverage-is-not-verification](testing/coverage-is-not-verification/) | 覆盖率 100%，一个断言都没有 | 轻量：JaCoCo 与 PIT | regular-docker |
 | [testing/retry-hides-failures](testing/retry-hides-failures/) | 重跑一次就过了，这个缺陷去哪了 | 轻量：Surefire 重跑 | regular-docker |

@@ -1,0 +1,21 @@
+id: ai/usage-accounting
+title: "用量记账：流式返回 12 个片段、43 个字符，usage 是 31 个输出 token；客户端收到 5 个片段后断开，拿不到 usage，供应商照样计 12 个；朴素记账在重试时把第二次的 usage 记了两次、第一次的 15 个没有入账（62 对 46），usage 重复投递时记成 62 对 31，回退到小模型时按大模型价格多算近 4 倍；按响应 ID 幂等入账、超时与断开的响应事后对账后，三种情况的输出与费用都与供应商账单一致"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/usage-accounting.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"
