@@ -1,0 +1,14 @@
+mb3.emoji	向 utf8mb3 列写入「好的👍」：ERROR 1366（Incorrect string value: '\xF0\x9F\x91\x8D' for column 's' at row 1）
+mb4.len	同样的值写入 utf8mb4 列：3 个字符、10 个字节，HEX E5A5BDE79A84F09F918D
+mis.bytes	同样输入「你好」：客户端声明 utf8mb4 时存为 E4BDA0E5A5BD（2 个字符）；声明 latin1 时存为 C3A4C2BDC2A0C3A5C2A5C2BD（6 个字符）
+mis.read	第二行用 latin1 客户端读回：你好；用 utf8mb4 客户端读回：ä½ å¥½；utf8mb4 客户端查 WHERE s = '你好' 匹配 1 行（只有第一行）
+coll.default	服务器默认排序规则 utf8mb4_0900_ai_ci，库 labs 的默认排序规则 utf8mb4_0900_ai_ci
+coll.compare	'jose' 与 'José'：0900_ai_ci 相等=True，'jose' 与 'JOSE' 相等=True；0900_as_cs 相等=False；utf8mb4_bin 相等=False
+coll.pad	'a' 与 'a '：0900_ai_ci（NO PAD）相等=False，general_ci（PAD SPACE）相等=True
+coll.unique	ai_ci 的主键上已有 'José'，再插入 'jose'：ERROR 1062（Duplicate entry 'jose' for key 'users_ci.PRIMARY'）；utf8mb4_bin 的主键上 José、jose、JOSE 共 3 行
+coll.lookup	WHERE name = 'jose'：ai_ci 表匹配 1 行（存的是 José），bin 表匹配 1 行
+dec.round	DECIMAL(10,2) 写入 1.005：存为 1.01，诊断 1265（Note，不是错误）
+dec.range	DECIMAL(10,2) 写入 123456789.12（整数部分 9 位，上限 8 位）：ERROR 1264（Out of range value for column 'amount' at row 1）
+dec.max	DECIMAL(66,2)：ERROR 1426（Too-big precision 66 specified for 'a'. Maximum is 65.）
+dec.div	DECIMAL 的 1/3 = 0.333333（div_precision_increment = 4），再乘 3 = 1.000000
+dec.sum	0.1 + 0.2 = 0.3：DECIMAL 为 True，DOUBLE 为 False

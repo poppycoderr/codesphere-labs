@@ -1,0 +1,14 @@
+mb4.len	3|10|E5A5BDE79A84F09F918D
+coll.default	utf8mb4_0900_ai_ci|utf8mb4_0900_ai_ci
+coll.ai_ci	1|1|0|0
+coll.pad	0|1|NO PAD|PAD SPACE
+coll.bin.count	3
+coll.lookup	1|1
+Note	1265	Data truncated for column 'amount' at row 1
+dec.round	1.01|1265
+dec.div	0.333333|4|1.000000
+dec.sum	1|0
+mis.hex	1:E4BDA0E5A5BD:2,2:C3A4C2BDC2A0C3A5C2A5C2BD:6
+mis.read.latin1	你好
+mis.read.utf8	ä½ å¥½
+mis.where	1

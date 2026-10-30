@@ -1,0 +1,21 @@
+id: storage/charset-collation-decimal
+title: "值进库之前经过的转换：utf8mb3 列写入表情报 1366；客户端声明 latin1、实际发 UTF-8 时「你好」被存成 12 个字节、6 个字符，同一个客户端读回正常，utf8mb4 客户端读到 ä½ å¥½、按值查询查不到；默认排序规则 utf8mb4_0900_ai_ci 下 jose、José、JOSE 相等，唯一主键上插入 jose 报重复，0900 排序规则不忽略尾随空格而 general_ci 忽略；DECIMAL(10,2) 写入 1.005 存为 1.01 只给 Note，整数位超出报 1264，精度上限 65 位；0.1 + 0.2 = 0.3 在 DECIMAL 下成立、DOUBLE 下不成立"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/storage/charset-collation-decimal.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    mysql: "8.4.11"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"

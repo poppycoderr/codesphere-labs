@@ -1,0 +1,4 @@
+INSERT INTO t3 VALUES ('好的👍');	ERROR 1366 (HY000) at line 1: Incorrect string value: '\xF0\x9F\x91\x8D' for column 's' at row 1
+INSERT INTO users_ci VALUES ('jose');	ERROR 1062 (23000) at line 1: Duplicate entry 'jose' for key 'users_ci.PRIMARY'
+INSERT INTO money VALUES (123456789.12);	ERROR 1264 (22003) at line 1: Out of range value for column 'amount' at row 1
+CREATE TABLE too_wide (a DECIMAL(66,2));	ERROR 1426 (42000) at line 1: Too-big precision 66 specified for 'a'. Maximum is 65.
