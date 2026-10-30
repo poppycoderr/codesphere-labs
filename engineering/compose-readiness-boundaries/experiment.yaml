@@ -1,0 +1,23 @@
+id: engineering/compose-readiness-boundaries
+title: "Compose 里的依赖就绪、网络与项目边界：depends_on 默认只等容器启动，db 5 秒后才监听时 app 连接被拒；改成 service_healthy 后 up 等健康检查通过，连接成功；依赖一直不健康时 up 失败、app 停在 created；127.0.0.1:18080 只绑回环、18081 绑所有地址；没有 EXPOSE 的 9000 端口在同一网络里照样可达；服务名只在同一项目的网络里能解析；同一个文件用两个项目名启动得到两套卷和网络，down 保留卷、down -v 删掉项目的卷但不碰外部卷"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/compose-readiness-and-boundaries.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    docker: "29.9.1"
+    compose: "5.6.0"
+    alpine: "3.22"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"

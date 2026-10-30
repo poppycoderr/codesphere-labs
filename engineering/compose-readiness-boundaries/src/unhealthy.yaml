@@ -1,0 +1,15 @@
+# db 永远不健康
+services:
+  db:
+    image: alpine:3.22@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+    command: ["sleep", "600"]
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8080"]
+      interval: 1s
+      retries: 3
+  app:
+    image: alpine:3.22@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["sleep", "600"]

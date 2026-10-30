@@ -1,0 +1,13 @@
+ Network csl-crb-unhealthy_default Creating 
+ Network csl-crb-unhealthy_default Creating 
+ Network csl-crb-unhealthy_default Created 
+ Network csl-crb-unhealthy_default Created 
+ Container csl-crb-unhealthy-db-1 Creating 
+ Container csl-crb-unhealthy-db-1 Created 
+ Container csl-crb-unhealthy-app-1 Creating 
+ Container csl-crb-unhealthy-app-1 Created 
+ Container csl-crb-unhealthy-db-1 Starting 
+ Container csl-crb-unhealthy-db-1 Started 
+ Container csl-crb-unhealthy-db-1 Waiting 
+ Container csl-crb-unhealthy-db-1 Error dependency db failed to start
+dependency failed to start: container csl-crb-unhealthy-db-1 is unhealthy

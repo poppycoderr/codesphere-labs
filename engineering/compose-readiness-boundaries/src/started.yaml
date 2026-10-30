@@ -1,0 +1,9 @@
+# depends_on 默认条件：db 容器启动后 app 就启动；db 5 秒后才开始监听
+services:
+  db:
+    image: alpine:3.22@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+    command: ["sh", "-c", "sleep 5; while true; do echo ok | nc -l -p 8080; done"]
+  app:
+    image: alpine:3.22@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+    depends_on: [db]
+    command: ["sh", "-c", "if nc -z -w 2 db 8080; then echo connected; else echo refused; fi; sleep 600"]

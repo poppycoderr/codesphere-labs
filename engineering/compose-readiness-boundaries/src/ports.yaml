@@ -1,0 +1,9 @@
+# 端口发布与 EXPOSE；web 监听 80（发布到回环与所有地址）与 9000（既不发布也没有 EXPOSE）
+services:
+  web:
+    image: alpine:3.22@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+    command: ["sh", "-c", "(while true; do echo p80 | nc -l -p 80; done) & while true; do echo p9000 | nc -l -p 9000; done"]
+    ports: ["127.0.0.1:18080:80", "18081:80"]
+  peer:
+    image: alpine:3.22@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+    command: ["sleep", "600"]

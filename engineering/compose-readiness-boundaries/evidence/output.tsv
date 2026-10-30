@@ -1,0 +1,9 @@
+depends.started	depends_on 默认条件（service_started），db 5 秒后才监听：app 启动时连接 db 的结果 refused
+depends.healthy	condition: service_healthy，db 配了健康检查：up 用时 4 到 15 秒之间=true，app 的连接结果 connected
+depends.unhealthy	db 一直不健康：up 退出码非 0=true，app 容器状态 created
+ports.binding	发布 127.0.0.1:18080:80 与 18081:80：绑定地址 0.0.0.0:18081 127.0.0.1:18080
+ports.expose	镜像与 Compose 都没有声明 9000：同一网络的 peer 访问 web:9000 得到 p9000（EXPOSE 只是元数据，不控制可达性）；容器的 EXPOSE 列表 {"80/tcp":{}}（80 是发布端口时自动加上的）
+dns.scope	web 的服务名：同一项目里的 peer 能解析=true；另一个项目的容器能解析=false
+project.isolation	同一个文件用两个项目名启动：卷 csl-crb-p1_data csl-crb-p2_data，网络 csl-crb-p1_default csl-crb-p2_default
+down	p1 执行 down：p1 的卷还在=true，p1 的网络还在=false
+down.v	两个项目都执行 down -v：项目声明的卷还在=0 个，外部卷 csl-crb-shared 还在=true
