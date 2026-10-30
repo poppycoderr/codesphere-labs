@@ -1,0 +1,12 @@
+clients	同一个缓冲区挂了 2 个服务，都声明能格式化：fmt2=true、fmt4=true
+both	vim.lsp.buf.format() 不加过滤：缩进 4/8（两个服务依次格式化，后一个的结果覆盖前一个）
+filter.name	按名字只用 fmt2：缩进 2/4
+filter.fn	用 filter 只用 fmt4：缩进 4/8
+sync.timeout	服务要 1.5 秒、同步格式化 timeout_ms=300：调用返回（无错误），缓冲区 缩进 1/2
+sync.late	超时之后结果再回来：缓冲区 缩进 1/2（迟到的结果被丢弃）
+async.changed	async=true 发出请求后立即把第 1 行改成「def g():」：0.5 秒后结果返回，缓冲区第 1 行「def f():」，缩进 4/8；用户的修改被格式化结果覆盖=true
+async.ok	同样的异步格式化、期间不改内容：缩进 4/8
+save.sync	BufWritePre 里同步格式化后 :write：磁盘上第 2 行缩进 4，缓冲区 缩进 4/8，未保存的修改=false
+save.async	BufWritePre 里 async=true：磁盘上第 2 行缩进 1（写的是格式化之前的内容），缓冲区 缩进 4/8，未保存的修改=true
+old.api	client.resolved_capabilities = nil；vim.lsp.buf.formatting = nil；server_capabilities.documentFormattingProvider = true
+env	nvim 0.12.6+v0.12.6

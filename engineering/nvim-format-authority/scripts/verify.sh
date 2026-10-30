@@ -24,9 +24,9 @@ if [ ! -x "$N/bin/nvim" ]; then
 fi
 f="$OUT/output.tsv"
 docker run --rm -v "$PWD/src:/src:ro" -v "$N:/nvim:ro" "$PY" /nvim/bin/nvim --clean --headless -l /src/lab.lua >"$f" 2>"$OUT/stderr.txt"
-write_environment "$OUT/environment.txt" "python_image: $PY" "neovim: $V（nvim-linux-$A.tar.gz，sha256 ${SUM:0:16}…）"
+write_environment "$OUT/environment.txt" "python_image: $PY" "neovim: ${V}（nvim-linux-${A}.tar.gz，sha256 ${SUM:0:16}…）"
 cat "$f" >&2
-diff - "$f" # 延迟与等待都留了余量，输出是确定的；Neovim 的提示信息（如 timeout）记在 stderr.txt
+# 延迟与等待都留了余量，输出是确定的；Neovim 的提示信息（如 timeout）记在 stderr.txt
 diff - "$f" <<'EXPECTED' || fail "输出与预期不一致"
 clients	同一个缓冲区挂了 2 个服务，都声明能格式化：fmt2=true、fmt4=true
 both	vim.lsp.buf.format() 不加过滤：缩进 4/8（两个服务依次格式化，后一个的结果覆盖前一个）
