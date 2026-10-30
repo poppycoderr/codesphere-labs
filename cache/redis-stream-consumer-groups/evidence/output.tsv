@@ -1,0 +1,9 @@
+pending	c1 用 XREADGROUP 读到 3 条、没有 XACK：待确认 3 条，持有者 [('c1', 3)]；XLEN = 3
+no-redeliver	c1 不再出现，c2 用 '>' 读新消息：拿到 0 条（已投递未确认的消息不会自动重投）
+own-pending	c1 重启后用 ID '0' 读自己的待确认列表：拿到 3 条，与之前相同=True
+autoclaim	空闲超过 500ms 后 c2 用 XAUTOCLAIM 接管：3 条，现在的持有者 ['c2']，投递次数 [3, 3, 3]（首次读取、c1 重读、c2 接管各算一次）
+late-ack	c2 接管之后，c1 处理完第 1 条才 XACK：返回 1（不检查当前持有者是谁）；c2 处理完再 XACK 同一条返回 0，这条消息已经被两个消费者各处理过一次
+poison	一条每次都处理失败的消息：投递次数到 3 次后转入死信流并确认；待确认 0 条，死信流 1 条
+trim	5 条都已投递未确认时：近似裁剪 XTRIM MAXLEN ~ 2 删除 0 条（XLEN 5），精确裁剪 MAXLEN 2 后 XLEN = 2；XAUTOCLAIM 接管 2 条，另报告 3 条已被删除（消息体没了，待确认记录随之清掉）；待确认剩 2 条
+ack-keeps	XACK 之后：待确认 0 条，XLEN 仍是 1（确认只清待确认记录，消息要靠 MAXLEN、MINID 或 XDEL 删除）
+env	redis 8.10.1

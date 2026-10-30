@@ -221,6 +221,7 @@
 | [cache/cache-aside-window](cache/cache-aside-window/) | 缓存一致性的窗口 | 轻量：Redis + MySQL + JDK 客户端 | regular-docker |
 | [cache/zset-score-cursor](cache/zset-score-cursor/) | 有序集合按 score 分页：同分成员与复合游标 | 常规：Redis 8.10.1 容器，确定性输出 | regular-docker |
 | [cache/local-cache-entry-identity](cache/local-cache-entry-identity/) | 进程内缓存的条目身份：条件删除、淘汰方向、并发加载、监听器与可变值，Caffeine 对照 | 轻量：确定性输出（Caffeine 3.3.1） | regular-docker |
+| [cache/redis-stream-consumer-groups](cache/redis-stream-consumer-groups/) | Stream 消费组：待确认列表、XAUTOCLAIM 接管、迟到的确认、毒消息、裁剪未确认的消息 | 已验证 | regular-docker |
 | [ai/ml-and-nlp-basics](ai/ml-and-nlp-basics/) | 机器学习与 NLP 基础 | 轻量：Python 容器，锁定依赖版本 | regular-docker |
 | [ai/vector-search-pitfalls](ai/vector-search-pitfalls/) | 相似度 0.86，这两段文字其实毫不相干 | 轻量：numpy 合成向量，确定性输出 | regular-docker |
 | [ai/retrieval-evaluation-pitfalls](ai/retrieval-evaluation-pitfalls/) | 新检索系统的评估分数只有旧系统的四分之一 | 轻量：确定性输出（合成数据） | regular-docker |

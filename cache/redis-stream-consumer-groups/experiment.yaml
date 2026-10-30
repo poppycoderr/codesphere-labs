@@ -1,0 +1,23 @@
+id: cache/redis-stream-consumer-groups
+title: "Redis Stream 消费组：读到不确认，3 条都留在待确认列表；持有者消失后别的消费者用 '>' 一条也拿不到；重启后用 '0' 能读回自己的待确认；XAUTOCLAIM 接管后投递次数累加；原持有者迟到的 XACK 照样生效，不检查持有者；毒消息投递 3 次后转死信并确认；近似裁剪一条也没删，精确裁剪删掉了 3 条仍未确认的消息，XAUTOCLAIM 报告它们已被删除；XACK 不删除消息"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/cache/redis-stream-consumer-groups.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    redis: "8.10.1"
+    python: "3.14.8"
+    redis-py: "8.1.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"
