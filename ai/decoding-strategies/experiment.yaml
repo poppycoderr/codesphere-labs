@@ -1,0 +1,22 @@
+id: ai/decoding-strategies
+title: "从 logits 到下一个词：温度 0.5、1、2 下最大概率为 0.864、0.624、0.399，温度 0.05 采样 1000 次全部选中最大 logit；top-p=0.9 在尖锐分布上只留 1 个候选、在平坦分布上留 6 个，top-k=3 总是 3 个；先除以温度 0.5 与 1.5 再做 top-p，候选分别为 2 个与 4 个；贪心得到概率 0.091 的「我要吃饭」，束宽 2 得到 0.385 的「想吃饭」；不做长度归一化时束搜索选一个词的「好」，归一化后选「我今天去吃饭」；400 个 0.1 连乘得 0.0，对数相加为 -921.03"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/decoding-strategies.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    python: "3.14.8"
+    numpy: "2.5.4"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"
