@@ -1,0 +1,22 @@
+id: engineering/nvim-format-authority
+title: "保存时格式化，谁说了算：同一缓冲区挂了两个都能格式化的服务，不加过滤时两个依次执行、后一个覆盖前一个（缩进 4/8），按名字或 filter 只用一个；同步格式化超过 timeout_ms 时只提示 timeout、缓冲区不变，迟到的结果被丢弃；异步格式化返回前用户改的一行被整篇替换覆盖；BufWritePre 里异步格式化时磁盘上写的是格式化之前的内容、缓冲区随后变成未保存；client.resolved_capabilities 与 vim.lsp.buf.formatting 在 0.12.6 中都已不存在"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/tools/nvim-format-authority.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    neovim: "0.12.6"
+    python: "3.14.8"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"

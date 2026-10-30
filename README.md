@@ -284,6 +284,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [engineering/js-module-identity](engineering/js-module-identity/) | 模块身份：CommonJS 与 ESM 的循环、实时绑定、重复安装与双包风险 | 轻量：确定性输出（Node 24） | regular-docker |
 | [engineering/git-undo-scope](engineering/git-undo-scope/) | 撤销类命令的作用范围：reset、restore、revert、checkout；reflog、stash、.gitignore 的边界 | 已验证 | regular-docker |
 | [engineering/git-push-pull-defaults](engineering/git-push-pull-defaults/) | 推送与拉取的默认行为：push.default、分歧时的 pull、提交身份、force-with-lease 与 force-if-includes | 已验证 | regular-docker |
+| [engineering/nvim-format-authority](engineering/nvim-format-authority/) | 保存时格式化：两个格式化服务、超时、异步结果覆盖用户编辑、BufWritePre（Neovim 0.12.6） | 已验证 | regular-docker |
 | [distributed/traffic-response-paths](distributed/traffic-response-paths) | 重定向、TTL、全代理地址和 POST 重试 |
 | [system-design/filesystem-raid-boundaries](system-design/filesystem-raid-boundaries) | 无特权离线 ext4 映射、删除和早先副本 |
 | [system-design/trace-context-propagation](system-design/trace-context-propagation/) | 追踪上下文传播：线程池、CompletableFuture、虚拟线程、HTTP 请求头、采样标志、未结束的 span | 已验证 | regular-docker |
