@@ -1,0 +1,25 @@
+id: ai/context-token-budget
+title: "上下文预算：同样的文本在 cl100k_base、o200k_base、Qwen2.5 三种词表里 token 数不同——15 个字符的表情消息分别是 29、15、11 个，Qwen2.5 把数字逐位切开；按 token 截断「收到👍🏻」解码出 U+FFFD；Qwen2.5 的对话模板在没有 system 消息时自动加一条，「你好」从 1 个 token 变成 30 个，每条消息另有 5 个 token 的格式开销；240 个字符的输入按字符检查通过，cl100k_base 下却有 480 个 token；按空格切词把一个 24 个 token 的中文示例算成 1 个词"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/context-token-budget.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    python: "3.14.8"
+    tiktoken: "0.14.0"
+    tokenizers: "0.23.3"
+    jinja2: "3.1.6"
+    qwen2.5-tokenizer: "7ae5576"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"

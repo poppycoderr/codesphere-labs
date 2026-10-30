@@ -1,0 +1,13 @@
+# 由 shared/scripts/lib.sh write_environment 生成
+date_utc: 2026-10-30T11:24:05Z
+os: Darwin 27.0.0
+arch: arm64
+os_version: macOS 27.0.1
+cpus: 10
+memory_gb: 32
+java: 21.0.5+9-LTS-239 (Oracle Corporation)
+docker_server: 29.9.1
+python_image: python:3.14.8-slim@sha256:0741d101873c12ab927e6f8653feb8862b9bd58771177acb1b885b95141f91b4
+tiktoken==0.14.0 tokenizers==0.23.3 jinja2==3.1.6 
+qwen2.5_tokenizer_revision: 7ae557604adf67be50417f59c2c2f167def9a775
+tokenizer_sha256: c0382117ea329cdf…

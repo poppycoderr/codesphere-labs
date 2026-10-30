@@ -1,0 +1,14 @@
+chars.英文	78 个字符：cl100k_base 16、o200k_base 16、Qwen2.5 16 个 token
+chars.中文	29 个字符：cl100k_base 28、o200k_base 22、Qwen2.5 19 个 token
+chars.代码	73 个字符：cl100k_base 25、o200k_base 25、Qwen2.5 25 个 token
+chars.数字	35 个字符：cl100k_base 17、o200k_base 17、Qwen2.5 33 个 token
+chars.表情	15 个字符：cl100k_base 29、o200k_base 15、Qwen2.5 11 个 token
+chars.生僻字	5 个字符：cl100k_base 17、o200k_base 17、Qwen2.5 16 个 token
+bpe.pieces	「收到👍🏻」在 cl100k_base 中是 8 个 token，各自的字节：e694b6 e588b0 f09f 91 8d f09f 8f bb
+bpe.cut	去掉最后一个 token 再解码：'收到👍�'（末尾 1 个替换字符 U+FFFD）
+bpe.utf8	「收到👍🏻」是 4 个码点、14 个 UTF-8 字节
+chat.default-system	只发一条「你好」（1 个 token）：套用模板后 30 个 token；模板在没有 system 消息时自动加了一条=True
+chat.overhead	1 条 system + 20 条一字消息：内容共 23 个 token，套用模板后 131 个；每条消息的格式开销 5 个 token，加上生成提示 3 个
+budget.chars	上下文 512、给输出预留 128：一段 240 个字符的输入，按字符数检查「≤ 384」通过=True；实际 cl100k_base 480（超出）、o200k_base 180、Qwen2.5 180 个 token
+budget.english	反过来，2400 个字符的英文按字符检查不通过，实际只有 o200k_base 301 个 token
+selector.words	一个中文示例：按空格和换行切出 1 个「词」，实际 Qwen2.5 24 个 token；按词数上限 200 能放进 200 个示例，约 4800 个 token
