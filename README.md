@@ -282,6 +282,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [engineering/reactive-dependency-tracking](engineering/reactive-dependency-tracking/) | 响应式依赖：清理、嵌套、调度与外部快照 | 轻量：@vue/reactivity + React 19 | regular-docker |
 | [engineering/microtask-checkpoints](engineering/microtask-checkpoints/) | 微任务检查点：nextTick 与 Promise、resolve(Promise) 的两拍、真实点击与脚本 click() | 标准：Node 24 + Playwright 1.63（Chromium） | regular-docker |
 | [engineering/js-module-identity](engineering/js-module-identity/) | 模块身份：CommonJS 与 ESM 的循环、实时绑定、重复安装与双包风险 | 轻量：确定性输出（Node 24） | regular-docker |
+| [engineering/git-undo-scope](engineering/git-undo-scope/) | 撤销类命令的作用范围：reset、restore、revert、checkout；reflog、stash、.gitignore 的边界 | 已验证 | regular-docker |
 | [distributed/traffic-response-paths](distributed/traffic-response-paths) | 重定向、TTL、全代理地址和 POST 重试 |
 | [system-design/filesystem-raid-boundaries](system-design/filesystem-raid-boundaries) | 无特权离线 ext4 映射、删除和早先副本 |
 | [system-design/trace-context-propagation](system-design/trace-context-propagation/) | 追踪上下文传播：线程池、CompletableFuture、虚拟线程、HTTP 请求头、采样标志、未结束的 span | 已验证 | regular-docker |

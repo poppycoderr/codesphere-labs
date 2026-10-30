@@ -1,0 +1,21 @@
+id: engineering/git-undo-scope
+title: "撤销类命令各动了什么：从「HEAD=B、索引 v3、工作树 v4」出发，reset --soft/--mixed/--hard 分别只动 HEAD、HEAD 与索引、三者全部；restore 默认只动工作树（v4→v3），--staged 只动索引；checkout -- f 与 restore f 相同，静默丢掉 v4；工作树有修改时 revert 拒绝执行，revert 新增提交而不改写历史；reflog 找回了被 reset 的提交但找不回未提交的 v4；reflog 只在本地，过期并 gc 后提交消失；stash 默认不带走未跟踪文件，-u 不带走被忽略文件；已跟踪文件写进 .gitignore 后仍被跟踪"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/tools/git-undo-scope.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    git: "2.54.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"
