@@ -1,0 +1,10 @@
+naive.burst	5 次几乎同时的相同请求，先 GET 再生成再 SET：生成器被调用 5 次，5 个结果相同=True
+exists.get	EXISTS 返回 1，随后 GET 返回 None（中间键过期了）；直接 GET 并判断 None 只有一次往返、没有这个窗口
+two-keys	状态键与结果键分开设置过期：250ms 后状态='done'、结果=None；放进同一个哈希只有一个 TTL
+set.ttl	写入前 TTL 60 秒；普通 SET 回写结果后 TTL -1（-1 表示永不过期）；SET ... KEEPTTL 后 TTL 60
+empty.cached	上游一次返回空答案：被缓存 60 秒，之后 3 次请求都拿到 ''，生成器只在第一次被调用（共 1 次）
+sf.burst	三态 + 幂等键：同样 5 次几乎同时的请求，生成器被调用 1 次，5 个结果都是 'answer(q1)'=True
+sf.ttl	完成后记录 state=done，TTL 60 秒
+sf.empty	上游返回空答案：记为 failed（FAILED:empty answer），保留 2 秒；期间再请求直接得到 FAILED:empty answer（生成器仍是 1 次）；过期后重新生成得到 'answer(q2)'，生成器共调用 2 次
+sf.crash	第一个调用者拿到租约后消失（CRASHED）：第二个调用者等租约过期后接手，得到 'answer(q3)'，等待在 0.3 到 1.2 秒之间=True
+sf.stale	慢的持有者生成用了 1 秒，租约 500ms 先过期，第二个调用者接手并写入 'answer(q4-new)'；旧持有者回来写入被拒绝=True，最终值 'answer(q4-new)'

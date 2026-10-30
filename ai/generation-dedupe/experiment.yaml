@@ -1,0 +1,23 @@
+id: ai/generation-dedupe
+title: "生成结果去重：5 次几乎同时的相同请求先查缓存再生成，假模型被调用 5 次；EXISTS 返回 1 之后 GET 得到 None；状态键与结果键分开过期，状态是 done、结果已没了；普通 SET 回写把 60 秒的 TTL 变成 -1，KEEPTTL 保留；空答案被缓存 60 秒；改为三态记录 + 幂等键 + 带令牌的租约后，同样的 5 次请求只生成 1 次，空答案记为失败并短暂保留，持有者消失后约半秒被接手，租约过期后才写回的旧持有者被拒绝"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/ai/generation-dedupe.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    redis: "8.10.1"
+    python: "3.14.8"
+    redis-py: "8.1.0"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"
