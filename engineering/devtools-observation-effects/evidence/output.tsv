@@ -1,0 +1,7 @@
+console.ref	console.log(cart) 之后代码把 total 改成 4、items 加了一项：日志里折叠的预览 total=3（打印那一刻的摘要）；展开对象读到 total=4、items 有 4 项（展开时的当前值）
+console.snapshot	用 JSON.stringify 留快照：{a: undefined, f() {}, n: NaN, d: Date} 变成 {"n":null,"d":"1970-01-01T00:00:00.000Z"}；BigInt 抛 TypeError，循环引用抛 TypeError
+bp.condition	在 checkout 里设条件断点，条件写成 items.pop(), false（想「看一下」又不想暂停）：断点一次也没暂停=True；两次 checkout 依次返回 2、1，购物车剩 1 项
+bp.timing	slowStep 里超过 500ms 就走降级分支：不调试时返回「正常」；在中间行停 1 秒后返回「超时降级」，暂停 1 次
+replay	页面下单一次后在网络面板重放这个 POST（Network.replayXHR，即网络面板的 Replay XHR）：服务端收到下单 2 次
+coverage	加载与前面几个场景之后，handleExport 执行 0 次（覆盖率工具标为未执行）；点击「导出」后 1 次；neverCalled 两次都是 0 次，但它可能只在别的路径上被调用
+env	chromium 153.0.8010.12

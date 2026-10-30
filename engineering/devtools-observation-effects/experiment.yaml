@@ -1,0 +1,22 @@
+id: engineering/devtools-observation-effects
+title: "调试工具看到的不一定是当时的状态：console.log 之后修改对象，折叠的预览是打印时的 total=3，展开读到 total=4；JSON.stringify 丢掉 undefined 与函数、BigInt 与循环引用直接抛错；条件写成 items.pop(), false 的断点一次也没暂停，却让两次 checkout 返回 2 和 1；断点上停 1 秒让超时判断走了降级分支；Replay XHR 让服务端多收到一次下单；覆盖率在点击前把 handleExport 标为未执行"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/web/devtools-observation-effects.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    playwright: "1.63.0"
+    chromium: "153.0.8010.12"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"

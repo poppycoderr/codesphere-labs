@@ -289,6 +289,7 @@ make check                                  # 目录约定、元数据、脚本�
 | [engineering/nvim-format-authority](engineering/nvim-format-authority/) | 保存时格式化：两个格式化服务、超时、异步结果覆盖用户编辑、BufWritePre（Neovim 0.12.6） | 已验证 | regular-docker |
 | [engineering/container-volume-lifecycle](engineering/container-volume-lifecycle/) | 卷的寿命与一次性初始化：匿名卷、命名卷、只在空目录执行的初始化、挂载遮蔽与填充、tmpfs | 已验证 | regular-docker |
 | [engineering/compose-readiness-boundaries](engineering/compose-readiness-boundaries/) | Compose 的依赖就绪与边界：depends_on 条件、端口发布、EXPOSE、服务名范围、项目名与 down -v | 已验证 | regular-docker |
+| [engineering/devtools-observation-effects](engineering/devtools-observation-effects/) | 调试工具对程序与证据的影响：控制台引用、断点条件副作用、暂停改变时间、重放请求、覆盖率 | 已验证 | regular-docker |
 | [distributed/traffic-response-paths](distributed/traffic-response-paths) | 重定向、TTL、全代理地址和 POST 重试 |
 | [system-design/filesystem-raid-boundaries](system-design/filesystem-raid-boundaries) | 无特权离线 ext4 映射、删除和早先副本 |
 | [system-design/trace-context-propagation](system-design/trace-context-propagation/) | 追踪上下文传播：线程池、CompletableFuture、虚拟线程、HTTP 请求头、采样标志、未结束的 span | 已验证 | regular-docker |
