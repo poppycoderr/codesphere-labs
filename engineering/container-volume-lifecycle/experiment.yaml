@@ -1,0 +1,23 @@
+id: engineering/container-volume-lifecycle
+title: "容器重建之后，数据和初始化还在吗：镜像声明了 VOLUME 时同样的 docker run 删掉重建，每次都得到新的匿名卷，写入的数据不见了，旧卷留在宿主机上；命名卷重建后数据还在；在已有数据的卷上改 MYSQL_ROOT_PASSWORD，旧密码照样能登录、新密码不行，初始化脚本也不再执行；空的宿主机目录挂到 /etc/apk 上遮住了镜像的 5 个条目，新命名卷则被镜像内容填充，之后不再随镜像更新；tmpfs 的内容在重启后消失"
+status: verified
+tier: regular-docker
+article:
+  repository: codesphere
+  path: docs/kubernetes/container-volume-lifecycle.md
+runtime:
+  os: macOS 27.0
+  architecture: arm64
+  docker: "29.9.1"
+  components:
+    docker: "29.9.1"
+    mysql: "8.4.11"
+    alpine: "3.22"
+commands:
+  verify: make verify
+  evidence: make evidence
+  clean: make clean
+evidence:
+  verification: VERIFICATION.md
+  directory: evidence/
+last_verified: "2026-10-30"

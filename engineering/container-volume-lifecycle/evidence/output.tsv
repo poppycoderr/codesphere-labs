@@ -1,0 +1,7 @@
+anon	镜像在 /var/lib/mysql 上声明了 VOLUME：同样的 docker run 删掉重建后，第 2 行还在=false；两次用的是同一个卷=false；旧的匿名卷仍存在=true
+named	命名卷：删掉容器重建后第 2 行还在=true
+init.password	在已有数据的卷上把 MYSQL_ROOT_PASSWORD 改成新值再启动：旧密码能登录=true，新密码能登录=false
+init.scripts	首次启动（空数据目录）时日志里 initdb 执行记录 1 次；第二次启动时初始化脚本没有再执行：seed 表里 from-initdb 只有 1 行；日志里出现 initdb 执行记录 0 次
+mount.shadow	镜像的 /etc/apk 里有 5 个条目：挂载空的宿主机目录后看到 0 个（被遮住）；挂载一个新的命名卷看到 5 个（空卷首次挂载时由镜像内容填充）
+mount.stale	在命名卷里改了 arch 文件后再挂载：读到「changed」（卷里的内容不会随镜像更新）
+tmpfs	容器重启后：tmpfs 里的文件还在=false，可写层里的文件还在=true
