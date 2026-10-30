@@ -68,7 +68,7 @@ git stash pop -q
 git stash -q -a
 s3="ignored=$([ -f debug.log ] && echo 还在 || echo 收走)"
 git stash pop -q
-o "stash" "git stash 之后 $s1；stash -u 之后 $s2；stash -a 之后 $s3"
+o "stash" "git stash 之后 ${s1}；stash -u 之后 ${s2}；stash -a 之后 ${s3}"
 
 # .gitignore 不会让已跟踪的文件停止跟踪
 rm -rf /tmp/w && mkdir /tmp/w && cd /tmp/w && git init -q
